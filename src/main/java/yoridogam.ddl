@@ -277,11 +277,14 @@ COMMENT ON COLUMN notice.m_id is 'm_id';
 /**********************************/
 CREATE TABLE inquiry(
 		ib_no                         		NUMBER(10)		 NOT NULL,
-		ib_title                      		VARCHAR2(100)		 NULL ,
 		ib_date                       		DATE		 DEFAULT sysdate		 NULL ,
+		ib_title                      		VARCHAR2(100)		 NULL ,
+		ib_content                    		VARCHAR2(1000)		 NULL ,
 		ib_viewCount                  		NUMBER(10)		 DEFAULT 0		 NULL ,
 		ib_secret                     		VARCHAR2(10)		 DEFAULT 'F'		 NULL ,
-		ib_content                    		VARCHAR2(1000)		 NULL ,
+		ib_depth                      		NUMBER(10)		 DEFAULT 0		 NULL ,
+		ib_groupno                    		NUMBER(10)		 NOT NULL,
+		ib_step                       		NUMBER(10)		 NOT NULL,
 		m_id                          		VARCHAR2(20)		 NULL 
 );
 
@@ -298,42 +301,15 @@ END;
 
 COMMENT ON TABLE inquiry is 'inquiry';
 COMMENT ON COLUMN inquiry.ib_no is 'ib_no';
-COMMENT ON COLUMN inquiry.ib_title is 'ib_title';
 COMMENT ON COLUMN inquiry.ib_date is 'ib_date';
+COMMENT ON COLUMN inquiry.ib_title is 'ib_title';
+COMMENT ON COLUMN inquiry.ib_content is 'ib_content';
 COMMENT ON COLUMN inquiry.ib_viewCount is 'ib_viewCount';
 COMMENT ON COLUMN inquiry.ib_secret is 'ib_secret';
-COMMENT ON COLUMN inquiry.ib_content is 'ib_content';
+COMMENT ON COLUMN inquiry.ib_depth is 'ib_depth';
+COMMENT ON COLUMN inquiry.ib_groupno is 'ib_groupno';
+COMMENT ON COLUMN inquiry.ib_step is 'ib_step';
 COMMENT ON COLUMN inquiry.m_id is 'm_id';
-
-
-/**********************************/
-/* Table Name: inq_answer */
-/**********************************/
-CREATE TABLE inq_answer(
-		a_no                          		NUMBER(10)		 NOT NULL,
-		a_date                        		DATE		 DEFAULT sysdate		 NULL ,
-		a_content                     		VARCHAR2(1000)		 NULL ,
-		ib_no                         		NUMBER(10)		 NULL ,
-		m_id                          		VARCHAR2(20)		 NULL 
-);
-
-CREATE SEQUENCE inq_answer_a_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
-
-CREATE TRIGGER inq_answer_a_no_TRG
-BEFORE INSERT ON inq_answer
-FOR EACH ROW
-BEGIN
-IF :NEW.a_no IS NOT NULL THEN
-  SELECT inq_answer_a_no_SEQ.NEXTVAL INTO :NEW.a_no FROM DUAL;
-END IF;
-END;
-
-COMMENT ON TABLE inq_answer is 'inq_answer';
-COMMENT ON COLUMN inq_answer.a_no is 'a_no';
-COMMENT ON COLUMN inq_answer.a_date is 'a_date';
-COMMENT ON COLUMN inq_answer.a_content is 'a_content';
-COMMENT ON COLUMN inq_answer.ib_no is 'ib_no';
-COMMENT ON COLUMN inq_answer.m_id is 'm_id';
 
 
 /**********************************/
@@ -394,10 +370,6 @@ ALTER TABLE notice ADD CONSTRAINT IDX_notice_FK0 FOREIGN KEY (m_id) REFERENCES m
 
 ALTER TABLE inquiry ADD CONSTRAINT IDX_inquiry_PK PRIMARY KEY (ib_no);
 ALTER TABLE inquiry ADD CONSTRAINT IDX_inquiry_FK0 FOREIGN KEY (m_id) REFERENCES member (m_id);
-
-ALTER TABLE inq_answer ADD CONSTRAINT IDX_inq_answer_PK PRIMARY KEY (a_no);
-ALTER TABLE inq_answer ADD CONSTRAINT IDX_inq_answer_FK0 FOREIGN KEY (ib_no) REFERENCES inquiry (ib_no);
-ALTER TABLE inq_answer ADD CONSTRAINT IDX_inq_answer_FK1 FOREIGN KEY (m_id) REFERENCES member (m_id);
 
 ALTER TABLE product_time ADD CONSTRAINT IDX_product_time_PK PRIMARY KEY (pt_no);
 ALTER TABLE product_time ADD CONSTRAINT IDX_product_time_FK0 FOREIGN KEY (p_no) REFERENCES product (p_no);
