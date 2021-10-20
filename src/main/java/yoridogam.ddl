@@ -38,6 +38,14 @@ CREATE TABLE product(
 
 CREATE SEQUENCE product_p_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
+CREATE TRIGGER product_p_no_TRG
+BEFORE INSERT ON product
+FOR EACH ROW
+BEGIN
+IF :NEW.p_no IS NOT NULL THEN
+  SELECT product_p_no_SEQ.NEXTVAL INTO :NEW.p_no FROM DUAL;
+END IF;
+END;
 
 COMMENT ON TABLE product is 'product';
 COMMENT ON COLUMN product.p_no is 'p_no';
@@ -90,6 +98,14 @@ CREATE TABLE review(
 
 CREATE SEQUENCE review_r_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
+CREATE TRIGGER review_r_no_TRG
+BEFORE INSERT ON review
+FOR EACH ROW
+BEGIN
+IF :NEW.r_no IS NOT NULL THEN
+  SELECT review_r_no_SEQ.NEXTVAL INTO :NEW.r_no FROM DUAL;
+END IF;
+END;
 
 COMMENT ON TABLE review is 'review';
 COMMENT ON COLUMN review.r_no is 'r_no';
@@ -118,6 +134,14 @@ CREATE TABLE reservation(
 
 CREATE SEQUENCE reservation_rsv_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
+CREATE TRIGGER reservation_rsv_no_TRG
+BEFORE INSERT ON reservation
+FOR EACH ROW
+BEGIN
+IF :NEW.rsv_no IS NOT NULL THEN
+  SELECT reservation_rsv_no_SEQ.NEXTVAL INTO :NEW.rsv_no FROM DUAL;
+END IF;
+END;
 
 COMMENT ON TABLE reservation is 'reservation';
 COMMENT ON COLUMN reservation.rsv_no is 'rsv_no';
@@ -143,6 +167,14 @@ CREATE TABLE pay(
 
 CREATE SEQUENCE pay_pay_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
+CREATE TRIGGER pay_pay_no_TRG
+BEFORE INSERT ON pay
+FOR EACH ROW
+BEGIN
+IF :NEW.pay_no IS NOT NULL THEN
+  SELECT pay_pay_no_SEQ.NEXTVAL INTO :NEW.pay_no FROM DUAL;
+END IF;
+END;
 
 COMMENT ON TABLE pay is 'pay';
 COMMENT ON COLUMN pay.pay_no is 'pay_no';
@@ -164,6 +196,14 @@ CREATE TABLE pay_item(
 
 CREATE SEQUENCE pay_item_pi_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
+CREATE TRIGGER pay_item_pi_no_TRG
+BEFORE INSERT ON pay_item
+FOR EACH ROW
+BEGIN
+IF :NEW.pi_no IS NOT NULL THEN
+  SELECT pay_item_pi_no_SEQ.NEXTVAL INTO :NEW.pi_no FROM DUAL;
+END IF;
+END;
 
 COMMENT ON TABLE pay_item is 'pay_item';
 COMMENT ON COLUMN pay_item.pi_no is 'pi_no';
@@ -184,6 +224,14 @@ CREATE TABLE cart(
 
 CREATE SEQUENCE cart_ci_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
+CREATE TRIGGER cart_ci_no_TRG
+BEFORE INSERT ON cart
+FOR EACH ROW
+BEGIN
+IF :NEW.ci_no IS NOT NULL THEN
+  SELECT cart_ci_no_SEQ.NEXTVAL INTO :NEW.ci_no FROM DUAL;
+END IF;
+END;
 
 COMMENT ON TABLE cart is 'cart';
 COMMENT ON COLUMN cart.ci_no is 'ci_no';
@@ -206,6 +254,14 @@ CREATE TABLE notice(
 
 CREATE SEQUENCE notice_noti_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
+CREATE TRIGGER notice_noti_no_TRG
+BEFORE INSERT ON notice
+FOR EACH ROW
+BEGIN
+IF :NEW.noti_no IS NOT NULL THEN
+  SELECT notice_noti_no_SEQ.NEXTVAL INTO :NEW.noti_no FROM DUAL;
+END IF;
+END;
 
 COMMENT ON TABLE notice is 'notice';
 COMMENT ON COLUMN notice.noti_no is 'noti_no';
@@ -221,9 +277,9 @@ COMMENT ON COLUMN notice.m_id is 'm_id';
 /**********************************/
 CREATE TABLE inquiry(
 		ib_no                         		NUMBER(10)		 NOT NULL,
-		ib_date                       		DATE		 DEFAULT sysdate		 NULL ,
 		ib_title                      		VARCHAR2(100)		 NULL ,
 		ib_content                    		VARCHAR2(1000)		 NULL ,
+		ib_date                       		DATE		 DEFAULT sysdate		 NULL ,
 		ib_viewCount                  		NUMBER(10)		 DEFAULT 0		 NULL ,
 		ib_secret                     		VARCHAR2(10)		 DEFAULT 'F'		 NULL ,
 		ib_depth                      		NUMBER(10)		 DEFAULT 0		 NULL ,
@@ -234,12 +290,20 @@ CREATE TABLE inquiry(
 
 CREATE SEQUENCE inquiry_ib_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
+CREATE TRIGGER inquiry_ib_no_TRG
+BEFORE INSERT ON inquiry
+FOR EACH ROW
+BEGIN
+IF :NEW.ib_no IS NOT NULL THEN
+  SELECT inquiry_ib_no_SEQ.NEXTVAL INTO :NEW.ib_no FROM DUAL;
+END IF;
+END;
 
 COMMENT ON TABLE inquiry is 'inquiry';
 COMMENT ON COLUMN inquiry.ib_no is 'ib_no';
-COMMENT ON COLUMN inquiry.ib_date is 'ib_date';
 COMMENT ON COLUMN inquiry.ib_title is 'ib_title';
 COMMENT ON COLUMN inquiry.ib_content is 'ib_content';
+COMMENT ON COLUMN inquiry.ib_date is 'ib_date';
 COMMENT ON COLUMN inquiry.ib_viewCount is 'ib_viewCount';
 COMMENT ON COLUMN inquiry.ib_secret is 'ib_secret';
 COMMENT ON COLUMN inquiry.ib_depth is 'ib_depth';
@@ -259,6 +323,14 @@ CREATE TABLE product_time(
 
 CREATE SEQUENCE product_time_pt_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
+CREATE TRIGGER product_time_pt_no_TRG
+BEFORE INSERT ON product_time
+FOR EACH ROW
+BEGIN
+IF :NEW.pt_no IS NOT NULL THEN
+  SELECT product_time_pt_no_SEQ.NEXTVAL INTO :NEW.pt_no FROM DUAL;
+END IF;
+END;
 
 COMMENT ON TABLE product_time is 'product_time';
 COMMENT ON COLUMN product_time.pt_no is 'pt_no';
