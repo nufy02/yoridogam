@@ -1096,10 +1096,10 @@
                   <type>2</type>
                 </columnType>
                 <size>10</size>
-                <notNull>false</notNull>
+                <notNull>true</notNull>
                 <primaryKey>true</primaryKey>
                 <description>공지 번호</description>
-                <autoIncrement>false</autoIncrement>
+                <autoIncrement>true</autoIncrement>
                 <defaultValue></defaultValue>
               </net.java.amateras.db.visual.model.ColumnModel>
               <net.java.amateras.db.visual.model.ColumnModel>
@@ -1137,7 +1137,12 @@
               <net.java.amateras.db.visual.model.ColumnModel>
                 <columnName>noti_viewCount</columnName>
                 <logicalName>noti_viewCount</logicalName>
-                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+                <columnType class="net.java.amateras.db.dialect.ColumnType">
+                  <name>NUMBER</name>
+                  <logicalName>Numeric</logicalName>
+                  <supportSize>true</supportSize>
+                  <type>2</type>
+                </columnType>
                 <size>10</size>
                 <notNull>false</notNull>
                 <primaryKey>false</primaryKey>
@@ -1228,10 +1233,10 @@
                 <logicalName>fb_no</logicalName>
                 <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../net.java.amateras.db.visual.model.ForeignKeyModel[4]/source/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
                 <size>10</size>
-                <notNull>false</notNull>
+                <notNull>true</notNull>
                 <primaryKey>true</primaryKey>
                 <description>자유_글번호</description>
-                <autoIncrement>false</autoIncrement>
+                <autoIncrement>true</autoIncrement>
                 <defaultValue></defaultValue>
               </net.java.amateras.db.visual.model.ColumnModel>
               <net.java.amateras.db.visual.model.ColumnModel>
@@ -1259,7 +1264,7 @@
               <net.java.amateras.db.visual.model.ColumnModel>
                 <columnName>fb_viewCount</columnName>
                 <logicalName>fb_viewCount</logicalName>
-                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../net.java.amateras.db.visual.model.ForeignKeyModel[4]/source/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../net.java.amateras.db.visual.model.ForeignKeyModel[4]/source/columns/net.java.amateras.db.visual.model.ColumnModel[4]/columnType"/>
                 <size>10</size>
                 <notNull>false</notNull>
                 <primaryKey>false</primaryKey>
@@ -1387,17 +1392,12 @@
                     <net.java.amateras.db.visual.model.ColumnModel>
                       <columnName>a_no</columnName>
                       <logicalName>a_no</logicalName>
-                      <columnType class="net.java.amateras.db.dialect.ColumnType">
-                        <name>NUMBER</name>
-                        <logicalName>Numeric</logicalName>
-                        <supportSize>true</supportSize>
-                        <type>2</type>
-                      </columnType>
+                      <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../../net.java.amateras.db.visual.model.ForeignKeyModel[4]/source/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
                       <size>10</size>
-                      <notNull>false</notNull>
+                      <notNull>true</notNull>
                       <primaryKey>true</primaryKey>
                       <description></description>
-                      <autoIncrement>false</autoIncrement>
+                      <autoIncrement>true</autoIncrement>
                       <defaultValue></defaultValue>
                     </net.java.amateras.db.visual.model.ColumnModel>
                     <net.java.amateras.db.visual.model.ColumnModel>
@@ -1435,7 +1435,7 @@
                     <net.java.amateras.db.visual.model.ColumnModel>
                       <columnName>ib_no</columnName>
                       <logicalName>ib_no</logicalName>
-                      <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../../net.java.amateras.db.visual.model.ForeignKeyModel[4]/source/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+                      <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../../../../net.java.amateras.db.visual.model.ForeignKeyModel[4]/source/columns/net.java.amateras.db.visual.model.ColumnModel[4]/columnType"/>
                       <size>10</size>
                       <notNull>false</notNull>
                       <primaryKey>false</primaryKey>
@@ -1484,10 +1484,10 @@
                 <logicalName>ib_no</logicalName>
                 <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../net.java.amateras.db.visual.model.ForeignKeyModel[4]/source/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
                 <size>10</size>
-                <notNull>false</notNull>
+                <notNull>true</notNull>
                 <primaryKey>true</primaryKey>
                 <description>문의글 번호</description>
-                <autoIncrement>false</autoIncrement>
+                <autoIncrement>true</autoIncrement>
                 <defaultValue></defaultValue>
               </net.java.amateras.db.visual.model.ColumnModel>
               <net.java.amateras.db.visual.model.ColumnModel>
@@ -1515,7 +1515,7 @@
               <net.java.amateras.db.visual.model.ColumnModel>
                 <columnName>ib_viewCount</columnName>
                 <logicalName>ib_viewCount</logicalName>
-                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../net.java.amateras.db.visual.model.ForeignKeyModel[4]/source/columns/net.java.amateras.db.visual.model.ColumnModel/columnType"/>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../../net.java.amateras.db.visual.model.ForeignKeyModel[4]/source/columns/net.java.amateras.db.visual.model.ColumnModel[4]/columnType"/>
                 <size>10</size>
                 <notNull>false</notNull>
                 <primaryKey>false</primaryKey>
