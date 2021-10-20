@@ -10,23 +10,28 @@ M_ID            VARCHAR2(20)
 /******************************
 				insert
  *******************************/
+ --m_id 회원 장바구니에 온라인 강의 추가 (오프라인X)
  insert into cart(ci_no, ci_qty, p_no, m_id) values(CART_CI_NO_SEQ.nextval,?,?,?);
  
  /*****************************
 				update
  ******************************/
+ --장바구니 강의 수량 +,-
  update cart set ci_qty=ci_qty+1 where ci_no=?;
  update cart set ci_qty=ci_qty-1 where ci_no=?;
 
  /*****************************
 				delete
  ******************************/
+ --장바구니 내 강의 특정 삭제
  delete from cart where ci_no=3 and m_id=?;
+ --장바구니 내 강의 전체 삭제
  delete from cart where m_id=?;
  
  /*****************************
 				select
  ******************************/
+ --m_id 회원 장바구니 강의리스트 출력
  select * from cart c join product p on c.p_no=p.p_no where m_id=?;
  
  
