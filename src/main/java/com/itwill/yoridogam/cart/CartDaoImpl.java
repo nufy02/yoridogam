@@ -31,7 +31,7 @@ public class CartDaoImpl implements CartDao{
 	}
 	@Override
 	public int deleteCart(String sUserId) {
-		return sqlSession.delete(sUserId);
+		return sqlSession.delete(NAMESPACE+"deleteCart",sUserId);
 	}
 	@Override
 	public List<Cart> cartList(String sUserId) {
@@ -43,6 +43,8 @@ public class CartDaoImpl implements CartDao{
 		int cartCount=sqlSession.selectOne(NAMESPACE+"isExistCart",sUserId);
 		if(cartCount==0) {
 			isExistCart=false;
+		}else if(cartCount>0){
+			isExistCart=true;
 		}
 		return isExistCart;
 	}

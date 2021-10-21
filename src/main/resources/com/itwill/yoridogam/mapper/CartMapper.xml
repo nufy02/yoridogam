@@ -11,13 +11,38 @@
 			<result column="P_NO" property="p_no"/>
 		</association>
 	</resultMap>
+	
 	<insert id="insertCart" parameterType="com.itwill.yoridogam.cart.Cart">
 		insert into cart(ci_no, ci_qty, p_no, m_id) values(CART_CI_NO_SEQ.nextval,#{ci_qty},#{product.p_no},#{member.m_id})
 	</insert>
+	
+	<update id="increaseQty" parameterType="com.itwill.yoridogam.cart.Cart">
+		update cart set ci_qty=ci_qty+1 where ci_no=#{ci_no} and m_id=#{member.m_id}
+	</update>
 
+	<update id="decreaseQty" parameterType="com.itwill.yoridogam.cart.Cart">
+		update cart set ci_qty=ci_qty-1 where ci_no=#{ci_no} and m_id=#{member.m_id}
+	</update>
 
-
-
+	<delete id="deleteCartByNo" parameterType="Integer">
+		delete from cart where ci_no=#{ci_no}
+	</delete>
+	
+	<delete id="deleteCart" parameterType="String">
+		delete from cart where m_id=#{m_id}
+	</delete>
+	
+	<select id="cartList" parameterType="String" resultMap="cartResultMap">
+		select * from cart c join product p on c.p_no=p.p_no where m_id=#{m_id}
+	</select>
+	
+	<select id="isExistCart" parameterType="String" resultType="Integer">
+		select count(*) from cart c join member m on c.m_id=m.m_id where m.m_id=#{m_id}
+	</select>
+	
+	<select id="isExistCartItem" parameterType="com.itwill.yoridogam.cart.Cart" resultType="Integer">
+		select count(*) from cart c join member m on c.m_id=m.m_id where p_no=#{product.p_no} and m.m_id=#{member.m_id}
+	</select>
 
 
 
