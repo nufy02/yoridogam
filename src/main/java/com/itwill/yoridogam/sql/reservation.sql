@@ -8,7 +8,7 @@ M_ID            VARCHAR2(20)
  **************************************/
 
 /******************************
-				insert
+				create
  *******************************/
  --m_id 회원 오프라인 강의 예약
  insert into reservation(rsv_no, rsv_total, rsv_type, rsv_qty, rsv_date, rsv_time, rsv_paydate, m_id, p_no)
