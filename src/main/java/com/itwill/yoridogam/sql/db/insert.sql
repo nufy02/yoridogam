@@ -1,4 +1,4 @@
---½Çµ¥ÀÌÅÍ ¿ë
+--ì‹¤ë°ì´í„° ìš©
 
 /********** Member **********/
 
@@ -9,7 +9,7 @@
 /********** Teacher **********/
 /*
 insert into teacher(t_id, t_name, t_pass, t_email, t_photo, t_detail, t_location, p_no)
-values('teacher1','È«±æµ¿','pw12','teacher1@naver.com','img/teacher1.png','°­»ç¼Ò°³±Û','¼­¿ï½Ã °­³²±¸ °­³²´ë·Î 3±æ 3-3 »ïÁ¶ºôµù',1);
+values('teacher1','í™ê¸¸ë™','pw12','teacher1@naver.com','img/teacher1.png','ê°•ì‚¬ì†Œê°œê¸€','ì„œìš¸ì‹œ ê°•ë‚¨êµ¬ ê°•ë‚¨ëŒ€ë¡œ 3ê¸¸ 3-3 ì‚¼ì¡°ë¹Œë”©',1);
 */
 
 /********** Product_time **********/
@@ -27,7 +27,7 @@ values('teacher1','È«±æµ¿','pw12','teacher1@naver.com','img/teacher1.png','°­»ç¼
 /********** Reservation **********/
 /*
  insert into reservation(rsv_no, rsv_total, rsv_type, rsv_qty, rsv_date, rsv_time, rsv_paydate, m_id, p_no)
-values(RESERVATION_RSV_NO_SEQ.nextval,30000,'³×ÀÌ¹öÆäÀÌ',1,to_date('2021/10/21','YYYY/MM/DD'),'10:00-11:00',sysdate,'´ëÇö',1);
+values(RESERVATION_RSV_NO_SEQ.nextval,30000,'ë„¤ì´ë²„í˜ì´',1,to_date('2021/10/21','YYYY/MM/DD'),'10:00-11:00',sysdate,'ëŒ€í˜„',1);
 */
 
 /********** Review **********/
@@ -37,4 +37,3 @@ values(RESERVATION_RSV_NO_SEQ.nextval,30000,'³×ÀÌ¹öÆäÀÌ',1,to_date('2021/10/21',
 
 
 /********** Inquiry **********/
-
