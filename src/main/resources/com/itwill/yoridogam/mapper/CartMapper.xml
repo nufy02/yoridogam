@@ -1,3 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.itwill.yoridogam.mapper.CartMapper"></mapper>
+<mapper namespace="com.itwill.yoridogam.mapper.CartMapper">
+	<resultMap id="cartResultMap" type="com.itwill.yoridogam.cart.Cart">
+		<result column="CI_NO" property="ci_no"/>
+		<result column="CI_QTY" property="ci_qty"/>
+		<association property="member" javaType="com.itwill.yoridogam.domain.Member" autoMapping="true">
+			<result column="M_ID" property="m_id"/>
+		</association>
+		<association property="product" javaType="com.itwill.yoridogam.domain.Product" autoMapping="true">
+			<result column="P_NO" property="p_no"/>
+		</association>
+	</resultMap>
+	<insert id="insertCart" parameterType="com.itwill.yoridogam.cart.Cart">
+		insert into cart(ci_no, ci_qty, p_no, m_id) values(CART_CI_NO_SEQ.nextval,#{ci_qty},#{product.p_no},#{member.m_id})
+	</insert>
+
+
+
+
+
+
+
+
+
+
+</mapper>
