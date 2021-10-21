@@ -1,46 +1,41 @@
 /**************************************
-ì´ë¦„           ë„?       ìœ í˜•             
------------- -------- -------------- 
-IB_NO        NOT NULL NUMBER(10)     
-IB_TITLE              VARCHAR2(100)  
-IB_CONTENT            VARCHAR2(1000) 
-IB_DATE               DATE           
-IB_VIEWCOUNT          NUMBER(10)     
-IB_DEPTH              NUMBER(10)     
-IB_GROUPNO   NOT NULL NUMBER(10)     
-IB_STEP      NOT NULL NUMBER(10)     
-M_ID                  VARCHAR2(20)   
+ ÀÌ¸§     ³Î?       À¯Çü           
+------ -------- ------------ 
+CI_NO  NOT NULL NUMBER(10)   
+CI_QTY          NUMBER(10)   
+P_NO            NUMBER(10)   
+M_ID            VARCHAR2(20) 
  **************************************/
 
 /******************************
 				create
  *******************************/
- --m_id íšŒì› ì¥ë°”êµ¬ë‹ˆì— ì˜¨ë¼ì¸ ê°•ì˜ ì¶”ê°€ (ì˜¤í”„ë¼ì¸X)
+ --m_id È¸¿ø Àå¹Ù±¸´Ï¿¡ ¿Â¶óÀÎ °­ÀÇ Ãß°¡ (¿ÀÇÁ¶óÀÎX)
  insert into cart(ci_no, ci_qty, p_no, m_id) values(CART_CI_NO_SEQ.nextval,?,?,?);
  
  /*****************************
 				update
  ******************************/
- --ì¥ë°”êµ¬ë‹ˆ ê°•ì˜ ìˆ˜ëŸ‰ +,-
- update cart set ci_qty=ci_qty+1 where ci_no=?;
- update cart set ci_qty=ci_qty-1 where ci_no=?;
+ --Àå¹Ù±¸´Ï °­ÀÇ ¼ö·® +,-
+ update cart set ci_qty=ci_qty+1 where p_no=? and m_id=?;
+ update cart set ci_qty=ci_qty-1 where p_no=? and m_id=?;
 
  /*****************************
 				delete
  ******************************/
- --ì¥ë°”êµ¬ë‹ˆ ë‚´ ê°•ì˜ íŠ¹ì • ì‚­ì œ
- delete from cart where ci_no=3 and m_id=?;
- --ì¥ë°”êµ¬ë‹ˆ ë‚´ ê°•ì˜ ì „ì²´ ì‚­ì œ
+ --Àå¹Ù±¸´Ï ³» °­ÀÇ Æ¯Á¤ »èÁ¦
+ delete from cart where ci_no=? and m_id=?;
+ --Àå¹Ù±¸´Ï ³» °­ÀÇ ÀüÃ¼ »èÁ¦
  delete from cart where m_id=?;
  
  /*****************************
 				select
  ******************************/
- --m_id íšŒì› ì¥ë°”êµ¬ë‹ˆ ê°•ì˜ë¦¬ìŠ¤íŠ¸ ì¶œë ¥
+ --m_id È¸¿ø Àå¹Ù±¸´Ï °­ÀÇ¸®½ºÆ® Ãâ·Â
  select * from cart c join product p on c.p_no=p.p_no where m_id=?;
- --m_id íšŒì› ì¥ë°”êµ¬ë‹ˆ ë‚´ ê°•ì˜ ì¡´ì¬ ì—¬ë¶€
-select count(*) from cart c join member m on c.m_id=m.m_id;
- --m_id íšŒì› ì¥ë°”êµ¬ë‹ˆ ë‚´ íŠ¹ì • ê°•ì˜ ì¡´ì¬ ì—¬ë¶€
-select count(*) from cart c join member m on c.m_id=m.m_id and c.p_no=?;
+ --m_id È¸¿ø Àå¹Ù±¸´Ï ³» °­ÀÇ Á¸Àç ¿©ºÎ
+select count(*) from cart c join member m on c.m_id=m.m_id where m.m_id=?;
+ --m_id È¸¿ø Àå¹Ù±¸´Ï ³» Æ¯Á¤ °­ÀÇ Á¸Àç ¿©ºÎ
+select count(*) from cart c join member m on c.m_id=m.m_id where p_no=? and m.m_id=?;
 
  
