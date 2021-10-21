@@ -33,5 +33,9 @@ M_ID            VARCHAR2(20)
  ******************************/
  --m_id 회원 장바구니 강의리스트 출력
  select * from cart c join product p on c.p_no=p.p_no where m_id=?;
- 
+ --m_id 회원 장바구니 내 강의 존재 여부
+select count(*) from cart c join member m on c.m_id=m.m_id;
+ --m_id 회원 장바구니 내 특정 강의 존재 여부
+select count(*) from cart c join member m on c.m_id=m.m_id and c.p_no=?;
+
  
