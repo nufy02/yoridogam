@@ -31,6 +31,24 @@ public class Inquiry {
 	public Inquiry() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+
+	public Inquiry(int ib_no, String ib_title, String ib_content, Date ib_date, int ib_viewCount, int ib_depth,
+			int ib_groupNo, int ib_step, String m_id) {
+		super();
+		this.ib_no = ib_no;
+		this.ib_title = ib_title;
+		this.ib_content = ib_content;
+		this.ib_date = ib_date;
+		this.ib_viewCount = ib_viewCount;
+		this.ib_depth = ib_depth;
+		this.ib_groupNo = ib_groupNo;
+		this.ib_step = ib_step;
+		this.m_id = m_id;
+	}
+
+
 
 	public int getIb_no() {
 		return ib_no;
