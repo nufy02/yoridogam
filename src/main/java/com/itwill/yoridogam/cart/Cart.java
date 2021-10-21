@@ -1,15 +1,18 @@
 package com.itwill.yoridogam.cart;
 
+import com.itwill.yoridogam.domain.Member;
+import com.itwill.yoridogam.domain.Product;
+
 public class Cart {
 	private int ci_no;
 	private int ci_qty;
-	//private Product product;
-	//private Member member;
+	private Product product;
+	private Member member;
 
 	public Cart() {
 	}
 	
-	/*
+	
 	public Cart(int ci_no, int ci_qty, Product product, Member member) {
 		super();
 		this.ci_no = ci_no;
@@ -49,7 +52,7 @@ public class Cart {
 	public void setMember(Member member) {
 		this.member = member;
 	}
-	*/
+	
 	
 
 }
