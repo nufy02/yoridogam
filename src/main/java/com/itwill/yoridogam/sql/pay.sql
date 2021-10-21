@@ -18,7 +18,7 @@ M_ID               VARCHAR2(20)
 				delete
  ******************************/
 --특정 결제 취소 및 내역 삭제(delete cascade - pay_item)
-delete from pay where pay_no=?;
+delete from pay where pay_no=? and m_id=?;
 --m_id 회원의 모든 결제 내역 삭제(delete cascade - pay_item)
 delete from pay where m_id=?;
  
@@ -27,6 +27,8 @@ delete from pay where m_id=?;
  ******************************/
  --m_id 회원 수강내역 존재 여부
  select count(*) from pay where m_id=?;
+  --m_id 회원 특정수강내역 존재 여부
+ -- select count(*) from pay where m_id=? and pay_no=?;
  --m_id 회원 결제 특정 조회
  select * from pay where pay_no=? and m_id=?;
  --m_id 회원 결제 전체 조회

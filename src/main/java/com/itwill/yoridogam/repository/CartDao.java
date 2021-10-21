@@ -7,7 +7,7 @@ import com.itwill.yoridogam.domain.Cart;
 public interface CartDao {
 
 	/***********************장바구니 강의 추가***********************/
-	int create(int ci_qty, int p_no, String sUserId);
+	int createPay(int ci_qty, int p_no, String sUserId);
 	
 	/********************장바구니 강의 수량 변경********************/
 	int increaseQty(int p_no, String sUserId);
@@ -15,7 +15,7 @@ public interface CartDao {
 	int decreaseQty(int p_no, String sUserId);
 	
 	/******************장바구니 내 강의 특정 삭제******************/
-	int deleteByNo(int ci_no, String sUserId);
+	int deleteCartByNo(int ci_no, String sUserId);
 	
 	/******************장바구니 내 강의 전체 삭제******************/
 	int deleteCart(String sUserId);
