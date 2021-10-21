@@ -47,6 +47,16 @@ public class NoticeDaoImpl implements NoticeDao {
 		return sqlSession.selectOne(NAMESPACE+"selectByNotiNo", noti_no);
 	}
 
+	@Override
+	public boolean updateNotiViewCount(int noti_no) {
+		boolean result = false;
+		int notiViewCount = sqlSession.update(NAMESPACE+"updateNotiViewCount", noti_no);
+		if (notiViewCount>0) {
+			result = true;
+		}
+		return result;
+	}
+
 	
 }
 

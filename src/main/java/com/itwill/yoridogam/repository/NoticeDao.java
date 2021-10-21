@@ -22,6 +22,6 @@ public interface NoticeDao {
 	int selectByNotiNo(int noti_no);
 	
 	/*************** 공지사항 조회수 증가 ***************/
-	
+	boolean updateNotiViewCount(int noti_no);
 	
 }
