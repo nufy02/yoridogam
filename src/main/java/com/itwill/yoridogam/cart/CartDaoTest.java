@@ -1,10 +1,8 @@
-package com.itwill.yoridogam.repository;
+package com.itwill.yoridogam.cart;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.itwill.yoridogam.cart.Cart;
-import com.itwill.yoridogam.cart.CartDao;
 import com.itwill.yoridogam.domain.Member;
 import com.itwill.yoridogam.domain.Product;
 
