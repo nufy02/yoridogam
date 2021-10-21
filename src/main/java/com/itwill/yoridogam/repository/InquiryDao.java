@@ -1,5 +1,5 @@
 package com.itwill.yoridogam.repository;
 
-public class InquiryDao {
+public interface InquiryDao {
 
 }

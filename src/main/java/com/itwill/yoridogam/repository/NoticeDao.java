@@ -1,5 +1,5 @@
 package com.itwill.yoridogam.repository;
 
-public class NoticeDao {
+public interface NoticeDao {
 
 }
