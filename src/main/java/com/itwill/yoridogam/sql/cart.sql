@@ -1,10 +1,15 @@
 /**************************************
- 이름     널?       유형           
------- -------- ------------ 
-CI_NO  NOT NULL NUMBER(10)   
-CI_QTY          NUMBER(10)   
-P_NO            NUMBER(10)   
-M_ID            VARCHAR2(20) 
+이름           널?       유형             
+------------ -------- -------------- 
+IB_NO        NOT NULL NUMBER(10)     
+IB_TITLE              VARCHAR2(100)  
+IB_CONTENT            VARCHAR2(1000) 
+IB_DATE               DATE           
+IB_VIEWCOUNT          NUMBER(10)     
+IB_DEPTH              NUMBER(10)     
+IB_GROUPNO   NOT NULL NUMBER(10)     
+IB_STEP      NOT NULL NUMBER(10)     
+M_ID                  VARCHAR2(20)   
  **************************************/
 
 /******************************

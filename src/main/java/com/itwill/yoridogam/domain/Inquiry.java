@@ -28,6 +28,87 @@ public class Inquiry {
 	private int ib_step;
 	private String m_id;
 	
-	
+	public Inquiry() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public int getIb_no() {
+		return ib_no;
+	}
+
+	public void setIb_no(int ib_no) {
+		this.ib_no = ib_no;
+	}
+
+	public String getIb_title() {
+		return ib_title;
+	}
+
+	public void setIb_title(String ib_title) {
+		this.ib_title = ib_title;
+	}
+
+	public String getIb_content() {
+		return ib_content;
+	}
+
+	public void setIb_content(String ib_content) {
+		this.ib_content = ib_content;
+	}
+
+	public Date getIb_date() {
+		return ib_date;
+	}
+
+	public void setIb_date(Date ib_date) {
+		this.ib_date = ib_date;
+	}
+
+	public int getIb_viewCount() {
+		return ib_viewCount;
+	}
+
+	public void setIb_viewCount(int ib_viewCount) {
+		this.ib_viewCount = ib_viewCount;
+	}
+
+	public int getIb_depth() {
+		return ib_depth;
+	}
+
+	public void setIb_depth(int ib_depth) {
+		this.ib_depth = ib_depth;
+	}
+
+	public int getIb_groupNo() {
+		return ib_groupNo;
+	}
+
+	public void setIb_groupNo(int ib_groupNo) {
+		this.ib_groupNo = ib_groupNo;
+	}
+
+	public int getIb_step() {
+		return ib_step;
+	}
+
+	public void setIb_step(int ib_step) {
+		this.ib_step = ib_step;
+	}
+
+	public String getM_id() {
+		return m_id;
+	}
+
+	public void setM_id(String m_id) {
+		this.m_id = m_id;
+	}
+
+	@Override
+	public String toString() {
+		return "Inquiry [ib_no=" + ib_no + ", ib_title=" + ib_title + ", ib_content=" + ib_content + ", ib_date="
+				+ ib_date + ", ib_viewCount=" + ib_viewCount + ", ib_depth=" + ib_depth + ", ib_groupNo=" + ib_groupNo
+				+ ", ib_step=" + ib_step + ", m_id=" + m_id + "]";
+	}
 	
 }
