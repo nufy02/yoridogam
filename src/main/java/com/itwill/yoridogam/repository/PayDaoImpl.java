@@ -21,7 +21,7 @@ public class PayDaoImpl implements PayDao{
 	}
 
 	@Override
-	public int deletePayByNo(int pay_no, String sUserId) {
+	public int deletePayByNo(Pay pay) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -39,7 +39,7 @@ public class PayDaoImpl implements PayDao{
 	}
 
 	@Override
-	public Pay findPayByNo(int pay_no, String sUserId) {
+	public Pay findPayByNo(Pay pay) {
 		// TODO Auto-generated method stub
 		return null;
 	}

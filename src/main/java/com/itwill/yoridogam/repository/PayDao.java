@@ -2,6 +2,8 @@ package com.itwill.yoridogam.repository;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.itwill.yoridogam.domain.Pay;
 
 public interface PayDao {
@@ -10,7 +12,7 @@ public interface PayDao {
 	int createPay(Pay pay);
 	
 	/***********************특정 결제 취소 및 삭제***********************/
-	int deletePayByNo(int pay_no, String sUserId);
+	int deletePayByNo(Pay pay);
 	
 	/***********************전체 결제내역 삭제***********************/
 	int deletePay(String sUserId);
@@ -19,7 +21,7 @@ public interface PayDao {
 	boolean isExistPay(String sUserId);
 	
 	/***********************회원 결제 특정 조회***********************/
-	Pay findPayByNo(int pay_no, String sUserId);
+	Pay findPayByNo(Pay pay);
 	
 	/***********************회원 결제 전체 조회***********************/
 	List<Pay> findPayList(String sUserId);
