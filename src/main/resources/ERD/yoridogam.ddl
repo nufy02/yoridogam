@@ -9,6 +9,7 @@ DROP TABLE review CASCADE CONSTRAINTS;
 DROP TABLE teacher CASCADE CONSTRAINTS;
 DROP TABLE product CASCADE CONSTRAINTS;
 DROP TABLE member CASCADE CONSTRAINTS;
+DROP TABLE member_interest CASCADE CONSTRAINTS;
 
 CREATE TABLE member(
 		m_id                          		VARCHAR2(20)		 NOT NULL,
@@ -20,6 +21,15 @@ CREATE TABLE member(
 		m_interest                    		VARCHAR2(30)		 NULL ,
 		m_gender                      		VARCHAR2(10)		 NOT NULL
 );
+
+CREATE TABLE member_interest(
+		mi_no                         		NUMBER(10)		 NULL ,
+		mi_interest                   		VARCHAR2(30)		 NULL ,
+		m_id                          		VARCHAR2(20)		 NULL 
+);
+DROP SEQUENCE member_mi_no_SEQ;
+CREATE SEQUENCE member_interest_mi_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
+
 
 
 CREATE TABLE product(
@@ -206,4 +216,7 @@ ALTER TABLE inquiry ADD CONSTRAINT IDX_inquiry_FK0 FOREIGN KEY (m_id) REFERENCES
 
 ALTER TABLE product_time ADD CONSTRAINT IDX_product_time_PK PRIMARY KEY (pt_no);
 ALTER TABLE product_time ADD CONSTRAINT IDX_product_time_FK0 FOREIGN KEY (p_no) REFERENCES product (p_no) ON DELETE CASCADE;
+
+ALTER TABLE member_interest ADD CONSTRAINT IDX_member_interest_PK PRIMARY KEY (mi_no);
+ALTER TABLE member_interest ADD CONSTRAINT IDX_member_interest_FK0 FOREIGN KEY (m_id) REFERENCES member (m_id);
 
