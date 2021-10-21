@@ -8,7 +8,7 @@
  -->
  
  <!-- 오프라인 강의예약 insert -->
-<insert id="create" parameterType="com.itwill.yoridogam.domain.Reservation">
+<insert id="create" parameterType="com.itwill.yoridogam.reservation.Reservation">
  insert into reservation(rsv_no, rsv_total, rsv_type, rsv_qty, rsv_date, rsv_time, rsv_paydate, m_id, p_no)
 values(RESERVATION_RSV_NO_SEQ.nextval,#{rsv_total},#{rsv_type},#{rsv_qty},to_date(#{rsv_date},'YYYY/MM/DD'),#{rsv_time},sysdate,#{m_id},#{p_no})
 </insert>
@@ -16,12 +16,12 @@ values(RESERVATION_RSV_NO_SEQ.nextval,#{rsv_total},#{rsv_type},#{rsv_qty},to_dat
 <!-- select는 member이랑 product가 구현될시 구현하겠습니다. -->
 
 <!-- m_id회원 특정 예약 삭제 -->
-<delete id="delete" parameterType="com.itwill.yoridogam.domain.Reservation">
+<delete id="delete" parameterType="com.itwill.yoridogam.reservation.Reservation">
 delete from reservation where rsv_no=#{rsv_no} and m_id=#{m_id}
 </delete>
 
 <!-- m_id회원 전체 예약 삭제 -->
-<delete id="deleteAll" parameterType="com.itwill.yoridogam.domain.Reservation">
+<delete id="deleteAll" parameterType="com.itwill.yoridogam.reservation.Reservation">
 delete from reservation where m_id=#{m_id}
 </delete>
 

@@ -26,8 +26,8 @@ values('teacher1','홍길동','pw12','teacher1@naver.com','img/teacher1.png','�
 
 /********** Reservation **********/
 /*
- insert into reservation(rsv_no, rsv_total, rsv_type, rsv_qty, rsv_date, rsv_time, rsv_paydate, m_id, p_no)
-values(RESERVATION_RSV_NO_SEQ.nextval,30000,'네이버페이',1,to_date('2021/10/21','YYYY/MM/DD'),'10:00-11:00',sysdate,'대현',1);
+ insert into reservation(rsv_no, rsv_total, rsv_type, rsv_qty, rsv_date, rsv_time, rsv_paydate, m_no, p_no)
+values(RESERVATION_RSV_NO_SEQ.nextval,30000,'네이버페이',1,to_date('2021/10/21','YYYY/MM/DD'),'10:00-11:00',sysdate,1,1);
 */
 
 /********** Review **********/
