@@ -9,7 +9,7 @@ M_ID               VARCHAR2(20)
  **************************************/
 
 /******************************
-				insert
+				create
  *******************************/
  --m_id 회원 온라인 강의 결제
  insert into pay(pay_no, pay_date, pay_total, pay_type, m_id) values(PAY_PAY_NO_SEQ.nextval,sysdate,?,?,?);
