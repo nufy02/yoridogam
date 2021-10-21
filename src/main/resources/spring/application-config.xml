@@ -18,6 +18,7 @@
 		<property name="mapperLocations">
 			<list>
 				<value>classpath:com/itwill/yoridogam/mapper/CartMapper.xml</value>
+				<value>classpath:com/itwill/yoridogam/mapper/ReservationMapper.xml</value>
 			<!-- 
 				<value>classpath:com/itwill/yoridogam/test/mapper/TestMapper.xml</value>
 				<value>classpath:com/itwill/yoridogam/test/mapper/TestMapper.xml</value>
