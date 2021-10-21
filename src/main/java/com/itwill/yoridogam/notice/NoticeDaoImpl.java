@@ -8,6 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+
+
 @Repository("noticeDao")
 public class NoticeDaoImpl implements NoticeDao {
 	public static final String NAMESPACE="com.itwill.yoridogam.mapper.NoticeMapper.";
@@ -43,6 +45,16 @@ public class NoticeDaoImpl implements NoticeDao {
 	@Override
 	public int selectByNotiNo(int noti_no) {
 		return sqlSession.selectOne(NAMESPACE+"selectByNotiNo", noti_no);
+	}
+
+	@Override
+	public boolean updateNotiViewCount(int noti_no) {
+		boolean result = false;
+		int notiViewCount = sqlSession.update(NAMESPACE+"updateNotiViewCount", noti_no);
+		if (notiViewCount>0) {
+			result = true;
+		}
+		return result;
 	}
 
 	
