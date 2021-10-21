@@ -1,5 +1,5 @@
 /**************************************
-ì´ë¦„             ë„?       ìœ í˜•             
+ÀÌ¸§             ³Î?       À¯Çü             
 -------------- -------- -------------- 
 NOTI_NO        NOT NULL NUMBER(10)     
 NOTI_TITLE              VARCHAR2(100)  
@@ -12,30 +12,30 @@ M_ID                    VARCHAR2(20)
 /******************************
 				create
  *******************************/
- --ê³µì§€ì‚¬í•­ ê²Œì‹œê¸€ ì¶”ê°€
+ --°øÁö»çÇ× °Ô½Ã±Û Ãß°¡
 insert INTO NOTICE(NOTI_NO, NOTI_TITLE, NOTI_DATE, NOTI_VIEWCOUNT, NOTI_CONTENT, M_ID) 
 		VALUES(notice_noti_no_SEQ.nextval, ?, sysdate, 0, ?, ?);
 
  /*****************************
 				update
  ******************************/
- --ê³µì§€ì‚¬í•­ ìˆ˜ì •(ê¸€ ë²ˆí˜¸)
+ --°øÁö»çÇ× ¼öÁ¤(±Û ¹øÈ£)
 update NOTICE set NOTI_TITLE =?, NOTI_CONTENT=? where NOTI_NO=1?;		
 
  
  /*****************************
 				delete
  ******************************/
- --ê³µì§€ì‚¬í•­ íŠ¹ì • ê¸€ ì‚­ì œ(ê¸€ ë²ˆí˜¸)
+ --°øÁö»çÇ× Æ¯Á¤ ±Û »èÁ¦(±Û ¹øÈ£)
 DELETE FROM NOTICE WHERE NOTI_NO=?;		
 
  
  /*****************************
 				select
  ******************************/
---ê³µì§€ì‚¬í•­ ìƒì„¸ë³´ê¸°(ê¸€ ë²ˆí˜¸)
+--°øÁö»çÇ× »ó¼¼º¸±â(±Û ¹øÈ£)
 select NOTI_NO, NOTI_TITLE, NOTI_DATE, NOTI_VIEWCOUNT, NOTI_CONTENT, M_ID from NOTICE where NOTI_NO=?;		
---ê³µì§€ì‚¬í•­ ì „ì²´ ë³´ê¸°
+--°øÁö»çÇ× ÀüÃ¼ º¸±â
 select NOTI_NO, NOTI_TITLE, NOTI_DATE, NOTI_VIEWCOUNT, NOTI_CONTENT, M_ID from NOTICE;		
 	
 

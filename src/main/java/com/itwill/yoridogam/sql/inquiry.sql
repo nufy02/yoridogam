@@ -1,5 +1,5 @@
 /**************************************
-ì´ë¦„           ë„?       ìœ í˜•             
+ÀÌ¸§           ³Î?       À¯Çü             
 ------------ -------- -------------- 
 IB_NO        NOT NULL NUMBER(10)     
 IB_TITLE              VARCHAR2(100)  
@@ -15,41 +15,39 @@ M_ID                  VARCHAR2(20)
 /******************************
 				create
  *******************************/
- --ë¬¸ì˜ ê²Œì‹œíŒ ê²Œì‹œê¸€ ì¶”ê°€
+ --¹®ÀÇ °Ô½ÃÆÇ °Ô½Ã±Û Ãß°¡
  insert into inquiry(IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, IB_DEPTH, IB_GROUPNO, IB_STEP, M_ID) 
  		values(inquiry_ib_no_SEQ.nextval, ?, ?, sysdate, 0, null, inquiry_ib_no_SEQ.currval, ?, ?);		
 /*
-insert into inquiry values(inquiry_ib_no_SEQ.nextval, 'ìˆ˜ì—…ì— ëŒ€í•œ ë¬¸ì˜ ë‚¨ê¹ë‹ˆë‹¤', '12ì›” ê°•ì˜ë¥¼ ë¯¸ë¦¬ ì˜ˆì•½í•  ìˆ˜ ìˆë‚˜ìš”?', sysdate, 0, 1, null, inquiry_ib_no_SEQ.currval, 1, 'member1');		
-insert into inquiry values(inquiry_ib_no_SEQ.nextval, 'ê²°ì œë¥¼ í–ˆëŠ”ë° ê²°ì œ ì™„ë£Œ í™”ë©´ì´..', 'ì•ˆ ëœ¨ê³  ì§€ë‚˜ê°”ì–´ìš” ì œê°€ í™•ì¸í•  ìˆ˜ ìˆëŠ” ë°©ë²•ì´ ìˆë‚˜ìš”?', sysdate, 0, 1, null, inquiry_ib_no_SEQ.currval, 1, 'member2');		
-insert into inquiry values(inquiry_ib_no_SEQ.nextval, 'ì¼íƒ€ê°•ì‚¬1 ì„ ìƒë‹˜ ìˆ˜ì—…', 'ë‹¤ìŒ ê°•ì˜ëŠ” ì–¸ì œì¯¤ ì¡íì§€ ê³„íšì´ ë‚˜ì™”ë‚˜ìš”?', sysdate, 0, 1, null, inquiry_ib_no_SEQ.currval, 1, 'member3');		
-
-
+insert into inquiry values(inquiry_ib_no_SEQ.nextval, '¼ö¾÷¿¡ ´ëÇÑ ¹®ÀÇ ³²±é´Ï´Ù', '12¿ù °­ÀÇ¸¦ ¹Ì¸® ¿¹¾àÇÒ ¼ö ÀÖ³ª¿ä?', sysdate, 0, 1, null, inquiry_ib_no_SEQ.currval, 1, 'member1');		
+insert into inquiry values(inquiry_ib_no_SEQ.nextval, '°áÁ¦¸¦ Çß´Âµ¥ °áÁ¦ ¿Ï·á È­¸éÀÌ..', '¾È ¶ß°í Áö³ª°¬¾î¿ä Á¦°¡ È®ÀÎÇÒ ¼ö ÀÖ´Â ¹æ¹ıÀÌ ÀÖ³ª¿ä?', sysdate, 0, 1, null, inquiry_ib_no_SEQ.currval, 1, 'member2');		
+insert into inquiry values(inquiry_ib_no_SEQ.nextval, 'ÀÏÅ¸°­»ç1 ¼±»ı´Ô ¼ö¾÷', '´ÙÀ½ °­ÀÇ´Â ¾ğÁ¦Âë ÀâÈúÁö °èÈ¹ÀÌ ³ª¿Ô³ª¿ä?', sysdate, 0, 1, null, inquiry_ib_no_SEQ.currval, 1, 'member3');		
  */
 
  /*****************************
 				update
  ******************************/
- --ë¬¸ì˜ ê¸€ ìˆ˜ì •(ê¸€ ë²ˆí˜¸)
+ --¹®ÀÇ ±Û ¼öÁ¤(±Û ¹øÈ£)
 update inquiry set IB_TITLE=?, IB_CONTENT=? where IB_NO=?;
 /*
-update NOTICE set NOTI_TITLE ='ìˆ˜ì—…ì— ëŒ€í•œ ì§ˆë¬¸ì´ ìˆì–´ìš”!', IB_CONTENT='12ì›” ê°•ì˜ë¥¼ ë¯¸ë¦¬ ì˜ˆì•½í•  ìˆ˜ ìˆë‚˜ìš”??' where NOTI_NO=1;		
+update NOTICE set NOTI_TITLE ='¼ö¾÷¿¡ ´ëÇÑ Áú¹®ÀÌ ÀÖ¾î¿ä!', IB_CONTENT='12¿ù °­ÀÇ¸¦ ¹Ì¸® ¿¹¾àÇÒ ¼ö ÀÖ³ª¿ä??' where NOTI_NO=1;		
  */
  
  /*****************************
 				delete
  ******************************/
- --ë¬¸ì˜ê¸€ ì¤‘ íŠ¹ì • ê¸€ ì‚­ì œ(ê¸€ ë²ˆí˜¸)
+ --¹®ÀÇ±Û Áß Æ¯Á¤ ±Û »èÁ¦(±Û ¹øÈ£)
 DELETE FROM inquiry WHERE NOTI_NO=?;		
 
  
  /*****************************
 				select
  ******************************/
- --ë¬¸ì˜ ê¸€ ìƒì„¸ë³´ê¸°(ê¸€ ë²ˆí˜¸)
+ --¹®ÀÇ ±Û »ó¼¼º¸±â(±Û ¹øÈ£)
 select IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, IB_SECRET, IB_DEPTH, IB_GROUPNO, IB_STEP, M_ID from inquiry where IB_NO=?;		
- --ë¬¸ì˜ ê¸€ ì „ì²´ ë³´ê¸°
+ --¹®ÀÇ ±Û ÀüÃ¼ º¸±â
  select IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, IB_SECRET, IB_DEPTH, IB_GROUPNO, IB_STEP, M_ID from inquiry;		
---ë¬¸ì˜ê¸€ ì°¾ê¸°(ì‘ì„±ì ID)
+--¹®ÀÇ±Û Ã£±â(ÀÛ¼ºÀÚ ID)
 select IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, IB_SECRET, IB_DEPTH, IB_GROUPNO, IB_STEP, M_ID from inquiry where M_ID=?;		
 
 
