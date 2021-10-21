@@ -8,7 +8,7 @@ P_NO       NUMBER(10)
  **************************************/
 
 /******************************
-				insert
+				create
  *******************************/
  --(강사) 오프라인 강의 강의시간 등록
  insert into product_time(pt_no,pt_date, pt_time, p_no) values(PRODUCT_TIME_PT_NO_SEQ.nextval,to_date(?,'YYYY/MM/DD'),?,?);

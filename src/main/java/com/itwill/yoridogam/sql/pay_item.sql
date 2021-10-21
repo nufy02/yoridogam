@@ -8,7 +8,7 @@ P_NO            NUMBER(10)
  **************************************/
 
 /******************************
-				insert
+				create
  *******************************/
 insert into pay_item(pi_no, pi_qty, pay_no, p_no) values(PAY_ITEM_PI_NO_SEQ.nextval,?,pay_pay_no_seq.currval,?);
 
