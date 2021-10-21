@@ -1,8 +1,10 @@
 package com.itwill.yoridogam.repository;
 
-import java.util.ArrayList;
+import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.itwill.yoridogam.domain.Cart;
@@ -10,47 +12,50 @@ import com.itwill.yoridogam.domain.Cart;
 @Repository("cartDao")
 public class CartDaoImpl implements CartDao{
 	public static final String NAMESPACE="com.itwill.yoridogam.mapper.CartMapper.";
+	@Autowired
 	private SqlSession sqlSession;
 	
 	@Override
-	public int createPay(int ci_qty, int p_no, String sUserId) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int insertCart(Cart cart) throws Exception{
+		return sqlSession.insert(NAMESPACE+"insertCart",cart);
 	}
 	@Override
-	public int increaseQty(int p_no, String sUserId) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int increaseQty(Cart cart) {
+		return sqlSession.update(NAMESPACE+"increaseQty",cart);
 	}
 	@Override
-	public int decreaseQty(int p_no, String sUserId) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int decreaseQty(Cart cart) {
+		return sqlSession.update(NAMESPACE+"decreaseQty",cart);
 	}
 	@Override
-	public int deleteCartByNo(int ci_no, String sUserId) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int deleteCartByNo(int ci_no) {
+		return sqlSession.delete(NAMESPACE+"deleteCartByNo",ci_no);
 	}
 	@Override
 	public int deleteCart(String sUserId) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.delete(sUserId);
 	}
 	@Override
-	public ArrayList<Cart> cartList(String sUserId) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Cart> cartList(String sUserId) {
+		return sqlSession.selectList(NAMESPACE+"cartList",sUserId);
 	}
 	@Override
 	public boolean isExistCart(String sUserId) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean isExistCart=true;
+		int cartCount=sqlSession.selectOne(NAMESPACE+"isExistCart",sUserId);
+		if(cartCount==0) {
+			isExistCart=false;
+		}
+		return isExistCart;
 	}
 	@Override
-	public boolean isExistCartItem(int p_no, String sUserId) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean isExistCartItem(Cart cart) {
+		boolean isExistCartItem=true;
+		int cartItemCount=sqlSession.selectOne(NAMESPACE+"isExistCartItem",cart);
+		if(cartItemCount==0) {
+			isExistCartItem=false;
+		}
+		return isExistCartItem;
 	}
 	
 }

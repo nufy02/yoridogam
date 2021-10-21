@@ -3,6 +3,7 @@ package com.itwill.yoridogam.repository;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.itwill.yoridogam.domain.Pay;
@@ -10,6 +11,7 @@ import com.itwill.yoridogam.domain.Pay;
 @Repository("PayDao")
 public class PayDaoImpl implements PayDao{
 	public static final String NAMESPACE="com.itwill.yoridogam.mapper.CartMapper.";
+	@Autowired
 	private SqlSession sqlSession;
 	
 	@Override

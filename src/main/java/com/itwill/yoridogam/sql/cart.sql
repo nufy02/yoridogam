@@ -24,7 +24,7 @@ M_ID            VARCHAR2(20)
 				delete
  ******************************/
  --장바구니 내 강의 특정 삭제
- delete from cart where ci_no=? and m_id=?;
+ delete from cart where ci_no=?;
  --장바구니 내 강의 전체 삭제
  delete from cart where m_id=?;
  
