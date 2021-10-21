@@ -1,8 +1,6 @@
-package com.itwill.yoridogam.repository;
+package com.itwill.yoridogam.cart;
 
 import java.util.List;
-
-import com.itwill.yoridogam.domain.Cart;
 
 public interface CartDao {
 

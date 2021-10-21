@@ -1,8 +1,6 @@
-package com.itwill.yoridogam.repository;
+package com.itwill.yoridogam.notice;
 
 import java.util.List;
-
-import com.itwill.yoridogam.domain.Notice;
 
 public interface NoticeDao {
 

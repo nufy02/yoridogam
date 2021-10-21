@@ -1,10 +1,8 @@
-package com.itwill.yoridogam.repository;
+package com.itwill.yoridogam.pay;
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
-
-import com.itwill.yoridogam.domain.Pay;
 
 public interface PayDao {
 	

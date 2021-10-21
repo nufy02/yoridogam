@@ -1,4 +1,6 @@
-package com.itwill.yoridogam.domain;
+package com.itwill.yoridogam.payItem;
+
+import com.itwill.yoridogam.pay.Pay;
 
 public class Pay_item {
 	private int pi_no;

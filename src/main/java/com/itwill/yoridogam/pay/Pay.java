@@ -1,7 +1,9 @@
-package com.itwill.yoridogam.domain;
+package com.itwill.yoridogam.pay;
 
 import java.sql.Date;
 import java.util.ArrayList;
+
+import com.itwill.yoridogam.payItem.Pay_item;
 
 public class Pay {
 	private String pay_no;

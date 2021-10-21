@@ -1,4 +1,4 @@
-package com.itwill.yoridogam.domain;
+package com.itwill.yoridogam.inquiry;
 
 import java.util.Date;
 

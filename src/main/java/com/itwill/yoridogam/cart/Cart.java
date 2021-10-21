@@ -1,4 +1,4 @@
-package com.itwill.yoridogam.domain;
+package com.itwill.yoridogam.cart;
 
 public class Cart {
 	private int ci_no;

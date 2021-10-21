@@ -1,12 +1,10 @@
-package com.itwill.yoridogam.repository;
+package com.itwill.yoridogam.pay;
 
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-import com.itwill.yoridogam.domain.Pay;
 
 @Repository("PayDao")
 public class PayDaoImpl implements PayDao{

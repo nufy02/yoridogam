@@ -1,4 +1,4 @@
-package com.itwill.yoridogam.domain;
+package com.itwill.yoridogam.productTime;
 /*
  이름      널? 유형            
 ------- -- ------------- 
