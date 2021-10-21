@@ -16,14 +16,31 @@ M_ID                  VARCHAR2(20)
 				create
  *******************************/
  --문의 게시판 게시글 추가
- insert into inquiry(IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, IB_DEPTH, IB_GROUPNO, IB_STEP, M_ID) 
- 		values(inquiry_ib_no_SEQ.nextval, ?, ?, sysdate, 0, null, inquiry_ib_no_SEQ.currval, ?, ?);		
+insert into inquiry(IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, IB_GROUPNO, IB_STEP, M_ID) 
+		values(inquiry_ib_no_SEQ.nextval, ?, ?, sysdate, 0, inquiry_ib_no_SEQ.currval, 1, ?);
+
 /*
-insert into inquiry values(inquiry_ib_no_SEQ.nextval, '수업에 대한 문의 남깁니다', '12월 강의를 미리 예약할 수 있나요?', sysdate, 0, 1, null, inquiry_ib_no_SEQ.currval, 1, 'member1');		
-insert into inquiry values(inquiry_ib_no_SEQ.nextval, '결제를 했는데 결제 완료 화면이..', '안 뜨고 지나갔어요 제가 확인할 수 있는 방법이 있나요?', sysdate, 0, 1, null, inquiry_ib_no_SEQ.currval, 1, 'member2');		
-insert into inquiry values(inquiry_ib_no_SEQ.nextval, '일타강사1 선생님 수업', '다음 강의는 언제쯤 잡힐지 계획이 나왔나요?', sysdate, 0, 1, null, inquiry_ib_no_SEQ.currval, 1, 'member3');		
+insert into inquiry(IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, IB_GROUPNO, IB_STEP, M_ID) values(inquiry_ib_no_SEQ.nextval, '수업에 대한 문의 남깁니다', '12월 강의를 미리 예약할 수 있나요?', sysdate, 0, 1, inquiry_ib_no_SEQ.currval, 1, 'member1');		
+insert into inquiry(IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, IB_GROUPNO, IB_STEP, M_ID) values(inquiry_ib_no_SEQ.nextval, '결제를 했는데 결제 완료 화면이..', '안 뜨고 지나갔어요 제가 확인할 수 있는 방법이 있나요?', sysdate, 0, 1, inquiry_ib_no_SEQ.currval, 1, 'member2');		
+insert into inquiry(IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, IB_GROUPNO, IB_STEP, M_ID) values(inquiry_ib_no_SEQ.nextval, '일타강사1 선생님 수업', '다음 강의는 언제쯤 잡힐지 계획이 나왔나요?', sysdate, 0, 1, inquiry_ib_no_SEQ.currval, 1, 'member3');		
+ */
+		
+--문의 게시판 답글 추가
+--step
+update inquiry set = step + 1 where step >=2 and IB_NO = ?;
+
+insert into inquiry(IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, IB_DEPTH, IB_GROUPNO, IB_STEP, M_ID) 
+		values(inquiry_ib_no_SEQ.nextval, ?, ?, ?, ?, ?, ?, ?);
+/*
+update inquiry set = step + 1 where step >=2 and IB_NO = 11;
+insert into inquiry(IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, IB_GROUPNO, IB_STEP, M_ID) 
+	values(inquiry_ib_no_SEQ.nextval, '수업에 대한 문의 남깁니다_답글1', '내용추가', sysdate, 0, 11, 1, 'admin');
+			
+이렇게 넣으면  IB_STEP이 증가가 안 되는 이유가 뭐지
  */
 
+
+		
  /*****************************
 				update
  ******************************/
