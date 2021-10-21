@@ -36,7 +36,7 @@ DELETE FROM NOTICE WHERE NOTI_NO=?;
 --공지사항 상세보기(글 번호)
 select NOTI_NO, NOTI_TITLE, NOTI_DATE, NOTI_VIEWCOUNT, NOTI_CONTENT, M_ID from NOTICE where NOTI_NO=?;		
 --공지사항 전체 보기
-select NOTI_NO, NOTI_TITLE, NOTI_DATE, NOTI_VIEWCOUNT, NOTI_CONTENT, M_ID from NOTICE;		
+select * from NOTICE;		
 	
 
  
