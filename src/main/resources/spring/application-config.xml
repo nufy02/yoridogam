@@ -19,6 +19,7 @@
 			<list>
 				<value>classpath:com/itwill/yoridogam/mapper/CartMapper.xml</value>
 				<value>classpath:com/itwill/yoridogam/mapper/ReservationMapper.xml</value>
+				<value>classpath:com/itwill/yoridogam/mapper/ProductTimeMapper.xml</value>
 				<value>classpath:com/itwill/yoridogam/mapper/PayMapper.xml</value>
 				<value>classpath:com/itwill/yoridogam/mapper/NoticeMapper.xml</value>
 			</list>
