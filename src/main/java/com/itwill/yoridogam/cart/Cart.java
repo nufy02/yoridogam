@@ -6,7 +6,7 @@ import com.itwill.yoridogam.productTime.ProductTime;
 public class Cart {
 	private int ci_no;
 	private int ci_qty;
-	private ProductTime product;
+	private Product product;
 	private Member member;
 
 	public Cart() {
