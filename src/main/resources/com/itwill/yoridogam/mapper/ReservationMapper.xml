@@ -11,7 +11,7 @@
 	<association property="member" javaType="com.itwill.yoridogam.member.Member" autoMapping="true">
 		<result column="M_ID" property="m_id"/>
 	</association>
-	<association property="product" javaType="com.itwill.yoridogam.domain.Product" autoMapping="true">
+	<association property="product" javaType="com.itwill.yoridogam.product.Product" autoMapping="true">
 		<result column="P_NO" property="p_no"/>
 	</association>
 </resultMap>

@@ -1,4 +1,4 @@
-package com.itwill.yoridogam.reservation.test;
+package com.itwill.yoridogam.cart.test;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -24,7 +24,7 @@ public class ReservationDaoTest {
 		//select * from product p join reservation rsv on rsv.p_no=p.p_no where rsv.m_id=#{m_id};
 		
 		//deleteByNo
-		System.out.println(reservationDao.deleteById(new Reservation(1, 1, null, 0, null, null, null, null)));
+		System.out.println(reservationDao.deleteById(new Reservation(1, 1, null, 0, null, null, null, null, null)));
 		
 		//deleteAll
 		System.out.println(reservationDao.deleteAll("eogus2"));

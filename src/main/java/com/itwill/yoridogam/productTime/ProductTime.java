@@ -10,22 +10,24 @@ P_NO       NUMBER(10)
 
 import java.sql.Date;
 
+import com.itwill.yoridogam.product.Product;
+
 public class ProductTime {
 	private int pt_no;
 	private Date pt_date;
 	private String pt_time;
-	//private Product product;
+	private Product product;
 	
 	public ProductTime() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ProductTime(int pt_no, Date pt_date, String pt_time /*, Product product*/) {
+	public ProductTime(int pt_no, Date pt_date, String pt_time, Product product) {
 		super();
 		this.pt_no = pt_no;
 		this.pt_date = pt_date;
 		this.pt_time = pt_time;
-		//this.product = product;
+		this.product = product;
 	}
 
 	public int getPt_no() {
@@ -51,7 +53,7 @@ public class ProductTime {
 	public void setPt_time(String pt_time) {
 		this.pt_time = pt_time;
 	}
-/*
+
 	public Product getProduct() {
 		return product;
 	}
@@ -59,7 +61,7 @@ public class ProductTime {
 	public void setProduct(Product product) {
 		this.product = product;
 	}
-*/
+	
 	@Override
 	public String toString() {
 		return "ProductTime [pt_no=" + pt_no + ", pt_date=" + pt_date + ", pt_time=" + pt_time + "]";
