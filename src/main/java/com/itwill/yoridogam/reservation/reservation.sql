@@ -11,9 +11,10 @@ M_ID            VARCHAR2(20)
 				create
  *******************************/
  --m_id 회원 오프라인 강의 예약
- insert into reservation(rsv_no, rsv_total, rsv_type, rsv_qty, rsv_date, rsv_time, rsv_paydate, m_id, p_no)
+
+insert into reservation(rsv_no, rsv_total, rsv_type, rsv_qty, rsv_date, rsv_time, rsv_paydate, m_id, p_no)
 values(RESERVATION_RSV_NO_SEQ.nextval,?,?,?,to_date(?,'YYYY/MM/DD'),?,sysdate,?,?);
- 
+
 insert into reservation(rsv_no, rsv_total, rsv_type, rsv_qty, rsv_date, rsv_time, rsv_paydate, m_id, p_no)
 values(RESERVATION_RSV_NO_SEQ.nextval,30000,'네이버페이',1,to_date('2021/10/21','YYYY/MM/DD'),'10:00-11:00',sysdate,'대현',1);
  /*****************************
