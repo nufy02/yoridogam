@@ -1,4 +1,4 @@
-package memberInterest;
+package com.itwill.yoridogam.memberInterest;
 
 public interface MemberInterestDao {
 	/*

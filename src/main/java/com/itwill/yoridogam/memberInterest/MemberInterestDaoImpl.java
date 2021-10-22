@@ -1,4 +1,4 @@
-package memberInterest;
+package com.itwill.yoridogam.memberInterest;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
