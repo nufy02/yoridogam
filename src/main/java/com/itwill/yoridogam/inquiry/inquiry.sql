@@ -16,8 +16,7 @@ M_ID                  VARCHAR2(20)
 				create
  *******************************/
  --문의 게시판 게시글 추가
-insert into inquiry(IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, IB_GROUPNO, IB_STEP, M_ID) 
-		values(inquiry_ib_no_SEQ.nextval, ?, ?, sysdate, 0, inquiry_ib_no_SEQ.currval, 1, ?);
+insert into inquiry	values(inquiry_ib_no_SEQ.nextval, ?, ?, sysdate, 0, inquiry_ib_no_SEQ.currval, 1, ?);
 
 /*
 insert into inquiry(IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, IB_GROUPNO, IB_STEP, M_ID) values(inquiry_ib_no_SEQ.nextval, '수업에 대한 문의 남깁니다', '12월 강의를 미리 예약할 수 있나요?', sysdate, 0, 1, inquiry_ib_no_SEQ.currval, 1, 'member1');		
@@ -50,6 +49,9 @@ update inquiry set IB_TITLE=?, IB_CONTENT=? where IB_NO=?;
 update NOTICE set NOTI_TITLE ='수업에 대한 질문이 있어요!', IB_CONTENT='12월 강의를 미리 예약할 수 있나요??' where NOTI_NO=1;		
  */
  
+--문의 글 조회수 증가
+update inquiry set IB_VIEWCOUNT = IB_VIEWCOUNT+1 where NOTI_NO=?;
+
  /*****************************
 				delete
  ******************************/
@@ -65,7 +67,7 @@ select IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, IB_SECRET, IB_DEPTH, 
  --문의 글 전체 보기
  select IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, IB_SECRET, IB_DEPTH, IB_GROUPNO, IB_STEP, M_ID from inquiry;		
 --문의글 찾기(작성자 ID)
-select IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, IB_SECRET, IB_DEPTH, IB_GROUPNO, IB_STEP, M_ID from inquiry where M_ID=?;		
+select * from inquiry where M_ID=?;		
 
 
  

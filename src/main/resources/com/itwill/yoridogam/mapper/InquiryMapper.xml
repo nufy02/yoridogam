@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwill.yoridogam.mapper.NoticeMapper">
+	<resultMap id="inquiryResultMap" type="com.itwill.yoridogam.inquiry.Inquiry" >
+		<result column="IB_NO" property="ib_no"/>
+		<result column="IB_TITLE" property="ib_title"/>
+		<result column="IB_CONTENT" property="ib_content"/>
+		<result column="IB_DATE" property="ib_date"/>
+		<result column="IB_VIEWCOUNT" property="ib_viewCount"/>
+		<result column="IB_DEPTH" property="ib_depth"/>
+		<result column="IB_GROUPNO" property="ib_groupNo"/>
+		<result column="IB_STEP" property="ib_step"/>
+		<result column="M_ID" property="m_id"/>
+	</resultMap>
+	
+	
+	
+	
+	
+	
+</mapper>
