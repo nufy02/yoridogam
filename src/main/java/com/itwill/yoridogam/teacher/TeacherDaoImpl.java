@@ -3,6 +3,7 @@ package com.itwill.yoridogam.teacher;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository("teacherDao")
@@ -10,6 +11,7 @@ public class TeacherDaoImpl implements TeacherDao {
 	
 	public static final String NAMESPACE="com.itwill.yoridogam.mapper.TeacherMapper.";
 	
+	@Autowired
 	private SqlSession sqlSession;
 
 	@Override

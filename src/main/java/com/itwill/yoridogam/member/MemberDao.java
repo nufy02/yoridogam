@@ -12,7 +12,7 @@ public interface MemberDao {
 	 * 		3) m_interest는 member_interest 테이블에 저장
 	 * 		이게 가능한가...?
 	 */
-	int create(Member member, String m_interest ) throws Exception;
+	int create(Member member) throws Exception;
 	/*
 	 * UPDATE 사용자 정보 수정 (회원수정)
 	 */

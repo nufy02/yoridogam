@@ -4,10 +4,10 @@
 	<resultMap id="cartResultMap" type="com.itwill.yoridogam.cart.Cart">
 		<result column="CI_NO" property="ci_no"/>
 		<result column="CI_QTY" property="ci_qty"/>
-		<association property="member" javaType="com.itwill.yoridogam.domain.Member" autoMapping="true">
+		<association property="member" javaType="com.itwill.yoridogam.member.Member" autoMapping="true">
 			<result column="M_ID" property="m_id"/>
 		</association>
-		<association property="product" javaType="com.itwill.yoridogam.domain.Product" autoMapping="true">
+		<association property="product" javaType="com.itwill.yoridogam.product.Product" autoMapping="true">
 			<result column="P_NO" property="p_no"/>
 		</association>
 	</resultMap>

@@ -22,6 +22,9 @@
 				<value>classpath:com/itwill/yoridogam/mapper/ProductTimeMapper.xml</value>
 				<value>classpath:com/itwill/yoridogam/mapper/PayMapper.xml</value>
 				<value>classpath:com/itwill/yoridogam/mapper/NoticeMapper.xml</value>
+				<value>classpath:com/itwill/yoridogam/mapper/MemberMapper.xml</value>
+				<value>classpath:com/itwill/yoridogam/mapper/TeacherMapper.xml</value>
+				<value>classpath:com/itwill/yoridogam/mapper/MemberInterestMapper.xml</value>
 			</list>
 		</property>          
 	</bean>

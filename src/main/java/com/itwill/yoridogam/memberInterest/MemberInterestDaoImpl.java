@@ -1,6 +1,7 @@
 package com.itwill.yoridogam.memberInterest;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository("MemberInterestDao")
@@ -8,6 +9,7 @@ public class MemberInterestDaoImpl implements MemberInterestDao {
 
 	public static final String NAMESPACE="com.itwill.yoridogam.mapper.TeacherMapper.";
 	
+	@Autowired
 	private SqlSession sqlSession;
 
 	@Override

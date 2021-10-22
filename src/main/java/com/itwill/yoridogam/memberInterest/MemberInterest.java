@@ -48,6 +48,11 @@ public class MemberInterest {
 	public void setMember(Member member) {
 		this.member = member;
 	}
+
+	@Override
+	public String toString() {
+		return "MemberInterest [mi_no=" + mi_no + ", mi_interest=" + mi_interest + ", member=" + member + "]";
+	}
 	
 	
 }

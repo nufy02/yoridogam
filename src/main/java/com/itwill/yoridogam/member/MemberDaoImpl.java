@@ -3,6 +3,7 @@ package com.itwill.yoridogam.member;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository("memberDao")
@@ -10,6 +11,7 @@ public class MemberDaoImpl implements MemberDao {
 	
 	public static final String NAMESPACE="com.itwill.yoridogam.mapper.MemberMapper.";
 	
+	@Autowired
 	private SqlSession sqlSession;
 	/*
 	 * 		1) 회원가입 진행시, 인자를 user와  관심분야(String m_interest)를 받아서 
@@ -22,9 +24,8 @@ public class MemberDaoImpl implements MemberDao {
 	 *  member 테이블 + member_interest 테이블
 	 */
 	@Override
-	public int create(Member member, String m_interest) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+	public int create(Member member) throws Exception {
+		return sqlSession.insert(NAMESPACE+"create",member); 
 	}
 
 	@Override

@@ -1,5 +1,7 @@
 package com.itwill.yoridogam.teacher;
 
+import com.itwill.yoridogam.product.Product;
+
 /*******************************
 이름         널?       유형            
 ---------- -------- ------------- 
@@ -130,5 +132,15 @@ public class Teacher {
 		}
 		return isMatch;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Teacher [t_id=" + t_id + ", t_name=" + t_name + ", t_pass=" + t_pass + ", t_email=" + t_email
+				+ ", t_photo=" + t_photo + ", t_detail=" + t_detail + ", t_location=" + t_location + ", product="
+				+ product + "]";
+	}
+	
+	
 	
 }
