@@ -13,9 +13,48 @@
 		<result column="M_ID" property="m_id"/>
 	</resultMap>
 	
+	<insert id="insertInquiry" parameterType="com.itwill.yoridogam.inquiry.Inquiry">
+		insert into inquiry	values(inquiry_ib_no_SEQ.nextval, 
+									${ib_title},
+									#{ib_content},
+									sysdate,
+									0,
+									inquiry_ib_no_SEQ.currval,
+									1,
+									#{m_id})
+	</insert>
 	
+	<update id="updateInquiry">
+		update inquiry set IB_TITLE=#{ib_title}, IB_CONTENT=#{ib_content} 
+			where IB_NO=#{ib_no}
+	</update>
 	
+	<insert id="insertInquiryA">
+		
+	</insert>
 	
+	<update id="updateInquiryA">
 	
+	</update>
+	
+	<delete id="deleteInquiry">
+	
+	</delete>
+	
+	<select id="selectByAllInquiry">
+	
+	</select>
+	
+	<select id="selectByNoInquiry">
+	
+	</select>
+	
+	<update id="updateInquiryViewCount">
+	
+	</update>
+	
+	<select id="selectByIdInquiry">
+	
+	</select>
 	
 </mapper>

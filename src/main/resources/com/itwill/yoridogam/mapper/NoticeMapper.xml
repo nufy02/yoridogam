@@ -14,15 +14,15 @@
 		insert INTO NOTICE(NOTI_NO, NOTI_TITLE, NOTI_DATE, NOTI_VIEWCOUNT, NOTI_CONTENT, M_ID) 
 					VALUES(notice_noti_no_SEQ.nextval, 
 							#{noti_title}, 
-							#{noti_date}, 
-							#{noti_viewCount}, 
+							sysdate, 
+							0, 
 							#{noti_content}, 
 							#{member.m_id})
 	</insert>
 	
 	<update id="updateNoti">
 		update NOTICE set NOTI_TITLE =#{noti_title}, NOTI_CONTENT=#{noti_content} 
-		where NOTI_NO=#{noti_no}
+			where NOTI_NO=#{noti_no}
 	</update>
 	
 	<delete id="deleteNoti" parameterType="java.lang.Integer">
