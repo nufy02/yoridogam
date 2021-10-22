@@ -1,6 +1,6 @@
 package com.itwill.yoridogam.reservation;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,32 +16,32 @@ public class ReservationDaoImpl implements ReservationDao{
 	
 	@Override
 	public int create(Reservation reservation) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return sqlSession.insert(NAMESPACE+"create",reservation);
 	}
 
 	@Override
-	public ArrayList<Reservation> selectAll(int m_no) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Reservation> selectAll(String sUserId) throws Exception {
+		
+		return sqlSession.selectList(NAMESPACE+"selectAll",sUserId);
 	}
 
 	@Override
-	public Reservation selectByNo(int m_no) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public Reservation selectById(Reservation reservation) throws Exception {
+		
+		return sqlSession.selectOne(NAMESPACE+"selectById",reservation);
 	}
 
 	@Override
-	public int deleteByNo(int rsv_no, int m_no) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+	public int deleteById(Reservation reservation) throws Exception {
+		
+		return sqlSession.delete(NAMESPACE+"deleteById",reservation);
 	}
 
 	@Override
 	public int deleteAll(String sUserId) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return sqlSession.delete(NAMESPACE+"deleteAll",sUserId);
 	}
 
 }

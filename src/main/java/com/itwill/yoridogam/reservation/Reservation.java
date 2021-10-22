@@ -2,6 +2,8 @@ package com.itwill.yoridogam.reservation;
 
 import java.sql.Date;
 
+import com.itwill.yoridogam.member.Member;
+
 public class Reservation {
 	private int rsv_no; 
 	private int rsv_total; // 총 금액
@@ -10,7 +12,7 @@ public class Reservation {
 	private Date rsv_date; // 예약일
 	private String rsv_time; // 예약 시간
 	private Date rsv_payDate; // 결제 일자
-	//private Member member; //수강생 정보를 얻기 위함
+	private Member member; //수강생 정보를 얻기 위함
 	//private Product product; // 강의 정보를 얻기 위함
 
 	public Reservation() {
@@ -18,8 +20,7 @@ public class Reservation {
 	}
 
 	public Reservation(int rsv_no, int rsv_total, String rsv_type, int rsv_qty, Date rsv_date, String rsv_time,
-			Date rsv_payDate/*, Member member, Product product*/) {
-		super();
+			Date rsv_payDate, Member member /*, Product product*/) {
 		this.rsv_no = rsv_no;
 		this.rsv_total = rsv_total;
 		this.rsv_type = rsv_type;
@@ -27,7 +28,7 @@ public class Reservation {
 		this.rsv_date = rsv_date;
 		this.rsv_time = rsv_time;
 		this.rsv_payDate = rsv_payDate;
-		//this.member = member;
+		this.member = member;
 		//this.product = product;
 	}
 
@@ -86,7 +87,6 @@ public class Reservation {
 	public void setRsv_payDate(Date rsv_payDate) {
 		this.rsv_payDate = rsv_payDate;
 	}
-/*
 	public Member getMember() {
 		return member;
 	}
@@ -95,6 +95,7 @@ public class Reservation {
 		this.member = member;
 	}
 
+/*
 	public Product getProduct() {
 		return product;
 	}
