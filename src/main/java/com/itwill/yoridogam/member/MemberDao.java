@@ -26,7 +26,7 @@ public interface MemberDao {
 	/*
 	 * REMOVE 회원정보 삭제
 	 */
-	Member remove(String m_id) throws Exception;
+	int remove(String m_id) throws Exception;
 	/*
 	 * SELECT ALL회원전체리스트 출력
 	 */
@@ -34,5 +34,5 @@ public interface MemberDao {
 	/*
 	 * isExisted 아이디 중복검사
 	 */
-	boolean existedMember(Member m_id) throws Exception;
+	boolean existedMember(String m_id) throws Exception;
 }

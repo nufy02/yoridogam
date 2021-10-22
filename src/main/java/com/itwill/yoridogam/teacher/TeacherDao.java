@@ -20,7 +20,7 @@ public interface TeacherDao {
 	/*
 	 * REMOVE 회원정보 삭제
 	 */
-	Teacher remove(String t_id) throws Exception;
+	int remove(String t_id) throws Exception;
 	
 	/*
 	 * SELECT ALL강사전체리스트 출력

@@ -33,9 +33,9 @@ public class TeacherDaoImpl implements TeacherDao {
 	}
 
 	@Override
-	public Teacher remove(String t_id) throws Exception {
+	public int remove(String t_id) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return 0;
 	}
 
 	@Override

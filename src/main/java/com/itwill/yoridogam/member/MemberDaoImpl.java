@@ -30,8 +30,7 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public int update(Member member) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.update(NAMESPACE+"update", member);
 	}
 
 	@Override
@@ -40,21 +39,31 @@ public class MemberDaoImpl implements MemberDao {
 	}
 
 	@Override
-	public Member remove(String m_id) throws Exception {
+	public int remove(String m_id) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.delete(NAMESPACE+"remove", m_id);
+	}
+	/*
+	@Override
+	public List<Member> findMemberList() throws Exception {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	*/
+	@Override
+	public boolean existedMember(String m_id) throws Exception {
+		int count = sqlSession.selectOne(NAMESPACE+"existedMember",m_id);
+		if(count==1) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 	@Override
 	public List<Member> findMemberList() throws Exception {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	@Override
-	public boolean existedMember(Member m_id) throws Exception {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 }
