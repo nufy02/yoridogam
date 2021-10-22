@@ -20,8 +20,10 @@ insert INTO NOTICE(NOTI_NO, NOTI_TITLE, NOTI_DATE, NOTI_VIEWCOUNT, NOTI_CONTENT,
 				update
  ******************************/
  --공지사항 수정(글 번호)
-update NOTICE set NOTI_TITLE =?, NOTI_CONTENT=? where NOTI_NO=1?;		
+update NOTICE set NOTI_TITLE =?, NOTI_CONTENT=? where NOTI_NO=?;		
 
+--공지사항 조회수 증가
+update NOTICE set NOTI_VIEWCOUNT = NOTI_VIEWCOUNT+1 where NOTI_NO=?;
  
  /*****************************
 				delete

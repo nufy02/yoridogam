@@ -5,8 +5,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.itwill.yoridogam.cart.Cart;
 import com.itwill.yoridogam.cart.CartDao;
-import com.itwill.yoridogam.domain.Member;
-import com.itwill.yoridogam.domain.Product;
 
 public class CartDaoTest {
 

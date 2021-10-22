@@ -23,12 +23,8 @@ public class NoticeDaoImpl implements NoticeDao {
 	}
 
 	@Override
-	public int updateNoti(String noti_title, String noti_content, int noti_no) {
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("noti_title", noti_title);
-		map.put("noti_content", noti_content);
-		map.put("noti_no", noti_no);
-		return sqlSession.update(NAMESPACE+"updateNoti", map);
+	public int updateNoti(Notice notice) {
+		return sqlSession.update(NAMESPACE+"updateNoti", notice);
 	}
 
 	@Override

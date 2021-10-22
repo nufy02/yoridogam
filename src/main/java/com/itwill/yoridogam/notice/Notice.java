@@ -2,6 +2,8 @@ package com.itwill.yoridogam.notice;
 
 import java.util.Date;
 
+import com.itwill.yoridogam.member.Member;
+
 public class Notice {
 
 	/*
@@ -22,6 +24,7 @@ public class Notice {
 	private int noti_viewCount;
 	private String noti_content;
 	private String m_id;
+	
 	
 	public Notice() {
 		// TODO Auto-generated constructor stub

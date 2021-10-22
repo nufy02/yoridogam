@@ -9,7 +9,7 @@ public interface NoticeDao {
 	int insertNoti(Notice notice);
 	
 	/*************** 공지사항 수정 ***************/
-	int updateNoti(String noti_title, String noti_content, int noti_no);
+	int updateNoti(Notice notice);
 	
 	/*************** 공지사항 삭제 ***************/
 	int deleteNoti(int noti_no);
