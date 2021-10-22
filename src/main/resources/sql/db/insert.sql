@@ -12,7 +12,9 @@ insert into member_interest values(MEMBER_INTEREST_MI_NO_SEQ.nextval,'비건','m
 insert into member_interest values(MEMBER_INTEREST_MI_NO_SEQ.nextval,'쿠키','member2');
 insert into member_interest values(MEMBER_INTEREST_MI_NO_SEQ.nextval,'비건','member3');
 /********** Product **********/
-
+insert into product values(p_no_seq.nextval,'상품1','맛있어요','빵','10000','?');
+insert into product values(p_no_seq.nextval,'상품2','바삭해요','쿠키','5000','?');
+insert into product values(p_no_seq.nextval,'상품3','맛있어요','비건','10000','?');
 
 /********** Teacher **********/
 insert into teacher(t_id,t_name,t_pass,t_email,t_photo,t_detail,t_location,p_no) values('teacher1','kim1','1111','kkiho@naver.com','이미지1','일타강사','서울',1);
