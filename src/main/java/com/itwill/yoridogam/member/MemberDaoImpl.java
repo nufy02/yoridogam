@@ -35,8 +35,7 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public Member findMember(String m_id) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectOne(NAMESPACE+"findMember", m_id);
 	}
 
 	@Override
