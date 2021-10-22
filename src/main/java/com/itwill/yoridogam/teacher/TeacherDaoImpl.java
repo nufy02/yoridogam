@@ -13,37 +13,37 @@ public class TeacherDaoImpl implements TeacherDao {
 	private SqlSession sqlSession;
 
 	@Override
-	public int create(Member teacher) throws Exception {
+	public int create(Teacher teacher) throws Exception {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int update(Member teacher) throws Exception {
+	public int update(Teacher teacher) throws Exception {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public Member findTeacher(String t_id) throws Exception {
+	public Teacher findTeacher(String t_id) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Member remove(String t_id) throws Exception {
+	public Teacher remove(String t_id) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Member> findMemberList() throws Exception {
+	public List<Teacher> findMemberList() throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean existedMember(Member t_id) throws Exception {
+	public boolean existedMember(Teacher t_id) throws Exception {
 		// TODO Auto-generated method stub
 		return false;
 	}

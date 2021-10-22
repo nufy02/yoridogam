@@ -12,7 +12,7 @@ package com.itwill.yoridogam.teacher;
   T_LOCATION NOT NULL VARCHAR2(100) 
   P_NO                NUMBER(10)    
 **********************************/
-public class Member {
+public class Teacher {
 	private String t_id;
 	private String t_name;
 	private String t_pass;
@@ -22,12 +22,12 @@ public class Member {
 	private String t_location;
 	private Product product;
 	
-	public Member() {
+	public Teacher() {
 		// TODO Auto-generated constructor stub
 	}
 
 	
-	public Member(String t_id, String t_name, String t_pass, String t_email, String t_photo, String t_detail,
+	public Teacher(String t_id, String t_name, String t_pass, String t_email, String t_photo, String t_detail,
 			String t_location, Product product) {
 		super();
 		this.t_id = t_id;
