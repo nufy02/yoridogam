@@ -29,7 +29,7 @@
 
 <!-- 특정 강의시간 수정 -->
 <update id="update" parameterType="com.itwill.yoridogam.productTime.ProductTime">
-	update product_time set pt_time=#{pt_time} where pt_no=#{pt_no};
+	update product_time set pt_time=#{pt_time} where pt_no=#{pt_no} and p_no=#{p_no};
 </update>
 
 <!-- 특정 강의시간 삭제 -->

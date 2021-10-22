@@ -18,7 +18,7 @@ P_NO       NUMBER(10)
 				update
  ******************************/
  --(강사) 특정 강의시간 수정
- update product_time set pt_time=? where pt_no=?;
+ update product_time set pt_time=? where pt_no=? and p_no=?;
 
  /*****************************
 				delete
@@ -30,8 +30,8 @@ P_NO       NUMBER(10)
 				select
  ******************************/
  --예약 가능한 강의 시간 리스트 조회
- select pt_time from product_time pt join reservation rsv on pt.pt_time!=rsv.rsv_time where pt.p_no=?;
+ select * from product_time pt join reservation rsv on pt.pt_time!=rsv.rsv_time where pt.p_no=?;
  --(강사)기예약 강의 시간 리스트 조회
- select pt_time from product_time pt join reservation rsv on pt.pt_time=rsv.rsv_time where pt.p_no=?;
+ select * from product_time pt join reservation rsv on pt.pt_time=rsv.rsv_time where pt.p_no=?;
  
  
