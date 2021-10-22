@@ -10,7 +10,7 @@ public class Reservation {
 	private int rsv_total; // 총 금액
 	private String rsv_type; // 결제 방식
 	private int rsv_qty; // 총 인원
-	private Date rsv_date; // 예약일
+	private String rsv_date; // 예약일
 	private String rsv_time; // 예약 시간
 	private Date rsv_payDate; // 결제 일자
 	private Member member; //수강생 정보를 얻기 위함
@@ -19,8 +19,8 @@ public class Reservation {
 	public Reservation() {
 		
 	}
-
-	public Reservation(int rsv_no, int rsv_total, String rsv_type, int rsv_qty, Date rsv_date, String rsv_time,
+	
+	public Reservation(int rsv_no, int rsv_total, String rsv_type, int rsv_qty, String rsv_date, String rsv_time,
 			Date rsv_payDate, Member member, Product product) {
 		this.rsv_no = rsv_no;
 		this.rsv_total = rsv_total;
@@ -65,11 +65,11 @@ public class Reservation {
 		this.rsv_qty = rsv_qty;
 	}
 
-	public Date getRsv_date() {
+	public String getRsv_date() {
 		return rsv_date;
 	}
 
-	public void setRsv_date(Date rsv_date) {
+	public void setRsv_date(String rsv_date) {
 		this.rsv_date = rsv_date;
 	}
 

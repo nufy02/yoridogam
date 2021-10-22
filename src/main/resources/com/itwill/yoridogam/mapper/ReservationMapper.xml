@@ -20,17 +20,17 @@
  <!-- 오프라인 강의예약 insert -->
 <insert id="create" parameterType="com.itwill.yoridogam.reservation.Reservation">
  insert into reservation(rsv_no, rsv_total, rsv_type, rsv_qty, rsv_date, rsv_time, rsv_paydate, m_id, p_no)
-values(RESERVATION_RSV_NO_SEQ.nextval,#{rsv_total},#{rsv_type},#{rsv_qty},to_date(#{rsv_date},'YYYY/MM/DD'),#{rsv_time},sysdate,#{m_id},#{p_no})
+values(RESERVATION_RSV_NO_SEQ.nextval,#{rsv_total},#{rsv_type},#{rsv_qty},to_date(#{rsv_date},'YYYY/MM/DD'),#{rsv_time},sysdate,#{member.m_id},#{product.p_no})
 </insert>
 
 <!--m_id 회원 예약 전체 조회-->
 <select id="selectAll" parameterType="java.lang.String" resultMap="ReservationResultMap">
- select * from reservation where m_id=#{m_id};
+ select * from reservation where m_id=#{m_id}
 </select>
 
 <!--m_id 회원 예약 특정 상세 조회-->
-<select id="selectById" parameterType="com.itwill.yoridogam.reservation.Reservation" resultMap="ReservationResultMap">
-select * from product p join reservation rsv on rsv.p_no=p.p_no where rsv.m_id=#{m_id};
+<select id="selectAll" parameterType="com.itwill.yoridogam.reservation.Reservation" resultMap="ReservationResultMap">
+select * from product p join reservation rsv on rsv.p_no=p.p_no where rsv.m_id=#{m_id}
 </select>
 
 <!-- m_id회원 특정 예약 삭제 -->
