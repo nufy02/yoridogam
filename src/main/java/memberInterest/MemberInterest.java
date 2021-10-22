@@ -5,11 +5,11 @@ import com.itwill.yoridogam.member.Member;
 /*
 	이름          널?       유형           
 	----------- -------- ------------ 
-	MI_NO       NOT NULL NUMBER(10)   
+	MI_NO       NOT NULL NUMBER(10)    
 	MI_INTEREST          VARCHAR2(30) 
 	M_ID                 VARCHAR2(20) 	
  */
-public class MemberInterest {
+public class MemberInterest { 
 	private int mi_no;
 	private String mi_interest;
 	private Member member;
