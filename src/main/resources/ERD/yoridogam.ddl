@@ -81,7 +81,7 @@ CREATE TABLE reservation(
 		rsv_total                     		NUMBER(10)		 NULL ,
 		rsv_type                      		VARCHAR2(20)		 NULL ,
 		rsv_qty                       		NUMBER(10)		 NULL ,
-		rsv_date                      		DATE		 NULL ,
+		rsv_date                      		VARCHAR2(100)		 NULL ,
 		rsv_time                      		VARCHAR2(100)		 NULL ,
 		rsv_payDate                   		DATE		 DEFAULT sysdate		 NULL ,
 		m_id                          		VARCHAR2(20)		 NULL ,
@@ -170,7 +170,7 @@ CREATE SEQUENCE inquiry_ib_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
 CREATE TABLE product_time(
 		pt_no                         		NUMBER(10)		 NULL ,
-		pt_date                       		DATE		 NULL ,
+		pt_date                       		VARCHAR2(100)		 NULL ,
 		pt_time                       		VARCHAR2(100)		 NULL ,
 		p_no                          		NUMBER(10)		 NULL 
 );

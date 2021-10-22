@@ -19,7 +19,7 @@ public class Reservation {
 	public Reservation() {
 		
 	}
-	
+
 	public Reservation(int rsv_no, int rsv_total, String rsv_type, int rsv_qty, String rsv_date, String rsv_time,
 			Date rsv_payDate, Member member, Product product) {
 		this.rsv_no = rsv_no;
@@ -106,7 +106,7 @@ public class Reservation {
 	@Override
 	public String toString() {
 		return "Reservation [rsv_no=" + rsv_no + ", rsv_total=" + rsv_total + ", rsv_type=" + rsv_type + ", rsv_qty="
-				+ rsv_qty + ", rsv_date=" + rsv_date + ", rsv_time=" + rsv_time + ", rsv_payDate=" + rsv_payDate + "]";
+				+ rsv_qty + ", rsv_date=" + rsv_date + ", rsv_time=" + rsv_time + ", rsv_payDate=" + rsv_payDate + "]\n";
 	}
 	
 	
