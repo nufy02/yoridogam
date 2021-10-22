@@ -5,6 +5,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.itwill.yoridogam.cart.Cart;
 import com.itwill.yoridogam.cart.CartDao;
+import com.itwill.yoridogam.member.Member;
+import com.itwill.yoridogam.product.Product;
 
 public class CartDaoTest {
 
@@ -14,13 +16,15 @@ public class CartDaoTest {
 				new ClassPathXmlApplicationContext("spring/application-config.xml");
 		CartDao cartDao=(CartDao)applicationContext.getBean("cartDao");
 		
+		Product pp=new Product(1, null, null, null, null, null, null);
+		Member mm=new Member("1", null, null, null, null, null, null);
 		
 		//insert
-		System.out.println(cartDao.insertCart(new Cart(0,1,new Product(1),new Member("2"))));
+		System.out.println(cartDao.insertCart(new Cart(0,1,pp,mm)));
 		//increaseQ
-		System.out.println(cartDao.increaseQty(new Cart(3,0,null,new Member("2"))));
+		System.out.println(cartDao.increaseQty(new Cart(3,0,null,mm)));
 		//decreaseQ
-		System.out.println(cartDao.decreaseQty(new Cart(3,0,null,new Member("2"))));
+		System.out.println(cartDao.decreaseQty(new Cart(3,0,null,mm)));
 		//delete
 		System.out.println(cartDao.deleteCartByNo(1));
 		//deleteAll
@@ -30,6 +34,6 @@ public class CartDaoTest {
 		//isExist
 		System.out.println(cartDao.isExistCart("1"));
 		//isExistItem
-		System.out.println(cartDao.isExistCartItem(new Cart(0, 0, new Product(1), new Member("1"))));
+		System.out.println(cartDao.isExistCartItem(new Cart(0, 0, pp, mm)));
 	}
 }
