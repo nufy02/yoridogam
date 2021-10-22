@@ -1,7 +1,7 @@
 package com.itwill.yoridogam.cart;
 
 import com.itwill.yoridogam.member.Member;
-import com.itwill.yoridogam.productTime.ProductTime;
+import com.itwill.yoridogam.product.Product;
 
 public class Cart {
 	private int ci_no;

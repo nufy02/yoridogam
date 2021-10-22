@@ -10,7 +10,7 @@ public interface PayDao {
 	int createPay(Pay pay);
 	
 	/***********************특정 결제 취소 및 삭제***********************/
-	int deletePayByNo(Pay pay);
+	int deletePayByNo(int pay_no);
 	
 	/***********************전체 결제내역 삭제***********************/
 	int deletePay(String sUserId);
@@ -28,6 +28,6 @@ public interface PayDao {
 	List<Pay> findPayDetailList(String sUserId);
 	
 	/***********************회원 결제 상세 조회***********************/
-	Pay findPayDetailByNo(String sUserId, int pi_no);
+	Pay findPayDetailByNo(int pi_no);
 	
 }

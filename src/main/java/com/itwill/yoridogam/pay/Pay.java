@@ -1,22 +1,23 @@
 package com.itwill.yoridogam.pay;
 
 import java.sql.Date;
-import java.util.ArrayList;
+import java.util.List;
 
+import com.itwill.yoridogam.member.Member;
 import com.itwill.yoridogam.payItem.Pay_item;
 
 public class Pay {
-	private String pay_no;
+	private int pay_no;
 	private Date pay_date;
 	private String pay_type;
-	//private Member member;
-	private ArrayList<Pay_item> payItemList;
+	private Member member;
+	private List<Pay_item> payItemList;
 	
 	public Pay() {
 		
 	}
-	/*
-	public Pay(String pay_no, Date pay_date, String pay_type, Member member, ArrayList<Pay_item> payItemList) {
+	
+	public Pay(int pay_no, Date pay_date, String pay_type, Member member, List<Pay_item> payItemList) {
 		super();
 		this.pay_no = pay_no;
 		this.pay_date = pay_date;
@@ -25,11 +26,11 @@ public class Pay {
 		this.payItemList = payItemList;
 	}
 
-	public String getPay_no() {
+	public int getPay_no() {
 		return pay_no;
 	}
 
-	public void setPay_no(String pay_no) {
+	public void setPay_no(int pay_no) {
 		this.pay_no = pay_no;
 	}
 
@@ -57,13 +58,13 @@ public class Pay {
 		this.member = member;
 	}
 
-	public ArrayList<Pay_item> getPayItemList() {
+	public List<Pay_item> getPayItemList() {
 		return payItemList;
 	}
 
-	public void setPayItemList(ArrayList<Pay_item> payItemList) {
+	public void setPayItemList(List<Pay_item> payItemList) {
 		this.payItemList = payItemList;
 	}
-	*/
+	
 	
 }

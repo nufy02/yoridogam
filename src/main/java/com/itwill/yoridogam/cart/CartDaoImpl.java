@@ -43,8 +43,6 @@ public class CartDaoImpl implements CartDao{
 		int cartCount=sqlSession.selectOne(NAMESPACE+"isExistCart",sUserId);
 		if(cartCount==0) {
 			isExistCart=false;
-		}else if(cartCount>0){
-			isExistCart=true;
 		}
 		return isExistCart;
 	}

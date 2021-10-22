@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-@Repository("PayDao")
+@Repository("payDao")
 public class PayDaoImpl implements PayDao{
 	public static final String NAMESPACE="com.itwill.yoridogam.mapper.CartMapper.";
 	@Autowired
@@ -14,50 +14,47 @@ public class PayDaoImpl implements PayDao{
 	
 	@Override
 	public int createPay(Pay pay) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.insert(NAMESPACE+"createPay",pay);
 	}
 
 	@Override
-	public int deletePayByNo(Pay pay) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int deletePayByNo(int pay_no) {
+		return sqlSession.delete(NAMESPACE+"deletePayByNo",pay_no);
 	}
 
 	@Override
 	public int deletePay(String sUserId) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.delete(NAMESPACE+"deletePay",sUserId);
 	}
 
 	@Override
 	public boolean isExistPay(String sUserId) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean isExistPay=true;
+		int payCount=sqlSession.selectOne(NAMESPACE+"isExistPay",sUserId);
+		if(payCount==0) {
+			isExistPay=false;
+		}
+		return isExistPay;
 	}
 
 	@Override
 	public Pay findPayByNo(Pay pay) {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectOne(NAMESPACE+"findPayByNo",pay);
 	}
 
 	@Override
 	public List<Pay> findPayList(String sUserId) {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectList(NAMESPACE+"findPayList",sUserId);
 	}
 
 	@Override
 	public List<Pay> findPayDetailList(String sUserId) {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectList(NAMESPACE+"findPayDetailList",sUserId);
 	}
 
 	@Override
-	public Pay findPayDetailByNo(String sUserId, int pi_no) {
-		// TODO Auto-generated method stub
-		return null;
+	public Pay findPayDetailByNo(int pi_no) {
+		return sqlSession.selectOne(NAMESPACE+"findPayDetailByNo",pi_no);
 	}
 
 }
