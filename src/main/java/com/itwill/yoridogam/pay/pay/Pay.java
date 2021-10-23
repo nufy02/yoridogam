@@ -1,10 +1,10 @@
-package com.itwill.yoridogam.pay;
+package com.itwill.yoridogam.pay.pay;
 
 import java.sql.Date;
 import java.util.List;
 
 import com.itwill.yoridogam.member.Member;
-import com.itwill.yoridogam.payItem.Pay_item;
+import com.itwill.yoridogam.pay.payItem.Pay_item;
 
 public class Pay {
 	private int pay_no;

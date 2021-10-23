@@ -1,4 +1,4 @@
-package com.itwill.yoridogam.cart;
+package com.itwill.yoridogam.pay.cart;
 
 import java.util.List;
 

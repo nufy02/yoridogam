@@ -1,4 +1,4 @@
-package com.itwill.yoridogam.pay.test;
+package com.itwill.yoridogam.pay.pay.test;
 
 
 import java.util.ArrayList;
@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.itwill.yoridogam.cart.CartDao;
 import com.itwill.yoridogam.member.Member;
-import com.itwill.yoridogam.pay.Pay;
-import com.itwill.yoridogam.pay.PayDao;
-import com.itwill.yoridogam.payItem.Pay_item;
+import com.itwill.yoridogam.pay.cart.CartDao;
+import com.itwill.yoridogam.pay.pay.Pay;
+import com.itwill.yoridogam.pay.pay.PayDao;
+import com.itwill.yoridogam.pay.payItem.Pay_item;
 import com.itwill.yoridogam.product.Product;
 
 public class PayDaoTest {

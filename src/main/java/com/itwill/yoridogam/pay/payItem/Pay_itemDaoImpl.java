@@ -1,4 +1,4 @@
-package com.itwill.yoridogam.payItem;
+package com.itwill.yoridogam.pay.payItem;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;

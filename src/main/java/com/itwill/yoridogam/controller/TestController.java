@@ -12,8 +12,4 @@ public class TestController {
 		return "home";
 	}
 	
-	@RequestMapping(value = "checkout")
-	public String checkout() {
-		return "checkout";
-	}
 }

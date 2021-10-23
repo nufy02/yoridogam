@@ -1,11 +1,11 @@
-package com.itwill.yoridogam.payItem.test;
+package com.itwill.yoridogam.pay.payItem.test;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.itwill.yoridogam.pay.PayDao;
-import com.itwill.yoridogam.payItem.Pay_item;
-import com.itwill.yoridogam.payItem.Pay_itemDao;
+import com.itwill.yoridogam.pay.pay.PayDao;
+import com.itwill.yoridogam.pay.payItem.Pay_item;
+import com.itwill.yoridogam.pay.payItem.Pay_itemDao;
 import com.itwill.yoridogam.product.Product;
 
 public class Pay_ItemDaoTest {

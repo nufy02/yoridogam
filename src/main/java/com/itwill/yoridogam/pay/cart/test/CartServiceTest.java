@@ -1,12 +1,12 @@
-package com.itwill.yoridogam.cart.test;
+package com.itwill.yoridogam.pay.cart.test;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.itwill.yoridogam.cart.Cart;
-import com.itwill.yoridogam.cart.CartDao;
-import com.itwill.yoridogam.cart.CartService;
 import com.itwill.yoridogam.member.Member;
+import com.itwill.yoridogam.pay.cart.Cart;
+import com.itwill.yoridogam.pay.cart.CartDao;
+import com.itwill.yoridogam.pay.cart.CartService;
 import com.itwill.yoridogam.product.Product;
 
 public class CartServiceTest {

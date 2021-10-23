@@ -1,12 +1,12 @@
-package com.itwill.yoridogam.pay.test;
+package com.itwill.yoridogam.pay.pay.test;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.itwill.yoridogam.member.Member;
-import com.itwill.yoridogam.pay.Pay;
-import com.itwill.yoridogam.pay.PayDao;
-import com.itwill.yoridogam.pay.PayService;
+import com.itwill.yoridogam.pay.pay.Pay;
+import com.itwill.yoridogam.pay.pay.PayDao;
+import com.itwill.yoridogam.pay.pay.PayService;
 
 public class PayServiceTest {
 	public static void main(String[] args)throws Exception{

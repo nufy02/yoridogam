@@ -1,4 +1,4 @@
-package com.itwill.yoridogam.pay;
+package com.itwill.yoridogam.pay.pay;
 
 import java.util.List;
 

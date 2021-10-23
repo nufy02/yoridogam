@@ -1,14 +1,14 @@
-package com.itwill.yoridogam.pay;
+package com.itwill.yoridogam.pay.pay;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.itwill.yoridogam.cart.Cart;
-import com.itwill.yoridogam.cart.CartDao;
-import com.itwill.yoridogam.payItem.Pay_item;
-import com.itwill.yoridogam.payItem.Pay_itemDao;
+import com.itwill.yoridogam.pay.cart.Cart;
+import com.itwill.yoridogam.pay.cart.CartDao;
+import com.itwill.yoridogam.pay.payItem.Pay_item;
+import com.itwill.yoridogam.pay.payItem.Pay_itemDao;
 import com.itwill.yoridogam.product.ProductDao;
 
 @Service("payService")
@@ -23,7 +23,7 @@ public class PayServiceImpl implements PayService{
 	@Autowired
 	private CartDao cartDao;
 	
-	// 강의페이지->결제
+	// 강의페이지-> 결제
 	@Override
 	public int createPay(Pay pay, String sUserId, int pi_qty, int p_no) throws Exception{
 		int payCCount=payDao.createPay(pay);
@@ -32,7 +32,8 @@ public class PayServiceImpl implements PayService{
 		int count=payCCount+pICCount;
 		return count;
 	}
-
+	
+	// 장바구니(온라인)-> 결제
 	@Override
 	public int createPayFromCart(Pay pay,String sUserId) throws Exception {
 		int payCCount=payDao.createPay(pay);
