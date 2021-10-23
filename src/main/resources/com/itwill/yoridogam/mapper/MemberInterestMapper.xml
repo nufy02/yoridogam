@@ -14,7 +14,7 @@
 	<!-- createMemberInterest -->
 		<insert id="create" parameterType="com.itwill.yoridogam.memberInterest.MemberInterest">
 			insert into member_interest(mi_no,mi_interest,m_id)
-			values(#{mi_no},#{mi_interest},#{member.m_id})
+			values(MEMBER_INTEREST_MI_NO_SEQ.nextval,#{mi_interest},#{member.m_id})
 		</insert>
 	<!-- findMemberInterest_By_Id -->
 		<select id="getMemberInterestList" parameterType="java.lang.String" resultMap="memberInterestResultMap">
