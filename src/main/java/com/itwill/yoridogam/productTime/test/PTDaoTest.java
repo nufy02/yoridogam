@@ -19,13 +19,6 @@ public class PTDaoTest {
 		System.out.println(productTimeDao.create(new ProductTime(0, "2021/10/22", "10:00-11:00",
 																	new Product(1, null, null, null, null, null, null))));
 		*/
-		// <selectPossible> 예약가능한 강의 시간 리스트 조회
-		System.out.println(productTimeDao.selectPi(2));
-		
-		// <selectReserved> 예약된 강의 시간 리스트 조회
-		
-		System.out.println(productTimeDao.selectRv(2));
-		// <update> 특정 강의시간 수정
 		
 		
 		

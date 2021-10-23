@@ -24,23 +24,23 @@ insert into teacher(t_id,t_name,t_pass,t_email,t_photo,t_detail,t_location,p_no)
 
 /********** Product_time **********/
 
-insert into product_time(pt_no,pt_date, pt_time, p_no) 
-values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021/10/21','10:00-11:00',1);
+insert into product_time(pt_no,pt_date, pt_max, pt_time, p_no) 
+values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021/10/21',30,'10:00-11:00',1);
 
-insert into product_time(pt_no,pt_date, pt_time, p_no) 
-values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021/10/21','11:00-12:00',1);
+insert into product_time(pt_no,pt_date, pt_max, pt_time, p_no) 
+values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021/10/21',30,'11:00-12:00',1);
 
-insert into product_time(pt_no,pt_date, pt_time, p_no) 
-values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021/10/21','13:00-14:00',1);
+insert into product_time(pt_no,pt_date, pt_max, pt_time, p_no) 
+values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021/10/21',30,'13:00-14:00',1);
 
-insert into product_time(pt_no,pt_date, pt_time, p_no) 
-values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021/10/21','10:00-11:00',2);
+insert into product_time(pt_no,pt_date, pt_max, pt_time, p_no) 
+values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021/10/21',30,'10:00-11:00',2);
 
-insert into product_time(pt_no,pt_date, pt_time, p_no)
- values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021/10/21','11:00-12:00',2);
+insert into product_time(pt_no,pt_date, pt_max, pt_time, p_no)
+ values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021/10/21',30,'11:00-12:00',2);
  
-insert into product_time(pt_no,pt_date, pt_time, p_no) 
-values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021/10/21','13:00-14:00',2);
+insert into product_time(pt_no,pt_date, pt_max, pt_time, p_no) 
+values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021/10/21',30,'13:00-14:00',2);
 
 
 /********** Cart **********/

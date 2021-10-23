@@ -6,14 +6,17 @@ public interface ProductTimeDao {
 // <create> (강사) 오프라인 강의시간 등록
 	int create(ProductTime productTime) throws Exception;
 	
-// <selectPossible> 예약가능한 강의 시간 리스트 조회
-	List<ProductTime> selectPi(int p_no) throws Exception;
+// <selectAll> 강의 시간 조회
+	List<ProductTime> selectAll(int pt_no) throws Exception;
 	
-// <selectReserved> 예약된 강의 시간 리스트 조회
-	List<ProductTime> selectRv(int p_no) throws Exception;
+// <selectPtNo> 특정 강의 예약된 인원 조회
+	ProductTime selectPtNo(int pt_no) throws Exception;
 	
 // <update> 특정 강의시간 수정
 	int update(ProductTime productTime) throws Exception;
+
+// <addPt_rsv> 강의 예약한 인원 추가 수정
+	int addPt_rsv(ProductTime productTime) throws Exception;
 	
 // <delete> 특정 강의시간 삭제
 	int dalete(int pt_no) throws Exception;

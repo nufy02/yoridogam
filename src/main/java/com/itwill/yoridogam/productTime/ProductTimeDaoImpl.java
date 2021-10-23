@@ -21,20 +21,26 @@ public static final String NAMESPACE="com.itwill.yoridogam.mapper.ProductTimeMap
 	}
 
 	@Override
-	public List<ProductTime> selectPi(int p_no) throws Exception {
-		return sqlSession.selectList(NAMESPACE+"selectPi",p_no);
+	public List<ProductTime> selectAll(int p_no) throws Exception {
+		return sqlSession.selectList(NAMESPACE+"selectAll",p_no);
 	}
 
 	@Override
-	public List<ProductTime> selectRv(int p_no) throws Exception {
-		return sqlSession.selectList(NAMESPACE+"selectRv",p_no);
+	public ProductTime selectPtNo(int pt_no) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"selectPtNo",pt_no);
 	}
 
 	@Override
 	public int update(ProductTime productTime) throws Exception {
 		return sqlSession.update(NAMESPACE+"update",productTime);
 	}
-
+	
+	@Override
+	public int addPt_rsv(ProductTime productTime) throws Exception {
+		return sqlSession.update(NAMESPACE+"addPt_rsv",productTime);
+	}
+	
+	
 	@Override
 	public int dalete(int pt_no) throws Exception {
 		return sqlSession.delete(NAMESPACE+"delete",pt_no);
