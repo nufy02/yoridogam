@@ -14,7 +14,9 @@
                 <!-- Single Catagory -->
                 <div class="single-products-catagory clearfix">
                     <a href="shop.html">
-                        <img src="img/bg-img/1.jpg" alt="">
+                    	
+                    	<!-- 수정예정 -->
+                        <img src="https://www.public-kitchen.com/upload/lecture/8faf6d56-4871-4951-9585-f9c427b7827b.jpg" alt="">
                         <!-- Hover Content -->
                         <div class="hover-content">
                             <div class="line"></div>
