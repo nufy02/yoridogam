@@ -36,7 +36,7 @@ public class PayServiceImpl implements PayService{
 	// 장바구니(온라인)-> 결제
 	@Override
 	public int createPayFromCart(Pay pay,String sUserId) throws Exception {
-		int payCCount=payDao.createPay(pay);
+		payDao.createPay(pay);
 		List<Cart> cList=cartDao.cartList(sUserId);
 		int payICCount=0;
 		for(Cart cart:cList) {
@@ -44,8 +44,7 @@ public class PayServiceImpl implements PayService{
 			(new Pay_item(0, cart.getCi_qty(), pay.getPay_no(), cart.getProduct()));
 			payICCount++;
 		}
-		int count=payCCount+payICCount;
-		return count;
+		return payICCount;
 	}
 
 	@Override
