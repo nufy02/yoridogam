@@ -7,7 +7,9 @@
 		<result column="NOTI_DATE" property="noti_date"/>
 		<result column="NOTI_VIEWCOUNT" property="noti_viewCount"/>
 		<result column="NOTI_CONTENT" property="noti_content"/>
-		<result column="M_ID" property="m_id"/>
+		<association property="member" javaType="com.itwill.yoridogam.member.Member" autoMapping="true">
+			<result column="M_ID" property="m_id"/>
+		</association>
 	</resultMap>
 	
 	<insert id="insertNoti" parameterType="com.itwill.yoridogam.notice.Notice">

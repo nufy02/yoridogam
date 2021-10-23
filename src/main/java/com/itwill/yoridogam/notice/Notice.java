@@ -24,8 +24,10 @@ public class Notice {
 	private int noti_viewCount;
 	private String noti_content;
 	private String m_id;
+	private Member member;
 	
 	
+
 	public Notice() {
 		// TODO Auto-generated constructor stub
 	}
@@ -95,5 +97,12 @@ public class Notice {
 				+ ", noti_viewCount=" + noti_viewCount + ", noti_content=" + noti_content + ", m_id=" + m_id + "]";
 	}
 	
+	public Member getMember() {
+		return member;
+	}
+	
+	public void setMember(Member member) {
+		this.member = member;
+	}
 	
 }
