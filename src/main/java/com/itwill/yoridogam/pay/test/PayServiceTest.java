@@ -19,5 +19,9 @@ public class PayServiceTest {
 		Member mm=new Member("1", null, null, null, null, null, null, null);
 		Pay pp=new Pay(1, null, "카드", mm);
 		System.out.println(payService.createPay(pp, "1", 1, 1));
+		
+		//강의 장바구니결제
+		System.out.println(payService.createPayFromCart(pp, "1"));
+		
 	}
 }

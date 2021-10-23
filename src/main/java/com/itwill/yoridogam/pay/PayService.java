@@ -7,7 +7,7 @@ public interface PayService {
 	/***********************온라인 강의 결제***********************/
 	int createPay(Pay pay, String sUserId, int pi_qty, int p_no) throws Exception;
 	
-	int createPayFromCart() throws Exception;
+	int createPayFromCart(Pay pay,String sUserId) throws Exception;
 	
 	/***********************특정 결제 취소 및 삭제***********************/
 	int deletePayByNo(int pay_no) throws Exception;

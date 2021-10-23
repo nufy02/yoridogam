@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.itwill.yoridogam.cart.Cart;
+import com.itwill.yoridogam.cart.CartDao;
 import com.itwill.yoridogam.payItem.Pay_item;
 import com.itwill.yoridogam.payItem.Pay_itemDao;
 import com.itwill.yoridogam.product.ProductDao;
@@ -18,7 +20,9 @@ public class PayServiceImpl implements PayService{
 	private Pay_itemDao pay_itemDao;
 	@Autowired
 	private ProductDao productDao;
-
+	@Autowired
+	private CartDao cartDao;
+	
 	// 강의페이지->결제
 	@Override
 	public int createPay(Pay pay, String sUserId, int pi_qty, int p_no) throws Exception{
@@ -30,9 +34,17 @@ public class PayServiceImpl implements PayService{
 	}
 
 	@Override
-	public int createPayFromCart() throws Exception {
-		//구상중..
-		return 0;
+	public int createPayFromCart(Pay pay,String sUserId) throws Exception {
+		int payCCount=payDao.createPay(pay);
+		List<Cart> cList=cartDao.cartList(sUserId);
+		int payICCount=0;
+		for(Cart cart:cList) {
+			pay_itemDao.createPayItem
+			(new Pay_item(0, cart.getCi_qty(), pay.getPay_no(), cart.getProduct()));
+			payICCount++;
+		}
+		int count=payCCount+payICCount;
+		return count;
 	}
 
 	@Override
