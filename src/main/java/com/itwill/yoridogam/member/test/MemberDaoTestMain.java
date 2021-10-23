@@ -20,12 +20,12 @@ public class MemberDaoTestMain {
 		/*
 		 * 회원가입
 		 */
-		System.out.println("2. create : "+memberDao.create(new Member("member4","김첨지3","1111","서울시","kkihon@naver.com","010-8888-8888","비건","남자")));
+		System.out.println("2. create : "+memberDao.create(new Member("member4","김첨지3","1111","서울시","kkihon@naver.com","010-8888-8888","남자")));
 		
 		/*
 		 * 회원수정
 		 */
-		Member updateMember = new Member("member1", "프프", "2323", "부천시", "mm@naver.com", "010-8787-8787", "식빵", "여성");
+		Member updateMember = new Member("member1", "프프", "2323", "부천시", "mm@naver.com", "010-8787-8787", "여성");
 		System.out.println("3.update :"+memberDao.update(updateMember));
 		/*
 		 * 회원상세 

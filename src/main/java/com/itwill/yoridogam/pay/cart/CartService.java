@@ -1,9 +1,8 @@
-package com.itwill.yoridogam.cart;
+package com.itwill.yoridogam.pay.cart;
 
 import java.util.List;
 
-public interface CartDao {
-
+public interface CartService {
 	/***********************장바구니 강의 추가***********************/
 	int insertCart(Cart cart) throws Exception;
 	

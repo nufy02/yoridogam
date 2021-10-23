@@ -1,4 +1,4 @@
-package com.itwill.yoridogam.pay;
+package com.itwill.yoridogam.pay.pay;
 
 import java.util.List;
 
@@ -8,27 +8,27 @@ import org.springframework.stereotype.Repository;
 
 @Repository("payDao")
 public class PayDaoImpl implements PayDao{
-	public static final String NAMESPACE="com.itwill.yoridogam.mapper.CartMapper.";
+	public static final String NAMESPACE="com.itwill.yoridogam.mapper.PayMapper.";
 	@Autowired
 	private SqlSession sqlSession;
 	
 	@Override
-	public int createPay(Pay pay) {
+	public int createPay(Pay pay) throws Exception{
 		return sqlSession.insert(NAMESPACE+"createPay",pay);
 	}
 
 	@Override
-	public int deletePayByNo(int pay_no) {
+	public int deletePayByNo(int pay_no) throws Exception{
 		return sqlSession.delete(NAMESPACE+"deletePayByNo",pay_no);
 	}
 
 	@Override
-	public int deletePay(String sUserId) {
+	public int deletePay(String sUserId) throws Exception{
 		return sqlSession.delete(NAMESPACE+"deletePay",sUserId);
 	}
 
 	@Override
-	public boolean isExistPay(String sUserId) {
+	public boolean isExistPay(String sUserId) throws Exception{
 		boolean isExistPay=true;
 		int payCount=sqlSession.selectOne(NAMESPACE+"isExistPay",sUserId);
 		if(payCount==0) {
@@ -38,22 +38,22 @@ public class PayDaoImpl implements PayDao{
 	}
 
 	@Override
-	public Pay findPayByNo(Pay pay) {
+	public Pay findPayByNo(Pay pay) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"findPayByNo",pay);
 	}
 
 	@Override
-	public List<Pay> findPayList(String sUserId) {
+	public List<Pay> findPayList(String sUserId) throws Exception{
 		return sqlSession.selectList(NAMESPACE+"findPayList",sUserId);
 	}
 
 	@Override
-	public List<Pay> findPayDetailList(String sUserId) {
+	public List<Pay> findPayDetailList(String sUserId) throws Exception{
 		return sqlSession.selectList(NAMESPACE+"findPayDetailList",sUserId);
 	}
 
 	@Override
-	public Pay findPayDetailByNo(int pi_no) {
+	public Pay findPayDetailByNo(int pi_no) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"findPayDetailByNo",pi_no);
 	}
 

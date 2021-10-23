@@ -18,7 +18,6 @@ CREATE TABLE member(
 		m_addr                        		VARCHAR2(100)		 NOT NULL,
 		m_email                       		VARCHAR2(50)		 NOT NULL,
 		m_phone                       		VARCHAR2(14)		 NOT NULL,
-		m_interest                    		VARCHAR2(30)		 NULL ,
 		m_gender                      		VARCHAR2(10)		 NOT NULL
 );
 
@@ -27,8 +26,9 @@ CREATE TABLE member_interest(
 		mi_interest                   		VARCHAR2(30)		 NULL ,
 		m_id                          		VARCHAR2(20)		 NULL 
 );
-DROP SEQUENCE member_mi_no_SEQ;
+DROP SEQUENCE member_interest_mi_no_SEQ;
 CREATE SEQUENCE member_interest_mi_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
+
 
 
 
@@ -81,7 +81,7 @@ CREATE TABLE reservation(
 		rsv_total                     		NUMBER(10)		 NULL ,
 		rsv_type                      		VARCHAR2(20)		 NULL ,
 		rsv_qty                       		NUMBER(10)		 NULL ,
-		rsv_date                      		DATE		 NULL ,
+		rsv_date                      		VARCHAR2(100)		 NULL ,
 		rsv_time                      		VARCHAR2(100)		 NULL ,
 		rsv_payDate                   		DATE		 DEFAULT sysdate		 NULL ,
 		m_id                          		VARCHAR2(20)		 NULL ,
@@ -170,7 +170,7 @@ CREATE SEQUENCE inquiry_ib_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
 CREATE TABLE product_time(
 		pt_no                         		NUMBER(10)		 NULL ,
-		pt_date                       		DATE		 NULL ,
+		pt_date                       		VARCHAR2(100)		 NULL ,
 		pt_time                       		VARCHAR2(100)		 NULL ,
 		p_no                          		NUMBER(10)		 NULL 
 );

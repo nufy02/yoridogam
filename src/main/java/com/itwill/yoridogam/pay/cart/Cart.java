@@ -1,4 +1,4 @@
-package com.itwill.yoridogam.cart;
+package com.itwill.yoridogam.pay.cart;
 
 import com.itwill.yoridogam.member.Member;
 import com.itwill.yoridogam.product.Product;

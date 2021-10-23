@@ -34,14 +34,14 @@ public class MemberDaoImpl implements MemberDao {
 	}
 
 	@Override
-	public Member findMember(String m_id) throws Exception {
-		return sqlSession.selectOne(NAMESPACE+"findMember", m_id);
+	public Member findMember(String sUserId) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"findMember", sUserId);
 	}
 
 	@Override
-	public int remove(String m_id) throws Exception {
+	public int remove(String sUserId) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.delete(NAMESPACE+"remove", m_id);
+		return sqlSession.delete(NAMESPACE+"remove", sUserId);
 	}
 	/*
 	@Override
@@ -51,8 +51,8 @@ public class MemberDaoImpl implements MemberDao {
 	}
 	*/
 	@Override
-	public boolean existedMember(String m_id) throws Exception {
-		int count = sqlSession.selectOne(NAMESPACE+"existedMember",m_id);
+	public boolean existedMember(String sUserId) throws Exception {
+		int count = sqlSession.selectOne(NAMESPACE+"existedMember",sUserId);
 		if(count==1) {
 			return true;
 		}else {
