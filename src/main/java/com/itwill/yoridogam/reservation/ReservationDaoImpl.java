@@ -27,9 +27,9 @@ public class ReservationDaoImpl implements ReservationDao{
 	}
 
 	@Override
-	public Reservation selectById(Reservation reservation) throws Exception {
+	public List<Reservation> selectById(String sUserId) throws Exception {
 		
-		return sqlSession.selectOne(NAMESPACE+"selectById",reservation);
+		return sqlSession.selectList(NAMESPACE+"selectById",sUserId);
 	}
 
 	@Override

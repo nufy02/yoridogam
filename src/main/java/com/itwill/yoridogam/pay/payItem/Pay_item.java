@@ -1,23 +1,21 @@
-package com.itwill.yoridogam.payItem;
+package com.itwill.yoridogam.pay.payItem;
 
-import com.itwill.yoridogam.pay.Pay;
 import com.itwill.yoridogam.product.Product;
 
 public class Pay_item {
 	private int pi_no;
 	private int pi_qty;
-	private Pay pay;
+	private int pay_no;
 	private Product product;
 	
 	public Pay_item() {
 	}
-	
-	
-	public Pay_item(int pi_no, int pi_qty, Pay pay, Product product) {
+
+	public Pay_item(int pi_no, int pi_qty, int pay_no, Product product) {
 		super();
 		this.pi_no = pi_no;
 		this.pi_qty = pi_qty;
-		this.pay = pay;
+		this.pay_no = pay_no;
 		this.product = product;
 	}
 
@@ -37,12 +35,12 @@ public class Pay_item {
 		this.pi_qty = pi_qty;
 	}
 
-	public Pay getPay() {
-		return pay;
+	public int getPay_no() {
+		return pay_no;
 	}
 
-	public void setPay(Pay pay) {
-		this.pay = pay;
+	public void setPay_no(int pay_no) {
+		this.pay_no = pay_no;
 	}
 
 	public Product getProduct() {
@@ -54,4 +52,5 @@ public class Pay_item {
 	}
 	
 	
+
 }

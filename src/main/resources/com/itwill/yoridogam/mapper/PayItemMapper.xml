@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwill.yoridogam.mapper.PayItemMapper">
+	<resultMap type="com.itwill.yoridogam.pay.payItem.Pay_item" id="payItemResultMap" autoMapping="true">
+		<result column="PI_NO" property="pi_no"/>
+		<result column="PI_Qty" property="pi_qty"/>
+		<result column="PAY_NO" property="pay_no"/>
+		<association property="product" javaType="com.itwill.yoridogam.product.Product" autoMapping="true">
+				<result column="P_NO" property="p_no"/>
+		</association>
+	</resultMap>
+	<insert id="createPayItem" parameterType="com.itwill.yoridogam.pay.payItem.Pay_item">
+		insert into pay_item(pi_no, pi_qty, pay_no, p_no) values(PAY_ITEM_PI_NO_SEQ.nextval,#{pi_qty},#{pay_no},#{product.p_no})
+	</insert>
+	
+	
+
+
+
+
+
+
+
+</mapper>

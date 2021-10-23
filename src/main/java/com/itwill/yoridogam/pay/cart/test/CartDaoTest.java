@@ -1,11 +1,11 @@
-package com.itwill.yoridogam.cart.test;
+package com.itwill.yoridogam.pay.cart.test;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.itwill.yoridogam.cart.Cart;
-import com.itwill.yoridogam.cart.CartDao;
 import com.itwill.yoridogam.member.Member;
+import com.itwill.yoridogam.pay.cart.Cart;
+import com.itwill.yoridogam.pay.cart.CartDao;
 import com.itwill.yoridogam.product.Product;
 
 public class CartDaoTest {
@@ -17,7 +17,7 @@ public class CartDaoTest {
 		CartDao cartDao=(CartDao)applicationContext.getBean("cartDao");
 		
 		Product pp=new Product(1, null, null, null, null, null, null);
-		Member mm=new Member("1", null, null, null, null, null, null);
+		Member mm=new Member("1", null, null, null, null, null, null, null);
 		
 		//insert
 		System.out.println(cartDao.insertCart(new Cart(0,1,pp,mm)));

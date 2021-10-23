@@ -14,7 +14,7 @@ import com.itwill.yoridogam.product.Product;
 
 public class ProductTime {
 	private int pt_no;
-	private Date pt_date;
+	private String pt_date;
 	private String pt_time;
 	private Product product;
 	
@@ -22,7 +22,7 @@ public class ProductTime {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ProductTime(int pt_no, Date pt_date, String pt_time, Product product) {
+	public ProductTime(int pt_no, String pt_date, String pt_time, Product product) {
 		super();
 		this.pt_no = pt_no;
 		this.pt_date = pt_date;
@@ -38,11 +38,11 @@ public class ProductTime {
 		this.pt_no = pt_no;
 	}
 
-	public Date getPt_date() {
+	public String getPt_date() {
 		return pt_date;
 	}
 
-	public void setPt_date(Date pt_date) {
+	public void setPt_date(String pt_date) {
 		this.pt_date = pt_date;
 	}
 

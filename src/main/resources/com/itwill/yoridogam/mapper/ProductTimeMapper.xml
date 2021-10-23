@@ -14,7 +14,7 @@
 <!-- (강사) 오프라인 강의시간 등록 -->
 <insert id="create" parameterType="com.itwill.yoridogam.productTime.ProductTime">
 	insert into product_time(pt_no,pt_date, pt_time, p_no) 
-		values(PRODUCT_TIME_PT_NO_SEQ.nextval,to_date(#{pt_date},'YYYY/MM/DD'),#{pt_time},#{p_no});
+		values(PRODUCT_TIME_PT_NO_SEQ.nextval,#{pt_date},#{pt_time},#{p_no});
 </insert>
 
 <!-- 예약가능한 강의 시간 리스트 조회 -->

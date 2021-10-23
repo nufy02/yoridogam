@@ -10,11 +10,11 @@ public interface ReservationDao {
 /*
  <selectAll> 회원 예약 전체 조회
  */
-	List<Reservation> selectAll(String m_id) throws Exception;
+	List<Reservation> selectAll(String sUserId) throws Exception;
 /*
  <select> 회원 예약 특정 상세 조회
  */
-	Reservation selectById(Reservation reservation) throws Exception;
+	List<Reservation> selectById(String sUserId) throws Exception;
 /*
  <delete> 회원 특정 예약 취소 및 내역 삭제
  */

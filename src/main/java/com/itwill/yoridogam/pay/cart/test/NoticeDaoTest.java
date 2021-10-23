@@ -1,4 +1,4 @@
-package com.itwill.yoridogam.cart.test;
+package com.itwill.yoridogam.pay.cart.test;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

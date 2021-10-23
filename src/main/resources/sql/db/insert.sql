@@ -12,9 +12,9 @@ insert into member_interest values(MEMBER_INTEREST_MI_NO_SEQ.nextval,'비건','m
 insert into member_interest values(MEMBER_INTEREST_MI_NO_SEQ.nextval,'쿠키','member2');
 insert into member_interest values(MEMBER_INTEREST_MI_NO_SEQ.nextval,'비건','member3');
 /********** Product **********/
-insert into product values(p_no_seq.nextval,'상품1','맛있어요','빵','10000','?');
-insert into product values(p_no_seq.nextval,'상품2','바삭해요','쿠키','5000','?');
-insert into product values(p_no_seq.nextval,'상품3','맛있어요','비건','10000','?');
+insert into product values(PRODUCT_P_NO_SEQ.nextval,'강의1','맛있어요','빵','10000','온라인','이미지url1');
+insert into product values(PRODUCT_P_NO_SEQ.nextval,'강의2','바삭해요','쿠키','5000','온라인','이미지url2');
+insert into product values(PRODUCT_P_NO_SEQ.nextval,'강의3','맛있어요','비건','10000','오프라인','이미지url3');
 
 /********** Teacher **********/
 insert into teacher(t_id,t_name,t_pass,t_email,t_photo,t_detail,t_location,p_no) values('teacher1','kim1','1111','kkiho@naver.com','이미지1','일타강사','서울',1);
@@ -23,49 +23,56 @@ insert into teacher(t_id,t_name,t_pass,t_email,t_photo,t_detail,t_location,p_no)
 
 
 /********** Product_time **********/
-/*
-insert into product_time(pt_no,pt_date, pt_time, p_no) 
-values(PRODUCT_TIME_PT_NO_SEQ.nextval,to_date('2021/10/21','YYYY/MM/DD'),'10:00-11:00',?);
 
 insert into product_time(pt_no,pt_date, pt_time, p_no) 
-values(PRODUCT_TIME_PT_NO_SEQ.nextval,to_date('2021/10/21','YYYY/MM/DD'),'11:00-12:00',?);
+values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021/10/21','10:00-11:00',1);
 
 insert into product_time(pt_no,pt_date, pt_time, p_no) 
-values(PRODUCT_TIME_PT_NO_SEQ.nextval,to_date('2021/10/21','YYYY/MM/DD'),'13:00-14:00',?);
+values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021/10/21','11:00-12:00',1);
 
 insert into product_time(pt_no,pt_date, pt_time, p_no) 
-values(PRODUCT_TIME_PT_NO_SEQ.nextval,to_date('2021/10/22','YYYY/MM/DD'),'10:00-11:00',?);
+values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021/10/21','13:00-14:00',1);
+
+insert into product_time(pt_no,pt_date, pt_time, p_no) 
+values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021/10/21','10:00-11:00',2);
 
 insert into product_time(pt_no,pt_date, pt_time, p_no)
- values(PRODUCT_TIME_PT_NO_SEQ.nextval,to_date('2021/10/22','YYYY/MM/DD'),'11:00-12:00',?);
+ values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021/10/21','11:00-12:00',2);
  
 insert into product_time(pt_no,pt_date, pt_time, p_no) 
-values(PRODUCT_TIME_PT_NO_SEQ.nextval,to_date('2021/10/22','YYYY/MM/DD'),'13:00-14:00',?);
-*/
+values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021/10/21','13:00-14:00',2);
+
 
 /********** Cart **********/
 
 
 /********** Pay **********/
-
+insert into pay(pay_no, pay_date, pay_total, pay_type, m_id) values(PAY_PAY_NO_SEQ.nextval,sysdate,'20000','무통장입금','member1');
+insert into pay(pay_no, pay_date, pay_total, pay_type, m_id) values(PAY_PAY_NO_SEQ.nextval,sysdate,'40000','카드결제','member1');
+insert into pay(pay_no, pay_date, pay_total, pay_type, m_id) values(PAY_PAY_NO_SEQ.nextval,sysdate,'40000','카카오페이','member1');
 
 /********** Pay_item **********/
-
+insert into pay_item(pi_no, pi_qty, pay_no, p_no) values(PAY_ITEM_PI_NO_SEQ.nextval,1,1,1);
+insert into pay_item(pi_no, pi_qty, pay_no, p_no) values(PAY_ITEM_PI_NO_SEQ.nextval,2,1,2);
+insert into pay_item(pi_no, pi_qty, pay_no, p_no) values(PAY_ITEM_PI_NO_SEQ.nextval,3,2,3);
+insert into pay_item(pi_no, pi_qty, pay_no, p_no) values(PAY_ITEM_PI_NO_SEQ.nextval,1,2,1);
+insert into pay_item(pi_no, pi_qty, pay_no, p_no) values(PAY_ITEM_PI_NO_SEQ.nextval,2,3,2);
+insert into pay_item(pi_no, pi_qty, pay_no, p_no) values(PAY_ITEM_PI_NO_SEQ.nextval,3,3,3);
 
 /********** Reservation **********/
-/*
- insert into reservation(rsv_no, rsv_total, rsv_type, rsv_qty, rsv_date, rsv_time, rsv_paydate, m_id, p_no)
-values(RESERVATION_RSV_NO_SEQ.nextval,30000,'네이버페이',1,to_date('2021/10/21','YYYY/MM/DD'),'10:00-11:00',sysdate,m_id,p_no);
 
  insert into reservation(rsv_no, rsv_total, rsv_type, rsv_qty, rsv_date, rsv_time, rsv_paydate, m_id, p_no)
-values(RESERVATION_RSV_NO_SEQ.nextval,40000,'카카오페이',2,to_date('2021/10/22','YYYY/MM/DD'),'11:00-12:00',sysdate,m_id,p_no);
+values(RESERVATION_RSV_NO_SEQ.nextval,30000,'네이버페이',1,'2021/10/21','10:00-11:00',sysdate,'member1',1);
 
  insert into reservation(rsv_no, rsv_total, rsv_type, rsv_qty, rsv_date, rsv_time, rsv_paydate, m_id, p_no)
-values(RESERVATION_RSV_NO_SEQ.nextval,30000,'네이버페이',1,to_date('2021/10/22','YYYY/MM/DD'),'10:00-11:00',sysdate,m_id,p_no);
+values(RESERVATION_RSV_NO_SEQ.nextval,60000,'카카오페이',2,'2021/10/21','11:00-12:00',sysdate,'member3',1);
 
  insert into reservation(rsv_no, rsv_total, rsv_type, rsv_qty, rsv_date, rsv_time, rsv_paydate, m_id, p_no)
-values(RESERVATION_RSV_NO_SEQ.nextval,40000,'yoridogam페이',1,to_date('2021/10/21','YYYY/MM/DD'),'13:00-14:00',sysdate,m_id,p_no);
-*/
+values(RESERVATION_RSV_NO_SEQ.nextval,50000,'네이버페이',1,'2021/10/21','10:00-11:00',sysdate,'member2',2);
+
+ insert into reservation(rsv_no, rsv_total, rsv_type, rsv_qty, rsv_date, rsv_time, rsv_paydate, m_id, p_no)
+values(RESERVATION_RSV_NO_SEQ.nextval,30000,'yoridogam페이',1,'2021/10/21','13:00-14:00',sysdate,'member1',1);
+
 
 /********** Review **********/
 
