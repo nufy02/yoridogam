@@ -64,7 +64,7 @@ public class ProductTime {
 	
 	@Override
 	public String toString() {
-		return "ProductTime [pt_no=" + pt_no + ", pt_date=" + pt_date + ", pt_time=" + pt_time + "]";
+		return "ProductTime [pt_no=" + pt_no + ", pt_date=" + pt_date + ", pt_time=" + pt_time + "]\n";
 	}
 	
 	

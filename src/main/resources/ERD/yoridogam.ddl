@@ -171,6 +171,8 @@ CREATE SEQUENCE inquiry_ib_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 CREATE TABLE product_time(
 		pt_no                         		NUMBER(10)		 NULL ,
 		pt_date                       		VARCHAR2(100)		 NULL ,
+		pt_max                       		NUMBER(10)		 NULL ,
+		pt_rsv                       		NUMBER(10)		 DEFAULT 0		 NULL ,
 		pt_time                       		VARCHAR2(100)		 NULL ,
 		p_no                          		NUMBER(10)		 NULL 
 );

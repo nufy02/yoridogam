@@ -774,8 +774,8 @@
                         <constraint>
                           <height>-1</height>
                           <width>-1</width>
-                          <x>64</x>
-                          <y>242</y>
+                          <x>63</x>
+                          <y>218</y>
                         </constraint>
                         <sourceConnections>
                           <net.java.amateras.db.visual.model.ForeignKeyModel reference="../../.."/>
@@ -818,6 +818,33 @@
                             <description></description>
                             <autoIncrement>false</autoIncrement>
                             <defaultValue></defaultValue>
+                          </net.java.amateras.db.visual.model.ColumnModel>
+                          <net.java.amateras.db.visual.model.ColumnModel>
+                            <columnName>pt_max</columnName>
+                            <logicalName>pt_max</logicalName>
+                            <columnType class="net.java.amateras.db.dialect.ColumnType">
+                              <name>INTEGER</name>
+                              <logicalName>Integer</logicalName>
+                              <supportSize>true</supportSize>
+                              <type>4</type>
+                            </columnType>
+                            <size>100</size>
+                            <notNull>false</notNull>
+                            <primaryKey>false</primaryKey>
+                            <description></description>
+                            <autoIncrement>false</autoIncrement>
+                            <defaultValue></defaultValue>
+                          </net.java.amateras.db.visual.model.ColumnModel>
+                          <net.java.amateras.db.visual.model.ColumnModel>
+                            <columnName>pt_rsv</columnName>
+                            <logicalName>pt_rsv</logicalName>
+                            <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel[3]/columnType"/>
+                            <size>100</size>
+                            <notNull>false</notNull>
+                            <primaryKey>false</primaryKey>
+                            <description></description>
+                            <autoIncrement>false</autoIncrement>
+                            <defaultValue>0</defaultValue>
                           </net.java.amateras.db.visual.model.ColumnModel>
                           <net.java.amateras.db.visual.model.ColumnModel>
                             <columnName>pt_time</columnName>
@@ -891,7 +918,7 @@
                     <net.java.amateras.db.visual.model.ColumnModel>
                       <columnName>p_detail</columnName>
                       <logicalName>p_detail</logicalName>
-                      <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../targetConnections/net.java.amateras.db.visual.model.ForeignKeyModel[6]/source/columns/net.java.amateras.db.visual.model.ColumnModel[3]/columnType"/>
+                      <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../targetConnections/net.java.amateras.db.visual.model.ForeignKeyModel[6]/source/columns/net.java.amateras.db.visual.model.ColumnModel[5]/columnType"/>
                       <size>1000</size>
                       <notNull>false</notNull>
                       <primaryKey>false</primaryKey>
@@ -902,7 +929,7 @@
                     <net.java.amateras.db.visual.model.ColumnModel>
                       <columnName>p_category</columnName>
                       <logicalName>p_category</logicalName>
-                      <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../targetConnections/net.java.amateras.db.visual.model.ForeignKeyModel[6]/source/columns/net.java.amateras.db.visual.model.ColumnModel[3]/columnType"/>
+                      <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../targetConnections/net.java.amateras.db.visual.model.ForeignKeyModel[6]/source/columns/net.java.amateras.db.visual.model.ColumnModel[5]/columnType"/>
                       <size>30</size>
                       <notNull>false</notNull>
                       <primaryKey>false</primaryKey>
@@ -1021,7 +1048,7 @@
               <net.java.amateras.db.visual.model.ColumnModel>
                 <columnName>rsv_time</columnName>
                 <logicalName>rsv_time</logicalName>
-                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[2]/target/targetConnections/net.java.amateras.db.visual.model.ForeignKeyModel[6]/source/columns/net.java.amateras.db.visual.model.ColumnModel[3]/columnType"/>
+                <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../sourceConnections/net.java.amateras.db.visual.model.ForeignKeyModel[2]/target/targetConnections/net.java.amateras.db.visual.model.ForeignKeyModel[6]/source/columns/net.java.amateras.db.visual.model.ColumnModel[5]/columnType"/>
                 <size>100</size>
                 <notNull>false</notNull>
                 <primaryKey>false</primaryKey>
