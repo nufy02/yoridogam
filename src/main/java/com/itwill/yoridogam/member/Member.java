@@ -9,7 +9,6 @@ M_PASS     NOT NULL VARCHAR2(30)
 M_ADDR     NOT NULL VARCHAR2(100) 
 M_EMAIL    NOT NULL VARCHAR2(50)  
 M_PHONE    NOT NULL VARCHAR2(12)  
-M_INTEREST          VARCHAR2(30)  
 M_GENDER   NOT NULL VARCHAR2(10) 
 **********************************/
 public class Member {
@@ -22,7 +21,6 @@ public class Member {
 	private String m_addr;
 	private String m_email;
 	private String m_phone;
-	private String m_interest;
 	private String m_gender;
 	
 	public Member() {
@@ -32,8 +30,7 @@ public class Member {
 	
 
 	
-	public Member(String m_id, String m_name, String m_pass, String m_addr, String m_email, String m_phone,
-			String m_interest, String m_gender) {
+	public Member(String m_id, String m_name, String m_pass, String m_addr, String m_email, String m_phone, String m_gender) {
 		super();
 		this.m_id = m_id;
 		this.m_name = m_name;
@@ -41,7 +38,6 @@ public class Member {
 		this.m_addr = m_addr;
 		this.m_email = m_email;
 		this.m_phone = m_phone;
-		this.m_interest = m_interest;
 		this.m_gender = m_gender;
 	}
 	
@@ -127,23 +123,6 @@ public class Member {
 		this.m_phone = m_phone;
 	}
 
-
-
-
-	public String getM_interest() {
-		return m_interest;
-	}
-
-
-
-
-	public void setM_interest(String m_interest) {
-		this.m_interest = m_interest;
-	}
-
-
-
-
 	public String getM_gender() {
 		return m_gender;
 	}
@@ -175,7 +154,7 @@ public class Member {
 	@Override
 	public String toString() {
 		return "Member [m_id=" + m_id + ", m_name=" + m_name + ", m_pass=" + m_pass + ", m_addr=" + m_addr
-				+ ", m_email=" + m_email + ", m_phone=" + m_phone + ", m_interest=" + m_interest + ", m_gender="
+				+ ", m_email=" + m_email + ", m_phone=" + m_phone + ", m_gender="
 				+ m_gender + "]";
 	}
 	

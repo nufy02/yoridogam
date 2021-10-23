@@ -16,7 +16,7 @@ public class PayServiceTest {
 		System.out.println(payService);
 		
 		//강의 직접결제
-		Member mm=new Member("1", null, null, null, null, null, null, null);
+		Member mm=new Member("1", null, null, null, null, null, null);
 		Pay pp=new Pay(1, null, "카드", mm);
 		System.out.println(payService.createPay(pp, "1", 1, 1));
 		

@@ -15,12 +15,12 @@ public interface TeacherDao {
 	/*
 	 * SELECT_BY_ID 강사정보 상세 조회
 	 */
-	Teacher findTeacher(String t_id) throws Exception;
+	Teacher findTeacher(String sUserId) throws Exception;
 	
 	/*
 	 * REMOVE 회원정보 삭제
 	 */
-	int remove(String t_id) throws Exception;
+	int remove(String sUserId) throws Exception;
 	
 	/*
 	 * SELECT ALL강사전체리스트 출력
@@ -30,5 +30,5 @@ public interface TeacherDao {
 	/*
 	 * isExisted 아이디 중복검사
 	 */
-	boolean existedTeacher (String t_id) throws Exception;
+	boolean existedTeacher (String sUserId) throws Exception;
 }

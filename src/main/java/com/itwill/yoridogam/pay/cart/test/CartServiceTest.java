@@ -14,7 +14,7 @@ public class CartServiceTest {
 		ApplicationContext applicationContext=
 				new ClassPathXmlApplicationContext("spring/application-config.xml");
 		CartService cartService=(CartService) applicationContext.getBean("cartSerivce");
-		Member mm=new Member("1", null, null, null, null, null, null, null);
+		Member mm=new Member("1", null, null, null, null, null, null);
 		Product pp=new Product(1, null, null, null, null, null, null);
 		Cart cc=new Cart(0, 2, pp, mm);
 		

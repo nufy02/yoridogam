@@ -25,14 +25,14 @@ public class MemberInterestDaoTestMain {
 		/*
 		 * 관심분야 입력 (회원가입시 진행)
 		 */
-		Member m1 = new Member("member2", "1", "1", "1", "1", "1", "1", "1");
+		Member m1 = new Member("member2", "1", "1", "1", "1", "1", "1");
 		System.out.println("2. create : " + memberInterestDao.create(new MemberInterest(0, "빵", m1)));
 		
 		/*
 		 * 관심분야 수정
 		 */
 		
-		Member m2 = new Member("member2", "1", "1", "1", "1", "1", "1", "1");
+		Member m2 = new Member("member2", "1", "1", "1", "1", "1", "1");
 		MemberInterest updateInterest = new MemberInterest(0, "비건", m2);
 		System.out.println("3. update : " + memberInterestDao.upate(updateInterest));
 		

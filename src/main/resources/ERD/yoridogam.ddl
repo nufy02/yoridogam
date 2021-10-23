@@ -26,8 +26,9 @@ CREATE TABLE member_interest(
 		mi_interest                   		VARCHAR2(30)		 NULL ,
 		m_id                          		VARCHAR2(20)		 NULL 
 );
-DROP SEQUENCE member_mi_no_SEQ;
+DROP SEQUENCE member_interest_mi_no_SEQ;
 CREATE SEQUENCE member_interest_mi_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
+
 
 
 
