@@ -20,4 +20,6 @@ insert into member_interest values(MEMBER_INTEREST_MI_NO_SEQ.nextval,'»§','membe
 
 update member_interest set mi_interest ='»§' where m_id ='member1'
 
+delete member_interest where m_id='member1';
+
 desc member_interest;

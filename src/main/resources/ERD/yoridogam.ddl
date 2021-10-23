@@ -18,7 +18,6 @@ CREATE TABLE member(
 		m_addr                        		VARCHAR2(100)		 NOT NULL,
 		m_email                       		VARCHAR2(50)		 NOT NULL,
 		m_phone                       		VARCHAR2(14)		 NOT NULL,
-		m_interest                    		VARCHAR2(30)		 NULL ,
 		m_gender                      		VARCHAR2(10)		 NOT NULL
 );
 

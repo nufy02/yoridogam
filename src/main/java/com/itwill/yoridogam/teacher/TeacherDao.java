@@ -25,10 +25,10 @@ public interface TeacherDao {
 	/*
 	 * SELECT ALL강사전체리스트 출력
 	 */
-	List<Teacher> findMemberList() throws Exception;
+	List<Teacher> findTeacherList() throws Exception;
 	
 	/*
 	 * isExisted 아이디 중복검사
 	 */
-	boolean existedMember(Teacher t_id) throws Exception;
+	boolean existedTeacher (String t_id) throws Exception;
 }

@@ -51,7 +51,7 @@ public class MemberInterest {
 
 	@Override
 	public String toString() {
-		return "MemberInterest [mi_no=" + mi_no + ", mi_interest=" + mi_interest + ", member=" + member + "]";
+		return "MemberInterest [mi_no=" + mi_no + ", mi_interest=" + mi_interest + ", member=" + member.getM_id() + "]";
 	}
 	
 	
