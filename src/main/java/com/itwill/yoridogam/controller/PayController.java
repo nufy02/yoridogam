@@ -4,10 +4,14 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.itwill.yoridogam.controller.interceptor.LoginCheck;
 import com.itwill.yoridogam.member.Member;
 import com.itwill.yoridogam.pay.cart.CartService;
+import com.itwill.yoridogam.pay.pay.Pay;
 import com.itwill.yoridogam.pay.pay.PayService;
 
 @Controller
@@ -18,14 +22,17 @@ public class PayController {
 	@Autowired
 	private CartService cartService;
 	
+	@LoginCheck
 	@RequestMapping("pay_form")
 	public String pay_form(HttpSession session) {
 		
-		Member sUserId=new Member("test1", "김테스트", "김비번", "서울시 강남구", "TEST@TEST.com", "010-112-119", "여성");
-		//member구현시 삭제
-		session.setAttribute("sUserId", sUserId);
 		return "pay_form";
 	}
 	
+	@RequestMapping(value = "pay_action", method = RequestMethod.POST)
+	public String pay_action(@ModelAttribute Pay pay, HttpSession session) {
+		
+		return "redirect:pay_complete_form";
+	}
 	
 }

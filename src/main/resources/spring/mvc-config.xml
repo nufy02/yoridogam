@@ -23,7 +23,7 @@
 	<mvc:resources mapping="/image/**" location="/image/" cache-period="0"/>
 
 			
-	<!-- 
+	
 	<mvc:interceptors>
      <mvc:interceptor>
           <mvc:mapping path="/**"/>
@@ -33,10 +33,10 @@
      </mvc:interceptor>
 			 <mvc:interceptor>
 				<mvc:mapping path="/**"/>			 
-			 	<bean class="com.itwill.yoridogam.controller.AuthLoginAnnotationInterceptor"/>
+			 	<bean class="com.itwill.yoridogam.controller.interceptor.AuthLoginInterceptor"/>
 			 </mvc:interceptor>
 	</mvc:interceptors>
-	 -->
+	
 	
 	
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
