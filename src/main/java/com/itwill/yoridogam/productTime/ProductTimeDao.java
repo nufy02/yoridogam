@@ -8,6 +8,7 @@ public interface ProductTimeDao {
 	
 // <selectAll> 강의 시간 조회
 	List<ProductTime> selectAll(int pt_no) throws Exception;
+
 	
 // <selectPtNo> 특정 강의 예약된 인원 조회
 	ProductTime selectPtNo(int pt_no) throws Exception;

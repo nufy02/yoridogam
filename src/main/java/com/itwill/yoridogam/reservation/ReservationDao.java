@@ -8,11 +8,11 @@ public interface ReservationDao {
  */
 	int create(Reservation reservation) throws Exception;
 /*
- <selectAll> 회원 예약 전체 조회
+ <selectAll> 회원의 예약 전체 조회
  */
 	List<Reservation> selectAll(String sUserId) throws Exception;
 /*
- <select> 회원 예약 특정 상세 조회
+ <select> 회원의 예약 특정 상세 조회
  */
 	List<Reservation> selectById(String sUserId) throws Exception;
 /*

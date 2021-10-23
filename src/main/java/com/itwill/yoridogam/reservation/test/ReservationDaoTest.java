@@ -31,7 +31,7 @@ public class ReservationDaoTest {
 		//selectAll
 		// select * from reservation where m_id=#{m_id};
 		
-			/* 
+			/*
 			System.out.println(reservationDao.selectAll("member1"));
 			*/
 		
@@ -49,7 +49,7 @@ public class ReservationDaoTest {
 		
 		//deleteAll
 		
-			///*
+			/*
 				System.out.println(reservationDao.deleteAll("member3"));
 			// */
 	}
