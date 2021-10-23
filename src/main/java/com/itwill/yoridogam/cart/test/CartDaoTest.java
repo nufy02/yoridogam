@@ -17,7 +17,7 @@ public class CartDaoTest {
 		CartDao cartDao=(CartDao)applicationContext.getBean("cartDao");
 		
 		Product pp=new Product(1, null, null, null, null, null, null);
-		Member mm=new Member("1", null, null, null, null, null, null);
+		Member mm=new Member("1", null, null, null, null, null, null, null);
 		
 		//insert
 		System.out.println(cartDao.insertCart(new Cart(0,1,pp,mm)));

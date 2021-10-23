@@ -17,6 +17,14 @@ public class Pay {
 		
 	}
 	
+	public Pay(int pay_no, Date pay_date, String pay_type, Member member) {
+		super();
+		this.pay_no = pay_no;
+		this.pay_date = pay_date;
+		this.pay_type = pay_type;
+		this.member = member;
+	}
+
 	public Pay(int pay_no, Date pay_date, String pay_type, Member member, List<Pay_item> payItemList) {
 		super();
 		this.pay_no = pay_no;

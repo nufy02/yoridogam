@@ -4,6 +4,7 @@
 	<resultMap id="payResultMap" type="com.itwill.yoridogam.pay.Pay">
 		<result column="PAY_NO" property="pay_no"/>
 		<result column="PAY_DATE" property="pay_date"/>
+		<result column="PAY_TYPE" property="pay_type"/>
 		<association property="member" javaType="com.itwill.yoridogam.member.Member" autoMapping="true">
 			<result column="M_ID" property="m_id"/>
 		</association>
@@ -17,15 +18,39 @@
 	</resultMap>
 	
 	<insert id="createPay" parameterType="com.itwill.yoridogam.pay.Pay">
-		insert into pay(pay_no, pay_date, pay_total, pay_type, m_id) values(PAY_PAY_NO_SEQ.nextval,sysdate,#{pay_total},#{pay_type},#{member.m_id});
+		insert into pay(pay_no, pay_date, pay_type, m_id) values(PAY_PAY_NO_SEQ.nextval,sysdate,#{pay_type},#{member.m_id})
 	</insert>
+	
+	<insert id="createPayItem" parameterType="com.itwill.yoridogam.payItem.Pay_item">
+		insert into pay_item(pi_no, pi_qty, pay_no, p_no) values(PAY_ITEM_PI_NO_SEQ.nextval,#{payItemList.pi_qty},#{pay_no},#{p_no})
+	</insert>
+	
+	<delete id="deletePayByNo" parameterType="Integer">
+		delete from pay where pay_no=#{pay_no}
+	</delete>
 
+	<delete id="deletePay" parameterType="String">
+		delete from pay where m_id=#{m_id}
+	</delete>
 
+	<select id="isExistPay" parameterType="String" resultType="Integer">
+		select count(*) from pay where m_id=#{m_id}
+	</select>
 
+	<select id="findPayByNo" parameterType="com.itwill.yoridogam.pay.Pay" resultMap="payResultMap" >
+		select * from pay where pay_no=#{pay_no} and m_id=#{member.m_id}
+	</select>
 
-
-
-
-
-
+	<select id="findPayList" parameterType="String"  resultMap="payResultMap">
+		select * from pay where m_id=#{m_id}
+	</select>
+	
+	<select id="findPayDetailList" parameterType="String" resultMap="payResultMap">
+		select * from pay py join pay_item pi on py.pay_no=pi.pay_no join product p on pi.p_no=p.p_no where py.m_id=#{m_id}
+	</select>
+	
+	<select id="findPayDetailByNo" parameterType="Integer" resultMap="payResultMap">
+		select * from pay py join pay_item pi on py.pay_no=pi.pay_no join product p on pi.p_no=p.p_no where pi.pi_no=#{pi_no}
+	</select>
+	
 </mapper>
