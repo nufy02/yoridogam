@@ -20,7 +20,11 @@ public class PTDaoTest {
 																	new Product(1, null, null, null, null, null, null))));
 		*/
 		
+		//selectAll 강의시간 출력
+		System.out.println(productTimeDao.selectAll(1));
 		
+		//selectPtno 특정 강의 예약된 인원 조회
+		System.out.println(productTimeDao.selectPtNo(1));
 		
 		// <delete> 특정 강의시간 삭제
 		

@@ -28,7 +28,7 @@
  
  <!-- 강의 pt_rsv 조회  -->
  <select id="selectPtNo" parameterType="java.lang.Integer" resultMap="PTResultMap">
- 	select pt_rsv from product_time where pt_no=#{pt_no}
+ 	select * from product_time where pt_no=#{pt_no}
  </select>
  
  
@@ -41,7 +41,7 @@
 
 <!-- 강의 예약한 인원 추가 -->
 <update id="addPt_rsv" parameterType="com.itwill.yoridogam.productTime.ProductTime">
- update product_time set pt_rsv=pt_rsv+#{pt_rsv} where pt_no=#{pt_no}
+ update product_time set pt_rsv=#{pt_rsv} where pt_no=#{pt_no}
 </update>
 
 
