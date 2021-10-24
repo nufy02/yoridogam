@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.itwill.yoridogam.mapper.NoticeMapper">
+<mapper namespace="com.itwill.yoridogam.mapper.InquiryMapper">
 	<resultMap id="inquiryResultMap" type="com.itwill.yoridogam.inquiry.Inquiry" >
 		<result column="IB_NO" property="ib_no"/>
 		<result column="IB_TITLE" property="ib_title"/>
@@ -17,7 +17,7 @@
 	
 	<insert id="insertInquiry" parameterType="com.itwill.yoridogam.inquiry.Inquiry">
 		insert into inquiry	values(inquiry_ib_no_SEQ.nextval, 
-									${ib_title},
+									#{ib_title},
 									#{ib_content},
 									sysdate,
 									0,
@@ -25,6 +25,7 @@
 									inquiry_ib_no_SEQ.nextval,
 									1,
 									#{member.m_id})
+
 	</insert>
 	
 	<update id="updateInquiry">
@@ -35,12 +36,12 @@
 	
 	<insert id="insertInquiryA" parameterType="com.itwill.yoridogam.inquiry.Inquiry">
 		insert into inquiry VALUES(inquiry_ib_no_SEQ.nextval, 
-									${ib_title},
+									#{ib_title},
 									#{ib_content},
 									sysdate,
 									0,
 									1,
-									#{ib_groupno},
+									#{ib_groupNo},
 									2,
 									#{member.m_id})
 	</insert>
