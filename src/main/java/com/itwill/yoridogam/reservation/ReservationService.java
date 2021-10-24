@@ -24,7 +24,7 @@ public interface ReservationService {
 	List<Reservation> selectAll(String sUserId)throws Exception;
 	
 	// 회원의 예약 특정 상세 조회
-	Reservation selectById(String sUserId)throws Exception;
+	List<Reservation> selectById(String sUserId)throws Exception;
 	
 	// 회원의 특정 예약 취소
 	int deletByRsv(Reservation reservation)throws Exception;

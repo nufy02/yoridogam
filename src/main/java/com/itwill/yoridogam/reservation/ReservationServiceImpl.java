@@ -20,7 +20,7 @@ public class ReservationServiceImpl implements ReservationService {
 	public int insert(Reservation reservation,ProductTime productTime/*,String sUserId*/) throws Exception {
 		reservation.setRsv_date(productTime.getPt_date());
 		reservation.setRsv_time(productTime.getPt_time());
-		// 컨트롤러로 prouductTime 값을 받기 위해서는 숨어있는 pt_time 값도 웹에서 받아주기!
+		// 컨트롤러로 prouductTime 값을 받기 위해서는 숨어있는 pt_no 값도 웹에서 받아주기!
 		/*
 		공백인 reservaion에 날짜와 시간을 productTime에서 날짜와 시간을 가져와서 대입해줌
 		단, 컨트롤러로 이 코드가 넘어갈때는 컨트롤러에서
@@ -41,29 +41,29 @@ public class ReservationServiceImpl implements ReservationService {
 	// 회원의 예약내역 조회
 	@Override
 	public List<Reservation> selectAll(String sUserId) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return reservationDao.selectAll(sUserId);
 	}
 
 	// 회원의 예약 특정 상세 조회
 	@Override
-	public Reservation selectById(String sUserId) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Reservation> selectById(String sUserId) throws Exception {
+		
+		return reservationDao.selectById(sUserId);
 	}
 
 	// 회원의 특정 예약 취소
 	@Override
 	public int deletByRsv(Reservation reservation) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return reservationDao.deleteById(reservation);
 	}
 
 	// 회원의 전체 예약 삭제
 	@Override
 	public int deleteAll(String sUserId) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+	
+		return reservationDao.deleteAll(sUserId);
 	}
 
 }

@@ -80,5 +80,13 @@ public class Product {
 	public void setP_photo(String p_photo) {
 		this.p_photo = p_photo;
 	}
+
+	@Override
+	public String toString() {
+		return "Product [p_no=" + p_no + ", p_name=" + p_name + ", p_detail=" + p_detail + ", p_category=" + p_category
+				+ ", p_price=" + p_price + ", p_type=" + p_type + ", p_photo=" + p_photo + "]\n";
+	}
+	
+	
 	
 }

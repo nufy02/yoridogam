@@ -18,6 +18,12 @@
 	</association>
 </resultMap>
 
+<resultMap type="com.itwill.yoridogam.product.Product" id="productResultMap">
+	<result column="P_NO" property="p_no"/>
+	<result column="P-NAME" property="p_name"/>
+	<result column="P_CATEGORY" property="p_category"/>
+</resultMap>
+
  
  <!-- 오프라인 강의예약 insert -->
 <insert id="create" parameterType="com.itwill.yoridogam.reservation.Reservation">
@@ -31,7 +37,7 @@ values(RESERVATION_RSV_NO_SEQ.nextval,#{rsv_total},#{rsv_type},#{rsv_qty},#{rsv_
 </select>
 
 <!--m_id 회원 예약 특정 상세 조회-->
-<select id="selectById" parameterType="java.lang.String" resultMap="ReservationResultMap" >
+<select id="selectById" parameterType="java.lang.String" resultMap="productResultMap" >
 select * from product p join reservation rsv on rsv.p_no=p.p_no where rsv.m_id=#{member.m_id}
 </select>
 
