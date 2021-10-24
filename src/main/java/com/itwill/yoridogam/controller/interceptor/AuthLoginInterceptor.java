@@ -34,12 +34,12 @@ public class AuthLoginInterceptor extends HandlerInterceptorAdapter{ //implement
 		HttpSession session=request.getSession();
 		
 		/*****************login 구현 시 삭제예정 test용***************/
-		Member m=new Member("member1", "프프", "2323", "부천시", "mm@naver.com", "010-8787-8787", "여성");
-		session.setAttribute("sUserId", m);
+		String m_id="member1";
+		session.setAttribute("sUserId", m_id);
 		/****************************************************************/
 		
 		//login시 session에 설정한 session id(sUserId)
-		Member sUserId=(Member) session.getAttribute("sUserId");
+		String sUserId=(String) session.getAttribute("sUserId");
 
 		//login 상태인지 확인
 		if(sUserId==null) {

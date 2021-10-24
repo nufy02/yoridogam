@@ -57,9 +57,9 @@
                     </div>
                     <div class="col-12 col-lg-4">
                         <div class="cart-summary">
-                            <h5>Cart Total</h5>
+                            <h5>주문 정보</h5>
                             <ul class="summary-table">
-                                <li><span>subtotal:</span> <span>$140.00</span></li>
+                                <li><span>subtotal:</span> <span>${product.getP_price()}</span></li>
                                 <li><span>delivery:</span> <span>Free</span></li>
                                 <li><span>total:</span> <span>$140.00</span></li>
                             </ul>
