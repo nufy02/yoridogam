@@ -14,7 +14,11 @@ public interface ReservationDao {
 /*
  <select> 회원의 예약 특정 상세 조회
  */
-	List<Reservation> selectById(String sUserId) throws Exception;
+	List<Reservation> selectById(String sUserId) throws Exception;	
+/*
+ <select> 예약할 상품이 회원의 예약 DB에 있는지 확인
+ */
+	Reservation selectByP_no(Reservation reservation)throws Exception;
 /*
  <delete> 회원 특정 예약 취소 및 내역 삭제
  */
