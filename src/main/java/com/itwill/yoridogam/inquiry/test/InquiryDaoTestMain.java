@@ -27,8 +27,8 @@ public class InquiryDaoTestMain {
 			VALUES(inquiry_ib_no_SEQ.nextval, '쿠키 수업의 종류에 대해..', '쿠키 수업이 더 많아질 수 있나요?', 
        					sysdate, 0, 0, inquiry_ib_no_SEQ.nextval, 1, 'admin1');
 		 */
-		Member mm=new Member("1", null, null, null, null, null, null);
-		Member aa=new Member("admin", null, null, null, null, null, null);
+		Member mm=new Member("1", "test", "test", "test", "test", "test", "test");
+		Member aa=new Member("admin", "test", "test", "test", "test", "test", "test");
 		Inquiry insertInq1 = new Inquiry(10, "11월에 추가된 수업을..", "알 수 있는 방법이 있을까요?", new Date(0), 0, 0, 10, 1, mm);
 		Inquiry insertInq2 = new Inquiry(0, "11월에 추가된 수업을..", "알 수 있는 방법이 있을까요?", new Date(0), 0, 0, 0, 1, mm);
 		Inquiry insertInq3 = new Inquiry(0, "11월에 추가된 수업을..", "알 수 있는 방법이 있을까요?", new Date(0), 0, 0, 0, 1, mm);
