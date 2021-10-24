@@ -9,26 +9,30 @@ import com.itwill.yoridogam.pay.payItem.Pay_item;
 public class Pay {
 	private int pay_no;
 	private Date pay_date;
+	private String pay_total;
 	private String pay_type;
 	private Member member;
 	private List<Pay_item> payItemList;
-	
+
 	public Pay() {
-		
+
 	}
-	
-	public Pay(int pay_no, Date pay_date, String pay_type, Member member) {
+
+	public Pay(int pay_no, Date pay_date, String pay_total, String pay_type, Member member) {
 		super();
 		this.pay_no = pay_no;
 		this.pay_date = pay_date;
+		this.pay_total = pay_total;
 		this.pay_type = pay_type;
 		this.member = member;
 	}
 
-	public Pay(int pay_no, Date pay_date, String pay_type, Member member, List<Pay_item> payItemList) {
+	public Pay(int pay_no, Date pay_date, String pay_total, String pay_type, Member member,
+			List<Pay_item> payItemList) {
 		super();
 		this.pay_no = pay_no;
 		this.pay_date = pay_date;
+		this.pay_total = pay_total;
 		this.pay_type = pay_type;
 		this.member = member;
 		this.payItemList = payItemList;
@@ -48,6 +52,14 @@ public class Pay {
 
 	public void setPay_date(Date pay_date) {
 		this.pay_date = pay_date;
+	}
+
+	public String getPay_total() {
+		return pay_total;
+	}
+
+	public void setPay_total(String pay_total) {
+		this.pay_total = pay_total;
 	}
 
 	public String getPay_type() {
@@ -73,6 +85,11 @@ public class Pay {
 	public void setPayItemList(List<Pay_item> payItemList) {
 		this.payItemList = payItemList;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Pay [pay_no=" + pay_no + ", pay_date=" + pay_date + ", pay_total=" + pay_total + ", pay_type="
+				+ pay_type + ", member=" + member + ", payItemList=" + payItemList + "]";
+	}
 	
 }

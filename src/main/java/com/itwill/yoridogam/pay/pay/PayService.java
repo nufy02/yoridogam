@@ -5,7 +5,7 @@ import java.util.List;
 public interface PayService {
 	
 	/***********************온라인 강의 결제***********************/
-	int createPay(Pay pay, String sUserId, int pi_qty, int p_no) throws Exception;
+	int createPay(Pay pay, int pi_qty, int p_no) throws Exception;
 	
 	int createPayFromCart(Pay pay,String sUserId) throws Exception;
 	

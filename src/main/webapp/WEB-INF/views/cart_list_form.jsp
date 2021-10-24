@@ -1,4 +1,4 @@
-
+		<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <!-- Header Area Start -->
 		<%@include file="/WEB-INF/views/common/include_header.jsp"%>
         <!-- Header Area End -->
@@ -23,14 +23,16 @@
                                 </thead>
                                 <tbody>
                                     <tr>
+                                    	<c:forEach var="cartList" items="${cartList}" begin="0" end="10">
+                                    	
                                         <td class="cart_product_img">
                                             <a href="#"><img src="img/bg-img/cart1.jpg" alt="Product"></a>
                                         </td>
                                         <td class="cart_product_desc">
-                                            <h5>White Modern Chair</h5>
+                                            <h5>${cartList.product.p_name }</h5>
                                         </td>
                                         <td class="price">
-                                            <span>$130</span>
+                                            <span>${cartList.product.p_price }</span>
                                         </td>
                                         <td class="qty">
                                             <div class="qty-btn d-flex">
@@ -43,48 +45,8 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td class="cart_product_img">
-                                            <a href="#"><img src="img/bg-img/cart2.jpg" alt="Product"></a>
-                                        </td>
-                                        <td class="cart_product_desc">
-                                            <h5>Minimal Plant Pot</h5>
-                                        </td>
-                                        <td class="price">
-                                            <span>$10</span>
-                                        </td>
-                                        <td class="qty">
-                                            <div class="qty-btn d-flex">
-                                                <p>Qty</p>
-                                                <div class="quantity">
-                                                    <span class="qty-minus" onclick="var effect = document.getElementById('qty2'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                                                    <input type="number" class="qty-text" id="qty2" step="1" min="1" max="300" name="quantity" value="1">
-                                                    <span class="qty-plus" onclick="var effect = document.getElementById('qty2'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="cart_product_img">
-                                            <a href="#"><img src="img/bg-img/cart3.jpg" alt="Product"></a>
-                                        </td>
-                                        <td class="cart_product_desc">
-                                            <h5>Minimal Plant Pot</h5>
-                                        </td>
-                                        <td class="price">
-                                            <span>$10</span>
-                                        </td>
-                                        <td class="qty">
-                                            <div class="qty-btn d-flex">
-                                                <p>Qty</p>
-                                                <div class="quantity">
-                                                    <span class="qty-minus" onclick="var effect = document.getElementById('qty3'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                                                    <input type="number" class="qty-text" id="qty3" step="1" min="1" max="300" name="quantity" value="1">
-                                                    <span class="qty-plus" onclick="var effect = document.getElementById('qty3'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    	</c:forEach>
+                                    
                                 </tbody>
                             </table>
                         </div>
