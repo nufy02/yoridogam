@@ -17,7 +17,7 @@ public class ReservationServiceImpl implements ReservationService {
 	
 	// 상품 예약
 	@Override
-	public int insert(Reservation reservation,ProductTime productTime/*,String sUserId*/) throws Exception {
+	public int insert(Reservation reservation,ProductTime productTime,String sUserId) throws Exception {
 		reservation.setRsv_date(productTime.getPt_date());
 		reservation.setRsv_time(productTime.getPt_time());
 		// 컨트롤러로 prouductTime 값을 받기 위해서는 숨어있는 pt_no 값도 웹에서 받아주기!
@@ -54,9 +54,9 @@ public class ReservationServiceImpl implements ReservationService {
 
 	// 회원의 특정 예약 취소
 	@Override
-	public int deletByRsv(Reservation reservation) throws Exception {
+	public int deletByRsv(int rsv_no) throws Exception {
 		
-		return reservationDao.deleteById(reservation);
+		return reservationDao.deleteById(rsv_no);
 	}
 
 	// 회원의 전체 예약 삭제

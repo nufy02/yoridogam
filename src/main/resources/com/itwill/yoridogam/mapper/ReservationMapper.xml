@@ -36,14 +36,14 @@ values(RESERVATION_RSV_NO_SEQ.nextval,#{rsv_total},#{rsv_type},#{rsv_qty},#{rsv_
  select * from reservation where m_id=#{member.m_id}
 </select>
 
-<!--m_id 회원 예약 특정 상세 조회-->
+<!--m_id 회원이 오프라인 예약한 상품 상세 조회-->
 <select id="selectById" parameterType="java.lang.String" resultMap="productResultMap" >
 select * from product p join reservation rsv on rsv.p_no=p.p_no where rsv.m_id=#{member.m_id}
 </select>
 
 <!-- m_id회원 특정 예약 삭제 -->
-<delete id="deleteById" parameterType="com.itwill.yoridogam.reservation.Reservation">
-delete from reservation where rsv_no=#{rsv_no} and m_id=#{member.m_id}
+<delete id="deleteById" parameterType="java.lang.Integer">
+delete from reservation where rsv_no=#{rsv_no}
 </delete>
 
 <!-- m_id회원 전체 예약 삭제 -->
