@@ -20,5 +20,5 @@ public interface ProductTimeDao {
 	int addPt_rsv(ProductTime productTime) throws Exception;
 	
 // <delete> 특정 강의시간 삭제
-	int dalete(int pt_no) throws Exception;
+	int delete(int pt_no) throws Exception;
 }

@@ -46,7 +46,7 @@
 
 
 <!-- 특정 강의시간 삭제 -->
-<delete id="dalete" parameterType="java.lang.Integer">
+<delete id="delete" parameterType="java.lang.Integer">
  	delete from product_time where pt_no=#{pt_no}
 </delete>
 

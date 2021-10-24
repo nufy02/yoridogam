@@ -7,13 +7,14 @@ import org.springframework.stereotype.Service;
 
 import com.itwill.yoridogam.productTime.ProductTime;
 import com.itwill.yoridogam.productTime.ProductTimeDao;
+import com.itwill.yoridogam.productTime.productTimeService;
 
 @Service("reservationService")
 public class ReservationServiceImpl implements ReservationService {
 	@Autowired
 	private ReservationDao reservationDao;
 	@Autowired
-	private ProductTimeDao productTimeDao;
+	private productTimeService productTimeService;
 	
 	// 상품 예약
 	@Override
@@ -29,11 +30,11 @@ public class ReservationServiceImpl implements ReservationService {
 		*/
 		reservationDao.create(reservation);
 		// 웹에서 받아온 reservation값을 넣어서 DB reservaion insert
-		ProductTime PTrsv = productTimeDao.selectPtNo(productTime.getPt_no());
+		ProductTime PTrsv = productTimeService.selectByNo(productTime.getPt_no());
 		// selectPtNo 데이터를 PTrsv에 넣어준다
 		int i = PTrsv.getPt_rsv();
 		PTrsv.setPt_rsv(reservation.getRsv_qty()+i);
-		productTimeDao.addPt_rsv(PTrsv);
+		productTimeService.addPt_rsv(PTrsv);
 		
 		return 0;
 	}
