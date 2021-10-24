@@ -23,11 +23,9 @@ public interface InquiryDao {
 	List<Inquiry> selectByAllInquiry();
 	
 	/*************** 문의글 한 개 보기 ***************/
-	int selectByNoInquiry(int ib_no);
+	Inquiry selectByNoInquiry(int ib_no);
 	
 	/*************** 문의글 조회수 증가 ***************/
 	boolean updateInquiryViewCount(int ib_no);
-	
-	/*************** 문의글 찾기 ***************/
-	int selectByIdInquiry(String m_id);
+
 }

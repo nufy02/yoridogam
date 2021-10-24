@@ -19,7 +19,7 @@
 							sysdate, 
 							0, 
 							#{noti_content}, 
-							#{member.m_id})
+							#{member.m_id, jdbcType=VARCHAR})
 	</insert>
 	
 	<update id="updateNoti">
@@ -35,8 +35,8 @@
 		select * from NOTICE
 	</select>
 	
-	<select id="selectByNotiNo" parameterType="java.lang.Integer">
-		select * from NOTICE WHERE NOTI_NO=#{noti_no}
+	<select id="selectByNotiNo" parameterType="Integer" resultMap="noticeResultMap">
+		select * from NOTICE where NOTI_NO=#{noti_no}
 	</select>
 
 	<update id="updateNotiViewCount" parameterType="java.lang.Integer">

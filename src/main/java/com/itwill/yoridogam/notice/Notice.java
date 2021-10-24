@@ -23,24 +23,21 @@ public class Notice {
 	private Date noti_date;
 	private int noti_viewCount;
 	private String noti_content;
-	private String m_id;
 	private Member member;
 	
-	
-
 	public Notice() {
 		// TODO Auto-generated constructor stub
 	}
-
+	
 	public Notice(int noti_no, String noti_title, Date noti_date, int noti_viewCount, String noti_content,
-			String m_id) {
+			Member member) {
 		super();
 		this.noti_no = noti_no;
 		this.noti_title = noti_title;
 		this.noti_date = noti_date;
 		this.noti_viewCount = noti_viewCount;
 		this.noti_content = noti_content;
-		this.m_id = m_id;
+		this.member = member;
 	}
 
 	public int getNoti_no() {
@@ -83,26 +80,18 @@ public class Notice {
 		this.noti_content = noti_content;
 	}
 
-	public String getM_id() {
-		return m_id;
+	public Member getMember() {
+		return member;
 	}
 
-	public void setM_id(String m_id) {
-		this.m_id = m_id;
+	public void setMember(Member member) {
+		this.member = member;
 	}
 
 	@Override
 	public String toString() {
 		return "Notice [noti_no=" + noti_no + ", noti_title=" + noti_title + ", noti_date=" + noti_date
-				+ ", noti_viewCount=" + noti_viewCount + ", noti_content=" + noti_content + ", m_id=" + m_id + "]";
-	}
-	
-	public Member getMember() {
-		return member;
-	}
-	
-	public void setMember(Member member) {
-		this.member = member;
+				+ ", noti_viewCount=" + noti_viewCount + ", noti_content=" + noti_content + ", member=" + member + "]";
 	}
 	
 }

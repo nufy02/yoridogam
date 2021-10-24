@@ -50,7 +50,7 @@ update NOTICE set NOTI_TITLE ='수업에 대한 질문이 있어요!', IB_CONTENT='12월 강�
  */
  
 --문의 글 조회수 증가
-update inquiry set IB_VIEWCOUNT = IB_VIEWCOUNT+1 where NOTI_NO=?;
+update inquiry set IB_VIEWCOUNT = IB_VIEWCOUNT+1 where IB_NO=?;
 
  /*****************************
 				delete
@@ -66,8 +66,7 @@ DELETE FROM inquiry WHERE NOTI_NO=?;
 select IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, IB_SECRET, IB_DEPTH, IB_GROUPNO, IB_STEP, M_ID from inquiry where IB_NO=?;		
  --문의 글 전체 보기
  select IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, IB_SECRET, IB_DEPTH, IB_GROUPNO, IB_STEP, M_ID from inquiry;		
---문의글 찾기(작성자 ID)
-select * from inquiry where M_ID=?;		
+	
 
 
  

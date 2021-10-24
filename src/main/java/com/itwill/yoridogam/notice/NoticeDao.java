@@ -18,7 +18,7 @@ public interface NoticeDao {
 	List<Notice> selectAllNoti();
 	
 	/*************** 공지사항 한 개 보기 ***************/
-	int selectByNotiNo(int noti_no);
+	Notice selectByNotiNo(int noti_no);
 	
 	/*************** 공지사항 조회수 증가 ***************/
 	boolean updateNotiViewCount(int noti_no);

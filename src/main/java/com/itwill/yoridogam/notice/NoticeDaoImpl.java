@@ -39,8 +39,9 @@ public class NoticeDaoImpl implements NoticeDao {
 	}
 
 	@Override
-	public int selectByNotiNo(int noti_no) {
-		return sqlSession.selectOne(NAMESPACE+"selectByNotiNo", noti_no);
+	public Notice selectByNotiNo(int noti_no) {
+		Notice notice = sqlSession.selectOne(NAMESPACE+"selectByNotiNo", noti_no);
+		return notice;
 	}
 
 	@Override

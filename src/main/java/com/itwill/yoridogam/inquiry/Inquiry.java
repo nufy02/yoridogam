@@ -2,6 +2,8 @@ package com.itwill.yoridogam.inquiry;
 
 import java.util.Date;
 
+import com.itwill.yoridogam.member.Member;
+
 public class Inquiry {
 
 	/*
@@ -26,16 +28,14 @@ public class Inquiry {
 	private int ib_depth;
 	private int ib_groupNo;
 	private int ib_step;
-	private String m_id;
+	private Member member;
 	
 	public Inquiry() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	
 
 	public Inquiry(int ib_no, String ib_title, String ib_content, Date ib_date, int ib_viewCount, int ib_depth,
-			int ib_groupNo, int ib_step, String m_id) {
+			int ib_groupNo, int ib_step, Member member) {
 		super();
 		this.ib_no = ib_no;
 		this.ib_title = ib_title;
@@ -45,10 +45,8 @@ public class Inquiry {
 		this.ib_depth = ib_depth;
 		this.ib_groupNo = ib_groupNo;
 		this.ib_step = ib_step;
-		this.m_id = m_id;
+		this.member = member;
 	}
-
-
 
 	public int getIb_no() {
 		return ib_no;
@@ -114,19 +112,20 @@ public class Inquiry {
 		this.ib_step = ib_step;
 	}
 
-	public String getM_id() {
-		return m_id;
+	public Member getMember() {
+		return member;
 	}
 
-	public void setM_id(String m_id) {
-		this.m_id = m_id;
+	public void setMember(Member member) {
+		this.member = member;
 	}
 
 	@Override
 	public String toString() {
 		return "Inquiry [ib_no=" + ib_no + ", ib_title=" + ib_title + ", ib_content=" + ib_content + ", ib_date="
 				+ ib_date + ", ib_viewCount=" + ib_viewCount + ", ib_depth=" + ib_depth + ", ib_groupNo=" + ib_groupNo
-				+ ", ib_step=" + ib_step + ", m_id=" + m_id + "]";
+				+ ", ib_step=" + ib_step + ", member=" + member + "]";
 	}
+	
 	
 }

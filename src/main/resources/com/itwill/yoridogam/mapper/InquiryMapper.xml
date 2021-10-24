@@ -10,7 +10,9 @@
 		<result column="IB_DEPTH" property="ib_depth"/>
 		<result column="IB_GROUPNO" property="ib_groupNo"/>
 		<result column="IB_STEP" property="ib_step"/>
-		<result column="M_ID" property="m_id"/>
+		<association property="member" javaType="com.itwill.yoridogam.member.Member" autoMapping="true">
+			<result column="M_ID" property="m_id"/>
+		</association>
 	</resultMap>
 	
 	<insert id="insertInquiry" parameterType="com.itwill.yoridogam.inquiry.Inquiry">
@@ -19,42 +21,49 @@
 									#{ib_content},
 									sysdate,
 									0,
-									inquiry_ib_no_SEQ.currval,
+									0,
+									inquiry_ib_no_SEQ.nextval,
 									1,
-									#{m_id})
+									#{member.m_id})
 	</insert>
 	
 	<update id="updateInquiry">
 		update inquiry set IB_TITLE=#{ib_title}, IB_CONTENT=#{ib_content} 
 			where IB_NO=#{ib_no}
+
 	</update>
 	
-	<insert id="insertInquiryA">
-		
+	<insert id="insertInquiryA" parameterType="com.itwill.yoridogam.inquiry.Inquiry">
+		insert into inquiry VALUES(inquiry_ib_no_SEQ.nextval, 
+									${ib_title},
+									#{ib_content},
+									sysdate,
+									0,
+									1,
+									#{ib_groupno},
+									2,
+									#{member.m_id})
 	</insert>
 	
 	<update id="updateInquiryA">
-	
+		update inquiry set IB_TITLE=#{ib_title}, IB_CONTENT=#{ib_content} 
+			where IB_NO=#{ib_no}
 	</update>
 	
-	<delete id="deleteInquiry">
-	
+	<delete id="deleteInquiry" parameterType="java.lang.Integer">
+		DELETE FROM inquiry WHERE IB_NO=#{ib_no}
 	</delete>
 	
-	<select id="selectByAllInquiry">
-	
+	<select id="selectByAllInquiry" resultType="com.itwill.yoridogam.inquiry.Inquiry">
+		select * from inquiry
 	</select>
 	
-	<select id="selectByNoInquiry">
-	
+	<select id="selectByNoInquiry" parameterType="java.lang.Integer" resultType="com.itwill.yoridogam.inquiry.Inquiry">
+		select * from inquiry where IB_NO=#{ib_no}
 	</select>
 	
-	<update id="updateInquiryViewCount">
-	
+	<update id="updateInquiryViewCount" parameterType="java.lang.Integer">
+		update inquiry set IB_VIEWCOUNT = IB_VIEWCOUNT+1 where IB_NO=#{ib_no}
 	</update>
-	
-	<select id="selectByIdInquiry">
-	
-	</select>
 	
 </mapper>

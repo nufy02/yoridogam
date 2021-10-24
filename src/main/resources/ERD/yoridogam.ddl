@@ -155,7 +155,6 @@ CREATE TABLE inquiry(
 		ib_content                    		VARCHAR2(1000)		 NULL ,
 		ib_date                       		DATE		 DEFAULT sysdate		 NULL ,
 		ib_viewCount                  		NUMBER(10)		 DEFAULT 0		 NULL ,
-		ib_secret                     		VARCHAR2(10)		 DEFAULT 'F'		 NULL ,
 		ib_depth                      		NUMBER(10)		 DEFAULT 0		 NULL ,
 		ib_groupno                    		NUMBER(10)		 NOT NULL,
 		ib_step                       		NUMBER(10)		 NOT NULL,
