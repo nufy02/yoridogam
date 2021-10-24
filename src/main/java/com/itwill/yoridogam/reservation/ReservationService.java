@@ -18,7 +18,7 @@ public interface ReservationService {
 	productTimeDao.update(rsv)
 	*/
 	// 상품 예약
-	int insert(Reservation reservation,ProductTime productTime/*,String sUserId*/) throws Exception;
+	int insert(Reservation reservation,ProductTime productTime,String sUserId) throws Exception;
 	
 	// 회원의 예약내역 조회
 	List<Reservation> selectAll(String sUserId)throws Exception;
@@ -27,7 +27,7 @@ public interface ReservationService {
 	List<Reservation> selectById(String sUserId)throws Exception;
 	
 	// 회원의 특정 예약 취소
-	int deletByRsv(Reservation reservation)throws Exception;
+	int deletByRsv(int rsv_no)throws Exception;
 	
 	// 회원의 전체 예약 삭제
 	int deleteAll(String sUserId) throws Exception;

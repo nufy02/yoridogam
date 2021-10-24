@@ -18,7 +18,7 @@ public interface ReservationDao {
 /*
  <delete> 회원 특정 예약 취소 및 내역 삭제
  */
-	int deleteById(Reservation reservation) throws Exception;
+	int deleteById(int rsv_no) throws Exception;
 /*
  <delectAll> 회원 전체 예약 내역  삭제
  */

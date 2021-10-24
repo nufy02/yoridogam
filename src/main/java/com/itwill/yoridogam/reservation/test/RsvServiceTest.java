@@ -34,6 +34,8 @@ public class RsvServiceTest {
 		//reservationService.selectAll("member1");
 		System.out.println(reservationService.selectAll("member1"));
 		System.out.println(reservationService.selectById("member1"));
+		
+		System.out.println(reservationService.deletByRsv(5));
 	}
 
 }

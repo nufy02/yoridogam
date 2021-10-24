@@ -3,7 +3,9 @@ package com.itwill.yoridogam.product;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service("productService")
 public class ProductServiceImpl implements ProductService {
 	
 	@Autowired
