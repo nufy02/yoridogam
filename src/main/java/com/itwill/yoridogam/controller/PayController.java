@@ -33,15 +33,12 @@ public class PayController {
 	
 	@LoginCheck
 	@RequestMapping("pay_form")
-	public String pay_form(HttpSession session) throws Exception{
+	public String pay_form(HttpSession session, Model model) throws Exception{
+	//public String pay_form(HttpSession session, @RequestParam("p_no") int p_no, @RequestParam("pi_qty") int pi_qty) throws Exception{
 		String member=(String)session.getAttribute("sUserId");
-		//int pNo=(int)session.getAttribute("p_no");
 		int pNo=1;//test
-		//int pQty=(int)session.getAttribute("p_qty");
-		//session.setAttribute("product", productService.findByNo(pNo));
-		session.setAttribute("product", productService.findByNo(pNo));
-		session.setAttribute("sUserId", memberService.findMember(member));
-		//session.setAttribute("qty", pQty);
+		model.addAttribute("sUserId", memberService.findMember(member));
+		model.addAttribute("product", productService.selectByNo(pNo));
 		int pQty=1;//test
 		session.setAttribute("qty",pQty);
 		return "pay_form";

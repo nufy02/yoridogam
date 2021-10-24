@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
         <!-- Header Area Start -->
 		<%@include file="/WEB-INF/views/common/include_header.jsp"%>
         <!-- Header Area End -->
@@ -59,21 +58,25 @@
                         <div class="cart-summary">
                             <h5>주문 정보</h5>
                             <ul class="summary-table">
-                                <li><span>subtotal:</span> <span>${product.getP_price()}</span></li>
-                                <li><span>delivery:</span> <span>Free</span></li>
-                                <li><span>total:</span> <span>$140.00</span></li>
+                                <li><span>강의명:</span> <span>${product.p_name}</span></li>
+                                <li><span>강의 수량:</span> <span>${qty} 개</span></li>
+                                <li><span>결제 금액:</span> <span>${product.p_price}</span></li>
                             </ul>
 
                             <div class="payment-method">
                                 <!-- Cash on delivery -->
                                 <div class="custom-control custom-checkbox mr-sm-2">
                                     <input type="checkbox" class="custom-control-input" id="cod" checked>
-                                    <label class="custom-control-label" for="cod">Cash on Delivery</label>
+                                    <label class="custom-control-label" for="cod">무통장입금</label>
+                                </div>
+                                <div class="custom-control custom-checkbox mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input" id="kakao">
+                                    <label class="custom-control-label" for="cod">카카오페이</label>
                                 </div>
                                 <!-- Paypal -->
                                 <div class="custom-control custom-checkbox mr-sm-2">
                                     <input type="checkbox" class="custom-control-input" id="paypal">
-                                    <label class="custom-control-label" for="paypal">Paypal <img class="ml-15" src="img/core-img/paypal.png" alt=""></label>
+                                    <label class="custom-control-label" for="paypal">카드결제 <img class="ml-15" src="img/core-img/paypal.png" alt=""></label>
                                 </div>
                             </div>
 
