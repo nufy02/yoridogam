@@ -48,7 +48,7 @@ public class TeacherDaoTestMain {
 		/*
 		 * 아이디 중복검사
 		 */
-		System.out.println("5.existedTeacher :"+teacherDao.existedTeacher("teacher1"));
+		System.out.println("5.existedTeacher :"+teacherDao.existedTeacher("teacher5"));
 		
 	}
 

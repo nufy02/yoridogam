@@ -137,8 +137,8 @@ public class Teacher {
 	@Override
 	public String toString() {
 		return "Teacher [t_id=" + t_id + ", t_name=" + t_name + ", t_pass=" + t_pass + ", t_email=" + t_email
-				+ ", t_photo=" + t_photo + ", t_detail=" + t_detail + ", t_location=" + t_location + ", product="
-				+ product + "]";
+				+ ", t_photo=" + t_photo + ", t_detail=" + t_detail + ", t_location=" + t_location + ", product_no="
+				+ product+ "]";
 	}
 	
 	

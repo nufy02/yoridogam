@@ -10,6 +10,11 @@ public interface MemberService {
 	 * 회원가입(+회원관심분야) 
 	 */
 	int create(Member member, MemberInterest memberInterest) throws Exception;
+	
+	/*
+	 * 회원 로그인
+	 */
+	int login(String sUserId, String password) throws Exception;
 	/*
 	 * 회원상세정보(+관심분야)
 	 */
