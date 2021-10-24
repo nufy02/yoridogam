@@ -3,7 +3,9 @@ package com.itwill.yoridogam.productTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service("productTimeService")
 public class productTimeServiceImpl implements productTimeService{
 	
 	@Autowired
