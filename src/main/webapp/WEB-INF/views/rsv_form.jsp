@@ -76,8 +76,9 @@
                             <h5>Cart Total</h5>
                             <ul class="summary-table">
                             	<li><input type="hidden"  name="p_no"  value="${product.p_no}"></li>
-                                <li><span>강의명:</span> <div>$140.00</div></li>
-                                <li><span>예약 인원:</span> <span>Free</span></li>
+                                <li><span>강의명</span></li>
+                                <li style="font-size: 13px">${product.getP_name()}</li>
+                                <li><span>예약 인원:</span> <span>${qty} 명</span></li>
                                 <li><span>total:</span> <span>$140.00</span></li>
                             </ul>
                             <!-- 
