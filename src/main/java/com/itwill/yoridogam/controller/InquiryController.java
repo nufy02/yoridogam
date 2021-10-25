@@ -63,6 +63,8 @@ public class InquiryController {
 		return "inquiry_detail";
 	}
 	
+	/***************************************************************************/
+	
 	/**** 문의게시판 글 작성 폼(회원) ****/
 	@RequestMapping("inquiry_write_form")
 	public String inquiry_write_form() {
@@ -103,19 +105,8 @@ public class InquiryController {
 		model.addAttribute("inquiryUpdate", inquiry);
 		return"inquiry_detail";
 	}
-	
-	/**** 문의게시판 글 삭제 액션(회원)(GET) ****/
-	@GetMapping("inquiry_delete_action")
-	public String inquiry_delete_action_get() {
-		return "redirect:inquiry_list";
-	}
-	
-	/**** 문의게시판 글 삭제 액션(회원)(Post) ****/
-	@PostMapping("inquiry_delete_action")
-	public String inquiry_delete_action_post(@RequestParam int noti_no) {
-		inquiryService.deleteInquiry(noti_no);
-		return "inquiry_list";
-	}
+
+	/***************************************************************************/
 	
 	/**** 문의게시판 답글 작성 폼(관리자) ****/
 	@RequestMapping("inquiryA_write_form")
@@ -130,22 +121,47 @@ public class InquiryController {
 	}
 	
 	/**** 문의게시판 답글 작성 액션(관리자)(POST) ****/
-	
 	@PostMapping("inquiryA_write_action")
 	public String inquiryA_write_action_post(@ModelAttribute Inquiry inquiry, @RequestParam int ib_no, Model model) {
 		inquiryService.insertInquiryA(inquiry);
-		
+		model.addAttribute("inquiryA", inquiry);
 		return "inquiry_detail";
-	}	//>> Post 방식 잘 모르겠음 
+	}	//>> Post 방식 잘 모르겠음ㅜㅜ 
 	
+	/**** 문의게시판 글 수정 폼(회원) ****/
+	@RequestMapping("inquiryA_update_form")
+	public String inquiryA_update_form() {
+		return"inquiryA_update_form";
+	}
 	
-	/**** 문의게시판 ****/
-	/**** 문의게시판 ****/
-	/**** 문의게시판 ****/
-	/**** 문의게시판 ****/
-	/**** 문의게시판 ****/
-	/**** 문의게시판 ****/
+	/**** 문의게시판 글 수정 액션(회원)(GET) ****/
+	@RequestMapping("inquiryA_update_action")
+	public String inquiryA_update_action_get() {
+		return"redirect:inquiryA_update_form";
+	}
+
+	/**** 문의게시판 글 수정 액션(회원)(POST) ****/
 	
+	@RequestMapping("inquiryA_update_action")
+	public String inquiryA_update_action_post(@ModelAttribute Inquiry inquiry, Model model) {
+		inquiryService.updateInquiryA(inquiry);
+		model.addAttribute("inquiryAUpdate", inquiry);
+		return"inquiryA_detail";
+	}
 	
+	/***************************************************************************/
+	
+	/**** 문의게시판 글 삭제 액션(GET) ****/
+	@GetMapping("inquiry_delete_action")
+	public String inquiry_delete_action_get() {
+		return "redirect:inquiry_list";
+	}
+	
+	/**** 문의게시판 글 삭제 액션(Post) ****/
+	@PostMapping("inquiry_delete_action")
+	public String inquiry_delete_action_post(@RequestParam int noti_no) {
+		inquiryService.deleteInquiry(noti_no);
+		return "inquiry_list";
+	}
 	
 }
