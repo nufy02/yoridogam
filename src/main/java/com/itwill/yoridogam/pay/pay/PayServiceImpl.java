@@ -25,7 +25,7 @@ public class PayServiceImpl implements PayService{
 	
 	// 강의페이지-> 결제
 	@Override
-	public int createPay(Pay pay, String sUserId, int pi_qty, int p_no) throws Exception{
+	public int createPay(Pay pay, int pi_qty, int p_no) throws Exception{
 		int payCCount=payDao.createPay(pay);
 		Pay_item newPi=new Pay_item(0, pi_qty, pay.getPay_no(), productDao.selectByNo(p_no));
 		int pICCount=pay_itemDao.createPayItem(newPi);

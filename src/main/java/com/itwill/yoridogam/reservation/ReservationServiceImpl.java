@@ -7,17 +7,21 @@ import org.springframework.stereotype.Service;
 
 import com.itwill.yoridogam.productTime.ProductTime;
 import com.itwill.yoridogam.productTime.ProductTimeDao;
+import com.itwill.yoridogam.productTime.productTimeService;
 
 @Service("reservationService")
 public class ReservationServiceImpl implements ReservationService {
 	@Autowired
 	private ReservationDao reservationDao;
 	@Autowired
-	private ProductTimeDao productTimeDao;
+	private productTimeService productTimeService;
 	
 	// 상품 예약
 	@Override
 	public int insert(Reservation reservation,ProductTime productTime,String sUserId) throws Exception {
+		Reservation rsvP = reservationDao.selectByP_no(reservation); // 회원의 DB에 예약할 상품이 있는지 확인하기 위함
+		if(rsvP == null) {
+			// 상품이 없으면 insert
 		reservation.setRsv_date(productTime.getPt_date());
 		reservation.setRsv_time(productTime.getPt_time());
 		// 컨트롤러로 prouductTime 값을 받기 위해서는 숨어있는 pt_no 값도 웹에서 받아주기!
@@ -29,12 +33,14 @@ public class ReservationServiceImpl implements ReservationService {
 		*/
 		reservationDao.create(reservation);
 		// 웹에서 받아온 reservation값을 넣어서 DB reservaion insert
-		ProductTime PTrsv = productTimeDao.selectPtNo(productTime.getPt_no());
+		ProductTime PTrsv = productTimeService.selectByNo(productTime.getPt_no());
 		// selectPtNo 데이터를 PTrsv에 넣어준다
 		int i = PTrsv.getPt_rsv();
 		PTrsv.setPt_rsv(reservation.getRsv_qty()+i);
-		productTimeDao.addPt_rsv(PTrsv);
-		
+		productTimeService.addPt_rsv(PTrsv);
+		}else {
+			String msg = "이미 상품이 존재합니다!!";
+		}
 		return 0;
 	}
 

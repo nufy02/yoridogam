@@ -4,6 +4,7 @@
 	<resultMap id="payResultMap" type="com.itwill.yoridogam.pay.pay.Pay">
 		<result column="PAY_NO" property="pay_no"/>
 		<result column="PAY_DATE" property="pay_date"/>
+		<result column="PAY_TOTAL" property="pay_total"/>
 		<result column="PAY_TYPE" property="pay_type"/>
 		<association property="member" javaType="com.itwill.yoridogam.member.Member" autoMapping="true">
 			<result column="M_ID" property="m_id"/>
@@ -16,9 +17,8 @@
 			</association>
 		</collection>
 	</resultMap>
-	
 	<insert id="createPay" parameterType="com.itwill.yoridogam.pay.pay.Pay">
-		insert into pay(pay_no, pay_date, pay_type, m_id) values(PAY_PAY_NO_SEQ.nextval,sysdate,#{pay_type},#{member.m_id})
+		insert into pay(pay_no, pay_date, pay_total, pay_type, m_id) values(PAY_PAY_NO_SEQ.nextval,sysdate,#{pay_total},#{pay_type},#{member.m_id})
 	</insert>
 	
 	

@@ -52,6 +52,26 @@ public class ReservationDaoTest {
 			/*
 				System.out.println(reservationDao.deleteAll("member3"));
 			// */
+		
+		/*
+		Reservation reservation = new Reservation(0, 30000, "카카오페이", 1, "2021/10/21", "10:00-11:00", null,
+										new Member("member2",null,null,null,null,null,null), 
+										new Product(3,null,null,null,null,null,null)); // 회원의 DB에 예약할 상품이 있는지 확인하기 위함
+		
+		Reservation rsvP = reservationDao.selectByP_no(reservation);
+		//int rsvP_no = rsvP.getProduct().getP_no();
+		if(rsvP == null) {
+			reservation.getProduct().setP_no(2);
+			System.out.println(reservationDao.selectByP_no(reservation));
+		}else {
+			System.out.println(rsvP);
+		}
+		*/
+		
+		
+		
+		
+		
 	}
 
 }

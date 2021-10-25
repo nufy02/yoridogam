@@ -13,7 +13,8 @@
 	</resultMap>
 	
 	<insert id="insertNoti" parameterType="com.itwill.yoridogam.notice.Notice">
-		insert INTO NOTICE VALUES(notice_noti_no_SEQ.nextval, #{noti_title}, sysdate, 0, #{noti_content}, #{member.m_id})
+		insert INTO NOTICE(NOTI_NO, NOTI_TITLE, NOTI_DATE, NOTI_VIEWCOUNT, NOTI_CONTENT, M_ID)
+			 VALUES(notice_noti_no_SEQ.nextval, #{noti_title}, sysdate, 0, #{noti_content}, #{member.m_id})
 	</insert>
 	
 	<update id="updateNoti">

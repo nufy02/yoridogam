@@ -33,6 +33,12 @@ public class ReservationDaoImpl implements ReservationDao{
 	}
 
 	@Override
+	public Reservation selectByP_no(Reservation reservation) throws Exception {
+		
+		return sqlSession.selectOne(NAMESPACE+"selectByP_no",reservation);
+	}
+	
+	@Override
 	public int deleteById(int rsv_no) throws Exception {
 		
 		return sqlSession.delete(NAMESPACE+"deleteById",rsv_no);
@@ -43,5 +49,6 @@ public class ReservationDaoImpl implements ReservationDao{
 		
 		return sqlSession.delete(NAMESPACE+"deleteAll",sUserId);
 	}
+
 
 }

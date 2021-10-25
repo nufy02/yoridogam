@@ -16,10 +16,10 @@ public class PayServiceTest {
 		System.out.println(payService);
 
 		Member mm=new Member("member1", null, null, null, null, null, null);
-		Pay pp=new Pay(1, null, "카드", mm);
+		Pay pp=new Pay(1, null, null, "카드", mm);
 		
 		//강의 직접결제
-		//System.out.println(payService.createPay(pp, "member1", 1, 1));
+		System.out.println(payService.createPay(pp, 1, 1));
 		
 		
 		//강의 장바구니결제
@@ -44,7 +44,7 @@ public class PayServiceTest {
 		//System.out.println(payService.findPayByNo(pp));
 		
 		//결제내역 한건상세
-		System.out.println(payService.findPayDetailByNo(1));
+		//System.out.println(payService.findPayDetailByNo(1));
 		
 		/*
 		*/

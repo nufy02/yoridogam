@@ -42,7 +42,7 @@ public static final String NAMESPACE="com.itwill.yoridogam.mapper.ProductTimeMap
 	
 	
 	@Override
-	public int dalete(int pt_no) throws Exception {
+	public int delete(int pt_no) throws Exception {
 		return sqlSession.delete(NAMESPACE+"delete",pt_no);
 	}
 

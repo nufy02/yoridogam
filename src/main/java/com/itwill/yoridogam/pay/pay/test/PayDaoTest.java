@@ -22,7 +22,7 @@ public class PayDaoTest {
 		System.out.println(payDao);
 		
 		Member mm=new Member("1", null, null, null, null, null, null);
-		Pay pp=new Pay(4, null, "카드", mm, null);
+		Pay pp=new Pay(4, null, null, "카드", mm, null);
 		Product pd=new Product(1, null, null, null, null, null, null);
 		//create
 		System.out.println(payDao.createPay(pp));
