@@ -31,4 +31,7 @@ public interface TeacherDao {
 	 * isExisted 아이디 중복검사
 	 */
 	boolean existedTeacher (String sUserId) throws Exception;
+	
+	// p_no를 사용해서 강사 정보 출력 service는 reservaion에 구현!
+	Teacher selectByP_no(int p_no) throws Exception;
 }

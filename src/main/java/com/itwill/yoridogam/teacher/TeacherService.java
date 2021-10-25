@@ -33,4 +33,8 @@ public interface TeacherService {
 	 * 강사아이디 중복체크
 	 */
 	boolean isDuplcateTeacherId(String sUserId) throws Exception;
+	
+	
+	
+	
 }
