@@ -15,6 +15,7 @@ public class PayServiceTest {
 		PayService payService=(PayService)applicationContext.getBean("payService");
 		System.out.println(payService);
 
+		
 		Member mm=new Member("member1", null, null, null, null, null, null);
 		Pay pp=new Pay(1, null, null, "카드", mm);
 		

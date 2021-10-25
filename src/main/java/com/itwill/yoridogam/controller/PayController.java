@@ -1,5 +1,7 @@
 package com.itwill.yoridogam.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.itwill.yoridogam.controller.interceptor.LoginCheck;
 import com.itwill.yoridogam.member.Member;
 import com.itwill.yoridogam.member.MemberService;
+import com.itwill.yoridogam.pay.cart.Cart;
 import com.itwill.yoridogam.pay.cart.CartService;
 import com.itwill.yoridogam.pay.pay.Pay;
 import com.itwill.yoridogam.pay.pay.PayService;
@@ -36,13 +39,23 @@ public class PayController {
 	@RequestMapping("pay_form")
 	public String pay_form(HttpSession session, Model model) throws Exception{
 	//public String pay_form(HttpSession session, @RequestParam("p_no") int p_no, @RequestParam("pi_qty") int pi_qty) throws Exception{
-		String member=(String)session.getAttribute("sUserId");
+		String sUserId=(String)session.getAttribute("sUserId");
 		int pQty=1;//test
-		int pNo=1;//test
+		int p_no=1;//test
 		session.setAttribute("qty",pQty);
-		model.addAttribute("sUserId", memberService.findMember(member));
-		model.addAttribute("product", productService.selectByNo(pNo));
+		model.addAttribute("sUserId", memberService.findMember(sUserId));
+		model.addAttribute("product", productService.selectByNo(p_no));
 		return "pay_form";
+	}
+	
+	@LoginCheck
+	@RequestMapping("pay_form_cart")
+	public String pay_form_fromCart(HttpSession session, Model model) throws Exception{
+		String sUserId=(String)session.getAttribute("sUserId");
+		List<Cart> cList=cartService.cartList(sUserId);
+		model.addAttribute("sUserId", memberService.findMember(sUserId));
+		model.addAttribute("cartList", cList);
+		return "pay_form_cart";
 	}
 	
 	@LoginCheck
