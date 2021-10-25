@@ -2,8 +2,6 @@ package com.itwill.yoridogam.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.itwill.yoridogam.controller.interceptor.LoginCheck;
 import com.itwill.yoridogam.notice.Notice;
 import com.itwill.yoridogam.notice.NoticeService;
 
@@ -76,13 +73,43 @@ public class NoticeController {
 	
 	/**** 공지사항 수정 액션(Get) ****/
 	@GetMapping("noti_update_action")
-	public String qna_update_action_get_user() {
+	public String noti_update_action_get() {
 		return "redirect:noti_list";
 	}
 	
 	/**** 공지사항 수정 액션(Post) ****/
+	@PostMapping("noti_update_action")
+	public String noti_update_action_post(@ModelAttribute Notice notice, Model model) {
+		noticeService.updateNoti(notice);
+		model.addAttribute("notice", notice);
+		return "noti_detail";
+	}
 	
-	/**** 공지사항  ****/
-	/**** 공지사항  ****/
+	/**** 공지사항 삭제 액션(Get) ****/
+	@GetMapping("noti_delete_action")
+	public String noti_delete_action_get() {
+		return "redirect:noti_list";
+	}
+	
+	/**** 공지사항 삭제 액션(Post) ****/
+	@PostMapping("noti_delete_action")
+	public String noti_delete_action_post(@RequestParam int noti_no) {
+		noticeService.deleteNoti(noti_no);
+		return "noti_list";
+	}
+	
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,5 +1,7 @@
 package com.itwill.yoridogam.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +24,13 @@ public class CartController {
 	@RequestMapping("cart_list_form")
 	public String Cart_List(HttpSession session) {
 		String sUserId=(String)session.getAttribute("sUserId");
-		session.setAttribute("cartList", cartService.cartList(sUserId));
+		List<Cart> cList=cartService.cartList(sUserId);
+		int cart_total=0;
+		for(Cart cart:cList) {
+			cart_total+=Integer.parseInt(cart.getProduct().getP_price());
+		}
+		session.setAttribute("cartList", cList);
+		session.setAttribute("cart_total", cart_total);
 		return "cart_list_form";
 		
 	}
@@ -36,7 +44,7 @@ public class CartController {
 		nCartI.setMember(new Member(sUserId, null, null, null, null, null, null));
 		boolean isCartI=cartService.isExistCartItem(nCartI);
 		if(isCartI==true) {
-			return "cart_increase_action";
+			cartService.increaseQty(nCartI);
 		}
 		cartService.insertCart(nCartI);
 		return "cart_list_form";

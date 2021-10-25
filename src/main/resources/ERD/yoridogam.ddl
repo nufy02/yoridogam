@@ -53,6 +53,7 @@ CREATE TABLE teacher(
 		t_name                        		VARCHAR2(20)		 NOT NULL,
 		t_pass                        		VARCHAR2(30)		 NOT NULL,
 		t_email                       		VARCHAR2(50)		 NOT NULL,
+		t_phone                       		VARCHAR2(14)		 NOT NULL,
 		t_photo                       		VARCHAR2(500)		 NOT NULL,
 		t_detail                      		VARCHAR2(500)		 NOT NULL,
 		t_location                    		VARCHAR2(100)		 NOT NULL,

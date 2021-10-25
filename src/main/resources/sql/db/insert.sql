@@ -1,9 +1,9 @@
 --실데이터 용
 
 /********** Member **********/
-insert into member(m_id,m_name,m_pass,m_addr,m_email,m_phone,m_interest,m_gender) values('member1','김첨지1','1111','서울시','kkihon1@naver.com','010-8888-8888','비건','남자');
-insert into member(m_id,m_name,m_pass,m_addr,m_email,m_phone,m_interest,m_gender) values('member2','김첨지2','2223','서울시2','kkihon2@naver.com','010-1232-8888','빵','여자');
-insert into member(m_id,m_name,m_pass,m_addr,m_email,m_phone,m_interest,m_gender) values('member3','김첨지3','3333','서울시3','kkihon3@naver.com','010-2323-8888','쿠키','남자');
+insert into member(m_id,m_name,m_pass,m_addr,m_email,m_phone,m_gender) values('member1','김첨지1','1111','서울시','kkihon1@naver.com','010-8888-8888','남자');
+insert into member(m_id,m_name,m_pass,m_addr,m_email,m_phone,m_gender) values('member2','김첨지2','2223','서울시2','kkihon2@naver.com','010-1232-8888','여자');
+insert into member(m_id,m_name,m_pass,m_addr,m_email,m_phone,m_gender) values('member3','김첨지3','3333','서울시3','kkihon3@naver.com','010-2323-8888','남자');
 
 /********** Member Interest **********/
 insert into member_interest values(MEMBER_INTEREST_MI_NO_SEQ.nextval,'빵','member1');
@@ -17,10 +17,9 @@ insert into product values(PRODUCT_P_NO_SEQ.nextval,'강의2','바삭해요','�
 insert into product values(PRODUCT_P_NO_SEQ.nextval,'강의3','맛있어요','비건','10000','오프라인','이미지url3');
 
 /********** Teacher **********/
-insert into teacher(t_id,t_name,t_pass,t_email,t_photo,t_detail,t_location,p_no) values('teacher1','kim1','1111','kkiho@naver.com','이미지1','일타강사','서울',1);
-insert into teacher(t_id,t_name,t_pass,t_email,t_photo,t_detail,t_location,p_no) values('teacher2','him1','2222','kkiho1@naver.com','이미지2','일타강사1','서울1',2);
-insert into teacher(t_id,t_name,t_pass,t_email,t_photo,t_detail,t_location,p_no) values('teacher3','tim1','3333','kkiho2@naver.com','이미지3','일타강사2','서울2',3);
-
+insert into teacher(t_id,t_name,t_pass,t_phone,t_email,t_photo,t_detail,t_location,p_no) values('teacher1','kim1','1111','010-0000-0000','kkiho@naver.com','이미지1','일타강사','서울',1);
+insert into teacher(t_id,t_name,t_pass,t_phone,t_email,t_photo,t_detail,t_location,p_no) values('teacher2','him1','2222','010-1111-1111','kkiho1@naver.com','이미지2','일타강사1','서울1',2);
+insert into teacher(t_id,t_name,t_pass,t_phone,t_email,t_photo,t_detail,t_location,p_no) values('teacher3','tim1','3333','010-2222-2222','kkiho2@naver.com','이미지3','일타강사2','서울2',3);
 
 /********** Product_time **********/
 

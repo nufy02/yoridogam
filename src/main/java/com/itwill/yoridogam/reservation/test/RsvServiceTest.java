@@ -4,6 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.itwill.yoridogam.member.Member;
+import com.itwill.yoridogam.member.MemberService;
 import com.itwill.yoridogam.pay.pay.PayService;
 import com.itwill.yoridogam.product.Product;
 import com.itwill.yoridogam.productTime.ProductTime;
@@ -32,10 +33,15 @@ public class RsvServiceTest {
 		//System.out.println(h);
 		
 		//reservationService.selectAll("member1");
+		/*
 		System.out.println(reservationService.selectAll("member1"));
 		System.out.println(reservationService.selectById("member1"));
 		
 		System.out.println(reservationService.deletByRsv(5));
+		*/
+
+		
+		
 	}
 
 }

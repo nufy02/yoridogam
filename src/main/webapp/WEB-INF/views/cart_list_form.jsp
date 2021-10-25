@@ -1,4 +1,7 @@
-		<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
         <!-- Header Area Start -->
 		<%@include file="/WEB-INF/views/common/include_header.jsp"%>
         <!-- Header Area End -->
@@ -23,10 +26,10 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                    	<c:forEach var="cartList" items="${cartList}" begin="0" end="10">
+                                    	<c:forEach var="cartList" items="${cartList}" begin="0" end="${cartList.size()}">
                                     	
                                         <td class="cart_product_img">
-                                            <a href="#"><img src="img/bg-img/cart1.jpg" alt="Product"></a>
+                                            <input type="checkbox" name="p_name"  value="${cartList.product.p_no }"><a href="#"><img src="img/bg-img/cart1.jpg" alt="Product"></a>
                                         </td>
                                         <td class="cart_product_desc">
                                             <h5>${cartList.product.p_name }</h5>
@@ -39,7 +42,7 @@
                                                 <p>Qty</p>
                                                 <div class="quantity">
                                                     <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                                                    <input type="number" class="qty-text" id="qty" step="1" min="1" max="300" name="quantity" value="1">
+                                                    <input type="number" class="qty-text" id="qty" step="1" min="1" max="300" name="quantity" value="${cartList.ci_qty }">
                                                     <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
                                                 </div>
                                             </div>
@@ -55,12 +58,11 @@
                         <div class="cart-summary">
                             <h5>Cart Total</h5>
                             <ul class="summary-table">
-                                <li><span>subtotal:</span> <span>$140.00</span></li>
-                                <li><span>delivery:</span> <span>Free</span></li>
-                                <li><span>total:</span> <span>$140.00</span></li>
+                                <li><span>강의 갯수:</span> <span>${cartList.size() }</span></li>
+                                <li><span>장바구니 합계:</span> <span>$140.00</span></li>
                             </ul>
                             <div class="cart-btn mt-100">
-                                <a href="cart.html" class="btn amado-btn w-100">Checkout</a>
+                                <input type="submit" class="btn amado-btn w-100" value="결제하기">
                             </div>
                         </div>
                     </div>
@@ -84,7 +86,8 @@
     <script src="js/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
-
+	<!-- Custom -->
+	<script src="js/custom/cart.js"></script>
 </body>
 
 </html>

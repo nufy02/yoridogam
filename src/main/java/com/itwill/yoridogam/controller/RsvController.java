@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.itwill.yoridogam.controller.interceptor.LoginCheck;
+import com.itwill.yoridogam.member.Member;
 import com.itwill.yoridogam.member.MemberService;
 import com.itwill.yoridogam.product.ProductService;
 import com.itwill.yoridogam.productTime.ProductTime;
@@ -36,11 +37,14 @@ public class RsvController {
 	@RequestMapping("rsv_form")
 	public String rsv_form(HttpSession session, Model model) throws Exception {
 		String sUserId = (String)session.getAttribute("sUserId"); //회원 아이디
-		int p_no = (int)session.getAttribute("p_no"); // 상품 넘버
-		int pt_no = (int)session.getAttribute("pt_no"); // 상품 예약 시간
-		int qty = (int)session.getAttribute("qty"); // 예약 인원 받기
+		int p_no =1;
+		//int p_no = (int)session.getAttribute("p_no"); // 상품 넘버
+		int pt_no =1;
+		//int pt_no = (int)session.getAttribute("pt_no"); // 상품 예약 시간
+		int qty =1;
+		//int qty = (int)session.getAttribute("qty"); // 예약 인원 받기
 		
-		model.addAttribute("userList", memberService.findMember(sUserId));// 고객정보 보여줄때
+		model.addAttribute("sUserId", memberService.findMember(sUserId));// 고객정보 보여줄때
 		model.addAttribute("product", productService.selectByNo(p_no)); // 예약한 상품 보여줄때
 		model.addAttribute("productTime", productTimeService.selectByNo(pt_no)); // 예약한 시간 보여줄때
 		model.addAttribute("qty",qty);

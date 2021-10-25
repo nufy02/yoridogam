@@ -2,6 +2,8 @@ package com.itwill.yoridogam.pay.pay;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+@Transactional
 public interface PayService {
 	
 	/***********************온라인 강의 결제***********************/

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	
         <!-- Header Area Start -->
 		<%@include file="/WEB-INF/views/common/include_header.jsp"%>
         <!-- Header Area End -->
@@ -59,10 +61,12 @@
                             <h5>주문 정보</h5>
                            	<input type="hidden" name="pay_no" value="1"/>
                             <ul class="summary-table">
-                          		<li><input type="hidden"  name="p_no"  value="${product.p_no}"></li>
-                                <li><span>강의명:</span> <input type="text"  name="p_name"  value="${product.p_name}"></li>
-                                <li><span>강의 수량:</span><input type="number"  name="qty"  value="${qty}"></li>
-                                <li><span>결제 금액:</span> <input type="text"  name="p_price"  value="${product.p_price}"></li>
+                                    <c:forEach var="cartList" items="${cartList}" begin="0" end="${cartList.size()}">
+                          		<li><input type="hidden"  name="p_no"  value="${cartList.product.p_no}"></li>
+                                <li><span>강의명:</span> <input type="text"  name="p_name"  value="${cartList.product.p_name}"></li>
+                                <li><span>강의 수량:</span><input type="number"  name="qty"  value="${cartList.ci_qty}"></li>
+                                    </c:forEach>
+                                <li><span>총 결제 금액:</span> <input type="text"  name="p_price"  value=""></li>
                             </ul>
 	
                             <div class="payment-method">
@@ -83,7 +87,7 @@
                             </div>
 	
                             <div class="cart-btn mt-100">
-                            	<input type="submit" class="btn amado-btn w-100" value="결제하기">
+                            	<input type="submit" value="결제">
                             </form>
                             </div>
                         </div>
@@ -108,7 +112,8 @@
     <script src="js/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
-
+	<!-- Custom -->
+	<script src="js/custom/pay.js"></script>
 </body>
 
 </html>

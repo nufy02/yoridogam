@@ -55,4 +55,10 @@ public class TeacherDaoImpl implements TeacherDao {
 			return false;
 		}
 	}
+
+	@Override
+	public Teacher selectByP_no(int p_no) throws Exception {
+		
+		return sqlSession.selectOne(NAMESPACE+"selectByP_no",p_no);
+	}
 }

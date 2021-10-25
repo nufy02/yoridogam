@@ -3,6 +3,7 @@ package com.itwill.yoridogam.reservation;
 import java.util.List;
 
 import com.itwill.yoridogam.productTime.ProductTime;
+import com.itwill.yoridogam.teacher.Teacher;
 
 public interface ReservationService {
 	
@@ -31,4 +32,7 @@ public interface ReservationService {
 	
 	// 회원의 전체 예약 삭제
 	int deleteAll(String sUserId) throws Exception;
+	
+	//p_no을 이용해서 강사 찾기
+	Teacher selectByP_no(int p_no) throws Exception;
 }
