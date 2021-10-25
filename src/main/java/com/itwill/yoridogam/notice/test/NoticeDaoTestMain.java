@@ -21,12 +21,14 @@ public class NoticeDaoTestMain {
 		 NOTI_NO, NOTI_TITLE, NOTI_DATE, NOTI_VIEWCOUNT, NOTI_CONTENT, M_ID
 		 VALUES(notice_noti_no_SEQ.nextval, '공지사항입니다1', sysdate, 0, '공지사항 내용입니다1', 'admin1')
 		 */
-		Member aa=new Member("admin11", "test", "test", "test", "test", "test", "test");
+		Member aa=new Member("11", null, null, null, null, null, null);
 		/*공지사항 추가*/
 		Notice insertNoti2 = new Notice(2, "공지사항입니다2", new Date(0), 0, "공지사항 내용입니다2", null);
 		Notice insertNoti3 = new Notice(2, "공지사항입니다3", new Date(0), 0, "공지사항 내용입니다3", null);
-		Notice insertNoti100 = new Notice(0, "공지사항입니다4", new Date(0), 0, "공지사항 내용입니다4", aa);
 		Notice updateNoti1 = new Notice(2, "공지사항 수정입니다1", new Date(0), 0, "공지사항 내용 수정입니다1", null);
+
+		Notice insertNoti100 = new Notice(0, "공지사항입니다4", new Date(0), 0, "공지사항 내용입니다4", aa);
+		
 		//System.out.println(noticeDao.insertNoti(insertNoti3));
 		//System.out.println(noticeDao.insertNoti(insertNoti4));
 		
