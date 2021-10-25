@@ -23,6 +23,7 @@ public class productTimeServiceImpl implements productTimeService{
 		return productTimeDao.selectPtNo(pt_no);
 	}
 
+
 	@Override
 	public int create(ProductTime productTime) throws Exception {
 		// TODO Auto-generated method stub

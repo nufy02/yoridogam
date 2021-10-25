@@ -14,7 +14,7 @@
     <title>3조 요리도감</title>
 
     <!-- Favicon  -->
-    <link rel="icon" href="img/core-img/favicon.ico">
+    <link rel="icon" href="img/core-img/yoridogam-logo.png">
 
     <!-- Core Style CSS -->
     <link rel="stylesheet" href="css/core-style.css">

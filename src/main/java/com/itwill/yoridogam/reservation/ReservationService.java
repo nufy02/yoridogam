@@ -27,6 +27,9 @@ public interface ReservationService {
 	// 회원의 예약 특정 상세 조회
 	List<Reservation> selectById(String sUserId)throws Exception;
 	
+	// 회원의 DB에 예약할 상품이 있는지 확인하기 위함
+	Reservation selectByP_no(Reservation reservation)throws Exception;
+	
 	// 회원의 특정 예약 취소
 	int deletByRsv(int rsv_no)throws Exception;
 	
@@ -34,5 +37,5 @@ public interface ReservationService {
 	int deleteAll(String sUserId) throws Exception;
 	
 	//p_no을 이용해서 강사 찾기
-	Teacher selectByP_no(int p_no) throws Exception;
+	Teacher tSelectByP_no(int p_no) throws Exception;
 }
