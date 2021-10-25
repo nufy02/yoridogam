@@ -22,6 +22,13 @@ public class NoticeController {
 	/*
 	 noti_list		공지사항 전체 리스트
 	 noti_detail	공지사항 한 개 상세보기
+	 
+	 noti_write_form	공지사항 작성 폼
+	 noti_update_form	공지사항 수정 폼
+	 
+	 noti_write_action	공지사항 작성 액션(관리자만 가능)
+	 noti_update_action	공지사항 수정 액션(관리자만 가능)
+	 noti_delete_action	공지사항 삭제 액션(관리자만 가능)
 	 */
 	
 	/**** 공지사항 리스트 ****/
@@ -39,6 +46,7 @@ public class NoticeController {
 	/**** 공지사항 한 개 상세보기 ****/
 	@RequestMapping(value = "noti_detail")
 	public String noti_detail(@RequestParam int noti_no, Model model) {
+		//클릭 할 때마다 조회수 증가
 		noticeService.updateNotiViewCount(noti_no);
 		Notice notiDetail = noticeService.selectByNotiNo(noti_no);
 		model.addAttribute("notiDetail", notiDetail);

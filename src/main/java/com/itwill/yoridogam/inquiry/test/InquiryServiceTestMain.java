@@ -47,11 +47,11 @@ public class InquiryServiceTestMain {
 		/*문의사항 수정*/
 		//System.out.println(inquiryService.updateInquiry(updateInq1));
 		
-		/*문의사항 한 개 보기*/
-		System.out.println(inquiryService.selectByNoInquiry(10));
+		/*문의사항 총 개수 보기*/
+		System.out.println(inquiryService.countAllInquiry());
 		
 		/*문의사항 답변 수정*/
-		System.out.println(inquiryService.updateInquiry(updateInq1));
+		//System.out.println(inquiryService.updateInquiry(updateInq1));
 
 		/*문의사항 삭제*/
 		//System.out.println(inquiryService.deleteInquiry(8));
@@ -63,7 +63,7 @@ public class InquiryServiceTestMain {
 		
 		
 		/*문의사항 한 개 보기*/
-		System.out.println(inquiryService.selectByNoInquiry(10));
+		//System.out.println(inquiryService.selectByNoInquiry(10));
 		
 		/*문의사항 전체 보기*/
 		System.out.println(inquiryService.selectByAllInquiry());

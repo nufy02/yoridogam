@@ -51,4 +51,9 @@ public class InquiryServiceImpl implements InquiryService {
 		return result;
 	}
 
+	@Override
+	public int countAllInquiry() {
+		return inquiryDao.countAllInquiry();
+	}
+
 }

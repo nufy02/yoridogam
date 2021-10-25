@@ -28,4 +28,7 @@ public interface InquiryDao {
 	/*************** 문의글 조회수 증가 ***************/
 	boolean updateInquiryViewCount(int ib_no);
 
+	/*************** 문의글 총 개수 ***************/
+	int countAllInquiry();
+	
 }

@@ -67,4 +67,10 @@
 		update inquiry set IB_VIEWCOUNT = IB_VIEWCOUNT+1 where IB_NO=#{ib_no}
 	</update>
 	
+	<select id="countAllInquiry" resultType="java.lang.Integer">
+		select count(*) from inquiry
+	</select>
+	
+	
+	
 </mapper>
