@@ -13,23 +13,23 @@ public class ProductServiceImpl implements ProductService {
 	
 	@Override
 	public int create(Product product) throws Exception{
-		return 0;
+		return productDao.create(product);
 	}
 	@Override
 	public int updateByNo(Product product) throws Exception{
-		return 0;
+		return productDao.updateByNo(product);
 	}
 	@Override
 	public List<Product> selectAll() throws Exception{
-		return null;
+		return productDao.selectAll();
 	}
 	@Override
 	public Product selectByNo(int p_no) throws Exception{
-		return null;
+		return productDao.selectByNo(p_no);
 	}
 	@Override
 	public int deleteByNo(int p_no) throws Exception{
-		return 0;
+		return productDao.deleteByNo(p_no);
 	}
 	
 }
