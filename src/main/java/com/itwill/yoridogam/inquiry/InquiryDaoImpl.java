@@ -61,5 +61,10 @@ public class InquiryDaoImpl implements InquiryDao{
 		return result;
 	}
 
+	@Override
+	public int countAllInquiry() {
+		return sqlSession.selectOne(NAMESPACE+"countAllInquiry");
+	}
+
 
 }

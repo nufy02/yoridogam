@@ -26,6 +26,7 @@ public class MemberServiceTestMain {
 		MemberInterest mi4 = new MemberInterest(0, "빵", m4);
 		
 		System.out.println("2.insertMember : " +memberService.create(m4, mi4));
+		
 		/*
 		 * 회원수정
 		 */
