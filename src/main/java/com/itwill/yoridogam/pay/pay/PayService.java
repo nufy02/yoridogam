@@ -21,7 +21,7 @@ public interface PayService {
 	boolean isExistPay(String sUserId) throws Exception;
 	
 	/***********************회원 결제 특정 조회***********************/
-	Pay findPayByNo(Pay pay) throws Exception;
+	Pay findPayByNo(int pay_no) throws Exception;
 	
 	/***********************회원 결제 전체 조회***********************/
 	List<Pay> findPayList(String sUserId) throws Exception;
@@ -30,5 +30,5 @@ public interface PayService {
 	List<Pay> findPayDetailList(String sUserId) throws Exception;
 	
 	/***********************회원 결제 상세 조회***********************/
-	Pay findPayDetailByNo(int pi_no) throws Exception;
+	Pay findPayDetailByNo(int pay_no) throws Exception;
 }

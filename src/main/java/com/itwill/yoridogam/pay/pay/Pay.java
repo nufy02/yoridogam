@@ -14,6 +14,7 @@ public class Pay {
 	private Member member;
 	private List<Pay_item> payItemList;
 
+
 	public Pay() {
 
 	}

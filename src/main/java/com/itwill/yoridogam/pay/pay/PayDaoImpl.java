@@ -14,7 +14,8 @@ public class PayDaoImpl implements PayDao{
 	
 	@Override
 	public int createPay(Pay pay) throws Exception{
-		return sqlSession.insert(NAMESPACE+"createPay",pay);
+		sqlSession.insert(NAMESPACE+"createPay",pay);
+		return pay.getPay_no();
 	}
 
 	@Override
@@ -38,8 +39,8 @@ public class PayDaoImpl implements PayDao{
 	}
 
 	@Override
-	public Pay findPayByNo(Pay pay) throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"findPayByNo",pay);
+	public Pay findPayByNo(int pay_no) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"findPayByNo",pay_no);
 	}
 
 	@Override
@@ -53,8 +54,8 @@ public class PayDaoImpl implements PayDao{
 	}
 
 	@Override
-	public Pay findPayDetailByNo(int pi_no) throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"findPayDetailByNo",pi_no);
+	public Pay findPayDetailByNo(int pay_no) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"findPayDetailByNo",pay_no);
 	}
 
 }

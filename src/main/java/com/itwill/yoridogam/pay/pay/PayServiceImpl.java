@@ -26,11 +26,10 @@ public class PayServiceImpl implements PayService{
 	// 강의페이지-> 결제
 	@Override
 	public int createPay(Pay pay, int pi_qty, int p_no) throws Exception{
-		int payCCount=payDao.createPay(pay);
+		payDao.createPay(pay);
 		Pay_item newPi=new Pay_item(0, pi_qty, pay.getPay_no(), productDao.selectByNo(p_no));
-		int pICCount=pay_itemDao.createPayItem(newPi);
-		int count=payCCount+pICCount;
-		return count;
+		pay_itemDao.createPayItem(newPi);
+		return pay.getPay_no();
 	}
 	
 	// 장바구니(온라인)-> 결제
@@ -38,13 +37,11 @@ public class PayServiceImpl implements PayService{
 	public int createPayFromCart(Pay pay,String sUserId) throws Exception {
 		payDao.createPay(pay);
 		List<Cart> cList=cartDao.cartList(sUserId);
-		int payICCount=0;
 		for(Cart cart:cList) {
 			pay_itemDao.createPayItem
 			(new Pay_item(0, cart.getCi_qty(), pay.getPay_no(), cart.getProduct()));
-			payICCount++;
 		}
-		return payICCount;
+		return pay.getPay_no();
 	}
 
 	@Override
@@ -63,8 +60,8 @@ public class PayServiceImpl implements PayService{
 	}
 
 	@Override
-	public Pay findPayByNo(Pay pay) throws Exception {
-		return payDao.findPayByNo(pay);
+	public Pay findPayByNo(int pay_no) throws Exception {
+		return payDao.findPayByNo(pay_no);
 	}
 
 	@Override
@@ -78,8 +75,8 @@ public class PayServiceImpl implements PayService{
 	}
 
 	@Override
-	public Pay findPayDetailByNo(int pi_no) throws Exception {
-		return payDao.findPayDetailByNo(pi_no);
+	public Pay findPayDetailByNo(int pay_no) throws Exception {
+		return payDao.findPayDetailByNo(pay_no);
 	}
 
 	

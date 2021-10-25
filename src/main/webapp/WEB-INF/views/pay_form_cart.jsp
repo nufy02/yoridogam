@@ -16,7 +16,7 @@
                                 <h2>Checkout</h2>
                             </div>
 
-                            <form action="pay_action" name="payInfo" method="post">
+                            <form action="pay_action_cart" name="payInfo" method="post">
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <input type="text" class="form-control" name="m_name" value="${sUserId.getM_name()}" placeholder="First Name" required>
@@ -66,7 +66,7 @@
                                 <li><span>강의명:</span> <input type="text"  name="p_name"  value="${cartList.product.p_name}"></li>
                                 <li><span>강의 수량:</span><input type="number"  name="qty"  value="${cartList.ci_qty}"></li>
                                     </c:forEach>
-                                <li><span>총 결제 금액:</span> <input type="text"  name="p_price"  value=""></li>
+                                <li><span>총 결제 금액:</span> <input type="text"  name="pay_total"  value=""></li>
                             </ul>
 	
                             <div class="payment-method">

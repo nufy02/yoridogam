@@ -61,8 +61,9 @@
                             <ul class="summary-table">
                           		<li><input type="hidden"  name="p_no"  value="${product.p_no}"></li>
                                 <li><span>강의명:</span> <input type="text"  name="p_name"  value="${product.p_name}"></li>
-                                <li><span>강의 수량:</span><input type="number"  name="qty"  value="${qty}"></li>
-                                <li><span>결제 금액:</span> <input type="text"  name="p_price"  value="${product.p_price}"></li>
+                                <li><span>수량:</span><input type="number"  name="qty"  value="${qty}"></li>
+                                <li><span>금액:</span> <input type="text"  name="p_price"  value="${product.p_price}"></li>
+                                <li><span>총 금액:</span> <input type="text"  name="pay_total"  value="${product.p_price}"></li>
                             </ul>
 	
                             <div class="payment-method">
@@ -84,7 +85,6 @@
 	
                             <div class="cart-btn mt-100">
                             	<input type="submit" class="btn amado-btn w-100" value="결제하기">
-                            </form>
                             </div>
                         </div>
                     </div>
@@ -92,6 +92,7 @@
             </div>
         </div>
     </div>
+ </form>
     <!-- ##### Main Content Wrapper End ##### -->
 
     <!-- ##### Footer Area Start ##### -->

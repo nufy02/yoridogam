@@ -50,6 +50,11 @@ public class Pay_item {
 	public void setProduct(Product product) {
 		this.product = product;
 	}
+
+	@Override
+	public String toString() {
+		return "Pay_item [pi_no=" + pi_no + ", pi_qty=" + pi_qty + ", pay_no=" + pay_no + ", product=" + product + "]";
+	}
 	
 	
 

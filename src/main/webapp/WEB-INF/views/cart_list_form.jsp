@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@page import="java.text.DecimalFormat"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="s" uri="http://www.springframework.org/tags" %>    
         <!-- Header Area Start -->
 		<%@include file="/WEB-INF/views/common/include_header.jsp"%>
         <!-- Header Area End -->
@@ -25,9 +26,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+									<form>
                                     <tr>
+                                    	<c:set var="tot_price" value="0"/>
                                     	<c:forEach var="cartList" items="${cartList}" begin="0" end="${cartList.size()}">
-                                    	
+                                    	<c:set var="tot_price" value="${tot_price+cartList.product.p_price*cartList.ci_qty }"/>
                                         <td class="cart_product_img">
                                             <input type="checkbox" name="p_name"  value="${cartList.product.p_no }"><a href="#"><img src="img/bg-img/cart1.jpg" alt="Product"></a>
                                         </td>
@@ -39,7 +42,7 @@
                                         </td>
                                         <td class="qty">
                                             <div class="qty-btn d-flex">
-                                                <p>Qty</p>
+                                                <p>수량</p>
                                                 <div class="quantity">
                                                     <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>
                                                     <input type="number" class="qty-text" id="qty" step="1" min="1" max="300" name="quantity" value="${cartList.ci_qty }">
@@ -49,7 +52,6 @@
                                         </td>
                                     </tr>
                                     	</c:forEach>
-                                    
                                 </tbody>
                             </table>
                         </div>
@@ -59,10 +61,12 @@
                             <h5>Cart Total</h5>
                             <ul class="summary-table">
                                 <li><span>강의 갯수:</span> <span>${cartList.size() }</span></li>
-                                <li><span>장바구니 합계:</span> <span>$140.00</span></li>
+                                <li><span>장바구니 합계:</span><span id="tot_price" >${tot_price }원</span></li>
                             </ul>
                             <div class="cart-btn mt-100">
                                 <input type="submit" class="btn amado-btn w-100" value="결제하기">
+
+
                             </div>
                         </div>
                     </div>
