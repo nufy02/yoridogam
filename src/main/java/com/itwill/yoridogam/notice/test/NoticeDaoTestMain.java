@@ -24,7 +24,7 @@ public class NoticeDaoTestMain {
 		Notice insertNoti3 = new Notice(2, "공지사항입니다3", new Date(0), 0, "공지사항 내용입니다3", null);
 		Notice updateNoti1 = new Notice(2, "공지사항 수정입니다1", new Date(0), 0, "공지사항 내용 수정입니다1", null);
 		*/
-		Member aa=new Member("11", null, null, null, null, null, null);
+		Member aa=new Member("admin1", null, null, null, null, null, null);
 		Notice insertNoti100 = new Notice(0, "공지사항입니다4", new Date(0), 0, "공지사항 내용입니다4", aa);
 		
 		//System.out.println(noticeDao.insertNoti(insertNoti3));

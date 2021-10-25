@@ -5,7 +5,7 @@ import java.util.List;
 public interface NoticeService {
 
 	/*************** 공지사항 추가 ***************/
-	int insertNoti(Notice notice) throws Exception;
+	int insertNoti(Notice notice);
 	
 	/*************** 공지사항 수정 ***************/
 	int updateNoti(Notice notice);

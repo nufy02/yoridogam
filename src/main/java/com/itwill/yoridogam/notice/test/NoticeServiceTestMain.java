@@ -18,33 +18,39 @@ public class NoticeServiceTestMain {
 		NoticeService noticeService = (NoticeService)applicationContext.getBean("noticeService");
 		System.out.println(noticeService);
 		
-		Member aa=new Member("admin11", "test", "test", "test", "test", "test", "test");
+		Member aa=new Member("admin1", "test", "test", "test", "test", "test", "test");
 		
 		/*공지사항 추가*/
 		Notice insertNoti1 = new Notice(0, "공지사항입니다11", new Date(0), 0, "공지사항 내용입니다11", aa);
 		Notice insertNoti2 = new Notice(0, "공지사항입니다22", new Date(0), 0, "공지사항 내용입니다22", aa);
 		Notice insertNoti3 = new Notice(0, "공지사항입니다33", new Date(0), 0, "공지사항 내용입니다33", aa);
 		
+		Notice updateNoti1 = new Notice(6, "공지사항 수정입니다11", new Date(0), 0, "공지사항 내용 수정입니다11", aa);
+		
 		/*추가*/
-		System.out.println(noticeService.insertNoti(insertNoti1));
 		/*
+		System.out.println(noticeService.insertNoti(insertNoti1));
 		System.out.println(noticeService.insertNoti(insertNoti2));
 		System.out.println(noticeService.insertNoti(insertNoti3));
-		*/
+		 */
 			
-		/*글 번호로 보기*/
-		//System.out.println(noticeDao.selectByNotiNo(2));
-		
-		/*글 수정*/
-		//System.out.println(noticeDao.updateNoti(updateNoti1));
-		
-		/*글 삭제*/
-		//System.out.println(noticeDao.deleteNoti(5));
-		
-		/*조회수 추가*/
-		//System.out.println(noticeDao.updateNotiViewCount(1));
 		/*전체 보기*/
 		System.out.println(noticeService.selectAllNoti());
+		
+		/*글 번호로 보기*/
+		System.out.println(noticeService.selectByNotiNo(1));
+		
+		/*글 수정*/
+		//System.out.println(noticeService.updateNoti(updateNoti1));
+		
+		/*글 삭제*/
+		//System.out.println(noticeService.deleteNoti(3));
+
+		/*조회수 추가*/
+		System.out.println(noticeService.updateNotiViewCount(1));
+		
+		/*글 번호로 보기*/
+		System.out.println(noticeService.selectByNotiNo(1));
 		
 	}
 }
