@@ -5,11 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.itwill.yoridogam.product.Product;
 import com.itwill.yoridogam.productTime.ProductTime;
 import com.itwill.yoridogam.productTime.ProductTimeDao;
 import com.itwill.yoridogam.productTime.ProductTimeService;
-import com.itwill.yoridogam.teacher.Teacher;
-import com.itwill.yoridogam.teacher.TeacherDao;
+import com.itwill.yoridogam.product.ProductDao;
 
 @Service("reservationService")
 public class ReservationServiceImpl implements ReservationService {
@@ -18,7 +18,7 @@ public class ReservationServiceImpl implements ReservationService {
 	@Autowired
 	private ProductTimeDao productTimeDao;
 	@Autowired
-	private TeacherDao teacherDao;
+	private ProductDao productDao;
 	
 	// 상품 예약
 	@Override
@@ -81,9 +81,9 @@ public class ReservationServiceImpl implements ReservationService {
 	
 	//p_no 이용해서 강사 찾기
 	@Override
-	public Teacher tSelectByP_no(int p_no) throws Exception {
+	public Product SelectTByP_no(int p_no) throws Exception {
 
-		return teacherDao.selectByP_no(p_no);
+		return productDao.selectTByP_no(p_no);
 	}
 
 }

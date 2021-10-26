@@ -32,4 +32,12 @@
 	<select id="selectAll" parameterType="java.lang.String" resultMap="ProductResultMap">
 		select * from product
 	</select>
+	
+	
+	<!-- 상품 강사 정보 얻기 -->
+	<select id="selectTByP_no" parameterType="java.lang.Integer" resultMap="ProductResultMap">
+		select * from product p join teacher t on p.t_Id = t.t_id where p_no=#{p_no}
+	</select>
+	
+	
 </mapper>
