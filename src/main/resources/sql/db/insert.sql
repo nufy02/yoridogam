@@ -77,6 +77,43 @@ values(RESERVATION_RSV_NO_SEQ.nextval,30000,'yoridogam페이',1,'2021/10/21','13
 
 
 /********** Notice **********/
+insert INTO NOTICE(NOTI_NO, NOTI_TITLE, NOTI_DATE, NOTI_VIEWCOUNT, NOTI_CONTENT, M_ID)
+VALUES(notice_noti_no_SEQ.nextval, '공지사항1', sysdate, 0, '저희 요리도감에서는 온, 오프 강의를 진행하여..', 'admin1');	
 
+insert INTO NOTICE(NOTI_NO, NOTI_TITLE, NOTI_DATE, NOTI_VIEWCOUNT, NOTI_CONTENT, M_ID)
+VALUES(notice_noti_no_SEQ.nextval, '공지사항2', sysdate, 0, 'yoridogam페이 사용이 가능해졌습니다. 더 많은 혜택.. ', 'admin1');
+
+insert INTO NOTICE(NOTI_NO, NOTI_TITLE, NOTI_DATE, NOTI_VIEWCOUNT, NOTI_CONTENT, M_ID)
+VALUES(notice_noti_no_SEQ.nextval, '공지사항3', sysdate, 0, 'SNS 이벤트 진행 중에 있습니다..', 'admin1');
 
 /********** Inquiry **********/
+insert into inquiry(IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, ib_depth, ib_groupno, ib_step, m_id)
+VALUES(inquiry_ib_no_SEQ.nextval, '케이크 수업의 종류에 대해..', '케이크 수업이 추가될 수 있나요?', 
+       sysdate, 0, 0, inquiry_ib_no_SEQ.nextval, 1, 'member1');
+       
+insert into inquiry(IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, ib_depth, ib_groupno, ib_step, m_id) 
+VALUES(inquiry_ib_no_SEQ.nextval, '결제 방식에 대해..', '네이버페이 포인트를 사용할 수 있나요?', 
+       sysdate, 0, 0, inquiry_ib_no_SEQ.nextval, 1, 'member2');
+       
+insert into inquiry(IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, ib_depth, ib_groupno, ib_step, m_id) 
+VALUES(inquiry_ib_no_SEQ.nextval, '원하는 선생님 수업 종류에 대해..', '더?', 
+       sysdate, 0, 0, inquiry_ib_no_SEQ.nextval, 1, 'member1');
+
+insert into inquiry(IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, ib_depth, ib_groupno, ib_step, m_id)
+VALUES(inquiry_ib_no_SEQ.nextval, '답변 드립니다 고객님', '요청이 많이 들어오고 있어 검토중에 있습니다..', 
+       sysdate, 0, 1, 1, 2, 'admin1');
+
+insert into inquiry(IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, ib_depth, ib_groupno, ib_step, m_id)
+VALUES(inquiry_ib_no_SEQ.nextval, '답변 드립니다 고객님', '네이버측에서 사용 가능하십니다..', 
+       sysdate, 0, 1, 2, 2, 'admin1');
+
+insert into inquiry(IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, ib_depth, ib_groupno, ib_step, m_id)
+VALUES(inquiry_ib_no_SEQ.nextval, '답변 드립니다 고객님', '현재 어려울 것으로 판단되어 예정 없습니다. 죄송합니다.', 
+       sysdate, 0, 1, 3, 2, 'admin1');
+
+
+
+
+
+
+

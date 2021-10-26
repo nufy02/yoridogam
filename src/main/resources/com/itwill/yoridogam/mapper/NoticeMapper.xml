@@ -37,5 +37,9 @@
 	<update id="updateNotiViewCount" parameterType="java.lang.Integer">
 		update NOTICE set NOTI_VIEWCOUNT = NOTI_VIEWCOUNT+1 where NOTI_NO=#{noti_no}
 	</update>
+	
+	<select id="countAllNoti" resultType="java.lang.Integer">
+		select count(*) from NOTICE
+	</select>
 
 </mapper>

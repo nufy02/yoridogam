@@ -166,7 +166,7 @@ DROP SEQUENCE inquiry_ib_no_SEQ;
 
 CREATE SEQUENCE inquiry_ib_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
-
+commit;
 
 CREATE TABLE product_time(
 		pt_no                         		NUMBER(10)		 NULL ,

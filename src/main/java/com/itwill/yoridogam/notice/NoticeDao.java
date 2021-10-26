@@ -23,4 +23,6 @@ public interface NoticeDao {
 	/*************** 공지사항 조회수 증가 ***************/
 	boolean updateNotiViewCount(int noti_no);
 	
+	/*************** 공지사항 총 개수 ***************/
+	int countAllNoti();
 }

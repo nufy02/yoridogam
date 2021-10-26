@@ -31,4 +31,7 @@ public interface InquiryDao {
 	/*************** 문의글 총 개수 ***************/
 	int countAllInquiry();
 	
+	/*************** 답글 존재 여부 ***************/
+	boolean countA(Inquiry inquiry);
+	
 }

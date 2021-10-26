@@ -54,6 +54,11 @@ public class NoticeDaoImpl implements NoticeDao {
 		return result;
 	}
 
+	@Override
+	public int countAllNoti() {
+		return sqlSession.selectOne(NAMESPACE+"countAllNoti");
+	}
+
 	
 }
 

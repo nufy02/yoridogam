@@ -66,5 +66,15 @@ public class InquiryDaoImpl implements InquiryDao{
 		return sqlSession.selectOne(NAMESPACE+"countAllInquiry");
 	}
 
+	@Override
+	public boolean countA(Inquiry inquiry) {
+		boolean isExist = false;
+		int countA = sqlSession.selectOne(NAMESPACE+"countA", inquiry);
+		if (countA>1) {
+			isExist = true;
+		}
+		return isExist;
+	}
+
 
 }
