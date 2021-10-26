@@ -1,5 +1,7 @@
 package com.itwill.yoridogam.product;
 
+import com.itwill.yoridogam.teacher.Teacher;
+
 public class Product {
 	private int p_no;
 	private String p_name;
@@ -8,13 +10,14 @@ public class Product {
 	private String p_price;
 	private String p_type;
 	private String p_photo;
+	private Teacher teacher;
 	
 	public Product() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public Product(int p_no, String p_name, String p_detail, String p_category, String p_price, String p_type,
-			String p_photo) {
+			String p_photo, Teacher teacher) {
 		super();
 		this.p_no = p_no;
 		this.p_name = p_name;
@@ -23,6 +26,7 @@ public class Product {
 		this.p_price = p_price;
 		this.p_type = p_type;
 		this.p_photo = p_photo;
+		this.teacher = teacher;
 	}
 
 	public int getP_no() {
@@ -81,11 +85,21 @@ public class Product {
 		this.p_photo = p_photo;
 	}
 
+	public Teacher getTeacher() {
+		return teacher;
+	}
+
+	public void setTeacher(Teacher teacher) {
+		this.teacher = teacher;
+	}
+
 	@Override
 	public String toString() {
 		return "Product [p_no=" + p_no + ", p_name=" + p_name + ", p_detail=" + p_detail + ", p_category=" + p_category
-				+ ", p_price=" + p_price + ", p_type=" + p_type + ", p_photo=" + p_photo + "]\n";
+				+ ", p_price=" + p_price + ", p_type=" + p_type + ", p_photo=" + p_photo + ", teacher=" + teacher + "]\n";
 	}
+
+	
 	
 	
 	
