@@ -1,6 +1,6 @@
 ------------INSERT-----------------
 --상품 추가
-insert into product(p_no,p_name,p_detail,p_category,p_price,p_type,p_poto)values(p_no_seq.nextval,?,?,?,?,?,?);
+insert into product(p_no,p_name,p_detail,p_category,p_price,p_type,p_poto,t_id)values(p_no_seq.nextval,?,?,?,?,?,?,?);
 ------------DELETE-----------------
 --상품 삭제
 delete from product where p_no=?;
