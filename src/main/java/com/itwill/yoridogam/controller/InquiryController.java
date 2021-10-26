@@ -92,14 +92,14 @@ public class InquiryController {
 	}
 	
 	/**** 문의게시판 글 수정 액션(회원)(GET) ****/
-	@RequestMapping("inquiry_update_action")
+	@GetMapping("inquiry_update_action")
 	public String inquiry_update_action_get() {
 		return"redirect:inquiry_update_form";
 	}
 
 	/**** 문의게시판 글 수정 액션(회원)(POST) ****/
 	
-	@RequestMapping("inquiry_update_action")
+	@PostMapping("inquiry_update_action")
 	public String inquiry_update_action_post(@ModelAttribute Inquiry inquiry, Model model) {
 		inquiryService.updateInquiry(inquiry);
 		model.addAttribute("inquiryUpdate", inquiry);
@@ -135,14 +135,14 @@ public class InquiryController {
 	}
 	
 	/**** 문의게시판 글 수정 액션(회원)(GET) ****/
-	@RequestMapping("inquiryA_update_action")
+	@GetMapping("inquiryA_update_action")
 	public String inquiryA_update_action_get() {
 		return"redirect:inquiryA_update_form";
 	}
 
 	/**** 문의게시판 글 수정 액션(회원)(POST) ****/
 	
-	@RequestMapping("inquiryA_update_action")
+	@PostMapping("inquiryA_update_action")
 	public String inquiryA_update_action_post(@ModelAttribute Inquiry inquiry, Model model) {
 		inquiryService.updateInquiryA(inquiry);
 		model.addAttribute("inquiryAUpdate", inquiry);
