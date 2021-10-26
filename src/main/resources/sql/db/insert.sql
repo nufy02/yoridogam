@@ -4,6 +4,7 @@
 insert into member(m_id,m_name,m_pass,m_addr,m_email,m_phone,m_gender) values('member1','김첨지1','1111','서울시','kkihon1@naver.com','010-8888-8888','남자');
 insert into member(m_id,m_name,m_pass,m_addr,m_email,m_phone,m_gender) values('member2','김첨지2','2223','서울시2','kkihon2@naver.com','010-1232-8888','여자');
 insert into member(m_id,m_name,m_pass,m_addr,m_email,m_phone,m_gender) values('member3','김첨지3','3333','서울시3','kkihon3@naver.com','010-2323-8888','남자');
+insert into member(m_id,m_name,m_pass,m_addr,m_email,m_phone,m_gender) values('admin1','admin1','1111','서울시3','kkihon3@naver.com','010-2323-8888','남자');
 
 /********** Member Interest **********/
 insert into member_interest values(MEMBER_INTEREST_MI_NO_SEQ.nextval,'빵','member1');
@@ -11,15 +12,18 @@ insert into member_interest values(MEMBER_INTEREST_MI_NO_SEQ.nextval,'쿠키','m
 insert into member_interest values(MEMBER_INTEREST_MI_NO_SEQ.nextval,'비건','member1');
 insert into member_interest values(MEMBER_INTEREST_MI_NO_SEQ.nextval,'쿠키','member2');
 insert into member_interest values(MEMBER_INTEREST_MI_NO_SEQ.nextval,'비건','member3');
-/********** Product **********/
-insert into product values(PRODUCT_P_NO_SEQ.nextval,'강의1','맛있어요','빵','10000','온라인','이미지url1');
-insert into product values(PRODUCT_P_NO_SEQ.nextval,'강의2','바삭해요','쿠키','5000','온라인','이미지url2');
-insert into product values(PRODUCT_P_NO_SEQ.nextval,'강의3','맛있어요','비건','10000','오프라인','이미지url3');
 
 /********** Teacher **********/
-insert into teacher(t_id,t_name,t_pass,t_phone,t_email,t_photo,t_detail,t_location,p_no) values('teacher1','kim1','1111','010-0000-0000','kkiho@naver.com','이미지1','일타강사','서울',1);
-insert into teacher(t_id,t_name,t_pass,t_phone,t_email,t_photo,t_detail,t_location,p_no) values('teacher2','him1','2222','010-1111-1111','kkiho1@naver.com','이미지2','일타강사1','서울1',2);
-insert into teacher(t_id,t_name,t_pass,t_phone,t_email,t_photo,t_detail,t_location,p_no) values('teacher3','tim1','3333','010-2222-2222','kkiho2@naver.com','이미지3','일타강사2','서울2',3);
+insert into teacher(t_id,t_name,t_pass,t_phone,t_email,t_photo,t_detail,t_location) values('teacher1','kim1','1111','010-0000-0000','kkiho@naver.com','이미지1','일타강사','서울');
+insert into teacher(t_id,t_name,t_pass,t_phone,t_email,t_photo,t_detail,t_location) values('teacher2','him1','2222','010-1111-1111','kkiho1@naver.com','이미지2','일타강사1','서울1');
+insert into teacher(t_id,t_name,t_pass,t_phone,t_email,t_photo,t_detail,t_location) values('teacher3','tim1','3333','010-2222-2222','kkiho2@naver.com','이미지3','일타강사2','서울2');
+
+
+/********** Product **********/
+insert into product values(PRODUCT_P_NO_SEQ.nextval,'강의1','맛있어요','빵','10000','온라인','이미지url1','teacher1');
+insert into product values(PRODUCT_P_NO_SEQ.nextval,'강의2','바삭해요','쿠키','5000','온라인','이미지url2','teacher2');
+insert into product values(PRODUCT_P_NO_SEQ.nextval,'강의3','맛있어요','비건','10000','오프라인','이미지url3','teacher3');
+
 
 /********** Product_time **********/
 
@@ -41,6 +45,14 @@ insert into product_time(pt_no,pt_date, pt_max, pt_time, p_no)
 insert into product_time(pt_no,pt_date, pt_max, pt_time, p_no) 
 values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021/10/21',30,'13:00-14:00',2);
 
+insert into product_time(pt_no,pt_date, pt_max, pt_time, p_no) 
+values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021/10/21',30,'10:00-11:00',3;
+
+insert into product_time(pt_no,pt_date, pt_max, pt_time, p_no)
+ values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021/10/21',30,'11:00-12:00',3);
+ 
+insert into product_time(pt_no,pt_date, pt_max, pt_time, p_no) 
+values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021/10/21',30,'13:00-14:00',3);
 
 /********** Cart **********/
 

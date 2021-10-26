@@ -81,7 +81,8 @@
             </nav>
             <!-- Button Group -->
             <div class="amado-btn-group mt-30 mb-100">
-                <a href="#" class="btn amado-btn mb-15">로그인</a>
+                <a href="member_login_form.jsp" class="btn amado-btn mb-15">회원로그인</a>
+                <a href="teacher_login_form.jsp" class="btn amado-btn mb-15">강사로그인</a>
                 <a href="#" class="btn amado-btn active">New this week</a>
             </div>
             <!-- Cart Menu -->
