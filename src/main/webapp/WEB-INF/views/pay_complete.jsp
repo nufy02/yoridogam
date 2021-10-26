@@ -3,17 +3,18 @@
 <%@page import="java.text.DecimalFormat"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="s" uri="http://www.springframework.org/tags" %>    
+<link href="css/bootstrap.min.css" rel="stylesheet">
         <!-- Header Area Start -->
 		<%@include file="/WEB-INF/views/common/include_header.jsp"%>
         <!-- Header Area End -->
-
+        
         <div class="cart-table-area section-padding-200">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12 col-lg-8">
                         <div class="cart-title mt-50" align="center">
                             <h1>감사합니다 결제 완료되었습니다!</h1><br/>
-                            <h3>결제 정보</h3>
+                            <h3 align="left">결제자 정보</h3>
                         </div>
                         <div class="row">
                                     <div class="col-md-6mb-3"  align="left">
@@ -62,6 +63,7 @@
             </div>
         </div>
     </div>
+    
     <!-- ##### Main Content Wrapper End ##### -->
 
     <!-- ##### Footer Area Start ##### -->

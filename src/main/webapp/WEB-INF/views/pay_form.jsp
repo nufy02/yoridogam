@@ -67,18 +67,16 @@
                             </ul>
 	
                             <div class="payment-method">
-                                <!-- Cash on delivery -->
                                 <div class="custom-control custom-checkbox mr-sm-2">
-                                    <input type="checkbox" class="custom-control-input" name="pay_type" value="무통장입금" checked="checked">
+                                    <input type="radio" class="custom-control-input" name="pay_type" value="무통장입금" checked="checked">
                                     <label class="custom-control-label" for="cod">무통장입금</label>
                                 </div>
                                 <div class="custom-control custom-checkbox mr-sm-2">
-                                    <input type="checkbox" class="custom-control-input" name="pay_type" value="카카오페이">
+                                    <input type="radio" class="custom-control-input" name="pay_type" value="카카오페이">
                                     <label class="custom-control-label" for="cod">카카오페이</label>
                                 </div>
-                                <!-- Paypal -->
                                 <div class="custom-control custom-checkbox mr-sm-2">
-                                    <input type="checkbox" class="custom-control-input" name="pay_type" value="카드결제">
+                                    <input type="radio" class="custom-control-input" name="pay_type" value="카드결제">
                                     <label class="custom-control-label" for="paypal">카드결제 <img class="ml-15" src="img/core-img/paypal.png" alt=""></label>
                                 </div>
                             </div>

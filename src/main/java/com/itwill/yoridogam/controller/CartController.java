@@ -61,10 +61,10 @@ public class CartController {
 	
 	@LoginCheck
 	@RequestMapping(value = "cart_deleteById_action", method = RequestMethod.POST)
-	public String cartDelById(HttpSession session, int ci_no) throws Exception{
+	public String cartDelById(HttpSession session) throws Exception{
 		String sUserId=(String)session.getAttribute("sUserId");
 		cartService.deleteCart(sUserId);
-		return "cart_list_form";
+		return "redirect:cart_list_form";
 	}
 	
 	@LoginCheck

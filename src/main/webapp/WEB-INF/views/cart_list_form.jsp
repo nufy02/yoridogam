@@ -6,13 +6,19 @@
         <!-- Header Area Start -->
 		<%@include file="/WEB-INF/views/common/include_header.jsp"%>
         <!-- Header Area End -->
-
+		<script type="text/javascript">
+		function cart_delete() {
+			document.cart_view_form.method = 'POST';
+			document.cart_view_form.action = 'cart_deleteById_action';
+			document.cart_view_form.submit();
+		}
+		</script>
         <div class="cart-table-area section-padding-100">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12 col-lg-8">
                         <div class="cart-title mt-50">
-                            <h2>Shopping Cart</h2>
+                            <h2>장바구니</h2>
                         </div>
 
                         <div class="cart-table clearfix">
@@ -20,13 +26,13 @@
                                 <thead>
                                     <tr>
                                         <th></th>
-                                        <th>Name</th>
-                                        <th>Price</th>
-                                        <th>Quantity</th>
+                                        <th>강의명</th>
+                                        <th>가격</th>
+                                        <th>수량</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-									<form>
+									<form name="cartInfo" method="post" action="pay_form_cart">
                                     <tr>
                                     	<c:set var="tot_price" value="0"/>
                                     	<c:forEach var="cartList" items="${cartList}" begin="0" end="${cartList.size()}">
@@ -64,8 +70,9 @@
                                 <li><span>장바구니 합계:</span><span id="tot_price" >${tot_price }원</span></li>
                             </ul>
                             <div class="cart-btn mt-100">
-                                <input type="submit" class="btn amado-btn w-100" value="결제하기">
-
+                                <input type="submit" class="btn amado-btn w-100" value="결제하기"><br><br/>
+									</form>
+								<a href="javascript:cart_delete();" class="btn amado-btn w-100">전체 삭제</a>
 
                             </div>
                         </div>
