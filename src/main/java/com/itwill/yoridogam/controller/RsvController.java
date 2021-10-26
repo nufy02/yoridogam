@@ -19,7 +19,7 @@ import com.itwill.yoridogam.product.Product;
 import com.itwill.yoridogam.product.ProductService;
 import com.itwill.yoridogam.productTime.ProductTime;
 import com.itwill.yoridogam.productTime.ProductTimeDao;
-import com.itwill.yoridogam.productTime.productTimeService;
+import com.itwill.yoridogam.productTime.ProductTimeService;
 import com.itwill.yoridogam.reservation.Reservation;
 import com.itwill.yoridogam.reservation.ReservationService;
 
@@ -28,7 +28,7 @@ public class RsvController {
 	@Autowired
 	private ReservationService reservationService;
 	@Autowired
-	private productTimeService productTimeService;
+	private ProductTimeService productTimeService;
 	@Autowired
 	private MemberService memberService;
 	@Autowired

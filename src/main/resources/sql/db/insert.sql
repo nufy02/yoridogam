@@ -45,6 +45,14 @@ insert into product_time(pt_no,pt_date, pt_max, pt_time, p_no)
 insert into product_time(pt_no,pt_date, pt_max, pt_time, p_no) 
 values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021/10/21',30,'13:00-14:00',2);
 
+insert into product_time(pt_no,pt_date, pt_max, pt_time, p_no) 
+values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021/10/21',30,'10:00-11:00',3;
+
+insert into product_time(pt_no,pt_date, pt_max, pt_time, p_no)
+ values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021/10/21',30,'11:00-12:00',3);
+ 
+insert into product_time(pt_no,pt_date, pt_max, pt_time, p_no) 
+values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021/10/21',30,'13:00-14:00',3);
 
 /********** Cart **********/
 

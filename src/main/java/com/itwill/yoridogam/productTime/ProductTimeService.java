@@ -4,7 +4,7 @@ import java.util.List;
 
 
 
-public interface productTimeService {
+public interface ProductTimeService {
 
 	// 상품별 시간 리스트
 	List<ProductTime> selectAll(int p_no)throws Exception;
