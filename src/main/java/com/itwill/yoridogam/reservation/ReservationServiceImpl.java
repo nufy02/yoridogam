@@ -23,8 +23,7 @@ public class ReservationServiceImpl implements ReservationService {
 	// 상품 예약
 	@Override
 	public int insert(Reservation reservation,ProductTime productTime,String sUserId) throws Exception {
-		Reservation rsvP = reservationDao.selectByP_no(reservation); // 회원의 DB에 예약할 상품이 있는지 확인하기 위함
-		if(rsvP == null) {
+		
 			// 상품이 없으면 insert
 		reservation.setRsv_date(productTime.getPt_date());
 		reservation.setRsv_time(productTime.getPt_time());
@@ -39,13 +38,11 @@ public class ReservationServiceImpl implements ReservationService {
 		// 웹에서 받아온 reservation값을 넣어서 DB reservaion insert
 		ProductTime PTrsv = productTimeService.selectByNo(productTime.getPt_no());
 		// selectPtNo 데이터를 PTrsv에 넣어준다
-		int i = PTrsv.getPt_rsv();
-		PTrsv.setPt_rsv(reservation.getRsv_qty()+i);
-		productTimeService.addPt_rsv(PTrsv);
-		}else {
-			String msg = "이미 상품이 존재합니다!!";
-		}
-		return 0;
+		int pt_rsv = PTrsv.getPt_rsv();
+		
+		PTrsv.setPt_rsv(reservation.getRsv_qty()+pt_rsv);
+		
+		return productTimeService.addPt_rsv(PTrsv);
 	}
 
 	// 회원의 예약내역 조회
@@ -60,6 +57,12 @@ public class ReservationServiceImpl implements ReservationService {
 	public List<Reservation> selectById(String sUserId) throws Exception {
 		
 		return reservationDao.selectById(sUserId);
+	}
+	
+	// 회원의 DB에 예약할 상품이 있는지 확인하기 위함
+	public Reservation selectByP_no(Reservation reservation)throws Exception{
+		
+		return  reservationDao.selectByP_no(reservation);
 	}
 
 	// 회원의 특정 예약 취소
@@ -78,7 +81,7 @@ public class ReservationServiceImpl implements ReservationService {
 	
 	//p_no 이용해서 강사 찾기
 	@Override
-	public Teacher selectByP_no(int p_no) throws Exception {
+	public Teacher tSelectByP_no(int p_no) throws Exception {
 
 		return teacherDao.selectByP_no(p_no);
 	}

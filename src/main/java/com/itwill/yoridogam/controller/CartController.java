@@ -50,5 +50,34 @@ public class CartController {
 		return "cart_list_form";
 	}
 	
+	@LoginCheck
+	@RequestMapping(value = "cart_deleteByNo_action", method = RequestMethod.POST)
+	public String cartDelByNo(HttpSession session, int ci_no) throws Exception{
+		String sUserId=(String)session.getAttribute("sUserId");
+		cartService.deleteCartByNo(ci_no);
+		return "cart_list_form";
+	}
+	
+	@LoginCheck
+	@RequestMapping(value = "cart_deleteById_action", method = RequestMethod.POST)
+	public String cartDelById(HttpSession session, int ci_no) throws Exception{
+		String sUserId=(String)session.getAttribute("sUserId");
+		cartService.deleteCart(sUserId);
+		return "cart_list_form";
+	}
+	
+	@LoginCheck
+	@RequestMapping(value = "cart_qtyP_action", method = RequestMethod.POST)
+	public String cartItemQtyP(HttpSession session, Cart cart) throws Exception{
+		cartService.increaseQty(cart);
+		return "cart_list_form";
+	}
+	
+	@LoginCheck
+	@RequestMapping(value = "cart_qtyM_action", method = RequestMethod.POST)
+	public String cartItemQtyM(HttpSession session, Cart cart) throws Exception{
+		cartService.decreaseQty(cart);
+		return "cart_list_form";
+	}
 }
 

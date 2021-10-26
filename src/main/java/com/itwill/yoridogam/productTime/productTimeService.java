@@ -12,6 +12,7 @@ public interface productTimeService {
 	// productTime pt_no으로 찾기
 	ProductTime selectByNo(int pt_no)throws Exception;
 	
+	
 	// 상품별 시간 insert
 	int create(ProductTime productTime)throws Exception;
 	

@@ -37,7 +37,8 @@ P_NO       NUMBER(10)
  
 -- 강의 pt_rsv 조회
 	select pt_rsv from product_time where pt_no=?;
-	
+-- 강의 최대 인원 조회
+	select pt_max form product_time where pt_no=?;	
 	
 	
  /*

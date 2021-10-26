@@ -1,5 +1,6 @@
 package com.itwill.yoridogam.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -60,21 +61,64 @@ public class PayController {
 	
 	@LoginCheck
 	@RequestMapping(value = "pay_action", method = RequestMethod.POST)
-	public String pay_action_post(@ModelAttribute Pay pay,int qty,int p_no,HttpSession session) throws Exception{
+	public String pay_action_post(@ModelAttribute Pay pay,Member member,int qty,int p_no,HttpSession session, Model model) throws Exception{
+		member.setM_id((String)session.getAttribute("sUserId"));
+		pay.setMember(member);
+		int pay_no=payService.createPay(pay,qty,p_no);
+		model.addAttribute("pay",payService.findPayDetailByNo(pay_no));
+		model.addAttribute("member",member);
+		return "pay_complete_form";
+	}
+	
+	
+	@LoginCheck
+	@RequestMapping(value = "pay_action_cart", method = RequestMethod.POST)
+	public String pay_action_cart_post(@ModelAttribute Pay pay,Member member,int qty,int p_no,HttpSession session, Model model) throws Exception{
+		//상기 action과 일원화 예정...
 		String sUserId=(String)session.getAttribute("sUserId");
-		pay.setMember(memberService.findMember(sUserId));
-		pay.setPay_total(productService.selectByNo(p_no).getP_price());
-		payService.createPay(pay,qty,p_no);
+		member.setM_id(sUserId);
+		pay.setMember(member);
+		int pay_no=payService.createPayFromCart(pay,sUserId);
+		model.addAttribute("pay",payService.findPayDetailByNo(pay_no));
+		model.addAttribute("member",member);
 		return "pay_complete_form";
 	}
 	
 	@LoginCheck
-	@RequestMapping(value = "pay_complete_form", method = RequestMethod.POST)
-	public String pay_complete_form(HttpSession session) {
-		
+	@RequestMapping(value = "pay_complete_form")
+	public String pay_complete_form(Model model)throws Exception {
 		return "pay_complete_form";
 	}
 	
+	@LoginCheck
+	@RequestMapping(value = "pay_list_form")
+	public String pay_list_form(HttpSession session)throws Exception {
+		String sUserId=(String)session.getAttribute("sUserId");
+		payService.findPayList(sUserId);
+		return "pay_list_form";
+	}
 	
+	@LoginCheck
+	@RequestMapping(value = "pay_delNo_action")
+	public String pay_delNo_action(HttpSession session, int pay_no)throws Exception {
+		String sUserId=(String)session.getAttribute("sUserId");
+		payService.deletePayByNo(pay_no);
+		return "pay_list_form";
+	}
 	
+	@LoginCheck
+	@RequestMapping(value = "pay_delAll_action")
+	public String pay_delAll_action(HttpSession session)throws Exception {
+		String sUserId=(String)session.getAttribute("sUserId");
+		payService.deletePay(sUserId);
+		return "pay_list_form";
+	}
+	
+	@LoginCheck
+	@RequestMapping(value = "pay_detail_form")
+	public String pay_detail_form(HttpSession session,int pay_no)throws Exception {
+		String sUserId=(String)session.getAttribute("sUserId");
+		payService.findPayDetailByNo(pay_no);
+		return "pay_list_form";
+	}
 }

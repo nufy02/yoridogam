@@ -8,17 +8,26 @@
 		<result column="PAY_TYPE" property="pay_type"/>
 		<association property="member" javaType="com.itwill.yoridogam.member.Member" autoMapping="true">
 			<result column="M_ID" property="m_id"/>
+			<result column="M_NAME" property="m_name"/>
+			<result column="M_PASS" property="m_pass"/>
+			<result column="M_ADDR" property="m_addr"/>
+			<result column="M_EMAIL" property="m_email"/>
+			<result column="M_GENDER" property="m_gender"/>
 		</association>
 		<collection property="payItemList" javaType="list" ofType="com.itwill.yoridogam.pay.payItem.Pay_item" autoMapping="true">
 			<result column="PI_NO" property="pi_no"/>
 			<result column="PI_QTY" property="pi_qty"/>
+			<result column="PAY_NO" property="pay_no"/>
 			<association property="product" javaType="com.itwill.yoridogam.product.Product" autoMapping="true">
 				<result column="P_NO" property="p_no"/>
 			</association>
 		</collection>
 	</resultMap>
-	<insert id="createPay" parameterType="com.itwill.yoridogam.pay.pay.Pay">
+	<insert id="createPay" parameterType="com.itwill.yoridogam.pay.pay.Pay" >
 		insert into pay(pay_no, pay_date, pay_total, pay_type, m_id) values(PAY_PAY_NO_SEQ.nextval,sysdate,#{pay_total},#{pay_type},#{member.m_id})
+	<selectKey keyProperty="pay_no" resultType="Integer" order="AFTER">
+		SELECT PAY_PAY_NO_SEQ.CURRVAL FROM DUAL
+	</selectKey>
 	</insert>
 	
 	
@@ -34,8 +43,8 @@
 		select count(*) from pay where m_id=#{m_id}
 	</select>
 
-	<select id="findPayByNo" parameterType="com.itwill.yoridogam.pay.pay.Pay" resultMap="payResultMap" >
-		select * from pay where pay_no=#{pay_no} and m_id=#{member.m_id}
+	<select id="findPayByNo" parameterType="Integer" resultMap="payResultMap" >
+		select * from pay where pay_no=#{pay_no}
 	</select>
 
 	<select id="findPayList" parameterType="String"  resultMap="payResultMap">
@@ -47,7 +56,7 @@
 	</select>
 	
 	<select id="findPayDetailByNo" parameterType="Integer" resultMap="payResultMap">
-		select * from pay py join pay_item pi on py.pay_no=pi.pay_no join product p on pi.p_no=p.p_no where pi.pi_no=#{pi_no}
+		select * from pay py join pay_item pi on py.pay_no=pi.pay_no join product p on pi.p_no=p.p_no join member m on py.m_id = m.m_id where py.pay_no=#{pay_no}
 	</select>
 	
 </mapper>
