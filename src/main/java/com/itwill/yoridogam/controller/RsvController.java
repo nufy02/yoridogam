@@ -66,7 +66,7 @@ public class RsvController {
 								  int p_no)throws Exception {
 		String sUserId = "member3";//(String)session.getAttribute("sUserId"); // 회원아이디
 		reservation.setMember(new Member(sUserId, null, null, null, null, null, null));
-		reservation.setProduct(new Product(p_no, null, null, null, null, null, null));
+		reservation.setProduct(new Product(p_no, null, null, null, null, null, null,null));
 		Reservation rsvP = reservationService.selectByP_no(reservation);
 		if(rsvP == null) {
 			// 상품이 없으면 insert
