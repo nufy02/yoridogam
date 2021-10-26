@@ -13,5 +13,8 @@ public interface ProductDao {
 	Product selectByNo(int p_no) throws Exception;
 	//상품 삭제
 	int deleteByNo(int p_no) throws Exception;
-
+	
+	
+	/*  상품 강사 정보 얻기 */
+	Product selectTByP_no(int p_no)throws Exception;
 }

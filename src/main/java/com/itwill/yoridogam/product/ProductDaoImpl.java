@@ -32,4 +32,11 @@ public class ProductDaoImpl implements ProductDao {
 	public int deleteByNo(int p_no) throws Exception{
 		return sqlSession.delete(NAMESPACE+"deleteByNo",p_no);
 	}
+	
+	/*  상품 강사 정보 얻기 */
+	public Product selectTByP_no(int p_no)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"selectTByP_no",p_no);
+	}
+
+	
 }

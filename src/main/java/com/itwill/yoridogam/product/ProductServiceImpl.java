@@ -32,4 +32,11 @@ public class ProductServiceImpl implements ProductService {
 		return productDao.deleteByNo(p_no);
 	}
 	
+	/*  상품 강사 정보 얻기 */
+	@Override
+	public Product selectTByP_no(int p_no) throws Exception {
+		// TODO Auto-generated method stub
+		return productDao.selectTByP_no(p_no);
+	}
+	
 }
