@@ -67,7 +67,8 @@ public class PayController {
 		int pay_no=payService.createPay(pay,qty,p_no);
 		model.addAttribute("pay",payService.findPayDetailByNo(pay_no));
 		model.addAttribute("member",member);
-		return "pay_complete_form";
+		System.out.println(pay);
+		return "pay_complete_form2";
 	}
 	
 	
@@ -81,13 +82,13 @@ public class PayController {
 		int pay_no=payService.createPayFromCart(pay,sUserId);
 		model.addAttribute("pay",payService.findPayDetailByNo(pay_no));
 		model.addAttribute("member",member);
-		return "pay_complete_form";
+		return "pay_complete_form2";
 	}
 	
 	@LoginCheck
 	@RequestMapping(value = "pay_complete_form")
 	public String pay_complete_form(Model model)throws Exception {
-		return "pay_complete_form";
+		return "pay_complete_form2";
 	}
 	
 	@LoginCheck

@@ -15,7 +15,7 @@ public class Pay_ItemDaoTest {
 		Pay_itemDao pay_itemDao=(Pay_itemDao)applicationContext.getBean("pay_itemDao");
 		System.out.println(pay_itemDao);
 
-		Product pd=new Product(1, null, null, null, null, null, null);
+		Product pd=new Product(1, null, null, null, null, null, null, null);
 		Pay_item pi=new Pay_item(0, 1, 1, pd);
 		
 		//create

@@ -7,6 +7,7 @@ import com.itwill.yoridogam.member.Member;
 import com.itwill.yoridogam.pay.cart.Cart;
 import com.itwill.yoridogam.pay.cart.CartDao;
 import com.itwill.yoridogam.product.Product;
+import com.itwill.yoridogam.teacher.Teacher;
 
 public class CartDaoTest {
 
@@ -16,7 +17,7 @@ public class CartDaoTest {
 				new ClassPathXmlApplicationContext("spring/application-config.xml");
 		CartDao cartDao=(CartDao)applicationContext.getBean("cartDao");
 		
-		Product pp=new Product(1, null, null, null, null, null, null);
+		Product pp=new Product(1, null, null, null, null, null,null, null);
 		Member mm=new Member("1", null, null, null, null, null, null);
 		
 		//insert

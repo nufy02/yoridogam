@@ -14,6 +14,7 @@ import com.itwill.yoridogam.member.Member;
 import com.itwill.yoridogam.pay.cart.Cart;
 import com.itwill.yoridogam.pay.cart.CartService;
 import com.itwill.yoridogam.product.Product;
+import com.itwill.yoridogam.teacher.Teacher;
 
 @Controller
 public class CartController {
@@ -40,7 +41,7 @@ public class CartController {
 	public String insertCart_action(HttpSession session, int p_no, int qty) throws Exception{
 		String sUserId=(String)session.getAttribute("sUserId");
 		Cart nCartI=new Cart();
-		nCartI.setProduct(new Product(p_no, null, null, null, null, null, null));
+		nCartI.setProduct(new Product(p_no, null, null, null, null, null, null, null));
 		nCartI.setMember(new Member(sUserId, null, null, null, null, null, null));
 		boolean isCartI=cartService.isExistCartItem(nCartI);
 		if(isCartI==true) {
