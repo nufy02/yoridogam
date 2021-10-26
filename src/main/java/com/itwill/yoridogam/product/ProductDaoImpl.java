@@ -6,6 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.itwill.yoridogam.teacher.Teacher;
+
 @Repository("productDao")
 public class ProductDaoImpl implements ProductDao {
 	public static final String NAMESPACE="com.itwill.yoridogam.mapper.ProductMapper.";
@@ -34,7 +36,7 @@ public class ProductDaoImpl implements ProductDao {
 	}
 	
 	/*  상품 강사 정보 얻기 */
-	public Product selectTByP_no(int p_no)throws Exception{
+	public Teacher selectTByP_no(int p_no)throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"selectTByP_no",p_no);
 	}
 

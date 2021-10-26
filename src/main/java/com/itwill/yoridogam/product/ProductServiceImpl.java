@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.itwill.yoridogam.teacher.Teacher;
+
 @Service("productService")
 public class ProductServiceImpl implements ProductService {
 	
@@ -34,7 +36,7 @@ public class ProductServiceImpl implements ProductService {
 	
 	/*  상품 강사 정보 얻기 */
 	@Override
-	public Product selectTByP_no(int p_no) throws Exception {
+	public Teacher selectTByP_no(int p_no) throws Exception {
 		// TODO Auto-generated method stub
 		return productDao.selectTByP_no(p_no);
 	}
