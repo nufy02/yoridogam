@@ -166,7 +166,7 @@ DROP SEQUENCE inquiry_ib_no_SEQ;
 
 CREATE SEQUENCE inquiry_ib_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
-
+commit;
 
 CREATE TABLE product_time(
 		pt_no                         		NUMBER(10)		 NULL ,
@@ -189,7 +189,7 @@ ALTER TABLE member ADD CONSTRAINT IDX_member_PK PRIMARY KEY (m_id);
 ALTER TABLE product ADD CONSTRAINT IDX_product_PK PRIMARY KEY (p_no);
 
 ALTER TABLE teacher ADD CONSTRAINT IDX_teacher_PK PRIMARY KEY (t_id);
-ALTER TABLE teacher ADD CONSTRAINT IDX_teacher_FK0 FOREIGN KEY (p_no) REFERENCES product (p_no) ON DELETE CASCADE;
+ALTER TABLE teacher ADD CONSTRAINT IDX_teacher_FK0 FOREIGN KEY (p_no) REFERENCES product (p_no);
 
 ALTER TABLE review ADD CONSTRAINT IDX_review_PK PRIMARY KEY (r_no);
 ALTER TABLE review ADD CONSTRAINT IDX_review_FK0 FOREIGN KEY (m_id) REFERENCES member (m_id) ON DELETE CASCADE;
@@ -220,5 +220,5 @@ ALTER TABLE product_time ADD CONSTRAINT IDX_product_time_PK PRIMARY KEY (pt_no);
 ALTER TABLE product_time ADD CONSTRAINT IDX_product_time_FK0 FOREIGN KEY (p_no) REFERENCES product (p_no) ON DELETE CASCADE;
 
 ALTER TABLE member_interest ADD CONSTRAINT IDX_member_interest_PK PRIMARY KEY (mi_no);
-ALTER TABLE member_interest ADD CONSTRAINT IDX_member_interest_FK0 FOREIGN KEY (m_id) REFERENCES member (m_id);
+ALTER TABLE member_interest ADD CONSTRAINT IDX_member_interest_FK0 FOREIGN KEY (m_id) REFERENCES member (m_id) ON DELETE CASCADE;
 

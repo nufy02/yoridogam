@@ -68,6 +68,9 @@ public class InquiryDaoTestMain {
 		/*문의사항 한 개 보기*/
 		//System.out.println(inquiryDao.selectByNoInquiry(9));
 		
+		/*문의사항 답변 여부 보기*/
+		System.out.println(inquiryDao.countA(updateInq1));
+		
 		/*문의사항 총 개수 보기*/
 		System.out.println(inquiryDao.countAllInquiry());
 		

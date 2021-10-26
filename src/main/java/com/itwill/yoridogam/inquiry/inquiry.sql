@@ -62,11 +62,16 @@ DELETE FROM inquiry WHERE NOTI_NO=?;
  /*****************************
 				select
  ******************************/
- --문의 글 상세보기(글 번호)
+--문의 글 상세보기(글 번호)
 select IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, IB_SECRET, IB_DEPTH, IB_GROUPNO, IB_STEP, M_ID from inquiry where IB_NO=?;		
- --문의 글 전체 보기
- select IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, IB_SECRET, IB_DEPTH, IB_GROUPNO, IB_STEP, M_ID from inquiry;		
-	
+--문의 글 전체 보기
+select IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, IB_SECRET, IB_DEPTH, IB_GROUPNO, IB_STEP, M_ID from inquiry;		
 
+--답변 존재 여부 확인(답변 있으면 1 / 없으면 0)
+select count(*) from inquiry 
+where IB_GROUPNO = ?
+and IB_DEPTH >= ?
+and IB_STEP >= ?
+order by IB_STEP, IB_DEPTH asc;
 
  
