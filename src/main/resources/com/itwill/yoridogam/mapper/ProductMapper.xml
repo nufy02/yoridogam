@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itwill.yoridogam.mapper.ProductMapper">
+	<resultMap type="com.itwill.yoridogam.product.Product" id="ProductResultMap">
+		<result column="P_NO" property="p_no"/>
+		<result column="P_NAME" property="p_name"/>
+		<result column="P_DETAIL" property="p_detail"/>
+		<result column="P_CATEGORY" property="p_category"/>
+		<result column="P_PRICE" property="p_price"/>
+		<result column="P_TYPE" property="p_type"/>
+		<result column="p_PHOTO" property="p_photo"/>
+		<association property="teacher" javaType="com.itwill.yoridogam.teacher.Teacher" autoMapping="true">
+				<result column="T_ID" property="t_id"/>
+		</association>
+	</resultMap>
+	<!-- 상품추가 -->
 	<insert id="create" parameterType="com.itwill.yoridogam.product.Product">
-		insert into product(p_no,p_name,p_detail,p_category,p_price,p_type,p_photo)values(product_p_no_seq.nextval,#{p_name},#{p_detail},#{p_category},#{p_price},#{p_type},#{p_photo})
+		insert into product(p_no,p_name,p_detail,p_category,p_price,p_type,p_photo,t_id)
+			values(product_p_no_seq.nextval,#{p_name},#{p_detail},#{p_category},#{p_price},#{p_type},#{p_photo},#{teacher.t_id})
 	</insert>
 	
 	<update id="updateByNo" parameterType="com.itwill.yoridogam.product.Product">
@@ -12,10 +26,10 @@
 	<delete id="deleteByNo" parameterType="java.lang.Integer">
 		delete product where p_no=#{p_no}
 	</delete>
-	<select id="selectByNo" parameterType="java.lang.Integer" resultType="com.itwill.yoridogam.product.Product">
+	<select id="selectByNo" parameterType="java.lang.Integer" resultMap="ProductResultMap">
 		select * from product where p_no=#{p_no}
 	</select>
-	<select id="selectAll" parameterType="java.lang.String" resultType="com.itwill.yoridogam.product.Product">
+	<select id="selectAll" parameterType="java.lang.String" resultMap="ProductResultMap">
 		select * from product
 	</select>
 </mapper>
