@@ -2,6 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
+<script>
+<%
+for(MemberVO member : memberList){
+pageContext.setAttribute("member",member);
+}
+%>
+</script>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -10,6 +17,7 @@
 <body>
 <hr>결제 완료됐어요! 열심히 수강하세요!<br/>
 <br/>
+
 <c:forEach var=" " items="${pay.payItemList}" begin="0" end="${pay.payItemList.size()}" >
 강의명:${pay.getPayItemList().get(index).getProduct().getP_name()}<br>
 강의수:${pay.getPayItemList().get(index).getPi_qty()}<br>

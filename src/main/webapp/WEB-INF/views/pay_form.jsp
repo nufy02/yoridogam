@@ -17,18 +17,18 @@
                             <form action="pay_action" name="payInfo" method="post">
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
-                                        <input type="text" class="form-control" name="m_name" value="${sUserId.getM_name()}" placeholder="First Name" required>
+                                        <input type="text" class="form-control" name="m_name" value="${sUserId.m_name}" placeholder="First Name" required>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                     </div>
                                     <div class="col-12 mb-3">
-                                        <input type="email" class="form-control" name="m_email" placeholder="Email" value="${sUserId.getM_email()}">
+                                        <input type="email" class="form-control" name="m_email" placeholder="Email" value="${sUserId.m_email}">
                                     </div>
                                     <div class="col-12 mb-3">
-                                        <input type="text" class="form-control mb-3" name="m_phone" placeholder="Address" value="${sUserId.getM_phone()}">
+                                        <input type="text" class="form-control mb-3" name="m_phone" placeholder="Address" value="${sUserId.m_phone}">
                                     </div>
                                     <div class="col-12 mb-3">
-                                        <input type="text" class="form-control" name="m_addr" placeholder="Town" value="${sUserId.getM_addr()}">
+                                        <input type="text" class="form-control" name="m_addr" placeholder="Town" value="${sUserId.m_addr}">
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <input type="text" class="form-control" name="" placeholder="Zip Code" value="">
