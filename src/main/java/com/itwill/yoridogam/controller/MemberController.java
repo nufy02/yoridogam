@@ -39,9 +39,9 @@ public class MemberController {
 	 * 로그인 폼
 	 */
 	
-	@RequestMapping(value = "/total_login_form")
+	@RequestMapping(value = "/member_login_form")
 	public String member_login_form() {
-		return "total_login_form" ;
+		return "member_login_form" ;
 	}
 	/*
 	 * 로그인 액션
@@ -63,12 +63,12 @@ public class MemberController {
 			//아이디 불일치
 			model.addAttribute("msg1", member.getM_id()+" 은 존재하지 않는 아이디입니다.");
 			model.addAttribute("nmember", member);
-			forwardPath="total_login_form";
+			forwardPath="member_login_form";
 		}else if(result==1) {
 			//비밀번호 불일치
 			model.addAttribute("msg2", "패스워드가 일치하지 않습니다.");
 			model.addAttribute("nmember", member);
-			forwardPath="total_login_form";
+			forwardPath="member_login_form";
 		}else if(result==2) {
 			session.setAttribute("sUserId", member.getM_id());
 			forwardPath="redirect:home";

@@ -38,9 +38,9 @@ public class TeacherController {
 	 * 로그인 폼
 	 */
 	
-	@RequestMapping(value = "/total_login_form")
+	@RequestMapping(value = "/teacher_login_form")
 	public String teacher_login_form() {
-		return "total_login_form" ;
+		return "teacher_login_form" ;
 	}
 	/*
 	 * 로그인 액션
@@ -62,12 +62,12 @@ public class TeacherController {
 			//아이디 불일치
 			model.addAttribute("msg1", teacher.getT_id()+" 은 존재하지 않는 아이디입니다.");
 			model.addAttribute("nteacher", teacher);
-			forwardPath="total_login_form";
+			forwardPath="teacher_login_form";
 		}else if(result==1) {
 			//비밀번호 불일치
 			model.addAttribute("msg2", "패스워드가 일치하지 않습니다.");
 			model.addAttribute("nteacher", teacher);
-			forwardPath="total_login_form";
+			forwardPath="teacher_login_form";
 		}else if(result==2) {
 			session.setAttribute("sUserId", teacher.getT_id());
 			forwardPath="redirect:home";
