@@ -11,8 +11,21 @@
 		<result column="p_PHOTO" property="p_photo"/>
 		<association property="teacher" javaType="com.itwill.yoridogam.teacher.Teacher" autoMapping="true">
 				<result column="T_ID" property="t_id"/>
+				<result column="T_NAME" property="t_name"/>
 		</association>
 	</resultMap>
+	
+	<resultMap type="com.itwill.yoridogam.teacher.Teacher" id="TeacherResltMap">
+		<result column="T_ID" property="t_id"/>
+		<result column="T_NAME" property="t_name"/>
+		<result column="T_PASS" property="t_pass"/>
+		<result column="T_PHONE" property="t_phone"/>
+		<result column="T_EMAIL" property="t_email"/>
+		<result column="T_PHOTO" property="t_photo"/>
+		<result column="T_DETAIL" property="t_detail"/>
+		<result column="T_LOCATION" property="t_location"/>
+	</resultMap>
+
 	<!-- 상품추가 -->
 	<insert id="create" parameterType="com.itwill.yoridogam.product.Product">
 		insert into product(p_no,p_name,p_detail,p_category,p_price,p_type,p_photo,t_id)
@@ -35,8 +48,8 @@
 	
 	
 	<!-- 상품 강사 정보 얻기 -->
-	<select id="selectTByP_no" parameterType="java.lang.Integer" resultMap="ProductResultMap">
-		select * from product p join teacher t on p.t_Id = t.t_id where p_no=#{p_no}
+	<select id="selectTByP_no" parameterType="java.lang.Integer" resultMap="TeacherResltMap">
+		select * from teacher t join product p on p.t_Id = t.t_id where p_no=#{p_no}
 	</select>
 	
 	

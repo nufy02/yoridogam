@@ -2,6 +2,8 @@ package com.itwill.yoridogam.product;
 
 import java.util.List;
 
+import com.itwill.yoridogam.teacher.Teacher;
+
 public interface ProductDao {
 	//상품 추가
 	int create(Product product) throws Exception;
@@ -16,5 +18,5 @@ public interface ProductDao {
 	
 	
 	/*  상품 강사 정보 얻기 */
-	Product selectTByP_no(int p_no)throws Exception;
+	Teacher selectTByP_no(int p_no)throws Exception;
 }

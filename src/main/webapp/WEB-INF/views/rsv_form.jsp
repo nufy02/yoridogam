@@ -66,15 +66,15 @@
 								<input type="hidden" name="p_no" value="${product.p_no}">
 									<div class="col-md-6 mb-3">
 										<input type="text" class="form-control" id="t_name"
-											placeholder="name" value="${teacher.getT_name()}">
+											placeholder="name" value="${teacher.t_name}">
 									</div>
 									<div class="col-md-6 mb-3">
 										<input type="text" class="form-control" id="t_phone"
-											placeholder="phone" value="${teacher.getT_phone()}">
+											placeholder="phone" value="${teacher.t_phone}">
 									</div>
 									<div class="col-12 mb-3">
 										<input type="text" class="form-control mb-3" id="t_address"
-											placeholder="Address" value="${teacher.getT_location()}">
+											placeholder="Address" value="${teacher.t_location}">
 									</div>
 								</div>
 								<!-- 상품정보 끝! -->

@@ -9,6 +9,7 @@ import com.itwill.yoridogam.product.Product;
 import com.itwill.yoridogam.productTime.ProductTime;
 import com.itwill.yoridogam.productTime.ProductTimeDao;
 import com.itwill.yoridogam.productTime.ProductTimeService;
+import com.itwill.yoridogam.teacher.Teacher;
 import com.itwill.yoridogam.product.ProductDao;
 
 @Service("reservationService")
@@ -81,7 +82,7 @@ public class ReservationServiceImpl implements ReservationService {
 	
 	//p_no 이용해서 강사 찾기
 	@Override
-	public Product SelectTByP_no(int p_no) throws Exception {
+	public Teacher SelectTByP_no(int p_no) throws Exception {
 
 		return productDao.selectTByP_no(p_no);
 	}

@@ -38,5 +38,5 @@ public interface ReservationService {
 	int deleteAll(String sUserId) throws Exception;
 	
 	//p_no을 이용해서 강사 찾기
-	Product SelectTByP_no(int p_no) throws Exception;
+	Teacher SelectTByP_no(int p_no) throws Exception;
 }
