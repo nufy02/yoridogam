@@ -1,3 +1,4 @@
+DROP TABLE member_interest CASCADE CONSTRAINTS;
 DROP TABLE product_time CASCADE CONSTRAINTS;
 DROP TABLE inquiry CASCADE CONSTRAINTS;
 DROP TABLE notice CASCADE CONSTRAINTS;
@@ -6,10 +7,9 @@ DROP TABLE pay_item CASCADE CONSTRAINTS;
 DROP TABLE pay CASCADE CONSTRAINTS;
 DROP TABLE reservation CASCADE CONSTRAINTS;
 DROP TABLE review CASCADE CONSTRAINTS;
-DROP TABLE teacher CASCADE CONSTRAINTS;
 DROP TABLE product CASCADE CONSTRAINTS;
+DROP TABLE teacher CASCADE CONSTRAINTS;
 DROP TABLE member CASCADE CONSTRAINTS;
-DROP TABLE member_interest CASCADE CONSTRAINTS;
 
 CREATE TABLE member(
 		m_id                          		VARCHAR2(20)		 NOT NULL,
@@ -17,19 +17,20 @@ CREATE TABLE member(
 		m_pass                        		VARCHAR2(30)		 NOT NULL,
 		m_addr                        		VARCHAR2(100)		 NOT NULL,
 		m_email                       		VARCHAR2(50)		 NOT NULL,
-		m_phone                       		VARCHAR2(14)		 NOT NULL,
+		m_phone                       		VARCHAR2(12)		 NOT NULL,
 		m_gender                      		VARCHAR2(10)		 NOT NULL
 );
 
-CREATE TABLE member_interest(
-		mi_no                         		NUMBER(10)		 NULL ,
-		mi_interest                   		VARCHAR2(30)		 NULL ,
-		m_id                          		VARCHAR2(20)		 NULL 
+
+CREATE TABLE teacher(
+		t_id                          		VARCHAR2(20)		 NOT NULL,
+		t_name                        		VARCHAR2(20)		 NOT NULL,
+		t_pass                        		VARCHAR2(30)		 NOT NULL,
+		t_email                       		VARCHAR2(50)		 NOT NULL,
+		t_photo                       		VARCHAR2(500)		 NOT NULL,
+		t_detail                      		VARCHAR2(500)		 NOT NULL,
+		t_location                    		VARCHAR2(100)		 NOT NULL
 );
-DROP SEQUENCE member_interest_mi_no_SEQ;
-CREATE SEQUENCE member_interest_mi_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
-
-
 
 
 CREATE TABLE product(
@@ -39,7 +40,8 @@ CREATE TABLE product(
 		p_category                    		VARCHAR2(30)		 NULL ,
 		p_price                       		VARCHAR2(500)		 NULL ,
 		p_type                        		VARCHAR2(30)		 NULL ,
-		p_photo                       		VARCHAR2(500)		 NULL 
+		p_photo                       		VARCHAR2(500)		 NULL ,
+		t_id                          		VARCHAR2(20)		 NULL 
 );
 
 DROP SEQUENCE product_p_no_SEQ;
@@ -47,18 +49,6 @@ DROP SEQUENCE product_p_no_SEQ;
 CREATE SEQUENCE product_p_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
 
-
-CREATE TABLE teacher(
-		t_id                          		VARCHAR2(20)		 NOT NULL,
-		t_name                        		VARCHAR2(20)		 NOT NULL,
-		t_pass                        		VARCHAR2(30)		 NOT NULL,
-		t_email                       		VARCHAR2(50)		 NOT NULL,
-		t_phone                       		VARCHAR2(14)		 NOT NULL,
-		t_photo                       		VARCHAR2(500)		 NOT NULL,
-		t_detail                      		VARCHAR2(500)		 NOT NULL,
-		t_location                    		VARCHAR2(100)		 NOT NULL,
-		p_no                          		NUMBER(10)		 NULL 
-);
 
 
 CREATE TABLE review(
@@ -75,6 +65,8 @@ CREATE TABLE review(
 DROP SEQUENCE review_r_no_SEQ;
 
 CREATE SEQUENCE review_r_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
+
+
 
 
 CREATE TABLE reservation(
@@ -134,7 +126,6 @@ DROP SEQUENCE cart_ci_no_SEQ;
 CREATE SEQUENCE cart_ci_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
 
-
 CREATE TABLE notice(
 		noti_no                       		NUMBER(10)		 NOT NULL,
 		noti_title                    		VARCHAR2(100)		 NULL ,
@@ -166,7 +157,7 @@ DROP SEQUENCE inquiry_ib_no_SEQ;
 
 CREATE SEQUENCE inquiry_ib_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
-commit;
+
 
 CREATE TABLE product_time(
 		pt_no                         		NUMBER(10)		 NULL ,
@@ -183,13 +174,26 @@ CREATE SEQUENCE product_time_pt_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
 
 
+CREATE TABLE member_interest(
+		mi_no                         		NUMBER(10)		 NULL ,
+		mi_interest                   		VARCHAR2(30)		 NULL ,
+		m_id                          		VARCHAR2(20)		 NULL 
+);
+
+DROP SEQUENCE member_interest_mi_no_SEQ;
+
+CREATE SEQUENCE member_interest_mi_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
+
+
+
 
 ALTER TABLE member ADD CONSTRAINT IDX_member_PK PRIMARY KEY (m_id);
 
-ALTER TABLE product ADD CONSTRAINT IDX_product_PK PRIMARY KEY (p_no);
-
 ALTER TABLE teacher ADD CONSTRAINT IDX_teacher_PK PRIMARY KEY (t_id);
-ALTER TABLE teacher ADD CONSTRAINT IDX_teacher_FK0 FOREIGN KEY (p_no) REFERENCES product (p_no);
+
+ALTER TABLE product ADD CONSTRAINT IDX_product_PK PRIMARY KEY (p_no);
+ALTER TABLE product ADD CONSTRAINT IDX_product_FK0 FOREIGN KEY (t_id) REFERENCES teacher (t_id);
+
 
 ALTER TABLE review ADD CONSTRAINT IDX_review_PK PRIMARY KEY (r_no);
 ALTER TABLE review ADD CONSTRAINT IDX_review_FK0 FOREIGN KEY (m_id) REFERENCES member (m_id) ON DELETE CASCADE;
