@@ -12,8 +12,7 @@ T_EMAIL    NOT NULL VARCHAR2(50)
 T_PHONE    NOT NULL VARCHAR2(14)  
 T_PHOTO    NOT NULL VARCHAR2(500) 
 T_DETAIL   NOT NULL VARCHAR2(500) 
-T_LOCATION NOT NULL VARCHAR2(100) 
-P_NO                NUMBER(10)      
+T_LOCATION NOT NULL VARCHAR2(100)      
 **********************************/
 public class Teacher {
 	private String t_id;
@@ -24,7 +23,6 @@ public class Teacher {
 	private String t_photo;
 	private String t_detail;
 	private String t_location;
-	private Product product;
 	
 	public Teacher() {
 		// TODO Auto-generated constructor stub
@@ -33,7 +31,7 @@ public class Teacher {
 	
 
 	public Teacher(String t_id, String t_name, String t_pass, String t_phone, String t_email, String t_photo,
-			String t_detail, String t_location, Product product) {
+			String t_detail, String t_location) {
 		super();
 		this.t_id = t_id;
 		this.t_name = t_name;
@@ -43,7 +41,6 @@ public class Teacher {
 		this.t_photo = t_photo;
 		this.t_detail = t_detail;
 		this.t_location = t_location;
-		this.product = product;
 	}
 
 
@@ -144,17 +141,6 @@ public class Teacher {
 
 
 
-	public Product getProduct() {
-		return product;
-	}
-
-
-
-	public void setProduct(Product product) {
-		this.product = product;
-	}
-
-
 
 	/*
 	 * 패스워드 일치여부 확인
@@ -173,7 +159,7 @@ public class Teacher {
 	public String toString() {
 		return "Teacher [t_id=" + t_id + ", t_name=" + t_name + ", t_pass=" + t_pass + ", t_phone=" + t_phone
 				+ ", t_email=" + t_email + ", t_photo=" + t_photo + ", t_detail=" + t_detail + ", t_location="
-				+ t_location + ", product=" + product + "]";
+				+ t_location + "]";
 	}
 
 

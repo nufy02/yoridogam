@@ -26,16 +26,14 @@ public class TeacherDaoTestMain {
 		 * 강사가입
 		 */
 		
-		Product p1 = new Product(3, null, null, null, null, null, null);
-		System.out.println("2. create : "+teacherDao.create(new Teacher("teacher3", "mim", "3333","010-7777-7777", "njnj@naver.com", "이미지3", "상세3", "서울",p1 )));
+		System.out.println("2. create : "+teacherDao.create(new Teacher("teacher3", "mim", "3333","010-7777-7777", "njnj@naver.com", "이미지3", "상세3", "서울" )));
 		 
 		
 		/*
 		 * 강사수정
 		 */
 		
-		Product p2 = new Product(1, null, null, null, null, null, null);
-		Teacher updateTeacher = new Teacher("teacher1", "kim(수정)", "1111","010-(수정)","1@www.com(수정)", "이미지1(수정)", "상세1(수정)", "(수정)", p2);
+		Teacher updateTeacher = new Teacher("teacher1", "kim(수정)", "1111","010-(수정)","1@www.com(수정)", "이미지1(수정)", "상세1(수정)", "(수정)");
 		System.out.println("3.update :"+teacherDao.update(updateTeacher));
 		/*
 		 * 회원상세 
