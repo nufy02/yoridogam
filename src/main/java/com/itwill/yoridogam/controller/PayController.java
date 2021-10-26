@@ -92,9 +92,10 @@ public class PayController {
 	
 	@LoginCheck
 	@RequestMapping(value = "pay_list_form")
-	public String pay_list_form(HttpSession session)throws Exception {
+	public String pay_list_form(HttpSession session,Model model)throws Exception {
 		String sUserId=(String)session.getAttribute("sUserId");
-		payService.findPayList(sUserId);
+		model.addAttribute("payList", payService.findPayList(sUserId));
+		List<Pay> payList=payService.findPayList(sUserId);
 		return "pay_list_form";
 	}
 	
