@@ -17,7 +17,7 @@ CREATE TABLE member(
 		m_pass                        		VARCHAR2(30)		 NOT NULL,
 		m_addr                        		VARCHAR2(100)		 NOT NULL,
 		m_email                       		VARCHAR2(50)		 NOT NULL,
-		m_phone                       		VARCHAR2(12)		 NOT NULL,
+		m_phone                       		VARCHAR2(16)		 NOT NULL,
 		m_gender                      		VARCHAR2(10)		 NOT NULL
 );
 
@@ -26,6 +26,7 @@ CREATE TABLE teacher(
 		t_id                          		VARCHAR2(20)		 NOT NULL,
 		t_name                        		VARCHAR2(20)		 NOT NULL,
 		t_pass                        		VARCHAR2(30)		 NOT NULL,
+		t_phone                       		VARCHAR2(16)		 NOT NULL,
 		t_email                       		VARCHAR2(50)		 NOT NULL,
 		t_photo                       		VARCHAR2(500)		 NOT NULL,
 		t_detail                      		VARCHAR2(500)		 NOT NULL,
