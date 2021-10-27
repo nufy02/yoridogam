@@ -8,9 +8,9 @@ public interface CartDao {
 	int insertCart(Cart cart) throws Exception;
 	
 	/********************장바구니 강의 수량 변경********************/
-	int increaseQty(Cart cart);
+	int increaseQty(int ci_no);
 	
-	int decreaseQty(Cart cart);
+	int decreaseQty(int ci_no);
 	
 	/******************장바구니 내 강의 특정 삭제******************/
 	int deleteCartByNo(int ci_no);

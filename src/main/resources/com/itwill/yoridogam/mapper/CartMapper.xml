@@ -17,11 +17,11 @@
 	</insert>
 	
 	<update id="increaseQty" parameterType="com.itwill.yoridogam.pay.cart.Cart">
-		update cart set ci_qty=ci_qty+1 where ci_no=#{ci_no} and m_id=#{member.m_id}
+		update cart set ci_qty=ci_qty+1 where ci_no=#{ci_no}
 	</update>
 
-	<update id="decreaseQty" parameterType="com.itwill.yoridogam.pay.cart.Cart">
-		update cart set ci_qty=ci_qty-1 where ci_no=#{ci_no} and m_id=#{member.m_id}
+	<update id="decreaseQty" parameterType="Integer">
+		update cart set ci_qty=ci_qty-1 where ci_no=#{ci_no}
 	</update>
 
 	<delete id="deleteCartByNo" parameterType="Integer">

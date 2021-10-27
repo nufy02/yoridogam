@@ -19,8 +19,8 @@ public class CartServiceTest {
 		Cart cc=new Cart(0, 2, pp, mm);
 		
 		System.out.println(cartService.insertCart(cc));
-		//System.out.println(cartService.increaseQty(new Cart(3, 1, null, mm)));
-		System.out.println(cartService.decreaseQty(new Cart(3, 1, null, mm)));
+		//System.out.println(cartService.increaseQty(1));
+		System.out.println(cartService.decreaseQty(1));
 		System.out.println();
 	}
 }

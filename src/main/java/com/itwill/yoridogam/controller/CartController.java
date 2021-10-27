@@ -28,6 +28,9 @@ public class CartController {
 	@Autowired
 	private CartService cartService;
 	
+	/*********************************************************************
+	 장바구니 리스트 보기
+	 *********************************************************************/
 	@LoginCheck
 	@RequestMapping("cart_list_form")
 	//@PostMapping("cart_list_from")
@@ -37,9 +40,11 @@ public class CartController {
 		return "cart_list_form";
 	}
 	
+	/*********************************************************************
+	 장바구니에 온라인강의 추가
+	 *********************************************************************/
 	@LoginCheck
-	@RequestMapping(value = "cart_insert_action", method = RequestMethod.POST)
-	//@PostMapping("cart_insert_action")
+	@PostMapping("cart_insert_action")
 	public String insertCart_action(HttpSession session, int p_no, int qty) throws Exception{
 		Cart nCartI=new Cart(0,qty,new Product(p_no,
 													"", "", "", "", "", "", null),
@@ -47,15 +52,17 @@ public class CartController {
 												   "", "", "", "", "", ""));
 		boolean isCartI=cartService.isExistCartItem(nCartI);
 		if(isCartI==true) {
-			cartService.increaseQty(nCartI);
+			//cartService.increaseQty(ci_no);
 		}
 		cartService.insertCart(nCartI);
 		return "cart_list_form";
 	}
 	
+	/*********************************************************************
+	 장바구니 선택 된 강의 삭제
+	 *********************************************************************/
 	@LoginCheck
 	@RequestMapping(value = "cart_deleteByNo_action", method = RequestMethod.POST)
-	//@PostMapping("cart_deleteByNo_action")
 	public String cartDelByNo(@RequestParam(value="ci_no") List<String> ci_noList, Model model) throws Exception{
 		for(String ci_no : ci_noList) {
         	int ci_noInt=Integer.parseInt(ci_no);
@@ -64,30 +71,37 @@ public class CartController {
         return "redirect:cart_list_form";
 	}
 	
-	
+	/*********************************************************************
+	 장바구니 모든 강의 삭제
+	 *********************************************************************/
 	@LoginCheck
-	@RequestMapping(value = "cart_deleteById_action", method = RequestMethod.POST)
-	//@PostMapping("cart_deleteById_action")
+	@PostMapping("cart_deleteById_action")
 	public String cartDelById(HttpSession session) throws Exception{
 		String sUserId=(String)session.getAttribute("sUserId");
 		cartService.deleteCart(sUserId);
 		return "redirect:cart_list_form";
 	}
 	
+	/*********************************************************************
+	 장바구니 내 강의 수량증가
+	 *********************************************************************/
 	@LoginCheck
-	@RequestMapping(value = "cart_qtyP_action", method = RequestMethod.POST)
-	//@PostMapping("cart_qtyP_action")
-	public String cartItemQtyP(HttpSession session, Cart cart) throws Exception{
-		cartService.increaseQty(cart);
-		return "cart_list_form";
+	@PostMapping("cart_qtyP_action")
+	@ResponseBody
+	public void cartItemQtyP(@RequestParam(required = false) String ci_no) throws Exception{
+		int ci_n=(int)Integer.parseInt(ci_no);
+		cartService.increaseQty(ci_n);
 	}
 	
+	/*********************************************************************
+	 장바구니 내 강의 수량감소
+	 *********************************************************************/
 	@LoginCheck
-	@RequestMapping(value = "cart_qtyM_action", method = RequestMethod.POST)
-	//@PostMapping("cart_qtyM_action")
-	public String cartItemQtyM(HttpSession session, Cart cart) throws Exception{
-		cartService.decreaseQty(cart);
-		return "cart_list_form";
+	@PostMapping("cart_qtyM_action")
+	@ResponseBody
+	public void cartItemQtyM(@RequestParam(required = false) String ci_no) throws Exception{
+		int ci_n=(int)Integer.parseInt(ci_no);
+		cartService.decreaseQty(ci_n);
 	}
 }
 
