@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!-- Header Area Start -->
 <%@include file="/WEB-INF/views/common/include_header.jsp"%>
@@ -11,6 +11,7 @@ if(msg!=null){
 	alert(msg);
 }else{
 </script>
+
 		<!-- Search Wrapper Area Start -->
 		<div class="search-wrapper section-padding-100">
 			<div class="search-close">
@@ -47,13 +48,15 @@ if(msg!=null){
 								<h2 style="color: #FBB710; margin-bottom: 100px">오프라인 강의 결제</h2>
 							</div>
 
-							<form action="rsv_action" method="post">
+							<form action="rsv_action" method="get">
 								<h4 style="color: #FBB710">-회원 정보-</h4>		
-								<div class="row">
+								<div>
 									<!--회원정보 -->
+									<input type="hidden" name="sUserId" value="${sUserId.m_id}">
 									<div class="col-md-6 mb-3">
-										<input class="form-control" id="m_name"
-											value="${sUserId.m_name}" placeholder="name" required>
+										<div style="text-align: center; padding: 30px; font-size: 14px" class="form-control" >
+											${sUserId.m_name}
+										</div>
 									</div>
 									<div class="col-md-6 mb-3">
 										<input type="text" class="form-control " id="m_phone"
@@ -87,17 +90,43 @@ if(msg!=null){
 					</div>
 					<div class="col-12 col-lg-4">
 						<div class="cart-summary">
-							<h5 style="color: #FBB710; text-align: center; font-weight: 700;">주문서</h5>
+							<h5 style="color: #FBB710; text-align: center; font-weight: 700; padding-bottom: 20px">주문서</h5>
 							<ul class="summary-table">
-							
-								<li><input type="hidden" name="pt_no" value="${productTime.pt_no}"></li>
-								<li><input type="hidden" name="rsv_qty" value="${qty}"></li>
-								<li><input type="hidden" name="rsv_total" value="${product.p_price*qty}"></li>
-								<li style="font-size: 13px;"><span>${product.p_name}</span></li>
-								<li><span>날짜:</span> <div id="rsv_date" value="${productTime.pt_date}">${productTime.pt_date}</div></li>
-								<li><span>시간:</span> <div id="rsv_time" value="${productTime.pt_time}">${productTime.pt_time}</div></li>
-								<li><span>예약 인원:</span> <div  id="rsv_qty" value="${qty}">${qty} 명</div></li>
-								<li><span>total:</span> <div id="rsv_total" value="${product.p_price*qty}">${product.p_price*qty} 원</div></li>
+								
+								<li style="font-size: 13px; padding-bottom: 30px;"><span>${product.p_name}</span></li>
+								<div>
+                                    <p>예약 시간</p>
+										<div>
+											<c:forEach var="pt" items="${pTList}">
+	                                        	<li>
+		                                        	<div class="custom-control custom-checkbox mr-sm-2">
+			                                        	<input type="radio" class="custom-control-input" id="qty${pt.pt_no}" name="qty" value="${pt.pt_time}">
+														<label class="custom-control-label" for="qty${pt.pt_no}">${pt.pt_time}</label>
+													</div>
+												</li>
+											</c:forEach>
+                                    	</div>
+								</div>
+								<li>
+								 <div class="cart-btn d-flex mb-50">
+                                    <p>인원</p>
+                                    <div class="quantity">
+                                        <input type="number" class="qty-text" id="qty" step="1" min="1" max="30" name="qty" value="1">
+	                                        <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;">
+	                                       	 	<i class="fa fa-caret-down" aria-hidden="true"></i>
+	                                        </span>
+	                                        <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;">
+	                                        	<i class="fa fa-caret-up" aria-hidden="true"></i>
+                                       		</span>
+                                    </div>
+                                </div>
+								</li>
+								<li><span>total:</span> 
+								<input type="text" name="sum" size="11" c>
+								<!-- 가격 변경하는거 구현해야됨! -->
+								<div id="rsv_total" value="${product.p_price}">${product.p_price} 원</div>
+								
+								</li>
 							</ul>
 							<div class="payment-method">
 								<!-- Cash on delivery -->
