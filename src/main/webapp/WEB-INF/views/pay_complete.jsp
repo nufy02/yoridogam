@@ -13,8 +13,9 @@
                 <div class="row">
                     <div class="col-12 col-lg-8">
                         <div class="cart-title mt-50" align="center">
-                            <h1>감사합니다 결제 완료되었습니다!</h1><br/>
-                            <h3 align="left">결제자 정보</h3>
+                            <h1>감사합니다<br>
+                            결제번호: [${pay.pay_no }] 번 결제 완료되었습니다!</h1><br/>
+                            <h3 align="left"><결제자 정보></h3>
                         </div>
                         <div class="row">
                                     <div class="col-md-6mb-3"  align="left">

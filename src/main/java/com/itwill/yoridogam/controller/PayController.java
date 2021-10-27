@@ -63,12 +63,9 @@ public class PayController {
 	@LoginCheck
 	@PostMapping("pay_action")
 	public String pay_action_post(Pay pay,Member member,int qty,int p_no,HttpSession session, Model model) throws Exception{
-		member.setM_id((String)session.getAttribute("sUserId"));
 		pay.setMember(member);
 		int pay_no=payService.createPay(pay,qty,p_no);
 		model.addAttribute("pay",payService.findPayDetailByNo(pay_no));
-		model.addAttribute("member",member);
-		System.out.println(pay);
 		return "pay_complete";
 	}
 	
@@ -76,13 +73,9 @@ public class PayController {
 	@LoginCheck
 	@PostMapping("pay_action_cart")
 	public String pay_action_cart_post(Pay pay,Member member,int qty,int p_no,HttpSession session, Model model) throws Exception{
-		//상기 action과 일원화 예정...
-		String sUserId=(String)session.getAttribute("sUserId");
-		member.setM_id(sUserId);
 		pay.setMember(member);
-		int pay_no=payService.createPayFromCart(pay,sUserId);
+		int pay_no=payService.createPayFromCart(pay,pay.getMember().getM_id());
 		model.addAttribute("pay",payService.findPayDetailByNo(pay_no));
-		model.addAttribute("member",member);
 		return "pay_complete";
 	}
 	

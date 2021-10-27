@@ -7,11 +7,7 @@
 		<%@include file="/WEB-INF/views/common/include_header.jsp"%>
         <!-- Header Area End -->
 		<script type="text/javascript">
-		function cart_delete() {
-			document.cart_view_form.method = 'POST';
-			document.cart_view_form.action = 'cart_deleteById_action';
-			document.cart_view_form.submit();
-		}
+
 		</script>
         <div class="cart-table-area section-padding-100">
             <div class="container-fluid">
@@ -21,11 +17,12 @@
                             <h2>장바구니</h2>
                         </div>
 
-                        <div class="cart-table clearfix">
+                        <div class="cart-table clearfix" id="check">
                             <table class="table table-responsive">
                                 <thead>
                                     <tr>
-                                        <th></th>
+                                        <th align="center">
+                                        전체선택<br/><input type="checkbox" id="allCheckbox"></th>
                                         <th>강의명</th>
                                         <th>가격</th>
                                         <th>수량</th>
@@ -35,10 +32,11 @@
 									<form name="cartInfo" method="post" action="pay_form_cart">
                                     <tr>
                                     	<c:set var="tot_price" value="0"/>
+                                    	
                                     	<c:forEach var="cartList" items="${cartList}" begin="0" end="${cartList.size()}">
                                     	<c:set var="tot_price" value="${tot_price+cartList.product.p_price*cartList.ci_qty }"/>
-                                        <td class="cart_product_img">
-                                            <input type="checkbox" name="p_name"  value="${cartList.product.p_no }"><a href="#"><img src="img/bg-img/cart1.jpg" alt="Product"></a>
+                                        <td class="cart_product_img" >
+                                            <input type="checkbox" name="ci_no"  value="${cartList.product.p_no }"><a href="#"><img src="img/bg-img/cart1.jpg" alt="Product"></a>
                                         </td>
                                         <td class="cart_product_desc">
                                             <h5>${cartList.product.p_name }</h5>
@@ -61,6 +59,7 @@
                                 </tbody>
                             </table>
                         </div>
+                        <a href="javascript:cart_delete();" class="btn amado-btn w-20">선택 삭제</a>
                     </div>
                     <div class="col-12 col-lg-4">
                         <div class="cart-summary">

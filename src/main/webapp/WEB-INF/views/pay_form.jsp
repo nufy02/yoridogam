@@ -17,6 +17,7 @@
                             <form action="pay_action" name="payInfo" method="post">
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
+                                        <input type="hidden" name="m_id" value="${sUserId.m_id}" >
                                         <input type="text" class="form-control" name="m_name" value="${sUserId.m_name}" placeholder="First Name" required>
                                     </div>
                                     <div class="col-md-6 mb-3">
