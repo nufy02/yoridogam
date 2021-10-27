@@ -36,7 +36,7 @@
                                     	<c:forEach var="cartList" items="${cartList}" begin="0" end="${cartList.size()}">
                                     	<c:set var="tot_price" value="${tot_price+cartList.product.p_price*cartList.ci_qty }"/>
                                         <td class="cart_product_img" >
-                                            <input type="checkbox" name="ci_no"  value="${cartList.product.p_no }"><a href="#"><img src="img/bg-img/cart1.jpg" alt="Product"></a>
+                                            <input type="checkbox" name="ci_no"  value="${cartList.ci_no }"><a href="#"><img src="img/bg-img/cart1.jpg" alt="Product"></a>
                                         </td>
                                         <td class="cart_product_desc">
                                             <h5>${cartList.product.p_name }</h5>
@@ -59,7 +59,8 @@
                                 </tbody>
                             </table>
                         </div>
-                        <a href="javascript:cart_delete();" class="btn amado-btn w-20">선택 삭제</a>
+                        <a href="javascript:cart_delete_select_item();"  class="btn amado-btn w-20">선택삭제</a>
+                        <a href="javascript:cart_delete();"  class="btn amado-btn w-20">전체 삭제</a>
                     </div>
                     <div class="col-12 col-lg-4">
                         <div class="cart-summary">
@@ -71,7 +72,8 @@
                             <div class="cart-btn mt-100">
                                 <input type="submit" class="btn amado-btn w-100" value="결제하기"><br><br/>
 									</form>
-								<a href="javascript:cart_delete();" class="btn amado-btn w-100">전체 삭제</a>
+                        <a href="javascript:cart_delete();"  class="btn amado-btn w-100">돌아가기</a>
+								
 
                             </div>
                         </div>
