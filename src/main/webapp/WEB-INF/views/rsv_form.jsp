@@ -5,7 +5,12 @@
 <!-- Header Area Start -->
 <%@include file="/WEB-INF/views/common/include_header.jsp"%>
 <!-- Header Area End -->
-
+<script type="text/javascript">
+var msg = '${msg}';
+if(msg!=null){
+	alert(msg);
+}else{
+</script>
 		<!-- Search Wrapper Area Start -->
 		<div class="search-wrapper section-padding-100">
 			<div class="search-close">
@@ -48,15 +53,15 @@
 									<!--회원정보 -->
 									<div class="col-md-6 mb-3">
 										<input class="form-control" id="m_name"
-											value="${sUserId.getM_name()}" placeholder="name" required>
+											value="${sUserId.m_name}" placeholder="name" required>
 									</div>
 									<div class="col-md-6 mb-3">
 										<input type="text" class="form-control " id="m_phone"
-											placeholder="Phone" value="${sUserId.getM_phone()}">
+											placeholder="Phone" value="${sUserId.m_phone}">
 									</div>
 									<div class="col-12 mb-3">
 										<input type="email" class="form-control mb-5" id="m_email"
-											placeholder="Email" value="${sUserId.getM_email()}">
+											placeholder="Email" value="${sUserId.m_email}">
 									</div>
 								</div>
 								<!-- 회원정보 끝! -->
@@ -85,14 +90,14 @@
 							<h5 style="color: #FBB710; text-align: center; font-weight: 700;">주문서</h5>
 							<ul class="summary-table">
 							
-								<li><input type="hidden" name="pt_no" value="${productTime.getPt_no()}"></li>
-								<li><input type="hidden" name="rsv_qty" value="${qty}""></li>
-								<li><input type="hidden" name="rsv_total" value="${product.getP_price()*qty}"></li>
-								<li style="font-size: 13px;"><span>${product.getP_name()}</span></li>
-								<li><span>날짜:</span> <div name="rsv_date" value="${productTime.getPt_date()}">${productTime.getPt_date()}</div></li>
-								<li><span>시간:</span> <div name="rsv_time" value="${productTime.getPt_time()}">${productTime.getPt_time()}</div></li>
+								<li><input type="hidden" name="pt_no" value="${productTime.pt_no}"></li>
+								<li><input type="hidden" name="rsv_qty" value="${qty}"></li>
+								<li><input type="hidden" name="rsv_total" value="${product.p_price*qty}"></li>
+								<li style="font-size: 13px;"><span>${product.p_name}</span></li>
+								<li><span>날짜:</span> <div id="rsv_date" value="${productTime.pt_date}">${productTime.pt_date}</div></li>
+								<li><span>시간:</span> <div id="rsv_time" value="${productTime.pt_time}">${productTime.pt_time}</div></li>
 								<li><span>예약 인원:</span> <div  id="rsv_qty" value="${qty}">${qty} 명</div></li>
-								<li><span>total:</span> <div id="rsv_total" value="${product.getP_price()*qty}">${product.getP_price()*qty} 원</div></li>
+								<li><span>total:</span> <div id="rsv_total" value="${product.p_price*qty}">${product.p_price*qty} 원</div></li>
 							</ul>
 							<div class="payment-method">
 								<!-- Cash on delivery -->
@@ -146,7 +151,10 @@
 		<script src="js/plugins.js"></script>
 		<!-- Active js -->
 		<script src="js/active.js"></script>
-		
+		<script type="text/javascript">
+}
+		</script>
 		</body>
 		
 		</html>
+		

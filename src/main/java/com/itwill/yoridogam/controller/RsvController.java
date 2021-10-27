@@ -42,7 +42,7 @@ public class RsvController {
 		String sUserId = (String)session.getAttribute("sUserId"); //회원 아이디
 		int p_no =4;
 		//int p_no = (int)session.getAttribute("p_no"); // 상품 넘버
-		int pt_no =8;
+		int pt_no =1;
 		//int pt_no = (int)session.getAttribute("pt_no"); // 상품 예약 시간
 		int qty =10;
 		//int qty = (int)session.getAttribute("qty"); // 예약 인원 받기
@@ -64,7 +64,7 @@ public class RsvController {
 								  Model model,
 								  int pt_no,
 								  int p_no)throws Exception {
-		String sUserId = "member3";//(String)session.getAttribute("sUserId"); // 회원아이디
+		String sUserId = (String)session.getAttribute("sUserId"); // 회원아이디
 		reservation.setMember(new Member(sUserId, null, null, null, null, null, null));
 		reservation.setProduct(new Product(p_no, null, null, null, null, null, null,null));
 		Reservation rsvP = reservationService.selectByP_no(reservation);
@@ -72,15 +72,17 @@ public class RsvController {
 			// 상품이 없으면 insert
 			ProductTime productTime = productTimeService.selectByNo(pt_no);
 			reservationService.insert(reservation, productTime, sUserId);
+		
+		model.addAttribute("product", productService.selectByNo(p_no));
+		model.addAttribute("productTime", productTimeService.selectByNo(pt_no));
 			
-			
-			return "home";
+			return "rsv_action_success";
 		}else {
-			/*
-			 * String msg = "이미 상품이 존재합니다";
+			
+			 String msg = "이미 상품이 존재합니다";
 				model.addAttribute("msg",msg);
-			 */
-			return "error";
+				session.setAttribute("sUserId", sUserId);
+			return "rsv_form";
 			
 		}
 		
@@ -89,8 +91,17 @@ public class RsvController {
 	
 
 	//예약 성공 화면
+	@LoginCheck
+	@PostMapping(value = "rsv_action_success")
+	public String rsv_success(HttpSession session,Model model ) {
+		
+		String sUserId = (String)session.getAttribute("sUserId"); // 회원아이디
+		
+		
+		return "rsv_action_success";
+	}
 	
-	
+	//예약 취소
 	
 	
 	
