@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,6 +72,11 @@
             <!-- Amado Nav -->
             <nav class="amado-nav">
                 <ul>
+                <c:choose>
+                <c:when test ="${!empty(sUserId)}" >
+                	<li><a href="member_detail">${sUserId}님</a></li>
+                </c:when>
+                </c:choose>
                     <li class="active"><a href="home">메인</a></li>
                     <li><a href=".html">온라인 강의</a></li>
                     <li><a href=".html">오프라인 강의</a></li>
@@ -81,9 +87,17 @@
             </nav>
             <!-- Button Group -->
             <div class="amado-btn-group mt-30 mb-100">
-                <a href="member_login_form.jsp" class="btn amado-btn mb-15">회원로그인</a>
-                <a href="teacher_login_form.jsp" class="btn amado-btn mb-15">강사로그인</a>
+            <c:choose>
+            <c:when test ="${empty(sUserId)}" >
+                <a href="member_login_form" class="btn amado-btn mb-15">회원로그인</a>
+                <a href="teacher_login_form" class="btn amado-btn mb-15">강사로그인</a>
                 <a href="#" class="btn amado-btn active">New this week</a>
+           	</c:when>
+           	<c:otherwise>
+           		   <a href="member_logout_action" class="btn amado-btn mb-15">로그아웃</a>
+           	</c:otherwise>
+           	
+           	</c:choose>
             </div>
             <!-- Cart Menu -->
             <div class="cart-fav-search mb-100">

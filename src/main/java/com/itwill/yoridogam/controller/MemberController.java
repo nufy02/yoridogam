@@ -96,6 +96,7 @@ public class MemberController {
 			forwardPath = "redirect:member_login_form";
 		}else {
 			model.addAttribute("nmember", member);
+			model.addAttribute("nmemberInterest",memberInterest );
 			model.addAttribute("msg", member.getM_id()+ "는 존재하는 아이디입니다.");
 			forwardPath="member_write_form";
 		}

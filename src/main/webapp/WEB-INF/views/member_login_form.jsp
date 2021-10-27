@@ -2,136 +2,61 @@
 	pageEncoding="UTF-8"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="s" uri="http://www.springframework.org/tags" %>    
+<%@taglib prefix="s" uri="http://www.springframework.org/tags" %>
+<script type="text/javascript" src="js/member.js"></script>    
         <!-- Header Area Start -->
 		<%@include file="/WEB-INF/views/common/include_header.jsp"%>
         <!-- Header Area End -->
 
 
         <!-- Product Catagories Area Start -->
-        <div class="products-catagories-area clearfix">
-            <div class="amado-pro-catagory clearfix">
-
-                <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="shop.html">
-                        <img src="img/bg-img/1.jpg" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                            <p>From $180</p>
-                            <h4>Modern Chair</h4>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="shop.html">
-                        <img src="img/bg-img/2.jpg" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                            <p>From $180</p>
-                            <h4>Minimalistic Plant Pot</h4>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="shop.html">
-                        <img src="img/bg-img/3.jpg" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                            <p>From $180</p>
-                            <h4>Modern Chair</h4>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="shop.html">
-                        <img src="img/bg-img/4.jpg" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                            <p>From $180</p>
-                            <h4>Night Stand</h4>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="shop.html">
-                        <img src="img/bg-img/5.jpg" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                            <p>From $18</p>
-                            <h4>Plant Pot</h4>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="shop.html">
-                        <img src="img/bg-img/6.jpg" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                            <p>From $320</p>
-                            <h4>Small Table</h4>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="shop.html">
-                        <img src="img/bg-img/7.jpg" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                            <p>From $318</p>
-                            <h4>Metallic Chair</h4>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="shop.html">
-                        <img src="img/bg-img/8.jpg" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                            <p>From $318</p>
-                            <h4>Modern Rocking Chair</h4>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="shop.html">
-                        <img src="img/bg-img/9.jpg" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                            <p>From $318</p>
-                            <h4>Home Deco</h4>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <!-- Product Catagories Area End -->
-    </div>
+        
+        <div id="wrapper">
+			<!-- content start -->
+			<!-- include_content.jsp start-->
+			<div id="content">
+				<table border=0 cellpadding=0 cellspacing=0>
+					<tr>
+						<td><br />
+							<table style="padding-left: 10px" border=0 cellpadding=0
+								cellspacing=0>
+							</table> <!-- login Form  -->
+							<form name="f" method="post">
+								<table border="0" cellpadding="0" cellspacing="1"
+									bgcolor="BBBBBB">
+									<tr>
+										<td width=100 align=center bgcolor="E6ECDE" height="22"> 아이디</td>
+										<td width=490 align="left" bgcolor="ffffff"
+											style="padding-left: 10px"><input type="text"
+											style="width: 150" name="m_id"
+											value="${nmember.m_id}">&nbsp;&nbsp;<font
+											color="red">${msg1}</font></td>
+									</tr>
+									<tr>
+										<td width=100 align=center bgcolor="E6ECDE" height="22">비밀번호</td>
+										<td width=490 align="left" bgcolor="ffffff"
+											style="padding-left: 10px"><input type="password"
+											style="width: 150" name="m_pass"
+											value="${nmember.m_pass}">&nbsp;&nbsp;<font
+											color="red">${msg2}</font></td>
+									</tr>
+								</table>
+							</form> <br />
+							<table border="0" cellpadding="0" cellspacing="1">
+								<tr>
+									<td align=center><input type="button" value="로그인"
+										onClick="member_login_action();"> &nbsp; <input type="button"
+										value="회원가입" onclick="member_write_form()"></td>
+								</tr>
+							</table></td>
+					</tr>
+				</table>
+			</div>
+			<!-- include_content.jsp end-->
+			<!-- content end -->
+		</div>
+     
+    
     <!-- ##### Main Content Wrapper End ##### -->
 
     <!-- ##### Footer Area Start ##### -->
