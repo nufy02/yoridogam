@@ -38,7 +38,7 @@ public class PayController {
 	private ProductService productService;
 	
 	@LoginCheck
-	@PostMapping("pay_form")
+	@RequestMapping("pay_form")
 	public String pay_form(HttpSession session, Model model) throws Exception{
 	//public String pay_form(HttpSession session, @RequestParam("p_no") int p_no, @RequestParam("pi_qty") int pi_qty) throws Exception{
 		String sUserId=(String)session.getAttribute("sUserId");
@@ -51,7 +51,7 @@ public class PayController {
 	}
 	
 	@LoginCheck
-	@PostMapping("pay_form_cart")
+	@RequestMapping("pay_form_cart")
 	public String pay_form_fromCart(HttpSession session, Model model) throws Exception{
 		String sUserId=(String)session.getAttribute("sUserId");
 		List<Cart> cList=cartService.cartList(sUserId);
