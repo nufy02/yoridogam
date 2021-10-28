@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
         <!-- Header Area Start -->
 		<%@include file="/WEB-INF/views/common/include_header.jsp"%>
         <!-- Header Area End -->
@@ -11,7 +12,7 @@
                         <div class="checkout_details_area mt-50 clearfix">
 
                             <div class="cart-title">
-                                <h2>Checkout</h2>
+                                <h2>결제</h2>
                             </div>
 
                             <form action="pay_action" name="payInfo" method="post">

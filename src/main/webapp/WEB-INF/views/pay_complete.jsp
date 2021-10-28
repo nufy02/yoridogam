@@ -3,6 +3,7 @@
 <%@page import="java.text.DecimalFormat"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="s" uri="http://www.springframework.org/tags" %>    
+<%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <link href="css/bootstrap.min.css" rel="stylesheet">
         <!-- Header Area Start -->
 		<%@include file="/WEB-INF/views/common/include_header.jsp"%>
@@ -15,7 +16,7 @@
                         <div class="cart-title mt-50" align="center">
                             <h1>감사합니다<br>
                             결제번호: [${pay.pay_no }] 번 결제 완료되었습니다!</h1><br/>
-                            <h3 align="left"><결제자 정보></h3>
+                            <h3 align="left">[결제자 정보]</h3>
                         </div>
                         <div class="row">
                                     <div class="col-md-6mb-3"  align="left">
@@ -23,7 +24,7 @@
                                         <th>수강생 성함: ${member.m_name}<br/></th>
                                         <th>수강생 번호: ${member.m_phone}<br/></th>
                                         <th>결제 방식: ${pay.pay_type}<br/></th>
-                                        <th>결제 총 금액: ${pay.pay_total}<br/></th>
+                                        <th>결제 총 금액: <f:formatNumber>${pay.pay_total}</f:formatNumber> 원<br/></th>
                                     </tr>
                                     </div>
 						</div>
@@ -48,7 +49,7 @@
                                             <h5>${pay.product.p_name}</h5>
                                         </td>
                                         <td class="price">
-                                            <span>${pay.product.p_price}</span>
+                                            <span><f:formatNumber>${pay.product.p_price}</f:formatNumber> 원</span>
                                         </td>
                                         <td>
                                             <input type="submit" class="btn amado-btn w-50" value="강의보기">
