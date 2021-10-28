@@ -25,6 +25,11 @@ public class ReservationDaoImpl implements ReservationDao{
 		
 		return sqlSession.selectList(NAMESPACE+"selectAll",sUserId);
 	}
+	@Override
+	public	Reservation selectRsv_no(int rsv_no) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"selectRsv_no",rsv_no);
+	}
+	
 
 	@Override
 	public List<Reservation> selectById(String sUserId) throws Exception {

@@ -29,6 +29,10 @@ public static final String NAMESPACE="com.itwill.yoridogam.mapper.ProductTimeMap
 	public ProductTime selectPtNo(int pt_no) throws Exception {
 		return sqlSession.selectOne(NAMESPACE+"selectPtNo",pt_no);
 	}
+	@Override
+	public ProductTime selectPtNo2(ProductTime productTime) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"selectPtNo2",productTime);
+	}
 	
 	@Override
 	public int update(ProductTime productTime) throws Exception {

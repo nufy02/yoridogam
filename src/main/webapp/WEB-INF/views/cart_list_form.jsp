@@ -2,7 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="s" uri="http://www.springframework.org/tags" %>    
+<%@taglib prefix="s" uri="http://www.springframework.org/tags" %>  
+<%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
         <!-- Header Area Start -->
 		<%@include file="/WEB-INF/views/common/include_header.jsp"%>
         <!-- Header Area End -->
@@ -36,21 +37,21 @@
                                     	<c:forEach var="cartList" items="${cartList}" begin="0" end="${cartList.size()}">
                                     	<c:set var="tot_price" value="${tot_price+cartList.product.p_price*cartList.ci_qty }"/>
                                         <td class="cart_product_img" >
-                                            <input type="checkbox" name="ci_no"  value="${cartList.ci_no }"><a href="#"><img src="img/bg-img/cart1.jpg" alt="Product"></a>
+                                            <input type="checkbox" name="ci_no"  value="${cartList.ci_no }"><a href="#">
+                                            <img src="img/bg-img/cart1.jpg" style="margin-left: 30px" alt="Product"></a>
                                         </td>
                                         <td class="cart_product_desc">
                                             <h5>${cartList.product.p_name }</h5>
                                         </td>
                                         <td class="price">
-                                            <span>${cartList.product.p_price }</span>
+                                            <span><f:formatNumber>${cartList.product.p_price }</f:formatNumber> 원</span>
                                         </td>
                                         <td class="qty">
                                             <div class="qty-btn d-flex">
-                                                <p>수량</p>
                                                 <div class="quantity">
-                                                    <button type="button" name="up" value="${cartList.ci_no }">+</button>
-                                                    <input type="number" class="qty-text" id="qty" step="1" min="1" max="300" name="quantity" value="${cartList.ci_qty }">
-                                                    <button type="button"  name="down" value="${cartList.ci_no }">-</button>
+                                                    <button type="button" name="up" value="${cartList.ci_no }"><img src="img/custom-icon/Qtyup.png"/></button>
+                                                    <input type="text" class="" id="qty" name="quantity" value="${cartList.ci_qty }">
+                                                    <button type="button"  name="down" value="${cartList.ci_no }"><img src="img/custom-icon/Qtydown.png"/></button>
                                                 </div>
                                             </div>
                                         </td>
@@ -59,20 +60,21 @@
                                 </tbody>
                             </table>
                         </div>
-                        <a href="javascript:cart_delete_select_item();"  class="btn amado-btn w-20">선택삭제</a>
-                        <a href="javascript:cart_delete();"  class="btn amado-btn w-20">전체 삭제</a>
+                        <a href="javascript:cart_delete_select_item();"  class="btn amado-btn w-20"  id="deleteAll">선택삭제</a>
+                        <button type="button"  class="btn amado-btn w-20" name="deleteAll" value="${sUserId }">전체삭제</button>
                     </div>
                     <div class="col-12 col-lg-4">
                         <div class="cart-summary">
-                            <h5>Cart Total</h5>
+                            <h5>장바구니 정보</h5>
                             <ul class="summary-table">
                                 <li><span>강의 갯수:</span> <span>${cartList.size() }</span></li>
-                                <li><span>장바구니 합계:</span><span id="tot_price" >${tot_price }원</span></li>
+                                <li><span>강의 총 금액:</span><span id="tot_price" >
+                                <f:formatNumber>${tot_price }</f:formatNumber>원</span></li>
                             </ul>
                             <div class="cart-btn mt-100">
                                 <input type="submit" class="btn amado-btn w-100" value="결제하기"><br><br/>
 									</form>
-                        <a href="javascript:cart_delete();"  class="btn amado-btn w-100">돌아가기</a>
+                        <a href="home"  class="btn amado-btn w-100">돌아가기</a>
 								
 
                             </div>

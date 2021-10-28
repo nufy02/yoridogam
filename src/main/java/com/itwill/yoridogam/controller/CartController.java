@@ -71,37 +71,6 @@ public class CartController {
         return "redirect:cart_list_form";
 	}
 	
-	/*********************************************************************
-	 장바구니 모든 강의 삭제
-	 *********************************************************************/
-	@LoginCheck
-	@PostMapping("cart_deleteById_action")
-	public String cartDelById(HttpSession session) throws Exception{
-		String sUserId=(String)session.getAttribute("sUserId");
-		cartService.deleteCart(sUserId);
-		return "redirect:cart_list_form";
-	}
 	
-	/*********************************************************************
-	 장바구니 내 강의 수량증가
-	 *********************************************************************/
-	@LoginCheck
-	@PostMapping("cart_qtyP_action")
-	@ResponseBody
-	public void cartItemQtyP(@RequestParam(required = false) String ci_no) throws Exception{
-		int ci_n=(int)Integer.parseInt(ci_no);
-		cartService.increaseQty(ci_n);
-	}
-	
-	/*********************************************************************
-	 장바구니 내 강의 수량감소
-	 *********************************************************************/
-	@LoginCheck
-	@PostMapping("cart_qtyM_action")
-	@ResponseBody
-	public void cartItemQtyM(@RequestParam(required = false) String ci_no) throws Exception{
-		int ci_n=(int)Integer.parseInt(ci_no);
-		cartService.decreaseQty(ci_n);
-	}
 }
 

@@ -13,6 +13,8 @@ public interface ProductTimeDao {
 // <selectPtNo> 특정 강의 예약된 인원 조회
 	ProductTime selectPtNo(int pt_no) throws Exception;
 	
+// <selectPtNo> 특정 강의 예약된 인원 조회
+	ProductTime selectPtNo2(ProductTime productTime) throws Exception;
 	
 // <update> 특정 강의시간 수정
 	int update(ProductTime productTime) throws Exception;

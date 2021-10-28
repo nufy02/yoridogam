@@ -34,6 +34,8 @@ delete from reservation where m_id=?;
  select * from reservation where m_id=?;
  
  select * from reservation where m_id=1;
+ 
+ select * from product_time  where pt_date= ? and pt_time= ? and p_no= ?;
  --m_id 회원 예약 특정 상세 조회
  select * from product p join reservation rsv on rsv.p_no=p.p_no where rsv.m_id=?;
  

@@ -101,7 +101,7 @@
             </div>
             <!-- Cart Menu -->
             <div class="cart-fav-search mb-100">
-                <a href="cart.html" class="cart-nav"><img src="img/core-img/cart.png" alt=""> 장바구니 <span>(0)</span></a>
+                <a href="cart_list_form" class="cart-nav"><img src="img/core-img/cart.png" alt=""> 장바구니 <span>(0)</span></a>
                 <a href="#" class="fav-nav"><img src="img/core-img/favorites.png" alt=""> 관심목록</a>
                 <a href="#" class="search-nav"><img src="img/core-img/search.png" alt=""> 검색</a>
             </div>
