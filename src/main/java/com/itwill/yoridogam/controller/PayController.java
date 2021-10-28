@@ -1,6 +1,7 @@
 package com.itwill.yoridogam.controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -60,9 +61,14 @@ public class PayController {
 	@LoginCheck
 	@RequestMapping("pay_form_cart")
 	//@PostMapping("pay_form_cart")
-	public String pay_form_fromCart(HttpSession session, Model model) throws Exception{
+	public String pay_form_fromCart(@RequestParam(value="ci_no") Integer[] ci_noArray,HttpSession session, Model model) throws Exception{
 		String sUserId=(String)session.getAttribute("sUserId");
-		List<Cart> cList=cartService.cartList(sUserId);
+		List<Cart> cList=new ArrayList<>();
+		for(int i=0; i<ci_noArray.length; i++) {
+			cList.add(cartService.selectCartItem(ci_noArray[i]));
+			cList.get(i).setProduct(productService.selectByNo(cList.get(i).getProduct().getP_no()));
+		}
+		//간결하게 다시...
 		model.addAttribute("sUserId", memberService.findMember(sUserId));
 		model.addAttribute("cartList", cList);
 		return "pay_form_cart";

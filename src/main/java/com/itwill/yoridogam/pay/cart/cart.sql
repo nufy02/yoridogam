@@ -31,6 +31,8 @@ M_ID            VARCHAR2(20)
  /*****************************
 				select
  ******************************/
+ --카트아이템 하나 보기
+ select * from cart where ci_no=?;
  --m_id 회원 장바구니 강의리스트 출력
  select * from cart c join product p on c.p_no=p.p_no where m_id=?;
  --m_id 회원 장바구니 내 강의 존재 여부

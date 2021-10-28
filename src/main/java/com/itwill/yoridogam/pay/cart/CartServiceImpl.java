@@ -58,6 +58,11 @@ public class CartServiceImpl implements CartService{
 		return cartDao.isExistCartItem(cart);
 	}
 
+	@Override
+	public Cart selectCartItem(int ci_no) {
+		return cartDao.selectCartItem(ci_no);
+	}
+
 
 	
 	

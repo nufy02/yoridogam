@@ -55,5 +55,9 @@ public class CartDaoImpl implements CartDao{
 		}
 		return isExistCartItem;
 	}
+	@Override
+	public Cart selectCartItem(int ci_no) {
+		return sqlSession.selectOne(NAMESPACE+"selectCartItem",ci_no);
+	}
 	
 }
