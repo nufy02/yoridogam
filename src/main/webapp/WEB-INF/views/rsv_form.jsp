@@ -7,11 +7,10 @@
 <!-- Header Area End -->
 <script type="text/javascript">
 var msg = '${msg}';
-if(msg!=null){
-	alert(msg);
-}else{
-</script>
 
+
+
+</script>
 		<!-- Search Wrapper Area Start -->
 		<div class="search-wrapper section-padding-100">
 			<div class="search-close">
@@ -47,7 +46,6 @@ if(msg!=null){
 							<div class="cart-title">
 								<h2 style="color: #FBB710; margin-bottom: 100px">오프라인 강의 결제</h2>
 							</div>
-
 							<form action="rsv_action" method="get">
 								<h4 style="color: #FBB710">-회원 정보-</h4>		
 								<div>
@@ -94,37 +92,54 @@ if(msg!=null){
 							<ul class="summary-table">
 								
 								<li style="font-size: 13px; padding-bottom: 30px;"><span>${product.p_name}</span></li>
+								<!-- 예약날짜 시작 / 중복이 뜸 -->
+								<li>
 								<div>
-                                    <p>예약 시간</p>
-										<div>
-											<c:forEach var="pt" items="${pTList}">
-	                                        	<li>
-		                                        	<div class="custom-control custom-checkbox mr-sm-2">
-			                                        	<input type="radio" class="custom-control-input" id="qty${pt.pt_no}" name="qty" value="${pt.pt_time}">
-														<label class="custom-control-label" for="qty${pt.pt_no}">${pt.pt_time}</label>
-													</div>
-												</li>
-											</c:forEach>
+                                    <p>예약 날짜</p>
+									<div class="col-12 mb-3">
+	                                        	<select class="w-100" name ="rsv_date">
+													<c:forEach var="pt" items="${pTList}">
+					                                        <option  value="${pt.pt_date}">${pt.pt_date}</option>
+													</c:forEach>
+                                  				  </select>
                                     	</div>
 								</div>
+								</li>
+								<!-- 예약날짜 끝 -->
+								<!-- 예약시간 시작 / 중복이 뜸-->
+								<li>
+								<div>
+                                    <p>예약 시간</p>
+									<div class="col-12 mb-3">
+	                                        	<select class="w-100" name ="rsv_time">
+													<c:forEach var="pt" items="${pTList}">
+					                                        <option  value="${pt.pt_time}">${pt.pt_time}</option>
+													</c:forEach>
+                                  				  </select>
+                                    	</div>
+								</div>
+								</li>
+								<!-- 예약시간 끝 -->
+								
 								<li>
 								 <div class="cart-btn d-flex mb-50">
                                     <p>인원</p>
                                     <div class="quantity">
-                                        <input type="number" class="qty-text" id="qty" step="1" min="1" max="30" name="qty" value="1">
-	                                        <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;">
+                                        <input type="number" class="qty-text" id="rsv_qty" step="1" min="1" max="30" name="rsv_qty" value="1">
+	                                        <span class="qty-minus" onclick="var effect = document.getElementById('rsv_qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;">
 	                                       	 	<i class="fa fa-caret-down" aria-hidden="true"></i>
 	                                        </span>
-	                                        <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;">
+	                                        <span class="qty-plus" onclick="var effect = document.getElementById('rsv_qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;">
 	                                        	<i class="fa fa-caret-up" aria-hidden="true"></i>
                                        		</span>
                                     </div>
                                 </div>
 								</li>
 								<li><span>total:</span> 
-								<input type="text" name="sum" size="11" c>
+								
 								<!-- 가격 변경하는거 구현해야됨! -->
-								<div id="rsv_total" value="${product.p_price}">${product.p_price} 원</div>
+								<input type="hidden"  id="rsv_total" name="rsv_total" value="${product.p_price}"> 
+								<label for="rsv_total">${product.p_price} 원 </label>
 								
 								</li>
 							</ul>
@@ -180,10 +195,7 @@ if(msg!=null){
 		<script src="js/plugins.js"></script>
 		<!-- Active js -->
 		<script src="js/active.js"></script>
-		<script type="text/javascript">
-}
-		</script>
+
 		</body>
 		
 		</html>
-		

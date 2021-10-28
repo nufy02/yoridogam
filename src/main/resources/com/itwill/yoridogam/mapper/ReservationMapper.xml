@@ -36,6 +36,11 @@ values(RESERVATION_RSV_NO_SEQ.nextval,#{rsv_total},#{rsv_type},#{rsv_qty},#{rsv_
  select * from reservation where m_id=#{member.m_id}
 </select>
 
+<!-- selectRsv_no -->
+<select id="selectRsv_no" parameterType="java.lang.Integer" resultMap="ReservationResultMap" >
+ select * from reservation where rsv_no=#{rsv_no}
+</select>
+
 <!--m_id 회원이 오프라인 예약한 상품 상세 조회-->
 <select id="selectById" parameterType="java.lang.String" resultMap="productResultMap" >
 select * from product p join reservation rsv on rsv.p_no=p.p_no where rsv.m_id=#{member.m_id}

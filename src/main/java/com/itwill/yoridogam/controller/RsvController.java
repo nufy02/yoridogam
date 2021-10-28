@@ -1,5 +1,7 @@
 package com.itwill.yoridogam.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import javax.swing.text.html.HTMLEditorKit.InsertHTMLTextAction;
 
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import com.itwill.yoridogam.controller.interceptor.LoginCheck;
 import com.itwill.yoridogam.member.Member;
@@ -58,23 +61,27 @@ public class RsvController {
 							//@RequestParam String t_id,
 							HttpSession session,
 							Model model) throws Exception {
-		//String sUserId=(String)session.getAttribute("sUserId");
-		String sUserId = "member3";
+		String sUserId=(String)session.getAttribute("sUserId");
 		int p_no =4;
 		String t_id = "teacher1";
 		model.addAttribute("sUserId", memberService.findMember(sUserId));
 		model.addAttribute("teacher", teacherService.findMember(t_id));
 		model.addAttribute("product",productService.selectByNo(p_no));
 		model.addAttribute("pTList", productTimeService.selectAll(p_no));
-		
+		session.setAttribute("reservation",new Reservation());
 		
 		return "rsv_form";
 	} 
-	
+
 	// 결제 action
 	@LoginCheck
 	@RequestMapping("rsv_action")
-	public String rsv_action() throws Exception {
+	public String rsv_action(@ModelAttribute("reservation") Reservation reservation,int p_no,HttpSession session,Model model) throws Exception {
+		String sUserId=(String)session.getAttribute("sUserId");
+		reservation.setProduct(new Product(p_no, null, null, null, null, null, null, null));
+		Member member = memberService.findMember(sUserId);
+		reservation.setMember(member);
+		reservationService.insert(reservation,sUserId);
 		
 		return "rsv_success";
 	}
@@ -83,26 +90,25 @@ public class RsvController {
 	// 오프라인 결제 성공화면
 	@LoginCheck
 	@RequestMapping("rsv_success")
-	public String rsv_success() throws Exception {
+	public String rsv_success(@ModelAttribute("reservation") Reservation reservation,
+								SessionStatus sessionStatus) throws Exception {
 		
+		sessionStatus.setComplete();
 		return "rsv_success";
 	}
 	
 	// 오프라인 결제 취소
 	@LoginCheck
 	@RequestMapping("rsv_no_delete")
-	public String rsv_no_delete() throws Exception {
-		
+	public String rsv_no_delete(int rsv_no) throws Exception {
+		Reservation reservation = reservationService.selectRsv_no(rsv_no);
+		int rsv = reservation.getRsv_qty();
+		reservationService.deletByRsv(rsv_no);
+		//productTimeService.마이너스 rsv
 		return "rsv_list_form";
 	}
 	
-	// 오프라인 결제 모두 취소
-	@LoginCheck
-	@RequestMapping("rsv_all_delete")
-	public String rsv_all_delete() throws Exception {
-		
-		return "rsv_list_form";
-	}
+
 	
 	
 	/*

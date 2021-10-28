@@ -20,10 +20,13 @@ public interface ReservationService {
 	productTimeDao.update(rsv)
 	*/
 	// 상품 예약
-	int insert(Reservation reservation,ProductTime productTime,String sUserId) throws Exception;
+	int insert(Reservation reservation,String sUserId) throws Exception;
 	
 	// 회원의 예약내역 조회
 	List<Reservation> selectAll(String sUserId)throws Exception;
+
+	// 예약 조회
+	Reservation selectRsv_no(int rsv_no) throws Exception;
 	
 	// 회원의 예약 특정 상세 조회
 	List<Reservation> selectById(String sUserId)throws Exception;
