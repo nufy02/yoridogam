@@ -29,7 +29,7 @@
                        		<tr>
 								<th width=250 align=center  height="22"> 아이디 : </th>
 									<td  align="left" height="22"><input onclick="openIdCheck();" type="text" name="sUserId" style="width: 200px" value="아이디를 입력해주세요" ></td>
-									<td>&nbsp;&nbsp;&nbsp;&nbsp;;</td>
+									<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 									<td><input type="button" value="중복확인" onclick="openIdCheck();"></td>
 							</tr>	
 							
@@ -102,8 +102,8 @@
 							 <div class="form-group">
 							 	<table>
 							 	<tr>
-							 	<td style="padding-top: 50px;padding-left:200px">                               
-							 		<input type="button" class="btn btn-info btn-md" value="가입하기" onClick="member_write_action();">
+							 	<td style="padding-top: 50px">                               
+							 		<input type="button" class="btn btn-info btn-md" value="로그인" onClick="member_login_action();">
                             	</td>
                             	<tr>
                             	</table>
