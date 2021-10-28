@@ -59,8 +59,8 @@
                                 </tbody>
                             </table>
                         </div>
-                        <a href="javascript:cart_delete_select_item();"  class="btn amado-btn w-20">선택삭제</a>
-                        <a href="javascript:cart_delete();"  class="btn amado-btn w-20">전체 삭제</a>
+                        <button type="button"  class="btn amado-btn w-20" name="deleteAll" value="${sUserId }">전체삭제</button>
+                        <a href="javascript:cart_delete_select_item();"  class="btn amado-btn w-20"  id="deleteAll">선택삭제</a>
                     </div>
                     <div class="col-12 col-lg-4">
                         <div class="cart-summary">

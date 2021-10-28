@@ -1,21 +1,34 @@
-Number.prototype.formatNumber = function(){
-    if(this==0) return 0;
-    let regex = /(^[+-]?\d+)(\d)/;
-    let nstr = (this + '');
-    while (regex.test(nstr)) nstr = nstr.replace(regex, '$1' + ',' + '$2');
-    return nstr;
-    
-};
-
 //카트 전체 삭제
+/*
 function cart_delete() {
 	document.cartInfo.method = 'POST';
 	document.cartInfo.action = 'cart_deleteById_action';
 	document.cartInfo.submit();
 }
+*/
+$("button[name=deleteAll]").click(function () {
+	var confirmD=confirm( "강의를 전체 삭제하시겠습니까?");
+	if(confirmD){
+		var sUserId=null;
+	    sUserId=($(this).val());
+		var data = { "sUserId": sUserId };
+    $.ajax({
+		url:'cart_deleteById_action',
+		method:'POST',
+		data: data,
+		success: function(){
+		location.href="cart_list_form";
+		alert("삭제되었습니다");
+		}
+    });
+	}else{
+		alert("삭제 취소되었습니다");
+	}
+});
 
 //카트 선택 삭제
 function cart_delete_select_item() {
+	alert("선택된 강의를 삭제합니다.")
 	document.cartInfo.method = 'POST';
 	document.cartInfo.action = 'cart_deleteByNo_action';
 	document.cartInfo.submit();
@@ -60,4 +73,11 @@ $("button[name=down]").click(function () {
     });
 });
 
+Number.prototype.formatNumber = function(){
+    if(this==0) return 0;
+    let regex = /(^[+-]?\d+)(\d)/;
+    let nstr = (this + '');
+    while (regex.test(nstr)) nstr = nstr.replace(regex, '$1' + ',' + '$2');
+    return nstr;
+};
 
