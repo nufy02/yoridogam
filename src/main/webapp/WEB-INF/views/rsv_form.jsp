@@ -7,6 +7,13 @@
 <!-- Header Area End -->
 <script type="text/javascript">
 var msg = '${msg}';
+<<<<<<< HEAD
+if(msg!=null){
+	alert(msg);
+}else{
+</script>
+=======
+>>>>>>> branch 'main' of https://github.com/2021-05-JAVA-DEVELOPER/final-project-team3-yoridogam.git
 
 
 
@@ -195,7 +202,13 @@ var msg = '${msg}';
 		<script src="js/plugins.js"></script>
 		<!-- Active js -->
 		<script src="js/active.js"></script>
+<<<<<<< HEAD
+		<script type="text/javascript">
+}
+		</script>
+=======
 
+>>>>>>> branch 'main' of https://github.com/2021-05-JAVA-DEVELOPER/final-project-team3-yoridogam.git
 		</body>
 		
 		</html>

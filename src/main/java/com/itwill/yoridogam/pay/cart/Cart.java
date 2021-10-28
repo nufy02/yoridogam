@@ -52,6 +52,12 @@ public class Cart {
 	public void setMember(Member member) {
 		this.member = member;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Cart [ci_no=" + ci_no + ", ci_qty=" + ci_qty + ", product=" + product + ", member=" + member + "]";
+	}
 	
 	
 

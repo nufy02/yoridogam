@@ -73,6 +73,7 @@
                             </ul>
                             <div class="cart-btn mt-100">
                                 <input type="submit" class="btn amado-btn w-100" value="결제하기"><br><br/>
+                                <button type="button" name="submit" >결제하기2</button>
 									</form>
                         <a href="home"  class="btn amado-btn w-100">돌아가기</a>
 								

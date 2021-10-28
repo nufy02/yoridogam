@@ -44,7 +44,10 @@
 		select count(*) from cart c join member m on c.m_id=m.m_id where p_no=#{product.p_no} and m.m_id=#{member.m_id}
 	</select>
 
-
+	<select id="selectCartItem" parameterType="Integer" resultMap="cartResultMap">
+		select * from cart where ci_no=#{ci_no}
+	</select>
+	
 
 
 
