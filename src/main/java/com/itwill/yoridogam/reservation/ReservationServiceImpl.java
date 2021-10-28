@@ -32,7 +32,7 @@ public class ReservationServiceImpl implements ReservationService {
 		// 웹에서 받아온 reservation값을 넣어서 DB reservaion insert
 		// selectPtNo 데이터를 PTrsv에 넣어준다	
 		PTrsv.setPt_rsv(reservation.getRsv_qty());
-		 productTimeDao.addPt_rsv(PTrsv);
+		 productTimeDao.updatePt_rsv(PTrsv);
 		return reservationDao.create(reservation);
 	}
 
@@ -65,7 +65,14 @@ public class ReservationServiceImpl implements ReservationService {
 	// 회원의 특정 예약 취소
 	@Override
 	public int deletByRsv(int rsv_no) throws Exception {
-		
+		Reservation reservation = reservationDao.selectRsv_no(rsv_no);
+		int p_no = reservation.getProduct().getP_no();
+		String rsv_date = reservation.getRsv_date();
+		String rsv_time = reservation.getRsv_time();
+		int rsv = reservation.getRsv_qty();
+		ProductTime pt= productTimeDao.selectPtNo2(new ProductTime(0, rsv_date, rsv_time, 0, 0, new Product(p_no, null, null, null, null, null, null, null)));
+		pt.setPt_rsv(rsv);
+		productTimeDao.updatePt_rsv(pt);
 		return reservationDao.deleteById(rsv_no);
 	}
 

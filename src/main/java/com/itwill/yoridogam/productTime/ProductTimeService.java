@@ -22,7 +22,7 @@ public interface ProductTimeService {
 	int update(ProductTime productTime)throws Exception;
 
 	//강의 예약한 인원 추가
-	int addPt_rsv(ProductTime productTime)throws Exception;
+	int updatePt_rsv(ProductTime productTime)throws Exception;
 
 	// 특정 강의시간 삭제
 	int delete(int pt_no)throws Exception;

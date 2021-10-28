@@ -46,7 +46,7 @@ var msg = '${msg}';
 							<div class="cart-title">
 								<h2 style="color: #FBB710; margin-bottom: 100px">오프라인 강의 결제</h2>
 							</div>
-							<form action="rsv_action" method="get">
+							<form action="rsv_action" method="post">
 								<h4 style="color: #FBB710">-회원 정보-</h4>		
 								<div>
 									<!--회원정보 -->

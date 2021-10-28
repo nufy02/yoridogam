@@ -43,7 +43,13 @@
 								</div>
 								
 							
-								
+								<div>${product.p_name }</div>
+								<div>${product.p_name }</div>
+								<div>${reservation.rsv_no}</div>
+								<div>${reservation.rsv_qty}</div>
+								<div>${reservation.rsv_date}</div>
+								<div>${reservation.rsv_time}</div>
+								<div>${reservation.rsv_total}</div>
 								
 									
 								

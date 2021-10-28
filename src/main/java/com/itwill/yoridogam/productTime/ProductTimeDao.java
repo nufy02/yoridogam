@@ -20,7 +20,7 @@ public interface ProductTimeDao {
 	int update(ProductTime productTime) throws Exception;
 
 // <addPt_rsv> 강의 예약한 인원 추가 수정
-	int addPt_rsv(ProductTime productTime) throws Exception;
+	int updatePt_rsv(ProductTime productTime) throws Exception;
 	
 // <delete> 특정 강의시간 삭제
 	int delete(int pt_no) throws Exception;

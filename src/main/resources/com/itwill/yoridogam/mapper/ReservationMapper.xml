@@ -29,6 +29,10 @@
 <insert id="create" parameterType="com.itwill.yoridogam.reservation.Reservation">
  insert into reservation(rsv_no, rsv_total, rsv_type, rsv_qty, rsv_date, rsv_time, rsv_paydate, m_id, p_no)
 values(RESERVATION_RSV_NO_SEQ.nextval,#{rsv_total},#{rsv_type},#{rsv_qty},#{rsv_date},#{rsv_time},sysdate,#{member.m_id},#{product.p_no})
+<!-- insert한 값 번호 가져오기 -->
+<selectKey keyProperty="rsv_no" resultType="java.lang.Integer" order="AFTER"> 
+	SELECT RESERVATION_RSV_NO_SEQ.CURRVAL FROM DUAL 
+</selectKey>
 </insert>
 
 <!--m_id 회원 예약 전체 조회-->

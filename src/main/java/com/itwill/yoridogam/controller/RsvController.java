@@ -8,6 +8,7 @@ import javax.swing.text.html.HTMLEditorKit.InsertHTMLTextAction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -75,37 +76,34 @@ public class RsvController {
 
 	// 결제 action
 	@LoginCheck
-	@RequestMapping("rsv_action")
+	@PostMapping("rsv_action")
 	public String rsv_action(@ModelAttribute("reservation") Reservation reservation,int p_no,HttpSession session,Model model) throws Exception {
 		String sUserId=(String)session.getAttribute("sUserId");
 		reservation.setProduct(new Product(p_no, null, null, null, null, null, null, null));
 		Member member = memberService.findMember(sUserId);
 		reservation.setMember(member);
+		model.addAttribute("product", productService.selectByNo(reservation.getProduct().getP_no()));
 		reservationService.insert(reservation,sUserId);
-		
 		return "rsv_success";
 	}
 	
 	
-	// 오프라인 결제 성공화면
+	// 오프라인 결제 성공화면(영수증) --> 확인 누르면 메인으로
 	@LoginCheck
 	@RequestMapping("rsv_success")
 	public String rsv_success(@ModelAttribute("reservation") Reservation reservation,
 								SessionStatus sessionStatus) throws Exception {
-		
 		sessionStatus.setComplete();
 		return "rsv_success";
 	}
+	
 	
 	// 오프라인 결제 취소
 	@LoginCheck
 	@RequestMapping("rsv_no_delete")
 	public String rsv_no_delete(int rsv_no) throws Exception {
-		Reservation reservation = reservationService.selectRsv_no(rsv_no);
-		int rsv = reservation.getRsv_qty();
 		reservationService.deletByRsv(rsv_no);
-		//productTimeService.마이너스 rsv
-		return "rsv_list_form";
+		return "member_list_form";
 	}
 	
 

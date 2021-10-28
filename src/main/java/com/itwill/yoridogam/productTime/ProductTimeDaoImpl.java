@@ -40,8 +40,8 @@ public static final String NAMESPACE="com.itwill.yoridogam.mapper.ProductTimeMap
 	}
 	
 	@Override
-	public int addPt_rsv(ProductTime productTime) throws Exception {
-		return sqlSession.update(NAMESPACE+"addPt_rsv",productTime);
+	public int updatePt_rsv(ProductTime productTime) throws Exception {
+		return sqlSession.update(NAMESPACE+"updatePt_rsv",productTime);
 	}
 	
 	
