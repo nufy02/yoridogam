@@ -23,9 +23,9 @@ public class CartDaoTest {
 		//insert
 		System.out.println(cartDao.insertCart(new Cart(0,1,pp,mm)));
 		//increaseQ
-		System.out.println(cartDao.increaseQty(new Cart(3,0,null,mm)));
+		System.out.println(cartDao.increaseQty(1));
 		//decreaseQ
-		System.out.println(cartDao.decreaseQty(new Cart(3,0,null,mm)));
+		System.out.println(cartDao.decreaseQty(1));
 		//delete
 		System.out.println(cartDao.deleteCartByNo(1));
 		//deleteAll

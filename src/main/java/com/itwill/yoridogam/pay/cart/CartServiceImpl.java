@@ -19,13 +19,13 @@ public class CartServiceImpl implements CartService{
 
 	/********************장바구니 강의 수량 변경********************/
 	@Override
-	public int increaseQty(Cart cart) {
-		return cartDao.increaseQty(cart);
+	public int increaseQty(int ci_no) {
+		return cartDao.increaseQty(ci_no);
 	}
 
 	@Override
-	public int decreaseQty(Cart cart) {
-		return cartDao.decreaseQty(cart);
+	public int decreaseQty(int ci_no) {
+		return cartDao.decreaseQty(ci_no);
 	}
 	
 	/******************장바구니 내 강의 특정 삭제******************/

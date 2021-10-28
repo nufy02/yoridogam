@@ -18,12 +18,12 @@ public class CartDaoImpl implements CartDao{
 		return sqlSession.insert(NAMESPACE+"insertCart",cart);
 	}
 	@Override
-	public int increaseQty(Cart cart) {
-		return sqlSession.update(NAMESPACE+"increaseQty",cart);
+	public int increaseQty(int ci_no) {
+		return sqlSession.update(NAMESPACE+"increaseQty",ci_no);
 	}
 	@Override
-	public int decreaseQty(Cart cart) {
-		return sqlSession.update(NAMESPACE+"decreaseQty",cart);
+	public int decreaseQty(int ci_no) {
+		return sqlSession.update(NAMESPACE+"decreaseQty",ci_no);
 	}
 	@Override
 	public int deleteCartByNo(int ci_no) {

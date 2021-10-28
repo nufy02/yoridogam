@@ -17,8 +17,8 @@ M_ID            VARCHAR2(20)
 				update
  ******************************/
  --장바구니 강의 수량 +,-
- update cart set ci_qty=ci_qty+1 where ci_no=? and m_id=?;
- update cart set ci_qty=ci_qty-1 where ci_no=? and m_id=?;
+ update cart set ci_qty=ci_qty+1 where ci_no=?;
+ update cart set ci_qty=ci_qty-1 where ci_no=?;
 
  /*****************************
 				delete
