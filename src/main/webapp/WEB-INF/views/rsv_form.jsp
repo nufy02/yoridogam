@@ -6,14 +6,11 @@
 <%@include file="/WEB-INF/views/common/include_header.jsp"%>
 <!-- Header Area End -->
 <script type="text/javascript">
-var msg = '${msg}';
-<<<<<<< HEAD
 if(msg!=null){
 	alert(msg);
 }else{
 </script>
-=======
->>>>>>> branch 'main' of https://github.com/2021-05-JAVA-DEVELOPER/final-project-team3-yoridogam.git
+
 
 
 
@@ -202,13 +199,11 @@ if(msg!=null){
 		<script src="js/plugins.js"></script>
 		<!-- Active js -->
 		<script src="js/active.js"></script>
-<<<<<<< HEAD
+
 		<script type="text/javascript">
 }
 		</script>
-=======
 
->>>>>>> branch 'main' of https://github.com/2021-05-JAVA-DEVELOPER/final-project-team3-yoridogam.git
 		</body>
 		
 		</html>
