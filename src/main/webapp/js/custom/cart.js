@@ -34,12 +34,14 @@ function cart_delete_select_item() {
 	document.cartInfo.submit();
 }
 
-//카트 전체선택 전체해제
+//카트 전체선택 전체해제 + 선택강의 수 갱신
 $('#check #allCheckbox').on('click',function(){
 	if($('#allCheckbox').prop("checked")){
 		$("input[type=checkbox]").prop("checked",true);
+        $("#checkQty").text($('input:checkbox[name=ci_no]:checked').length);
 	}else{
 		$("input[type=checkbox]").prop("checked",false);
+		$("#checkQty").text($('input:checkbox[name=ci_no]:checked').length);
 	}
 });
 
@@ -72,5 +74,22 @@ $("button[name=down]").click(function () {
 		}
     });
 });
-
+/*
+$(document).ready(function(){
+	$("#checkQty").text($('input:checkbox[name=ci_no]:checked').length);
+	if($("#checkQty").change(function()){
+		location.reload();
+	})
+})
+*/
+$(document).ready(function(){
+	$("#checkQty").text($('input:checkbox[name=ci_no]:checked').length);
+    $("input[name=ci_no]").change(function(){
+        if($("input[name=ci_no").is(":checked")){
+            $("#checkQty").text($('input:checkbox[name=ci_no]:checked').length);
+        }else{
+            $("#checkQty").text($('input:checkbox[name=ci_no]:checked').length);
+		}
+    });
+});
 
