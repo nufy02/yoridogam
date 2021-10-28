@@ -23,11 +23,11 @@ public class ReservationDaoTest {
 		// reservation(rsv_no, rsv_total, rsv_type, rsv_qty, rsv_date, rsv_time, rsv_paydate, m_id, p_no)
 
 		
-			/*
+			
 			System.out.println(reservationDao.create(new Reservation(0, 30000, "카카오페이", 1, "2021/10/21", "10:00-11:00", null,
-														new Member("member3",null,null,null,null,null,null,null), 
-														new Product(2,null,null,null,null,null,null))));
-			*/
+														new Member("member3",null,null,null,null,null,null), 
+														new Product(2,null,null,null,null,null,null,null))));
+			
 		//selectAll
 		// select * from reservation where m_id=#{m_id};
 		

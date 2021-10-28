@@ -43,7 +43,7 @@ public class PayServiceImpl implements PayService{
 		}
 		return pay.getPay_no();
 	}
-
+	
 	@Override
 	public int deletePayByNo(int pay_no) throws Exception {
 		return payDao.deletePayByNo(pay_no);

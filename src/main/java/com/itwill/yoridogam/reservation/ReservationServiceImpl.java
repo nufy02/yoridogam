@@ -23,27 +23,17 @@ public class ReservationServiceImpl implements ReservationService {
 	
 	// 상품 예약
 	@Override
-	public int insert(Reservation reservation,ProductTime productTime,String sUserId) throws Exception {
-		
-			// 상품이 없으면 insert
-		reservation.setRsv_date(productTime.getPt_date());
-		reservation.setRsv_time(productTime.getPt_time());
-		// 컨트롤러로 prouductTime 값을 받기 위해서는 숨어있는 pt_no 값도 웹에서 받아주기!
-		/*
-		공백인 reservaion에 날짜와 시간을 productTime에서 날짜와 시간을 가져와서 대입해줌
-		단, 컨트롤러로 이 코드가 넘어갈때는 컨트롤러에서
-		Reservation reservation = new Reservaion(0,가격,타입,인원,pt_date,~)이런식으로 넣어줘서
-		안해줘도됨
-		*/
-		reservationDao.create(reservation);
+	public int insert(Reservation reservation,String sUserId) throws Exception {
+		String date = reservation.getRsv_date();
+		String time = reservation.getRsv_time();
+		int p_no = reservation.getProduct().getP_no();
+		ProductTime pt = new ProductTime(0, date, time, 0, 0, new Product(p_no, null, null, null, null, null, null, null));
+		ProductTime PTrsv = productTimeDao.selectPtNo2(pt);
 		// 웹에서 받아온 reservation값을 넣어서 DB reservaion insert
-		ProductTime PTrsv = productTimeDao.selectPtNo(productTime.getPt_no());
-		// selectPtNo 데이터를 PTrsv에 넣어준다
-		int pt_rsv = PTrsv.getPt_rsv();
-		
-		PTrsv.setPt_rsv(reservation.getRsv_qty()+pt_rsv);
-		
-		return productTimeDao.addPt_rsv(PTrsv);
+		// selectPtNo 데이터를 PTrsv에 넣어준다	
+		PTrsv.setPt_rsv(reservation.getRsv_qty());
+		 productTimeDao.updatePt_rsv(PTrsv);
+		return reservationDao.create(reservation);
 	}
 
 	// 회원의 예약내역 조회
@@ -51,6 +41,12 @@ public class ReservationServiceImpl implements ReservationService {
 	public List<Reservation> selectAll(String sUserId) throws Exception {
 		
 		return reservationDao.selectAll(sUserId);
+	}
+	
+	@Override
+	public Reservation selectRsv_no(int rsv_no) throws Exception {
+		
+		return reservationDao.selectRsv_no(rsv_no);
 	}
 
 	// 회원의 예약 특정 상세 조회
@@ -69,7 +65,14 @@ public class ReservationServiceImpl implements ReservationService {
 	// 회원의 특정 예약 취소
 	@Override
 	public int deletByRsv(int rsv_no) throws Exception {
-		
+		Reservation reservation = reservationDao.selectRsv_no(rsv_no);
+		int p_no = reservation.getProduct().getP_no();
+		String rsv_date = reservation.getRsv_date();
+		String rsv_time = reservation.getRsv_time();
+		int rsv = reservation.getRsv_qty();
+		ProductTime pt= productTimeDao.selectPtNo2(new ProductTime(0, rsv_date, rsv_time, 0, 0, new Product(p_no, null, null, null, null, null, null, null)));
+		pt.setPt_rsv(rsv);
+		productTimeDao.updatePt_rsv(pt);
 		return reservationDao.deleteById(rsv_no);
 	}
 
@@ -86,5 +89,7 @@ public class ReservationServiceImpl implements ReservationService {
 
 		return productDao.selectTByP_no(p_no);
 	}
+
+
 
 }

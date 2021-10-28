@@ -21,16 +21,16 @@ public class RsvServiceTest {
 		ReservationService reservationService=(ReservationService)applicationContext.getBean("reservationService");
 		System.out.println(reservationService);
 		
-		/*
+		
 		Reservation reservation = new Reservation(0, 30123000, "카카오페이", 4, "", "", null,
 				new Member("member3",null,null,null,null,null,null), 
-				new Product(2,null,null,null,null,null,null));
+				new Product(2,null,null,null,null,null,null,null));
 		
 		ProductTime productTime =  new ProductTime(1, "2021/10/22", "10:00-11:00", 0, 0, null);
-		*/
-		//int h = reservationService.insert(reservation, productTime);
 		
-		//System.out.println(h);
+		reservationService.insert(reservation, "member1");
+		
+		System.out.println(reservation.getRsv_no());
 		
 		//reservationService.selectAll("member1");
 		/*

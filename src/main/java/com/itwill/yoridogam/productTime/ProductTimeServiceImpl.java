@@ -23,6 +23,11 @@ public class ProductTimeServiceImpl implements ProductTimeService{
 		return productTimeDao.selectPtNo(pt_no);
 	}
 
+	@Override
+	public ProductTime selectPtNo2(ProductTime productTime) throws Exception {
+		// TODO Auto-generated method stub
+		return productTimeDao.selectPtNo2(productTime);
+	}
 
 	@Override
 	public int create(ProductTime productTime) throws Exception {
@@ -37,9 +42,9 @@ public class ProductTimeServiceImpl implements ProductTimeService{
 	}
 
 	@Override
-	public int addPt_rsv(ProductTime productTime) throws Exception {
+	public int updatePt_rsv(ProductTime productTime) throws Exception {
 		// TODO Auto-generated method stub
-		return productTimeDao.addPt_rsv(productTime);
+		return productTimeDao.updatePt_rsv(productTime);
 	}
 
 	@Override

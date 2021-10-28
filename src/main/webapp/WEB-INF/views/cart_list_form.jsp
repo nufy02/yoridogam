@@ -23,7 +23,7 @@
                                 <thead>
                                     <tr>
                                         <th align="center">
-                                        전체선택<br/><input type="checkbox" id="allCheckbox"></th>
+                                        전체선택<br/><input type="checkbox" name="allCheckbox" id="allCheckbox"></th>
                                         <th>강의명</th>
                                         <th>가격</th>
                                         <th>수량</th>
@@ -65,11 +65,14 @@
                     </div>
                     <div class="col-12 col-lg-4">
                         <div class="cart-summary">
-                            <h5>장바구니 정보</h5>
+                            <h5>장바구니 정보</h5><hr></hr>
                             <ul class="summary-table">
-                                <li><span>강의 갯수:</span> <span>${cartList.size() }</span></li>
-                                <li><span>강의 총 금액:</span><span id="tot_price" >
+                                <li><span>강의 수:</span> <span>${cartList.size() }</span></li>
+                                <li><span>장바구니 총 금액:</span><span></span></li>
                                 <f:formatNumber>${tot_price }</f:formatNumber>원</span></li>
+                                <hr>
+                                <li><span>선택 강의 수:</span> <span id="checkQty"></span></li>
+                                <li><span>선택 강의 총 금액:</span><span id="tot_price" ></span>
                             </ul>
                             <div class="cart-btn mt-100">
                                 <input type="submit" class="btn amado-btn w-100" value="결제하기"><br><br/>

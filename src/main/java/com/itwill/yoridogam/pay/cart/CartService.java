@@ -25,4 +25,7 @@ public interface CartService {
 	
 	/******************장바구니 내 특정 강의 존재 여부******************/
 	boolean isExistCartItem(Cart cart);
+	
+	/***********장바구니 강의 1개셀렉*/
+	 Cart selectCartItem(int ci_no);
 }

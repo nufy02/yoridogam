@@ -20,7 +20,7 @@ public class CartDaoTest {
 		Product pp=new Product(1, null, null, null, null, null,null, null);
 		Member mm=new Member("1", null, null, null, null, null, null);
 		
-		//insert
+		/*insert
 		System.out.println(cartDao.insertCart(new Cart(0,1,pp,mm)));
 		//increaseQ
 		System.out.println(cartDao.increaseQty(1));
@@ -36,5 +36,7 @@ public class CartDaoTest {
 		System.out.println(cartDao.isExistCart("1"));
 		//isExistItem
 		System.out.println(cartDao.isExistCartItem(new Cart(0, 0, pp, mm)));
+		*/
+		System.out.println(cartDao.selectCartItem(1));
 	}
 }

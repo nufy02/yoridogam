@@ -41,21 +41,18 @@
 								<div class="cart-title">
 									<h2 style="color: #FBB710; margin-bottom: 100px">영수증</h2>
 								</div>
+								
+							
+								<div>${product.p_name }</div>
+								<div>${product.p_name }</div>
+								<div>${reservation.rsv_no}</div>
+								<div>${reservation.rsv_qty}</div>
+								<div>${reservation.rsv_date}</div>
+								<div>${reservation.rsv_time}</div>
+								<div>${reservation.rsv_total}</div>
+								
 									
-								<div class="row">
-									<div class="col-md-6 mb-3">
-										<input class="form-control" id="m_name"
-											value="${sUserId.m_name}" placeholder="name" required>
-									</div>
-									<div class="col-md-6 mb-3">
-										<input type="text" class="form-control " id="m_phone"
-											placeholder="Phone" value="${sUserId.m_phone}">
-									</div>
-									<div class="col-12 mb-3">
-										<input type="email" class="form-control mb-5" id="m_email"
-											placeholder="Email" value="${sUserId.m_email}">
-									</div>
-								</div>
+								
 						</div>
 					</div>
 				</div>

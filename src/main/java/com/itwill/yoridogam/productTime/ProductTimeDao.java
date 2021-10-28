@@ -13,12 +13,14 @@ public interface ProductTimeDao {
 // <selectPtNo> 특정 강의 예약된 인원 조회
 	ProductTime selectPtNo(int pt_no) throws Exception;
 	
+// <selectPtNo> 특정 강의 예약된 인원 조회
+	ProductTime selectPtNo2(ProductTime productTime) throws Exception;
 	
 // <update> 특정 강의시간 수정
 	int update(ProductTime productTime) throws Exception;
 
 // <addPt_rsv> 강의 예약한 인원 추가 수정
-	int addPt_rsv(ProductTime productTime) throws Exception;
+	int updatePt_rsv(ProductTime productTime) throws Exception;
 	
 // <delete> 특정 강의시간 삭제
 	int delete(int pt_no) throws Exception;
