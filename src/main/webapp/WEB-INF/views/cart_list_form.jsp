@@ -7,9 +7,7 @@
         <!-- Header Area Start -->
 		<%@include file="/WEB-INF/views/common/include_header.jsp"%>
         <!-- Header Area End -->
-		<script type="text/javascript">
-
-		</script>
+        
         <div class="cart-table-area section-padding-100">
             <div class="container-fluid">
                 <div class="row">
@@ -33,18 +31,18 @@
 									<form name="cartInfo" method="post" action="pay_form_cart">
                                     <tr>
                                     	<c:set var="tot_price" value="0"/>
-                                    	
                                     	<c:forEach var="cartList" items="${cartList}" begin="0" end="${cartList.size()}">
                                     	<c:set var="tot_price" value="${tot_price+cartList.product.p_price*cartList.ci_qty }"/>
                                         <td class="cart_product_img" >
-                                            <input type="checkbox" name="ci_no"  value="${cartList.ci_no }"><a href="#">
-                                            <img src="img/bg-img/cart1.jpg" style="margin-left: 30px" alt="Product"></a>
+                                            <input style="" type="checkbox" name="ci_no"  value="${cartList.ci_no }">
+                                            <a href="#"><img src="img/bg-img/cart1.jpg" style="margin-left: 30px" alt="Product"></a>
                                         </td>
                                         <td class="cart_product_desc">
                                             <h5>${cartList.product.p_name }</h5>
                                         </td>
                                         <td class="price">
-                                            <span><f:formatNumber>${cartList.product.p_price }</f:formatNumber> 원</span>
+                                            <!--<span class="pr_price"><f:formatNumber>${cartList.product.p_price }</f:formatNumber></span>-->
+                                            <span class="pr_price"><c:out value="${cartList.product.p_price }"/></span>
                                         </td>
                                         <td class="qty">
                                             <div class="qty-btn d-flex">
@@ -69,10 +67,11 @@
                             <ul class="summary-table">
                                 <li><span>강의 수:</span> <span>${cartList.size() }</span></li>
                                 <li><span>장바구니 총 금액:</span><span></span></li>
-                                <f:formatNumber>${tot_price }</f:formatNumber>원</span></li>
+                                <f:formatNumber>${tot_price }</f:formatNumber>원
                                 <hr>
                                 <li><span>선택 강의 수:</span> <span id="checkQty"></span></li>
-                                <li><span>선택 강의 총 금액:</span><span id="tot_price" ></span>
+                                <li><span>선택 강의 총 금액:</span><span></span></li>
+                                <span id="tot_price" ></span>원
                             </ul>
                             <div class="cart-btn mt-100">
                                 <input type="submit" class="btn amado-btn w-100" value="결제하기"><br><br/>

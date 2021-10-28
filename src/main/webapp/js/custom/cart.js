@@ -82,14 +82,37 @@ $(document).ready(function(){
 	})
 })
 */
+
+// 장바구니 선택 강의 수 갱신
 $(document).ready(function(){
 	$("#checkQty").text($('input:checkbox[name=ci_no]:checked').length);
     $("input[name=ci_no]").change(function(){
-        if($("input[name=ci_no").is(":checked")){
+        if($("input[name=ci_no]").is(":checked")){
             $("#checkQty").text($('input:checkbox[name=ci_no]:checked').length);
         }else{
             $("#checkQty").text($('input:checkbox[name=ci_no]:checked').length);
 		}
     });
 });
+var total=0;
+$("input[name=ci_no]").change(function(){
+$(this).each(function() {
+	if($(this).is(":checked")){
+		var price=parseInt($(this).parents('tr').find(".pr_price").text());
+		var qty=parseInt($(this).parents('tr').find("input[name=quantity]").val());
+		total=total+(price*qty);
+	}else{
+		var price=parseInt($(this).parents('tr').find(".pr_price").text());
+		var qty=parseInt($(this).parents('tr').find("input[name=quantity]").val());
+		total=total-(price*qty);
+		}
+	
+	$("#tot_price").text(total);
+	
+})
+})
+
+
+
+
 
