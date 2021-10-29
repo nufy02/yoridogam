@@ -35,7 +35,7 @@ public class NoticeServiceTestMain {
 		 */
 			
 		/*전체 보기*/
-		System.out.println(noticeService.selectAllNoti());
+		System.out.println(noticeService.notiList());
 		
 		/*글 번호로 보기*/
 		System.out.println(noticeService.selectByNotiNo(1));

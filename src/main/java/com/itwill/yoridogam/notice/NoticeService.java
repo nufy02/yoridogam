@@ -14,7 +14,7 @@ public interface NoticeService {
 	int deleteNoti(int noti_no);
 	
 	/*************** 공지사항 전체 조회 ***************/
-	List<Notice> selectAllNoti();
+	List<Notice> notiList();
 	
 	/*************** 공지사항 한 개 보기 ***************/
 	Notice selectByNotiNo(int noti_no);

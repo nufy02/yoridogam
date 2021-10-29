@@ -32,11 +32,11 @@ public class NoticeController {
 	 */
 	
 	/**** 공지사항 리스트 ****/
-	@RequestMapping("notice_list")
+	@RequestMapping("notice_list_form")
 	public String noti_List(Model model) {
-		List<Notice> notiList = noticeService.selectAllNoti();
+		List<Notice> notiList = noticeService.notiList();
 		model.addAttribute("notiList", notiList); 
-		return "notice_list";
+		return "notice_list_form";
 		/*
 		 notiList 객체를 "notiList" 이름으로 추가한다. 
 		 뷰 코드에서는 "notiList"로 지정한 이름을 통해서 notiList를 사용한다

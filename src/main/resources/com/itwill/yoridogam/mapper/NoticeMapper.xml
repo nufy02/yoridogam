@@ -26,7 +26,7 @@
 		DELETE FROM NOTICE WHERE NOTI_NO=#{noti_no}
 	</delete>
 	
-	<select id="selectAllNoti" resultType="com.itwill.yoridogam.notice.Notice">
+	<select id="notiList" resultType="com.itwill.yoridogam.notice.Notice">
 		select * from NOTICE
 	</select>
 	

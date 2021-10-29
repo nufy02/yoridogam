@@ -33,8 +33,8 @@ public class NoticeDaoImpl implements NoticeDao {
 	}
 
 	@Override
-	public List<Notice> selectAllNoti() {
-		List<Notice> noticeList = sqlSession.selectList(NAMESPACE+"selectAllNoti");
+	public List<Notice> notiList() {
+		List<Notice> noticeList = sqlSession.selectList(NAMESPACE+"notiList");
 		return noticeList;
 	}
 
