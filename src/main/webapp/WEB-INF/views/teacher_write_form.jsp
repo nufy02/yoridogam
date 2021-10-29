@@ -82,7 +82,7 @@
 								<td align="left" height="22">여성
 									<input type="radio" name="m_gender"  value="여성" ></td>
 								<tr><th width=140 align=center  height="40"></th>
-								
+								 
 								
 								
 							<tr><th width=140 align=center  height="22"> 관심분야 : </th>						

@@ -45,11 +45,11 @@ public class NoticeDaoTestMain {
 		//System.out.println(noticeDao.deleteNoti(5));
 		
 		/*조회수 추가*/
-		System.out.println(noticeDao.countAllNoti());
+		//System.out.println(noticeDao.countAllNoti());
 		
 		
 		/*전체 보기*/
-		System.out.println(noticeDao.selectAllNoti());
+		System.out.println(noticeDao.notiList());
 
 		
 	}

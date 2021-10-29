@@ -35,8 +35,8 @@ public class InquiryServiceImpl implements InquiryService {
 	}
 
 	@Override
-	public List<Inquiry> selectByAllInquiry() {
-		return inquiryDao.selectByAllInquiry();
+	public List<Inquiry> inquiryList() {
+		return inquiryDao.inquiryList();
 	}
 
 	@Override

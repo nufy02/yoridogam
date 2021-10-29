@@ -66,7 +66,7 @@ public class InquiryServiceTestMain {
 		//System.out.println(inquiryService.selectByNoInquiry(10));
 		
 		/*문의사항 전체 보기*/
-		System.out.println(inquiryService.selectByAllInquiry());
+		System.out.println(inquiryService.inquiryList());
 		
 		
 	}

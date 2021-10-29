@@ -55,7 +55,7 @@
 		DELETE FROM inquiry WHERE IB_NO=#{ib_no}
 	</delete>
 	
-	<select id="selectByAllInquiry" resultType="com.itwill.yoridogam.inquiry.Inquiry">
+	<select id="inquiryList" resultType="com.itwill.yoridogam.inquiry.Inquiry">
 		select * from inquiry
 	</select>
 	

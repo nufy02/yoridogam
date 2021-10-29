@@ -71,10 +71,11 @@
                            	<input type="hidden" name="pay_no" value="1"/>
                             <ul class="summary-table">
                           		<li><input type="hidden"  name="p_no"  value="${product.p_no}"></li>
-                                <li><span>강의명:</span> <input type="text"  name="p_name"  value="${product.p_name}"></li>
-                                <li><span>수량:</span><input type="number"  name="qty"  value="${qty}"></li>
-                                <li><span>금액:</span> <input type="text"  name="p_price"  value="${product.p_price}"></li>
-                                <li><span>총 금액:</span> <input type="text"  name="pay_total"  value="${product.p_price}"></li>
+                                <li><span>강의명:</span> <input type="hidden"  name="p_name"  value="${product.p_name}">${product.p_name}</li>
+                                <li><span>수량:</span><input type="hidden"  name="qty"  value="${qty}">${qty} 개</li>
+                                <li><span>금액:</span> <input type="hidden"  name="p_price"  value="${product.p_price}"><f:formatNumber>${product.p_price}</f:formatNumber> 원</li>
+                                <hr/>
+                                <li><span>총 금액:</span> <input type="hidden"  name="pay_total"  value="${product.p_price}"><f:formatNumber>${product.p_price}</f:formatNumber> 원</li>
                             </ul>
 	
                             <div class="payment-method">
@@ -93,7 +94,8 @@
                             </div>
 	
                             <div class="cart-btn mt-100">
-                            	<input type="submit" class="btn amado-btn w-100" value="결제하기">
+                            	<input type="submit" class="btn amado-btn w-100" value="결제하기"><br><br/>
+                            	<a href="cart_list_form" class="btn amado-btn w-100">취소하기</a>
                             </div>
                         </div>
                     </div>

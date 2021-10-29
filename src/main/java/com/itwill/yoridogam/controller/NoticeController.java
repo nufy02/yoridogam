@@ -34,9 +34,9 @@ public class NoticeController {
 	/**** 공지사항 리스트 ****/
 	@RequestMapping("notice_list")
 	public String noti_List(Model model) {
-		List<Notice> notiList = noticeService.selectAllNoti();
+		List<Notice> notiList = noticeService.notiList();
 		model.addAttribute("notiList", notiList); 
-		return "notice_list";
+		return "notice_list_form";
 		/*
 		 notiList 객체를 "notiList" 이름으로 추가한다. 
 		 뷰 코드에서는 "notiList"로 지정한 이름을 통해서 notiList를 사용한다
@@ -44,13 +44,13 @@ public class NoticeController {
 	}
 	
 	/**** 공지사항 한 개 상세보기 ****/
-	@RequestMapping(value = "noti_detail")
+	@RequestMapping(value = "notice_detail", params = "noti_no")
 	public String noti_detail(@RequestParam int noti_no, Model model) {
 		//클릭 할 때마다 조회수 증가
 		noticeService.updateNotiViewCount(noti_no);
 		Notice notiDetail = noticeService.selectByNotiNo(noti_no);
 		model.addAttribute("notiDetail", notiDetail);
-		return "noti_detail";
+		return "notice_detail";
 	}
 	
 	/**** 공지사항 작성 폼 ****/

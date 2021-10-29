@@ -49,9 +49,9 @@ public class InquiryController {
 	/**** 문의게시판 리스트 ****/
 	@RequestMapping("inquiry_list")
 	public String inquiry_list(Model model) {
-		List<Inquiry> inquiryList = inquiryService.selectByAllInquiry();
+		List<Inquiry> inquiryList = inquiryService.inquiryList();
 		model.addAttribute("inquiryList", inquiryList);
-		return "inquiry_list";
+		return "inquiry_list_form";
 	}
 	
 	/**** 문의게시판 한 개 상세보기 ****/

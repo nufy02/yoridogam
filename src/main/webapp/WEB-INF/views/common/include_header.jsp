@@ -81,8 +81,8 @@
                     <li><a href=".html">온라인 강의</a></li>
                     <li><a href=".html">오프라인 강의</a></li>
                     <li><a href=".html">내 주변 강의</a></li>
-                    <li><a href=".html">공지사항</a></li>
-                    <li><a href=".html">자유게시판</a></li>
+                    <li><a href="notice_list">공지사항</a></li>
+                    <li><a href="inquiry_list">문의게시판</a></li>
                 </ul>
             </nav>
             <!-- Button Group -->
