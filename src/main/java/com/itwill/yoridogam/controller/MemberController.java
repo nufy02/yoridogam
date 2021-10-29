@@ -105,9 +105,47 @@ public class MemberController {
 	/*
 	 * 중복검사
 	 */
-	@RequestMapping(value ="/member_id_dupllicate_form")
-	public String member_id_duplicate_form() {
-		return "member_duplicate_form" ;
+	@RequestMapping(value ="/member_duplicate_form")
+	public String member_duplicate_form() {
+		return "member_duplicate_form";
+	}
+	
+	@PostMapping(value ="/member_duplicate_action")
+	/*
+	 * boolean isDuplicate=false;	
+	String msg="";
+	//request.setCharacterEncoding("UTF-8");
+	String m_id = request.getParameter("sUserId");
+	if(m_id==null|| m_id.equals("")){
+		//최초윈도우를 띄울때
+		m_id="";
+		msg="";
+		isDuplicate=true;
+	}else{
+
+		if(isDuplicate){
+			msg="사용 불가능한 아이디입니다.";
+		}else{
+			msg="사용 가능한 아이디 입니다";
+		}
+	}
+	 */
+	public String member_duplicate_action_post(Model model,HttpServletRequest request) throws Exception{
+		String forwardPath="";
+		String sUserId = request.getParameter("sUserId");
+		boolean isDuplicate = memberService.isDuplcateUserId(sUserId);
+		if (isDuplicate) {
+			model.addAttribute("sUserId", sUserId);
+			model.addAttribute("msg", sUserId+"는 사용불가합니다.");
+			model.addAttribute("isduplicate", isDuplicate);
+			forwardPath="member_duplicate_form";
+		}else {
+			model.addAttribute("sUserId", sUserId);
+			model.addAttribute("msg", sUserId+"는 사용가능합니다.");
+			model.addAttribute("isduplicate", isDuplicate);
+			forwardPath="member_duplicate_form";
+		}
+		return forwardPath;
 	}
 	/*
 	 * 로그아웃
