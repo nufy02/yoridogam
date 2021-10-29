@@ -4,14 +4,15 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="s" uri="http://www.springframework.org/tags" %>  
 <%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
         <!-- Header Area Start -->
 		<%@include file="/WEB-INF/views/common/include_header.jsp"%>
         <!-- Header Area End -->
         
-        <div class="cart-table-area section-padding-100">
+        <div class="cart-table-area section-padding-100" >
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-12 col-lg-8">
+                    <div class="col-12 col-lg-20">
                         <div class="notice-title">
                             <h2>문의 게시판</h2>
                         </div>
@@ -30,15 +31,20 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-									<form name="inquiryInfo" method="post" >
+									<c:forEach var="inquiry" items="${inquiryList}" begin="0" end="${inquiryList.size()}">
                                     <tr>
-                                    	<c:forEach var="inquiryList" items="${notiList}" begin="0" end="${notiList.size()}">
-                                    	
+                                    		<td>${inquiry.ib_no}</td>
+                                    		<td>${inquiry.ib_title}</td>
+                                    		<td>${inquiry.member.m_id}</td>
+                                    		<td><fmt:formatDate var="resultIbDate" value="${inquiry.ib_date}" pattern="yyyy-MM-dd"/>
+												${resultIbDate}</td>
+                                    		<td>${inquiry.ib_viewCount}</td>
+	                                  	</c:forEach>
                                     </tr>
-                                  	</c:forEach>
                                 </tbody>
                             </table>
                         </div>
+                        <button type="button"  class="btn amado-btn w-20" name="insertInquiry" >글작성</button>
                     </div>
 
                 </div>

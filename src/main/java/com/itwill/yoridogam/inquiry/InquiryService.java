@@ -20,7 +20,7 @@ public interface InquiryService {
 	int deleteInquiry(int ib_no);
 	
 	/*************** 문의글 전체 보기 ***************/
-	List<Inquiry> selectByAllInquiry();
+	List<Inquiry> inquiryList();
 	
 	/*************** 문의글 한 개 보기 ***************/
 	Inquiry selectByNoInquiry(int ib_no);

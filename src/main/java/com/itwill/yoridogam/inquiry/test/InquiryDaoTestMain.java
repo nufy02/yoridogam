@@ -75,7 +75,7 @@ public class InquiryDaoTestMain {
 		System.out.println(inquiryDao.countAllInquiry());
 		
 		/*문의사항 전체 보기*/
-		System.out.println(inquiryDao.selectByAllInquiry());
+		System.out.println(inquiryDao.inquiryList());
 		
 		
 	}

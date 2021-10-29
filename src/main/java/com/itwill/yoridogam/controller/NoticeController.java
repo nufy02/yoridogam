@@ -44,13 +44,13 @@ public class NoticeController {
 	}
 	
 	/**** 공지사항 한 개 상세보기 ****/
-	@RequestMapping(value = "noti_detail")
+	@RequestMapping(value = "notice_detail", params = "noti_no")
 	public String noti_detail(@RequestParam int noti_no, Model model) {
 		//클릭 할 때마다 조회수 증가
 		noticeService.updateNotiViewCount(noti_no);
 		Notice notiDetail = noticeService.selectByNotiNo(noti_no);
 		model.addAttribute("notiDetail", notiDetail);
-		return "noti_detail";
+		return "notice_detail";
 	}
 	
 	/**** 공지사항 작성 폼 ****/

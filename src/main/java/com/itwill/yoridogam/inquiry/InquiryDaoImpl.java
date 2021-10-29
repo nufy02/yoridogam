@@ -40,8 +40,8 @@ public class InquiryDaoImpl implements InquiryDao{
 	}
 
 	@Override
-	public List<Inquiry> selectByAllInquiry() {
-		List<Inquiry> inquiryList = sqlSession.selectList(NAMESPACE+"selectByAllInquiry");
+	public List<Inquiry> inquiryList() {
+		List<Inquiry> inquiryList = sqlSession.selectList(NAMESPACE+"inquiryList");
 		return inquiryList;
 	}
 
