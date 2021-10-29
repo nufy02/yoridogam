@@ -1,5 +1,6 @@
 package com.itwill.yoridogam.notice;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,6 +36,7 @@ public class NoticeDaoImpl implements NoticeDao {
 	@Override
 	public List<Notice> notiList() {
 		List<Notice> noticeList = sqlSession.selectList(NAMESPACE+"notiList");
+		Collections.reverse(noticeList);
 		return noticeList;
 	}
 

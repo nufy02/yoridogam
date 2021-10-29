@@ -68,7 +68,7 @@ public class InquiryController {
 	/**** 문의게시판 글 작성 폼(회원) ****/
 	@RequestMapping("inquiry_write_form")
 	public String inquiry_write_form() {
-		return"inquiry_write_form";
+		return"inquiry_write_form_Q";
 	}
 	
 	/**** 문의게시판 글 작성 액션(회원)(GET) ****/

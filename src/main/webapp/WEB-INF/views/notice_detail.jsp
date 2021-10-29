@@ -21,19 +21,7 @@
 
 				<div class="notice-table clearfix" id="check">
 					<!-- 내용 들어갈 자리 시작 -->
-					<form name="f" method="post">
-					<input type="hidden" name="noticeNo" value="${notice.selectByNotiNo()}">
-						<table border="0" cellpadding="0" cellspacing="1" width="590px"	>
-						<c:forEach var="notice" items="${notiList}" begin="0" end="${notiList.size()}">
-							<tr>
-								<td width=300 align=center bgcolor="E6ECDE" height="22">제목</td>
-								<td width=490 bgcolor="ffffff" style=" padding-left: 10px" align="left">${notice.noti_title}</td>
-							</tr>
-						</c:forEach>
-
-						</table>
-
-							</form> 
+					
 				</div>
 				<!-- 내용 들어갈 자리 끝 -->
 			</div>

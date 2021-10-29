@@ -44,7 +44,9 @@
                                 </tbody>
                             </table>
                         </div>
-                        <button type="button"  class="btn amado-btn w-20" name="insertInquiry" >글작성</button>
+					 	<td style="padding-top: 50px;padding-left:200px">                               
+	                        <input type="button"  class="btn amado-btn w-20" value="글작성"   onClick="inquiry_write_form_Q();">
+	                    </td>
                     </div>
 
                 </div>

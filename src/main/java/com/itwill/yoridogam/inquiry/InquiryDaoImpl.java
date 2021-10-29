@@ -1,5 +1,6 @@
 package com.itwill.yoridogam.inquiry;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -42,6 +43,7 @@ public class InquiryDaoImpl implements InquiryDao{
 	@Override
 	public List<Inquiry> inquiryList() {
 		List<Inquiry> inquiryList = sqlSession.selectList(NAMESPACE+"inquiryList");
+		Collections.reverse(inquiryList);
 		return inquiryList;
 	}
 
