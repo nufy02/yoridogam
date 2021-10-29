@@ -51,7 +51,7 @@ public class InquiryController {
 	public String inquiry_list(Model model) {
 		List<Inquiry> inquiryList = inquiryService.selectByAllInquiry();
 		model.addAttribute("inquiryList", inquiryList);
-		return "inquiry_list";
+		return "inquiry_list_form";
 	}
 	
 	/**** 문의게시판 한 개 상세보기 ****/

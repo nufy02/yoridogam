@@ -32,7 +32,7 @@ public class NoticeController {
 	 */
 	
 	/**** 공지사항 리스트 ****/
-	@RequestMapping("notice_list_form")
+	@RequestMapping("notice_list")
 	public String noti_List(Model model) {
 		List<Notice> notiList = noticeService.notiList();
 		model.addAttribute("notiList", notiList); 
