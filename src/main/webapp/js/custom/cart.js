@@ -94,6 +94,8 @@ $(document).ready(function(){
 		}
     });
 });
+
+//장바구니 선택 강의 수에 따른 금액
 var total=0;
 $("input[name=ci_no]").change(function(){
 $(this).each(function() {
@@ -106,7 +108,6 @@ $(this).each(function() {
 		var qty=parseInt($(this).parents('tr').find("input[name=quantity]").val());
 		total=total-(price*qty);
 		}
-	
 	$("#tot_price").text(total);
 	
 })

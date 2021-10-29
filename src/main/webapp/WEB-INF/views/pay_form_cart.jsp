@@ -2,7 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
+		<script>
 
+		
+		</script>
         <!-- Header Area Start -->
 		<%@include file="/WEB-INF/views/common/include_header.jsp"%>
         <!-- Header Area End -->
@@ -72,12 +75,18 @@
                             <h5>주문 정보</h5>
                            	<input type="hidden" name="pay_no" value="1"/>
                             <ul class="summary-table">
-                                    <c:forEach var="cartList" items="${cartList}" begin="0" end="${cartList.size()}">
+                                <c:forEach var="cartList" items="${cartList}" begin="0" end="${cartList.size()}">
                           		<li><input type="hidden"  name="p_no"  value="${cartList.product.p_no}"></li>
-                                <li><span>강의명:</span> <input type="text"  name="p_name"  value="${cartList.product.p_name}"></li>
-                                <li><span>강의 수량:</span><input type="number"  name="qty"  value="${cartList.ci_qty}"></li>
-                                    </c:forEach>
-                                <li><span>총 결제 금액:</span> <input type="text"  name="pay_total"  value=""></li>
+                                <li><span>강의명:</span>
+                                	 <span>${cartList.product.p_name}</span>
+                                	  <input type="hidden"  name="p_name"  value="${cartList.product.p_name}"></li>
+                                <li><span>강의 수량:</span>
+                                	 <span>${cartList.ci_qty}</span>
+                                	 <input type="hidden"  name="p_price"  value="<c:out value="${cartList.product.p_price}"/>"></li>
+                                	 <input type="hidden"  name="qty"  value="${cartList.ci_qty}"></li>
+                                 <hr/>
+                                </c:forEach>
+                                <li><span>총 결제 금액:</span><span id="total_price"></span>원
                             </ul>
 	
                             <div class="payment-method">
@@ -96,7 +105,8 @@
                             </div>
 	
                             <div class="cart-btn mt-100">
-                            	<input type="submit" value="결제">
+                            	<input type="submit" class="btn amado-btn w-100" value="결제하기"><br><br/>
+                            	<a href="cart_list_form" class="btn amado-btn w-100">취소하기</a>
                             </form>
                             </div>
                         </div>
