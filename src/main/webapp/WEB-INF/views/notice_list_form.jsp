@@ -4,6 +4,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="s" uri="http://www.springframework.org/tags" %>  
 <%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
         <!-- Header Area Start -->
 		<%@include file="/WEB-INF/views/common/include_header.jsp"%>
         <!-- Header Area End -->
@@ -18,7 +19,7 @@
 
                         <div class="notice-table clearfix"  id="check">
                             <table class="table table-responsive">
-                                <thead>
+                                <thead align="center">
                                     <tr>
                                     	
 	                                        <th>번호</th>
@@ -28,12 +29,15 @@
                                        
                                     </tr>
                                 </thead>
-                                <tbody>
-									<form name="noticeInfo" method="post" >
+                                <tbody align="center">
+									<c:forEach var="notice" items="${notiList}" begin="0" end="${notiList.size()}">
                                     <tr>
-                                    	<c:forEach var="noticeList" items="${notiList}" begin="0" end="${notiList.size()}">
-                                    	<!-- 뿌리는 작업이 왜 안 되는지 모를 일.. -->
-                                    	
+                                    		<td>${notice.noti_no}</td>
+                                    		<td>${notice.noti_title}</td>
+                                    		<td><span>
+	                                    		<fmt:formatDate var="resultNotiDate" value="${notice.noti_date}" pattern="yyyy-MM-dd"/>
+												${resultNotiDate}</td></span>
+                                    		<td>${notice.noti_viewCount}</td>
 	                                  	</c:forEach>
                                     </tr>
                                 </tbody>
