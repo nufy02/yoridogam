@@ -35,7 +35,7 @@
                                     	<c:forEach var="cartList" items="${cartList}" begin="0" end="${cartList.size()}">
                                     	<c:set var="tot_price" value="${tot_price+cartList.product.p_price*cartList.ci_qty }"/>
                                         <td class="cart_product_img" >
-                                            <input style="" type="checkbox" name="ci_no"  value="${cartList.ci_no }">
+                                            <input style="" type="checkbox" id="ci_no${cartList.ci_no }"  name="ci_no" value="${cartList.ci_no }">
                                             <a href="#"><img src="img/bg-img/cart1.jpg" style="margin-left: 30px" alt="Product"></a>
                                         </td>
                                         <td class="cart_product_desc">

@@ -8,5 +8,5 @@ $(document).ready(function(){
 		total+=parseInt(qty[i].value)*parseInt(price[i].value)
 	}
 	document.getElementById("total_price").innerHTML=total;
-	document.getElementById("pay_total").value=total;
+	document.getElementsByName("pay_total")[0].value=String(total);
 })

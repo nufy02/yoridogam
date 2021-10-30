@@ -47,39 +47,55 @@ $('#check #allCheckbox').on('click',function(){
 
 //장바구니 수량증가
 $("button[name=up]").click(function () {
-	var ci_no=($(this).val());
-	var data = { "ci_no": ci_no, };
+    var ci_no=($(this).val()); // up btn의 value 가져오기 
+    
+	if($("#qty"+ci_no).val() == 999){ // 수량이 999개일 시 alert창 출력과 이벤트 중지
+		alert("최대 수량은 999개 입니다.");
+		return false;
+	}
+	
+	var data = { "ci_no": ci_no };
     $.ajax({
 		url:'cart_qtyP_action',
 		method:'POST',
 		data: data,
 		success: function(result){
+			
 			$("#qty"+ci_no).val(result.qty); // 수량 셋팅
 			$("#tot").text(comma(result.tot)); // 전체금액 셋팅
-			if($("input[name=ci_no]").is(":checked")){ //해당 강의가 선택되어있다면
-				var nowTotal=parseInt($("#tot_price").text()); // 선택된 강의 총금액 값 가져오기
-				$("#tot_price").text(nowTotal+result.price); // 가져온 총금액 값에 올라간 수량 값 증가 후 셋팅
+			
+			if ($("#ci_no"+ci_no).is(":checked") == true) { // 해당 checkbox가 선택된 상태라면
+					var nowTotal=parseInt($("#tot_price").text()); // 선택된 강의 총금액 값 가져오기
+					$("#tot_price").text(nowTotal+result.price); // 가져온 총금액 값에 올라간 수량 값 증가 후 셋팅
+				}
 			}
-		}
     });
 });
 
 //장바구니 수량감소
 $("button[name=down]").click(function () {
     var ci_no=($(this).val());
+    
+	if($("#qty"+ci_no).val() == 1){
+		alert("최소 수량은 1개 입니다.");
+		return false;
+	}
+	
 	var data = { "ci_no": ci_no };
     $.ajax({
 		url:'cart_qtyM_action',
 		method:'POST',
 		data: data,
 		success: function(result){
+
 			$("#qty"+ci_no).val(result.qty);
 			$("#tot").text(comma(result.tot));
-			if($("input[name=ci_no]").is(":checked")){
-				var nowTotal=parseInt($("#tot_price").text());
-				$("#tot_price").text(nowTotal-result.price);
+			
+			if ($("#ci_no"+ci_no).is(":checked") == true) {
+					var nowTotal=parseInt($("#tot_price").text());
+					$("#tot_price").text(nowTotal-result.price);
+				}
 			}
-    	}
     });
 });
 
@@ -87,7 +103,7 @@ $("button[name=down]").click(function () {
 $(document).ready(function(){
 	$("#checkQty").text($('input:checkbox[name=ci_no]:checked').length);
     $("input[name=ci_no]").change(function(){
-        if($("input[name=ci_no]").is(":checked")){
+        if($("input:checkbox[name='ci_no']").is(":checked") == true){
             $("#checkQty").text($('input:checkbox[name=ci_no]:checked').length);
         }else{
             $("#checkQty").text($('input:checkbox[name=ci_no]:checked').length);
@@ -111,7 +127,7 @@ $("input[name=ci_no]").change(function(){
 			}
 		})
 	}else{
-		var ci_no=($(this).val());
+	var ci_no=($(this).val());
 	var data = { "ci_no": ci_no };
     $.ajax({
 		url:'cart_item_select',
@@ -131,5 +147,7 @@ function comma(value) {
     return value.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
 }
 
-
+function select(value){
+	
+}
 

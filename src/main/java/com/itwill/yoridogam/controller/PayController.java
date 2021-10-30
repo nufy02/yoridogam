@@ -95,6 +95,7 @@ public class PayController {
 		pay.setMember(member);
 		int pay_no=payService.createPayFromCart(pay,pay.getMember().getM_id());
 		model.addAttribute("pay",payService.findPayDetailByNo(pay_no));
+		System.err.println(pay);
 		return "pay_complete";
 	}
 	

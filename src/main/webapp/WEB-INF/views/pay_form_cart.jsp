@@ -87,7 +87,7 @@
                                  <hr/>
                                 </c:forEach>
                                 <li><span>총 결제 금액:</span><span id="total_price"></span>원
-                                	 <input type="hidden"  name="pay_total"  value=""></li>
+                                	 <input type="hidden"  name="pay_total" value=""></li>
                             </ul>
 	
                             <div class="payment-method">
