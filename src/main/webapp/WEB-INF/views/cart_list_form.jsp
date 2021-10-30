@@ -21,7 +21,8 @@
                                 <thead>
                                     <tr>
                                         <th align="center">
-                                        전체선택<br/><input type="checkbox" name="allCheckbox" id="allCheckbox"></th>
+                                        선택
+                                        <!--  전체선택<br/><input type="checkbox" name="allCheckbox" id="allCheckbox"></th>-->
                                         <th>강의명</th>
                                         <th>가격</th>
                                         <th>수량</th>
@@ -46,9 +47,9 @@
                                         </td>
                                         <td class="qty">
                                             <div class="qty-btn d-flex">
-                                                <div class="quantity">
+                                                <div class="quantity"><c:out value=""/>
                                                     <button type="button" name="up" value="${cartList.ci_no }"><img src="img/custom-icon/Qtyup.png"/></button>
-                                                    <input type="text" class="" id="qty" name="quantity" value="${cartList.ci_qty }">
+                                                    <input type="text" class="" id="qty${cartList.ci_no }" name="quantity" value="${cartList.ci_qty }">
                                                     <button type="button"  name="down" value="${cartList.ci_no }"><img src="img/custom-icon/Qtydown.png"/></button>
                                                 </div>
                                             </div>
@@ -66,12 +67,12 @@
                             <h5>장바구니 정보</h5><hr></hr>
                             <ul class="summary-table">
                                 <li><span>강의 수:</span> <span>${cartList.size() }</span></li>
-                                <li><span>장바구니 총 금액:</span><span></span></li>
-                                <f:formatNumber>${tot_price }</f:formatNumber>원
+                                <li><span>장바구니 총 금액:</span></li>
+                                <span id="tot"><f:formatNumber>${tot_price }</f:formatNumber></span>원
                                 <hr>
                                 <li><span>선택 강의 수:</span> <span id="checkQty"></span></li>
                                 <li><span>선택 강의 총 금액:</span><span></span></li>
-                                <span id="tot_price" ></span>원
+                                <span id="tot_price" >0</span>원
                             </ul>
                             <div class="cart-btn mt-100">
                                 <input type="submit" class="btn amado-btn w-100" value="결제하기"><br><br/>

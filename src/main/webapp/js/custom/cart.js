@@ -17,7 +17,7 @@ $("button[name=deleteAll]").click(function () {
 		method:'POST',
 		data: data,
 		success: function(){
-		location.href="cart_list_form";
+		location.href="cart_list_form"; // 수정해야함
 		alert("삭제되었습니다");
 		}
     });
@@ -45,43 +45,43 @@ $('#check #allCheckbox').on('click',function(){
 	}
 });
 
-//장바구니 수량증가ajax
+//장바구니 수량증가
 $("button[name=up]").click(function () {
-	var ci_no=0;
-    ci_no=($(this).val());
-	var data = { "ci_no": ci_no };
+	var ci_no=($(this).val());
+	var data = { "ci_no": ci_no, };
     $.ajax({
 		url:'cart_qtyP_action',
 		method:'POST',
 		data: data,
-		success: function(){
-		location.href="cart_list_form";
+		success: function(result){
+			$("#qty"+ci_no).val(result.qty); // 수량 셋팅
+			$("#tot").text(comma(result.tot)); // 전체금액 셋팅
+			if($("input[name=ci_no]").is(":checked")){ //해당 강의가 선택되어있다면
+				var nowTotal=parseInt($("#tot_price").text()); // 선택된 강의 총금액 값 가져오기
+				$("#tot_price").text(nowTotal+result.price); // 가져온 총금액 값에 올라간 수량 값 증가 후 셋팅
+			}
 		}
     });
 });
 
-//장바구니 수량감소ajax
+//장바구니 수량감소
 $("button[name=down]").click(function () {
-	var ci_no=0;
-    ci_no=($(this).val());
+    var ci_no=($(this).val());
 	var data = { "ci_no": ci_no };
     $.ajax({
 		url:'cart_qtyM_action',
 		method:'POST',
 		data: data,
-		success: function(){
-		location.href="cart_list_form";
-		}
+		success: function(result){
+			$("#qty"+ci_no).val(result.qty);
+			$("#tot").text(comma(result.tot));
+			if($("input[name=ci_no]").is(":checked")){
+				var nowTotal=parseInt($("#tot_price").text());
+				$("#tot_price").text(nowTotal-result.price);
+			}
+    	}
     });
 });
-/*
-$(document).ready(function(){
-	$("#checkQty").text($('input:checkbox[name=ci_no]:checked').length);
-	if($("#checkQty").change(function()){
-		location.reload();
-	})
-})
-*/
 
 // 장바구니 선택 강의 수 갱신
 $(document).ready(function(){
@@ -98,22 +98,38 @@ $(document).ready(function(){
 //장바구니 선택 강의 수에 따른 금액
 var total=0;
 $("input[name=ci_no]").change(function(){
-$(this).each(function() {
 	if($(this).is(":checked")){
-		var price=parseInt($(this).parents('tr').find(".pr_price").text());
-		var qty=parseInt($(this).parents('tr').find("input[name=quantity]").val());
-		total=total+(price*qty);
+    var ci_no=($(this).val());
+	var data = { "ci_no": ci_no };
+    $.ajax({
+		url:'cart_item_select',
+		method:'POST',
+		data: data,
+		success: function(total){
+			var nowTotal=parseInt($("#tot_price").text());
+			$("#tot_price").text(nowTotal+total);
+			}
+		})
 	}else{
-		var price=parseInt($(this).parents('tr').find(".pr_price").text());
-		var qty=parseInt($(this).parents('tr').find("input[name=quantity]").val());
-		total=total-(price*qty);
-		}
-	$("#tot_price").text(total);
-	
-})
+		var ci_no=($(this).val());
+	var data = { "ci_no": ci_no };
+    $.ajax({
+		url:'cart_item_select',
+		method:'POST',
+		data: data,
+		success: function(total){
+			var nowTotal=parseInt($("#tot_price").text());
+			$("#tot_price").text(nowTotal-total);
+			}
+		})
+	}
 })
 
-
+//천단위 끊기 common함수
+function comma(value) {
+    value = String(value);
+    return value.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+}
 
 
 

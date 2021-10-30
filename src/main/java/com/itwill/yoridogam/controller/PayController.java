@@ -68,7 +68,7 @@ public class PayController {
 			cList.add(cartService.selectCartItem(ci_noArray[i]));
 			cList.get(i).setProduct(productService.selectByNo(cList.get(i).getProduct().getP_no()));
 		}
-		//간결하게 다시...
+		//간결하게 다시...mapper 수정
 		model.addAttribute("sUserId", memberService.findMember(sUserId));
 		model.addAttribute("cartList", cList);
 		return "pay_form_cart";
@@ -80,7 +80,7 @@ public class PayController {
 	@LoginCheck
 	@PostMapping("pay_action")
 	public String pay_action_post(Pay pay,Member member,int qty,int p_no,HttpSession session, Model model) throws Exception{
-		pay.setMember(member);
+		pay.setMember(member); // 결제자 수정을 위한.
 		int pay_no=payService.createPay(pay,qty,p_no);
 		model.addAttribute("pay",payService.findPayDetailByNo(pay_no));
 		return "pay_complete";
@@ -102,8 +102,7 @@ public class PayController {
 	 결제 완료 후 결제정보페이지
 	 *********************************************************************/
 	@LoginCheck
-	@RequestMapping(value = "pay_complete_form")
-	//@PostMapping("pay_complete_form")
+	@PostMapping("pay_complete_form")
 	public String pay_complete_form()throws Exception {
 		return "pay_complete";
 	}

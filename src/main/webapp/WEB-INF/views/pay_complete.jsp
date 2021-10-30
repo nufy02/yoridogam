@@ -21,8 +21,8 @@
                         <div class="row">
                                     <div class="col-md-6mb-3"  align="left">
                                     <tr>
-                                        <th>수강생 성함: ${member.m_name}<br/></th>
-                                        <th>수강생 번호: ${member.m_phone}<br/></th>
+                                        <th>수강생 성함: ${pay.member.m_name}<br/></th>
+                                        <th>수강생 번호: ${pay.member.m_phone}<br/></th>
                                         <th>결제 방식: ${pay.pay_type}<br/></th>
                                         <th>결제 총 금액: <f:formatNumber>${pay.pay_total}</f:formatNumber> 원<br/></th>
                                     </tr>

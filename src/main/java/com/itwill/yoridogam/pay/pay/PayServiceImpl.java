@@ -32,7 +32,7 @@ public class PayServiceImpl implements PayService{
 		return pay.getPay_no();
 	}
 	
-	// 장바구니(온라인)-> 결제
+	// 장바구니(온라인)-> 결제 (수정해야함)
 	@Override
 	public int createPayFromCart(Pay pay,String sUserId) throws Exception {
 		payDao.createPay(pay);

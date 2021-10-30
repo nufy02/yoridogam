@@ -6,9 +6,20 @@
 		<result column="CI_QTY" property="ci_qty"/>
 		<association property="member" javaType="com.itwill.yoridogam.member.Member" autoMapping="true">
 			<result column="M_ID" property="m_id"/>
+			<result column="M_NAME" property="m_name"/>
+			<result column="M_ADDR" property="m_addr"/>
+			<result column="M_EMAIL" property="m_email"/>
+			<result column="M_PHONE" property="m_phone"/>
+			<result column="M_GENDER" property="m_gender"/>
 		</association>
 		<association property="product" javaType="com.itwill.yoridogam.product.Product" autoMapping="true">
 			<result column="P_NO" property="p_no"/>
+			<result column="P_NAME" property="p_name"/>
+			<result column="P_DETAIL" property="p_detail"/>
+			<result column="P_CATEGORY" property="p_category"/>
+			<result column="P_PRICE" property="p_price"/>
+			<result column="P_TYPE" property="p_type"/>
+			<result column="P_PHOTO" property="p_photo"/>
 		</association>
 	</resultMap>
 	
@@ -45,7 +56,7 @@
 	</select>
 
 	<select id="selectCartItem" parameterType="Integer" resultMap="cartResultMap">
-		select * from cart where ci_no=#{ci_no}
+		select * from cart c join product p on p.p_no=c.p_no join member m on m.m_id=c.m_id where ci_no=#{ci_no}
 	</select>
 	
 

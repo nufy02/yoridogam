@@ -20,7 +20,7 @@
                                 <h2>결제</h2>
                             </div>
 
-                            <form action="pay_action" name="payInfo" method="post">
+                            <form action="pay_action_cart" name="payInfo" method="post">
                                 <div class="row">
                                     <div class="col-md-12 mb-3">
                                         <input type="hidden" name="m_id" value="${sUserId.m_id}" >
@@ -87,6 +87,7 @@
                                  <hr/>
                                 </c:forEach>
                                 <li><span>총 결제 금액:</span><span id="total_price"></span>원
+                                	 <input type="hidden"  name="pay_total"  value=""></li>
                             </ul>
 	
                             <div class="payment-method">

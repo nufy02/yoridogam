@@ -1,4 +1,4 @@
-//결제 금액 계산
+//결제 금액 계산 js로
 $(document).ready(function(){
 	var total=0;
 	var price=document.getElementsByName("p_price");
@@ -8,4 +8,5 @@ $(document).ready(function(){
 		total+=parseInt(qty[i].value)*parseInt(price[i].value)
 	}
 	document.getElementById("total_price").innerHTML=total;
+	document.getElementById("pay_total").value=total;
 })

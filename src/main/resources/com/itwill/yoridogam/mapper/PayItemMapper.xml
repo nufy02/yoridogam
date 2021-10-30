@@ -6,7 +6,13 @@
 		<result column="PI_Qty" property="pi_qty"/>
 		<result column="PAY_NO" property="pay_no"/>
 		<association property="product" javaType="com.itwill.yoridogam.product.Product" autoMapping="true">
-				<result column="P_NO" property="p_no"/>
+			<result column="P_NO" property="p_no"/>
+			<result column="P_NAME" property="p_name"/>
+			<result column="P_DETAIL" property="p_detail"/>
+			<result column="P_CATEGORY" property="p_category"/>
+			<result column="P_PRICE" property="p_price"/>
+			<result column="P_TYPE" property="p_type"/>
+			<result column="P_PHOTO" property="p_photo"/>
 		</association>
 	</resultMap>
 	<insert id="createPayItem" parameterType="com.itwill.yoridogam.pay.payItem.Pay_item">
