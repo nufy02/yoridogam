@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
@@ -106,83 +107,28 @@ public class RsvController {
 		return "member_list_form";
 	}
 	
-
-	
-	
-	/*
-	//상품 디테일에서 강의 결제 누르면 오프라인 예약화면
-	//view
+	//회원 예약 상품 보여주기
 	@LoginCheck
-	@RequestMapping("rsv_form")
-	public String rsv_form(HttpSession session, Model model) throws Exception {
-		String sUserId = (String)session.getAttribute("sUserId"); //회원 아이디
-		int p_no =4;
-		//int p_no = (int)session.getAttribute("p_no"); // 상품 넘버
-		int pt_no =1;
-		//int pt_no = (int)session.getAttribute("pt_no"); // 상품 예약 시간
-		int qty =10;
-		//int qty = (int)session.getAttribute("qty"); // 예약 인원 받기
+	@RequestMapping("rsv_member_list")
+	public String m_rsv_list(HttpSession session, Model model) throws Exception {
+		String sUserId=(String)session.getAttribute("sUserId");
+		 System.out.println(sUserId);
+		model.addAttribute("member_rsv",reservationService.selectAll(sUserId));
 		
-		model.addAttribute("teacher",reservationService.SelectTByP_no(p_no)); // 강의 강사정보 보여줄때 
-		model.addAttribute("sUserId", memberService.findMember(sUserId));// 고객정보 보여줄때
-		model.addAttribute("product", productService.selectByNo(p_no)); // 예약한 상품 보여줄때
-		model.addAttribute("productTime", productTimeService.selectByNo(pt_no)); // 예약한 시간 보여줄때
-		model.addAttribute("qty",qty);
-		//상품
-		return "rsv_form";
+		return "rsv_member_list";
 	}
 	
-	//오프라인 강의 예약하기 insert
-	@LoginCheck
-	@GetMapping(value = "rsv_action")
-	public String rsv_action_post(HttpSession session,
-								  Model model,
-								  String sUserId,
-								  int pt_no,
-								  int p_no,
-								  Reservation reservation)throws Exception {
-		reservation.setMember(new Member(sUserId, null, null, null, null, null, null));
-		reservation.setProduct(new Product(p_no, null, null, null, null, null, null,null));
-		Reservation rsvP = reservationService.selectByP_no(reservation);
-		if(rsvP == null) {
-			// 상품이 없으면 insert
-			ProductTime productTime = productTimeService.selectByNo(pt_no);
-			reservationService.insert(reservation, productTime, sUserId);
-		
-		model.addAttribute("product", productService.selectByNo(p_no));
-		model.addAttribute("productTime", productTimeService.selectByNo(pt_no));
-			
-			return "rsv_action_success";
-		}else {
-			
-			 String msg = "이미 상품이 존재합니다";
-				model.addAttribute("msg",msg);
-				session.setAttribute("sUserId", sUserId);
-			return "rsv_form";
-			
-		}
-		
-	
+	// 웹에서 rsv_date 선택할때 실행하는 controller
+	@RequestMapping("rsv_date_ajax")
+	@ResponseBody
+	public String rsv_date_ajax(@RequestParam(value = "date", required=true) Reservation date) throws Exception{
+		System.out.println(date + "선택된 날짜!");
+		return "hello";
+		//악~~~~~~~~~~~~!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	}
 	
-
-	//예약 성공 화면
-	@LoginCheck
-	@GetMapping(value = "rsv_action_success")
-	public String rsv_success(HttpSession session,Model model ) {
-		
-		String sUserId = (String)session.getAttribute("sUserId"); // 회원아이디
-		
-		
-		return "rsv_action_success";
-	}
-	
-	//예약 취소
 	
 	
-	
-	
-	*/
 	
 	
 	

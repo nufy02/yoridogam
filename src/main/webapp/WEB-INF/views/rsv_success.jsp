@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="s" uri="http://www.springframework.org/tags" %>    
+<%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!-- Header Area Start -->
 <%@include file="/WEB-INF/views/common/include_header.jsp"%>
@@ -43,14 +45,20 @@
 								</div>
 								
 							
-								<div>${product.p_name }</div>
-								<div>${product.p_name }</div>
-								<div>${reservation.rsv_no}</div>
-								<div>${reservation.rsv_qty}</div>
-								<div>${reservation.rsv_date}</div>
-								<div>${reservation.rsv_time}</div>
-								<div>${reservation.rsv_total}</div>
-								
+								<div class="row">
+                                    <div style="padding-left: 200px" class="col-md-6mb-3"  align="left">
+                                    	<h4 style="color: #FBB710">-회원 정보-</h4>		
+                                    <tr>
+                                        <th>수강생 성함: ${reservation.member.m_name}<br/></th>
+                                        <th>수강생 번호: ${reservation.member.m_phone}<br/></th>
+                                        <th>예약한 강의: ${reservation.product.p_name}<br/></th>
+                                        <th>강의   날짜: ${reservation.rsv_date}<br/></th>
+                                        <th>강의   시간: ${reservation.rsv_time}<br/></th>
+                                        
+                                        <th>결제 방식: ${reservation.rsv_type}<br/></th>
+                                        <th>결제 총 금액: <f:formatNumber>${reservation.rsv_total}</f:formatNumber> 원<br/></th>
+                                    </tr>
+                                    </div>
 									
 								
 						</div>

@@ -5,16 +5,9 @@
 <!-- Header Area Start -->
 <%@include file="/WEB-INF/views/common/include_header.jsp"%>
 <!-- Header Area End -->
-<script type="text/javascript">
-if(msg!=null){
-	alert(msg);
-}else{
-</script>
 
 
 
-
-</script>
 		<!-- Search Wrapper Area Start -->
 		<div class="search-wrapper section-padding-100">
 			<div class="search-close">
@@ -96,28 +89,36 @@ if(msg!=null){
 							<ul class="summary-table">
 								
 								<li style="font-size: 13px; padding-bottom: 30px;"><span>${product.p_name}</span></li>
-								<!-- 예약날짜 시작 / 중복이 뜸 -->
+								<!-- 예약날짜 시작  -->
 								<li>
 								<div>
                                     <p>예약 날짜</p>
 									<div class="col-12 mb-3">
-	                                        	<select class="w-100" name ="rsv_date">
-													<c:forEach var="pt" items="${pTList}">
+	                                        	<select class="w-100" name ="rsv_date" id="rsv_date" >
+	                                        		<option value="" >원하는 날짜를 선택해주세요</option>
+													<c:forEach var="pt" items="${pTList}" >
+															<c:if test="${pt.pt_date != date}">
 					                                        <option  value="${pt.pt_date}">${pt.pt_date}</option>
+															<c:set var="date" value="${pt.pt_date}"/>
+					                                        </c:if>
 													</c:forEach>
                                   				  </select>
                                     	</div>
 								</div>
 								</li>
 								<!-- 예약날짜 끝 -->
+
 								<!-- 예약시간 시작 / 중복이 뜸-->
 								<li>
 								<div>
                                     <p>예약 시간</p>
 									<div class="col-12 mb-3">
-	                                        	<select class="w-100" name ="rsv_time">
+	                                        	<select class="w-100" name ="rsv_time" id="rsv_time">
 													<c:forEach var="pt" items="${pTList}">
-					                                        <option  value="${pt.pt_time}">${pt.pt_time}</option>
+													<c:if test="${pt.pt_date ==date }">
+					                                    <option  value="${pt.pt_time}">${pt.pt_time}</option>
+					                                    <c:set var="date" value="${pt.pt_date}"/>
+					                                    </c:if>
 													</c:forEach>
                                   				  </select>
                                     	</div>
@@ -129,13 +130,13 @@ if(msg!=null){
 								 <div class="cart-btn d-flex mb-50">
                                     <p>인원</p>
                                     <div class="quantity">
-                                        <input type="number" class="qty-text" id="rsv_qty" step="1" min="1" max="30" name="rsv_qty" value="1">
-	                                        <span class="qty-minus" onclick="var effect = document.getElementById('rsv_qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;">
-	                                       	 	<i class="fa fa-caret-down" aria-hidden="true"></i>
-	                                        </span>
-	                                        <span class="qty-plus" onclick="var effect = document.getElementById('rsv_qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;">
-	                                        	<i class="fa fa-caret-up" aria-hidden="true"></i>
-                                       		</span>
+                                 
+                                    	<select class="w_100" name="rsv_qty">
+                                    		<c:forEach begin="1" end="30" items=''>
+                                    			
+                                    		</c:forEach>
+                                    	</select>
+         
                                     </div>
                                 </div>
 								</li>
@@ -147,6 +148,15 @@ if(msg!=null){
 								
 								</li>
 							</ul>
+							                           <!-- 인원 카운트 한느거
+                                        <input type="number" class="qty-text" id="rsv_qty" step="1" min="1" max="30" name="rsv_qty" value="1">
+	                                        <span class="qty-minus" onclick="var effect = document.getElementById('rsv_qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;">
+	                                       	 	<i class="fa fa-caret-down" aria-hidden="true"></i>
+	                                        </span>
+	                                        <span class="qty-plus" onclick="var effect = document.getElementById('rsv_qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;">
+	                                        	<i class="fa fa-caret-up" aria-hidden="true"></i>
+                                       		</span>
+                                       -->
 							<div class="payment-method">
 								<!-- Cash on delivery -->
 								<div class="custom-control custom-checkbox mr-sm-2" >
@@ -199,10 +209,8 @@ if(msg!=null){
 		<script src="js/plugins.js"></script>
 		<!-- Active js -->
 		<script src="js/active.js"></script>
+		<script type="text/javascript" src="js/rsv.js"></script> 
 
-		<script type="text/javascript">
-}
-		</script>
 
 		</body>
 		
