@@ -1,5 +1,6 @@
 package com.itwill.yoridogam.controller;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -93,7 +94,12 @@ public class RsvController {
 	@LoginCheck
 	@RequestMapping("rsv_success")
 	public String rsv_success(@ModelAttribute("reservation") Reservation reservation,
+								Model model,
 								SessionStatus sessionStatus) throws Exception {
+		model.addAttribute("product", productService.selectByNo(reservation.getProduct().getP_no()));
+		Date paydate = reservationService.selectRsv_no(reservation.getRsv_no()).getRsv_payDate();
+		reservation.setRsv_payDate(paydate);
+		model.addAttribute("reservation", reservation);
 		sessionStatus.setComplete();
 		return "rsv_success";
 	}
@@ -113,6 +119,7 @@ public class RsvController {
 	public String m_rsv_list(HttpSession session, Model model) throws Exception {
 		String sUserId=(String)session.getAttribute("sUserId");
 		 System.out.println(sUserId);
+		
 		model.addAttribute("member_rsv",reservationService.selectAll(sUserId));
 		
 		return "rsv_member_list";
@@ -121,7 +128,7 @@ public class RsvController {
 	// 웹에서 rsv_date 선택할때 실행하는 controller
 	@RequestMapping("rsv_date_ajax")
 	@ResponseBody
-	public String rsv_date_ajax(@RequestParam(value = "date", required=true) Reservation date) throws Exception{
+	public String rsv_date_ajax(@RequestParam(value = "date", required=true) int date) throws Exception{
 		System.out.println(date + "선택된 날짜!");
 		return "hello";
 		//악~~~~~~~~~~~~!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

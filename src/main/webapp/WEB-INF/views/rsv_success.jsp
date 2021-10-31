@@ -41,36 +41,40 @@
 						<div class="checkout_details_area mt-50 clearfix">
 			
 								<div class="cart-title">
-									<h2 style="color: #FBB710; margin-bottom: 100px">영수증</h2>
+									<h2 style="color: #FBB710; margin-bottom: 50px">영수증</h2>
 								</div>
 								
-							
-								<div class="row">
-                                    <div style="padding-left: 200px" class="col-md-6mb-3"  align="left">
-                                    	<h4 style="color: #FBB710">-회원 정보-</h4>		
-                                    <tr>
-                                        <th>수강생 성함: ${reservation.member.m_name}<br/></th>
-                                        <th>수강생 번호: ${reservation.member.m_phone}<br/></th>
-                                        <th>예약한 강의: ${reservation.product.p_name}<br/></th>
-                                        <th>강의   날짜: ${reservation.rsv_date}<br/></th>
-                                        <th>강의   시간: ${reservation.rsv_time}<br/></th>
-                                        
-                                        <th>결제 방식: ${reservation.rsv_type}<br/></th>
-                                        <th>결제 총 금액: <f:formatNumber>${reservation.rsv_total}</f:formatNumber> 원<br/></th>
-                                    </tr>
-                                    </div>
+								<div class="cart_success">
+									<div>
+										 <h1>${product.p_name}</h1>
+									</div>
+									<div style="padding-bottom: 10px; border-bottom: 2px solid #FBB710">
+										<p>결제 가격 : <f:formatNumber>${reservation.rsv_total}</f:formatNumber> 원</p>
+									</div>
+									<br>
 									
+									<div class="row justify-content-between" style="padding-bottom: 10px; border-bottom: 2px solid #FBB710">
+										<div class="col-4">수강생 성함 :</div> <div class="col-4"> ${reservation.member.m_name}</div>
+									<div class="w-100" style="padding: 10px"></div>
+									
+										<div class="col-4">전화번호 : </div> <div class="col-4"> ${reservation.member.m_phone}</div>
+									<div class="w-100" style="padding: 10px"></div>
+									
+										<div class="col-4">결제 방식 : </div> <div class="col-4"> ${reservation.rsv_type}</div>
+									</div>
+								</div>
+								
+								<div style="padding: 30px 0px 0px 400px ">
+								<a href="home" class="btn amado-btn mb-15" >확인</a>
+								</div>
 								
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		 </div>
 		<!-- ##### Main Content Wrapper End ##### -->
-		
-		<!-- ##### Footer Area Start ##### -->
-		<%@include file="/WEB-INF/views/common/include_footer.jsp"%>
-		<!-- ##### Footer Area End ##### -->
+	
 		
 		<!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
 		<script src="js/jquery/jquery-2.2.4.min.js"></script>

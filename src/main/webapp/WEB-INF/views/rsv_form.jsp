@@ -47,6 +47,7 @@
 								<h4 style="color: #FBB710">-회원 정보-</h4>		
 								<div>
 									<!--회원정보 -->
+									
 									<input type="hidden" name="sUserId" value="${sUserId.m_id}">
 									<div class="col-md-6 mb-3">
 										<div style="text-align: center; padding: 30px; font-size: 14px" class="form-control" >

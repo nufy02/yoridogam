@@ -27,7 +27,7 @@
  
  <!-- 오프라인 강의예약 insert -->
 <insert id="create" parameterType="com.itwill.yoridogam.reservation.Reservation">
- insert into reservation(rsv_no, rsv_total, rsv_type, rsv_qty, rsv_date, rsv_time, rsv_paydate, m_id, p_no)
+ insert into reservation(rsv_no, rsv_total, rsv_type, rsv_qty, rsv_date, rsv_time, rsv_payDate, m_id, p_no)
 values(RESERVATION_RSV_NO_SEQ.nextval,#{rsv_total},#{rsv_type},#{rsv_qty},#{rsv_date},#{rsv_time},sysdate,#{member.m_id},#{product.p_no})
 <!-- insert한 값 번호 가져오기 -->
 <selectKey keyProperty="rsv_no" resultType="java.lang.Integer" order="AFTER"> 

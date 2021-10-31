@@ -22,20 +22,23 @@ public class RsvServiceTest {
 		System.out.println(reservationService);
 		
 		
-		Reservation reservation = new Reservation(0, 30123000, "카카오페이", 4, "", "", null,
-				new Member("member3",null,null,null,null,null,null), 
-				new Product(2,null,null,null,null,null,null,null));
-		
-		ProductTime productTime =  new ProductTime(1, "2021/10/22", "10:00-11:00", 0, 0, null);
-		
-		reservationService.insert(reservation, "member1");
-		
-		System.out.println(reservation.getRsv_no());
+		/*
+		 * Reservation reservation = new Reservation(0, 30123000, "카카오페이", 4, "", "",
+		 * null, new Member("member3",null,null,null,null,null,null), new
+		 * Product(2,null,null,null,null,null,null,null));
+		 * 
+		 * ProductTime productTime = new ProductTime(1, "2021/10/22", "10:00-11:00", 0,
+		 * 0, null);
+		 * 
+		 * reservationService.insert(reservation, "member1");
+		 * 
+		 * System.out.println(reservation.getRsv_no());
+		 */
 		
 		//reservationService.selectAll("member1");
-		/*
 		System.out.println(reservationService.selectAll("member1"));
 		System.out.println(reservationService.selectById("member1"));
+		/*
 		
 		System.out.println(reservationService.deletByRsv(5));
 		*/
