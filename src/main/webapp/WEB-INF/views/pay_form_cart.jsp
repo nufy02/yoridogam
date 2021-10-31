@@ -2,10 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
-		<script>
-
-		
-		</script>
         <!-- Header Area Start -->
 		<%@include file="/WEB-INF/views/common/include_header.jsp"%>
         <!-- Header Area End -->
@@ -23,26 +19,25 @@
                             <form action="pay_action_cart" name="payInfo" method="post">
                                 <div class="row">
                                     <div class="col-md-12 mb-3">
-                                        <input type="hidden" name="m_id" value="${sUserId.m_id}" >
-                                        <input type="text" class="form-control" name="m_name" value="${sUserId.m_name}" placeholder="First Name" required>
+                                       <input type="hidden" name="m_id" value="${sUserId.m_id}" >
+                                       <span style="color: orange">성함</span>
+                                       <input type="text" class="form-control" name="m_name" value="${sUserId.m_name}" placeholder="First Name" required>
                                     </div>
                                     <div class="col-12 mb-3">
+                                    	<span style="color: orange">이메일</span>
                                         <input type="email" class="form-control" name="m_email" placeholder="Email" value="${sUserId.m_email}">
                                     </div>
                                     <div class="col-12 mb-3">
+                                        <span style="color: orange">핸드폰번호</span>
                                         <input type="text" class="form-control" name="m_phone" placeholder="Address" value="${sUserId.m_phone}">
                                     </div>
                                     <div class="col-12 mb-3">
+                                        <span style="color: orange">주소</span>
                                         <input type="text" class="form-control" name="m_addr" placeholder="Town" value="${sUserId.m_addr}">
                                     </div>
-                                    <div class="col-md-6 mb-3">
-                                        <input type="text" class="form-control" name="" placeholder="" value="">
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <input type="number" class="form-control" name=""  placeholder="" value="">
-                                    </div>
                                     <div class="col-12 mb-3">
-                                        <textarea name="comment" class="form-control w-100" name="" cols="30" rows="10" >
+                                    	<span style="color: orange">결제 약관</span>
+                                        <textarea name="comment" class="form-control w-100" name="" cols="30" rows="15" >
                                         제 1 조 (목 적)
 본 약관은 요리도감 주식회사(이하 "회사"라 한다)가 운영하는 인터넷쇼핑몰 사이트 (이하 "사이트"라 합니다.)에서 제공하는 서비스 (이하 "서비스"라고 한다)를 이용함에 있어 회사와 이용자의 권리, 의무 및 책임사항을 규정함을 그 목적으로 합니다. 모바일 기기 등을 이용한 전자거래에 대해서도 그 성질에 반하지 않는 한 이 약관을 준용합니다.
 
@@ -70,7 +65,7 @@
                         </div>
                     </div>
                     
-                    <div class="col-12 col-lg-4">
+                    <div class="col-12 col-lg-4" >
                         <div class="cart-summary">
                             <h5>주문 정보</h5>
                             <ul class="summary-table">
@@ -86,10 +81,10 @@
                                 	 <input type="hidden"  name="qty"  value="${cartList.ci_qty}"></li>
                                  <hr/>
                                 </c:forEach>
-                                <li><span>총 결제 금액:</span><span id="total_price"></span>원
-                                	 <input type="hidden"  name="pay_total" value=""></li>
+                                <li><span>총 결제 금액:</span></li>
+                                	 <span id="total_price"></span>원<input type="hidden"  name="pay_total" value="">
                             </ul>
-	
+							<br>
                             <div class="payment-method">
                                 <div class="custom-control custom-checkbox mr-sm-2">
                                     <input type="radio" class="custom-control-input" name="pay_type"  id="무통장입금" value="무통장입금" checked="checked">
@@ -105,7 +100,7 @@
                                 </div>
                             </div>
 	
-                            <div class="cart-btn mt-100">
+                            <div class="cart-btn mt-100" >
                             	<input type="submit" class="btn amado-btn w-100" value="결제하기"><br><br/>
                             	<a href="cart_list_form" class="btn amado-btn w-100">취소하기</a>
                             </form>

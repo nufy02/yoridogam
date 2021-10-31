@@ -14,12 +14,11 @@
                 <div class="row">
                     <div class="col-12 col-lg-8">
                         <div class="cart-title mt-50" align="center">
-                            <h1>감사합니다<br>
-                            결제번호: [${pay.pay_no }] 번 결제 완료되었습니다!</h1><br/>
+                            <img src="img/custom-icon/payComplete.png"/>
                             <h3 align="left">[결제자 정보]</h3>
                         </div>
-                        <div class="row">
-                                    <div class="col-md-6mb-3"  align="left">
+                        <div class="row" align="center">
+                                    <div class="col-md-6mb-3"  align="center">
                                     <tr>
                                         <th>수강생 성함: ${pay.member.m_name}<br/></th>
                                         <th>수강생 번호: ${pay.member.m_phone}<br/></th>

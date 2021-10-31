@@ -71,7 +71,7 @@
                                 <span id="tot"><f:formatNumber>${tot_price }</f:formatNumber></span>원
                                 <hr>
                                 <li><span>선택 강의 수:</span> <span id="checkQty"></span></li>
-                                <li><span>선택 강의 총 금액:</span><span></span></li>
+                                <li><span>선택 강의 총 금액:</span></li>
                                 <span id="tot_price" >0</span>원
                             </ul>
                             <div class="cart-btn mt-100">

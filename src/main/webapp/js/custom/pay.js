@@ -10,3 +10,15 @@ $(document).ready(function(){
 	document.getElementById("total_price").innerHTML=total;
 	document.getElementsByName("pay_total")[0].value=String(total);
 })
+
+// 주문디테일 모달창
+    $("#modal_open_btn").click(function(){
+        $("#modal").attr("style", "display:block");
+    });
+   
+     $("#modal_close_btn").click(function(){
+        $("#modal").attr("style", "display:none");
+    });      
+  
+
+
