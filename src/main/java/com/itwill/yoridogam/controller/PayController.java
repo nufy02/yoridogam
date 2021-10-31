@@ -91,11 +91,14 @@ public class PayController {
 	 *********************************************************************/
 	@LoginCheck
 	@PostMapping("pay_action_cart")
-	public String pay_action_cart_post(Pay pay,Member member,int qty,int p_no,HttpSession session, Model model) throws Exception{
+	public String pay_action_cart_post(@RequestParam(value="ci_no") List<String> ci_noList, Pay pay,Member member,int qty,int p_no,HttpSession session, Model model) throws Exception{
 		pay.setMember(member);
-		int pay_no=payService.createPayFromCart(pay,pay.getMember().getM_id());
+		List<Cart> cList=new ArrayList<>();
+		for(int i=0; i<ci_noList.size(); i++) {
+			cList.add(cartService.selectCartItem(Integer.parseInt(ci_noList.get(i))));
+		}
+		int pay_no=payService.createPayFromCart(pay,cList,pay.getMember().getM_id());
 		model.addAttribute("pay",payService.findPayDetailByNo(pay_no));
-		System.err.println(pay);
 		return "pay_complete";
 	}
 	

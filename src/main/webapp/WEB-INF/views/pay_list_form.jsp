@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,9 +28,9 @@
 	      <td>${pay.pay_date}</td>
 	      <td><span>${pay.pay_total }</span></td>
 	  		  <c:forEach var="pay" items="${pay.payItemList}" begin="0" end="0" step="1" varStatus="status">
-	      <td><span>[${pay.product.p_name}] 외 </c:forEach> n개</span></td>
+	      <td><span>[${pay.product.p_name}] </c:forEach>외 n개</span></td>
 	    </tr>
-		     </c:forEach>
+		  </c:forEach>
 	  </tbody>
 	</table>
 </body>

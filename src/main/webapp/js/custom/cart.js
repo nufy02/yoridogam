@@ -17,7 +17,6 @@ $("button[name=deleteAll]").click(function () {
 		method:'POST',
 		data: data,
 		success: function(){
-		location.href="cart_list_form"; // 수정해야함
 		alert("삭제되었습니다");
 		}
     });
@@ -39,6 +38,7 @@ $('#check #allCheckbox').on('click',function(){
 	if($('#allCheckbox').prop("checked")){
 		$("input[type=checkbox]").prop("checked",true);
         $("#checkQty").text($('input:checkbox[name=ci_no]:checked').length);
+        
 	}else{
 		$("input[type=checkbox]").prop("checked",false);
 		$("#checkQty").text($('input:checkbox[name=ci_no]:checked').length);

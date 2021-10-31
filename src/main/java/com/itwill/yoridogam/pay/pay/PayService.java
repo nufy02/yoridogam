@@ -3,13 +3,15 @@ package com.itwill.yoridogam.pay.pay;
 import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
+
+import com.itwill.yoridogam.pay.cart.Cart;
 @Transactional
 public interface PayService {
 	
 	/***********************온라인 강의 결제***********************/
 	int createPay(Pay pay, int pi_qty, int p_no) throws Exception;
 	
-	int createPayFromCart(Pay pay,String sUserId) throws Exception;
+	int createPayFromCart(Pay pay,List<Cart> cList,String sUserId) throws Exception;
 	
 	/***********************특정 결제 취소 및 삭제***********************/
 	int deletePayByNo(int pay_no) throws Exception;
