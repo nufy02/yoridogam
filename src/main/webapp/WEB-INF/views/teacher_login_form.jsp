@@ -22,14 +22,14 @@
                     </div>
                     <div class="col-12 col-lg-5">
                         <div class="cart-summary">
-                       		<form name="f" id="login-form" class="form" action="" method="post">
-                            <h3 class="text-center text-info">강사로그인</h3>
+                       		<form name="f" id="login-form" class="form" action="" method="post" style="color: #FBB710">
+                            <h3 style="color: #FBB710" class="text-center text-info">강사로그인</h3>
                             <h1>&nbsp;&nbsp;</h1>
                      
                             <div class="form-group">
                                 <label for="username" class="text-info">USERID : </label>
                                 <font color="red">${msg1}</font><br>
-                                <input type="text" name="t_id" id="username" class="form-control" value="${nmember.m_id}"> 
+                                <input type="text" name="t_id" id="username" class="form-control" value="${nteacher.t_id}"> 
                             </div>
                             <div class="form-group">
                                 <label class="text-info"></label>
@@ -40,7 +40,7 @@
                             <div class="form-group">
                                 <label for="password" class="text-info">PASSWORD:</label>
                                 <font color="red">${msg2}</font><br>
-                                <input type="password"  name="t_pass" id="password" class="form-control" value="${nmember.m_pass}">
+                                <input type="password"  name="t_pass" id="password" class="form-control" value="${nteacher.t_pass}">
                             </div>
                              <div class="form-group">
                                 <label class="text-info"></label>
@@ -49,12 +49,12 @@
                             </div>
                             
                             <div class="form-group">
-                                <input type="button" class="btn btn-info btn-md" value="로그인" onClick="teacher_login_action();">
+                                <input type="button" class="btn btn-info btn-md" style="background-color: #FBB710; border-color: #FBB710" value="로그인" onClick="teacher_login_action();">
 
                             </div>
                             <div id="register-link" class="text-right">
                             
-                                <input type="button" class="btn btn-info btn-md" value="회원가입" onClick="teacher_write_form()">                                
+                                <input type="button" class="btn btn-info btn-md" style="background-color: #FBB710; border-color: #FBB710" value="회원가입" onClick="teacher_write_form()">                                
                             </div>
                         </form>
                            

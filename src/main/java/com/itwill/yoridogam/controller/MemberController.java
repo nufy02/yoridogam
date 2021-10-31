@@ -110,8 +110,8 @@ public class MemberController {
 	public String member_duplicate_form() {
 		return "member_duplicate_form";
 	}
-	
-	@PostMapping(value ="/member_duplicate_action")
+
+	@RequestMapping(value ="/member_duplicate_action")
 	/*
 	 * boolean isDuplicate=false;	
 	String msg="";
@@ -131,7 +131,7 @@ public class MemberController {
 		}
 	}
 	 */
-	public String member_duplicate_action_post(Model model,HttpServletRequest request) throws Exception{
+	public String member_duplicate_action(Model model,HttpServletRequest request) throws Exception{
 		String forwardPath="";
 		String sUserId = request.getParameter("sUserId");
 		boolean isDuplicate = memberService.isDuplcateUserId(sUserId);

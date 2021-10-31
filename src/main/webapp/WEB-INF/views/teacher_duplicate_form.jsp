@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="js/member.js"></script>
+<script type="text/javascript" src="js/teacher.js"></script>
 
 <title>아이디 중복 체크</title>
 <style type="text/css">

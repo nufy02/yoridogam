@@ -31,7 +31,7 @@ public class TeacherServiceImpl implements TeacherService {
 		int result=-1;
 		//1.아이디 존재여부
 		Teacher teacher = teacherDao.findTeacher(sUserId);
-		if(sUserId==null) {
+		if(teacher==null) {
 			result=0;
 		}else {
 			if(teacher.getT_pass().equals(password)) {

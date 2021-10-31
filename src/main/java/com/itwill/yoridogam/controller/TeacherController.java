@@ -103,9 +103,28 @@ public class TeacherController {
 	/*
 	 * 중복검사
 	 */
-	@RequestMapping(value ="/teacher_id_dupllicate_form")
-	public String teacher_id_duplicate_form() {
-		return "teacher_duplicate_form" ;
+	@RequestMapping(value ="/teacher_duplicate_form")
+	public String teacher_duplicate_form() {
+		return "teacher_duplicate_form";
+	}
+	
+	@PostMapping(value ="/teacher_duplicate_action")
+	public String teacher_duplicate_action_post(Model model,HttpServletRequest request) throws Exception{
+		String forwardPath="";
+		String sUserId = request.getParameter("sUserId");
+		boolean isDuplicate = teacherService.isDuplcateTeacherId(sUserId);
+		if (isDuplicate) {
+			model.addAttribute("sUserId", sUserId);
+			model.addAttribute("msg", sUserId+"는 사용불가합니다.");
+			model.addAttribute("isduplicate", isDuplicate);
+			forwardPath="teacher_duplicate_form";
+		}else {
+			model.addAttribute("sUserId", sUserId);
+			model.addAttribute("msg", sUserId+"는 사용가능합니다.");
+			model.addAttribute("isduplicate", isDuplicate);
+			forwardPath="teacher_duplicate_form";
+		}
+		return forwardPath;
 	}
 	/*
 	 * 로그아웃

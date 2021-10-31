@@ -17,8 +17,8 @@ function teacher_login_action() {
 }
 
 
-function member_write_form() {
-	f.action = "member_write_form"
+function teacher_write_form() {
+	f.action = "teacher_write_form"
 	f.submit();
 }
 
@@ -53,9 +53,14 @@ function member_write_action() {
 		f.m_email.focus();
 		return false;
 	}
-	if (f.t_addr.value == "") {
-		alert("주소를 입력하세요.");
-		f.t_addr.focus();
+	if (f.t_photo.value == "") {
+		alert("사진을 업로드해주세요.");
+		f.t_photo.focus();
+		return false;
+	}
+		if (f.t_detail.value == "") {
+		alert("상세정보를 입력하세요.");
+		f.t_detail.focus();
 		return false;
 	}
 	if (f.t_addr.value == "") {
@@ -83,7 +88,7 @@ function home_main() {
 
 
 function id_duplicate_check(){
-		window.open('member_duplicate_form','checkForm','width=500,height=300,resizable = no,scrollbar = no');
+		window.open('teacher_duplicate_form','checkForm','width=500,height=300,resizable = no,scrollbar = no');
 	}
 	
 	function id_duplicate_check2() {
@@ -92,13 +97,13 @@ function id_duplicate_check(){
 			alert('아이디를 입력하시고 중복체크를 하세요.');
 			return;
 		}
-		document.getElementById('checkForm').action='member_duplicate_action';
+		document.getElementById('checkForm').action='teacher_duplicate_action';
 		document.getElementById('checkForm').method='POST';
 		document.getElementById('checkForm').submit();
 		
 	}
 
 	function id_duplicate_send_value() {
-		opener.document.f.m_id.value = window.document.getElementById('sUserId').value;
+		opener.document.f.t_id.value = window.document.getElementById('sUserId').value;
 		window.close();
 	}
