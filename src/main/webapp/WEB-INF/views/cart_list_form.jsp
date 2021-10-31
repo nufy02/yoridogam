@@ -43,7 +43,7 @@
                                         </td>
                                         <td class="price">
                                             <!--<span class="pr_price"><f:formatNumber>${cartList.product.p_price }</f:formatNumber></span>-->
-                                            <span class="pr_price"><c:out value="${cartList.product.p_price }"/></span>
+                                            <span class="pr_price"><c:out value="${cartList.product.p_price }"/> 원</span>
                                         </td>
                                         <td class="qty">
                                             <div class="qty-btn d-flex">

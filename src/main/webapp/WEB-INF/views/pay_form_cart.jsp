@@ -73,10 +73,10 @@
                     <div class="col-12 col-lg-4">
                         <div class="cart-summary">
                             <h5>주문 정보</h5>
-                           	<input type="hidden" name="pay_no" value="1"/>
                             <ul class="summary-table">
                                 <c:forEach var="cartList" items="${cartList}" begin="0" end="${cartList.size()}">
                           		<li><input type="hidden"  name="p_no"  value="${cartList.product.p_no}"></li>
+                          		<li><input type="hidden"  name="ci_no"  value="${cartList.ci_no}"></li>
                                 <li><span>강의명:</span>
                                 	 <span>${cartList.product.p_name}</span>
                                 	  <input type="hidden"  name="p_name"  value="${cartList.product.p_name}"></li>
