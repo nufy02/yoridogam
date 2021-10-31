@@ -9,7 +9,8 @@ public interface MemberService {
 	/*
 	 * 회원가입(+회원관심분야) 
 	 */
-	int create(Member member, MemberInterest memberInterest) throws Exception;
+	int create(Member member) throws Exception;
+	int createInterest(MemberInterest memberInterest) throws Exception;
 	
 	/*
 	 * 회원 로그인

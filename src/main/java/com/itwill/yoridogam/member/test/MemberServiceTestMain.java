@@ -25,7 +25,8 @@ public class MemberServiceTestMain {
 		Member m4 = new Member("member56", "test", "test", "test", "test", "test", "test");
 		MemberInterest mi4 = new MemberInterest(0, "빵", m4);
 		
-		System.out.println("2.insertMember : " +memberService.create(m4, mi4));
+		System.out.println("2.insertMember : " +memberService.create(m4));
+		System.out.println("2.insertMember : " +memberService.createInterest(mi4));
 		
 		/*
 		 * 회원수정
@@ -33,6 +34,7 @@ public class MemberServiceTestMain {
 		Member m5 = new Member("member56", "update", "update", "update", "update", "update", "update");
 		MemberInterest mi5 = new MemberInterest(0, "비건", m4);
 		System.out.println("3.updateeMember : " +memberService.update(m5, mi5));
+		
 		/*
 		 * 회원상세정보
 		 */

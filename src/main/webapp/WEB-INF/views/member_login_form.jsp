@@ -22,8 +22,8 @@
                     </div>
                     <div class="col-12 col-lg-5">
                         <div class="cart-summary">
-                       		<form name="f" id="login-form" class="form" action="" method="post">
-                            <h3 class="text-center text-info">회원로그인</h3>
+                       		<form name="f" id="login-form" class="form" action="" method="post" style="color: #FBB710">
+                            <h3 style="color: #FBB710" class="text-center text-info">회원로그인</h3>
                             <h1>&nbsp;&nbsp;</h1>
                      
                             <div class="form-group">
@@ -49,12 +49,12 @@
                             </div>
                             
                             <div class="form-group">
-                                <input type="button" class="btn btn-info btn-md" value="로그인" onClick="member_login_action();">
+                                <input type="button" class="btn btn-info btn-md" style="background-color: #FBB710; border-color: #FBB710" value="로그인" onClick="member_login_action();">
 
                             </div>
                             <div id="register-link" class="text-right">
                             
-                                <input type="button" class="btn btn-info btn-md" value="회원가입" onClick="member_write_form()">                                
+                                <input type="button" class="btn btn-info btn-md" style="background-color: #FBB710; border-color: #FBB710" value="회원가입" onClick="member_write_form()">                                
                             </div>
                         </form>
                            

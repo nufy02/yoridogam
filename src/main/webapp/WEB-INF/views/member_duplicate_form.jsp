@@ -47,7 +47,7 @@
 			<input id="cancelBtn" type="button" value="취소" onclick="window.close();"> 
 			<c:choose>
 			 <c:when test="${!isduplicate}">
-			<input id="useBtn" type="button" value="사용하기" onclick="id_duplicate_send_value();">
+			<input id="useBtn" type="button" value="사용" onclick="id_duplicate_send_value();">
 			</c:when>
 			</c:choose>
 		</div>

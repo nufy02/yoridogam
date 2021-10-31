@@ -21,24 +21,20 @@ public class MemberServiceImpl implements MemberService {
 	 */
 	
 	@Override
-	public int create(Member member, MemberInterest memberInterest) throws Exception {
+	public int create(Member member) throws Exception {
 		// 아이디중복체크
 		if (memberDao.existedMember(member.getM_id())) {
 			return -1;
 		}else {
 		memberDao.create(member);
-		/*
-		<<반복문을 써야하나? ckeck 박스 웹에서 한번 확인 후 진행>>
-		String sUserId = member.getM_id();
-		List<MemberInterest> miList = memberInterestDao.getMemberInterestList(sUserId);
-		for(MemberInterest mI:miList) {
-			memberInterestDao.create(memberInterest);			
-		}
-		*/
-		memberInterestDao.create(memberInterest);
 		return 1;
 		}
 	}
+	@Override
+	public int createInterest(MemberInterest memberInterest) throws Exception {
+		memberInterestDao.create(memberInterest);
+		return 1;
+		}
 	/*
 	 * 로그인
 	 */

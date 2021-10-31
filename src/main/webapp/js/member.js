@@ -42,9 +42,9 @@ function member_write_action() {
 		f.m_pass2.focus();
 		return false;
 	}
-	if (f.m_address.value == "") {
+	if (f.m_addr.value == "") {
 		alert("주소를 입력하세요.");
-		f.m_address.focus();
+		f.m_addr.focus();
 		return false;
 	}
 	if (f.m_email.value == ""){
@@ -58,19 +58,8 @@ function member_write_action() {
 		return false;
 
 	}
-	if (f.m_gender.value == ""){
-		alert("성별을 선택하세요.");
-		f.m_gender.focus();
-		return false;
 
-	}
-	if (f.mi_interest.value == ""){
-		alert("성별을 선택하세요.");
-		f.m_interest.focus();
-		return false;
-
-	}
-	if (f.m_password.value != f.m_password2.value) {
+	if (f.m_pass.value != f.m_pass2.value) {
 		alert("비밀번호 비밀번호확인은 일치해야 합니다.");
 		f.m_password.focus();
 		f.m_password.select();

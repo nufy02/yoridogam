@@ -91,13 +91,14 @@ public class MemberController {
 	@PostMapping(value = "/member_write_action")
 	public String member_write_action_post(@ModelAttribute Member member,@ModelAttribute MemberInterest memberInterest,Model model) throws Exception{
 		String forwardPath="";
-		int result = memberService.create(member, memberInterest);
-		if (result == 1) {
+		int result1 = memberService.create(member);
+		memberInterest.setMember(new Member(member.getM_id(), null, null, null, null, null, null));
+		int result2 = memberService.createInterest(memberInterest);
+		if (result1 == 1) {
 			forwardPath = "redirect:member_login_form";
 		}else {
 			model.addAttribute("nmember", member);
 			model.addAttribute("nmemberInterest",memberInterest );
-			model.addAttribute("msg", member.getM_id()+ "는 존재하는 아이디입니다.");
 			forwardPath="member_write_form";
 		}
 		return forwardPath;
