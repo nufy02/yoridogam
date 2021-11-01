@@ -75,21 +75,26 @@ function home_main() {
 	f.submit();
 }
 function member_detail() {
-	f.action = "member_detail.jsp"
+	f.action = "member_detail"
 	f.submit();
 }
 
 function member_modify_form() {
-	f.action = "member_modify_form"
-	f.method = "POST";
-	f.submit();
+	ff.action = "member_modify_form";
+	ff.method = "POST";
+	ff.submit();
 }
+function member_modify_action() {
+		document.f.action = "member_modify_action";
+		document.f.method='POST';
+		document.f.submit();
+	}
 
 function member_remove_action() {
 	if(confirm("정말 탈퇴 하시겠습니까?")){
-		f.action = "member_remove_action";
-		f.method = "POST";
-		f.submit();
+		ff.action = "member_remove_action";
+		ff.method = "POST";
+		ff.submit();
 	}
 }
 

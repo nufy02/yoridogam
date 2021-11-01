@@ -90,6 +90,7 @@ public class TeacherController {
 	@PostMapping(value = "/teacher_write_action")
 	public String teacher_write_action_post(@ModelAttribute Teacher teacher,Model model) throws Exception{
 		String forwardPath="";
+		teacher.setT_photo("img/teacher-img/"+teacher.getT_photo());
 		int result = teacherService.create(teacher);
 		if (result == 1) {
 			forwardPath = "redirect:teacher_login_form";

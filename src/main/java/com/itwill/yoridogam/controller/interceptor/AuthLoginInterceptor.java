@@ -33,11 +33,6 @@ public class AuthLoginInterceptor extends HandlerInterceptorAdapter{ //implement
 		//session 객체 요청
 		HttpSession session=request.getSession();
 		
-		/*****************login 구현 시 삭제예정 test용***************/
-		String m_id="member1";
-		session.setAttribute("sUserId", m_id);
-		/****************************************************************/
-		
 		//login시 session에 설정한 session id(sUserId)
 		String sUserId=(String) session.getAttribute("sUserId");
 

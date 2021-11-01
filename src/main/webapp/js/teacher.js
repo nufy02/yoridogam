@@ -22,7 +22,7 @@ function teacher_write_form() {
 	f.submit();
 }
 
-function member_write_action() {
+function teacher_write_action() {
 	if (f.t_id.value == "") {
 		alert("사용자 아이디를 입력하세요.");
 		f.t_id.focus();
@@ -48,9 +48,9 @@ function member_write_action() {
 		f.t_phone.focus();
 		return false;
 	}
-	if (f.m_email.value == ""){
+	if (f.t_email.value == ""){
 		alert("이메일을 입력하세요.");
-		f.m_email.focus();
+		f.t_email.focus();
 		return false;
 	}
 	if (f.t_photo.value == "") {
@@ -63,9 +63,9 @@ function member_write_action() {
 		f.t_detail.focus();
 		return false;
 	}
-	if (f.t_addr.value == "") {
+	if (f.t_location.value == "") {
 		alert("주소를 입력하세요.");
-		f.t_addr.focus();
+		f.t_location.focus();
 		return false;
 	}
 

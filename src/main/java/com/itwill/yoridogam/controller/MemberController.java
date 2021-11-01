@@ -162,6 +162,15 @@ public class MemberController {
 	 * 회원정보수정
 	 */
 	@LoginCheck
+	@PostMapping(value = "/member_modify_form")
+	public String member_modify_form(HttpSession session, Model model) throws Exception{
+		String loginUserId = (String)session.getAttribute("sUserId");
+		Member loginUser = memberService.findMember(loginUserId);
+		model.addAttribute("loginUser", loginUser);
+		return "member_modify_form";
+	}
+	
+	@LoginCheck
 	@PostMapping(value = "/member_modify_action")
 	public String member_modify_action_post(@ModelAttribute Member member,@ModelAttribute MemberInterest memberInterest,HttpSession session) throws Exception {
 		String forwardPath="";
@@ -190,7 +199,7 @@ public class MemberController {
 		// 회원관심분야
 		memberService.getMemberInterestList(loginUserId);
 		request.setAttribute("loginUser", loginUser);
-		return"";
+		return"member_detail";
 	}
 	
 	/*

@@ -30,7 +30,7 @@
                         </div>
                         <div class="cart-table clearfix" id="check">
                         
-                        <form name="f" method="post">
+                        <form name="f" method="post" >
                        		<table	cellpadding="0" cellspacing="1" >
               
                        		<tr>
@@ -62,10 +62,11 @@
 							<tr><th width=140 align=center  height="22"> 이메일 : </th>
 								<td align="left"><input type="text" name="t_email" style="width: 230px" placeholder="이메일을 입력해주세요" ></td>
 							</tr>
-							
+							<form>
+							</form>
 							<tr><th width=140 align=center  height="30"></th>
 							<tr><th width=140 align=center  height="22"> 사진 : </th>
-								<td align="left"><input type="text" name="t_photo" style="width: 230px" placeholder="강사사진 하이퍼링크로 받아야하나?" ></td>
+								<td align="left"><input type="file" name="t_photo" accept="" style="width: 230px" ></td>
 							</tr>
 							
 							<tr><th width=140 align=center  height="30"></th>
@@ -83,7 +84,7 @@
 									</td>
 									<tr><th width=140 align=center  height="40"></th>
 										<td>
-											<input type="text" id="m_addr" name="t_addr" style="width: 300px" placeholder="주소"><br>
+											<input type="text" id="m_addr" name="t_location" style="width: 300px" placeholder="주소"><br>
 										</td>
 									<tr><th width=140 align=center  height="22">&nbsp;&nbsp;&nbsp;&nbsp;</th>
 										<td>
