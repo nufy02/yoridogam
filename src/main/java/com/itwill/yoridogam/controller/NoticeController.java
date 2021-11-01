@@ -62,7 +62,7 @@ public class NoticeController {
 	/**** 공지사항 작성 액션(get) ****/
 	@GetMapping("noti_write_action")
 	public String noti_write_action_get() {
-		return "redirect:noti_write_action";
+		return "redirect:notice_list";
 	}
 	
 	/**** 공지사항 작성 액션(post) ****/

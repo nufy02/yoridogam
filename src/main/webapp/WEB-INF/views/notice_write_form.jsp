@@ -5,11 +5,14 @@
 <%@taglib prefix="s" uri="http://www.springframework.org/tags" %>  
 <%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<script type="text/javascript" src="js/address.js">
+
+</script> 
+<body>
         <!-- Header Area Start -->
 		<%@include file="/WEB-INF/views/common/include_header.jsp"%>
         <!-- Header Area End -->
-        
-        <div class="cart-table-area section-padding-100" >
+          <div class="cart-table-area section-padding-100" >
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12 col-lg-20">
@@ -23,31 +26,27 @@
                     <div class="col-12 col-lg-20">
                     <div class="cart-title mt-50">
 					<table>
-						<tr>
+						 <tr>
 							<td align="center">제목</td>
-							<td><input name="title" size="50" maxlength="100"></td>
+							<td><input name="noti_title" id="noti_title" placeholder="제목을 입력하세요." 
+									size="50" maxlength="100"></td>
 							<td>&nbsp;</td>
-							
 						</tr>
 						<tr>
 							<td align="center">작성자</td>
-							<td><input name="title" size="50" maxlength="100" placeholder="&nbsp;${sUserId }" readonly></td>
+							<td><input name="sUserId" id="sUserId" size="50" maxlength="100" placeholder="&nbsp;${sUserId }" readonly></td>
 							<td>&nbsp;</td>
-							
 						</tr>
-						<hr>
 						<tr>
 							<td align="center">내용</td>
-							<td><textarea name="memo" cols="50" rows="13"></textarea></td>
+							<td><textarea name="noti_content" id="noti_content" cols="50" rows="13"placeholder="내용을 작성해 주세요." ></textarea></td>
 							<td>&nbsp;</td>
 						</tr>
+						<hr>
 						
-						<tr align="center">
-							<td>&nbsp;</td>
-						</tr>
 					</table>
 
-				 	<button type="button" class="btn btn-outline-warning btn-sm" onClick="location.href='noti_write_action'">작성</button>                
+				 	<center><button type="button" class="btn btn-outline-warning btn-sm" onClick="location.href='noti_write_action'">작성</button>                
 					    
                     </div>
 
@@ -55,6 +54,7 @@
             </div>
         </div>
     </div>
+
     <!-- ##### Main Content Wrapper End ##### -->
 
     <!-- ##### Footer Area Start ##### -->
