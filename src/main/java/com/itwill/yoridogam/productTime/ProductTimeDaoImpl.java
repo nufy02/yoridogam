@@ -50,5 +50,11 @@ public static final String NAMESPACE="com.itwill.yoridogam.mapper.ProductTimeMap
 		return sqlSession.delete(NAMESPACE+"delete",pt_no);
 	}
 
+	@Override
+	public List<ProductTime> selectPtTime(ProductTime productTime) throws Exception {
+		
+		return sqlSession.selectList(NAMESPACE+"selectPtTime", productTime);
+	}
+
 	
 }

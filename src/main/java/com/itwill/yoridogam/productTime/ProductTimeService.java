@@ -15,6 +15,9 @@ public interface ProductTimeService {
 	// productTime pt_no으로 찾기
 	ProductTime selectPtNo2(ProductTime productTime)throws Exception;
 
+	// 날짜랑 상품번호 이용해서 시간찾기
+	List<ProductTime> selectPtTime(String rsv_date, int p_no)throws Exception;
+	
 	// 상품별 시간 insert
 	int create(ProductTime productTime)throws Exception;
 

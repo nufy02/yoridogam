@@ -67,7 +67,7 @@
 								<h4 style="color: #FBB710">-상품 정보-</h4>		
 								<!-- 상품 정보 -->
 								<div class="row">
-								<input type="hidden" name="p_no" value="${product.p_no}">
+								<input type="hidden"  name="p_no" value="${product.p_no}">
 									<div class="col-md-6 mb-3">
 										<input type="text" class="form-control" id="t_name"
 											placeholder="name" value="${teacher.t_name}">
@@ -95,7 +95,8 @@
 								<div>
                                     <p>예약 날짜</p>
 									<div class="col-12 mb-3">
-	                                        	<select class="w-100" name ="rsv_date" id="rsv_date" >
+									 <input p-no="${product.p_no}" type="date" class="form-control mb-3" id="rsv_date" name="rsv_date" value="">
+	                                        	<%-- <select class="w-100" name ="rsv_date" id="rsv_date" >
 	                                        		<option value="" >원하는 날짜를 선택해주세요</option>
 													<c:forEach var="pt" items="${pTList}" >
 															<c:if test="${pt.pt_date != date}">
@@ -103,7 +104,7 @@
 															<c:set var="date" value="${pt.pt_date}"/>
 					                                        </c:if>
 													</c:forEach>
-                                  				  </select>
+                                  				  </select> --%>
                                     	</div>
 								</div>
 								</li>
@@ -211,7 +212,7 @@
 		<!-- Active js -->
 		<script src="js/active.js"></script>
 		<script type="text/javascript" src="js/rsv.js"></script> 
-
+	
 
 		</body>
 		

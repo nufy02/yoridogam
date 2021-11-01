@@ -17,7 +17,7 @@
 <!-- (강사) 오프라인 강의시간 등록 -->
 <insert id="create" parameterType="com.itwill.yoridogam.productTime.ProductTime">
 	insert into product_time(pt_no,pt_date, pt_max, pt_rsv,pt_time, p_no) 
-		values(PRODUCT_TIME_PT_NO_SEQ.nextval,#{pt_date},#{pt_max},null,#{pt_time},#{product.p_no})
+		values(PRODUCT_TIME_PT_NO_SEQ.nextval,#{pt_date},#{pt_max},0,#{pt_time},#{product.p_no})
 </insert>
 
 
@@ -29,6 +29,11 @@
  <!-- 강의 pt_rsv 조회  -->
  <select id="selectPtNo" parameterType="java.lang.Integer" resultMap="PTResultMap">
  	select * from product_time where pt_no=#{pt_no}
+ </select>
+
+ <!-- 강의 date이용해서 시간 구하기  -->
+ <select id="selectPtTime" parameterType="com.itwill.yoridogam.productTime.ProductTime" resultMap="PTResultMap">
+ 	select * from product_time where p_no=#{product.p_no} and pt_date=#{pt_date}
  </select>
  
  <select id="selectPtNo2" parameterType="com.itwill.yoridogam.productTime.ProductTime" resultMap="PTResultMap">

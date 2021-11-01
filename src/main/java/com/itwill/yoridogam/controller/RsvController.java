@@ -64,7 +64,8 @@ public class RsvController {
 							//@RequestParam String t_id,
 							HttpSession session,
 							Model model) throws Exception {
-		String sUserId=(String)session.getAttribute("sUserId");
+		//String sUserId=(String)session.getAttribute("sUserId");
+		String sUserId="member1";
 		int p_no =4;
 		String t_id = "teacher1";
 		model.addAttribute("sUserId", memberService.findMember(sUserId));
@@ -110,28 +111,33 @@ public class RsvController {
 	@RequestMapping("rsv_no_delete")
 	public String rsv_no_delete(@RequestParam(value = "rsv_no")int rsv_no) throws Exception {
 		reservationService.deletByRsv(rsv_no);
-		return "member_list_form";
+		return "member_detail";
 	}
 	
 	//회원 예약 상품 보여주기
 	@LoginCheck
 	@RequestMapping("rsv_member_list")
 	public String m_rsv_list(HttpSession session, Model model) throws Exception {
-		String sUserId=(String)session.getAttribute("sUserId");
-		 System.out.println(sUserId);
-		
+		//String sUserId=(String)session.getAttribute("sUserId");
+		String sUserId="member1";
 		model.addAttribute("member_rsv",reservationService.selectAll(sUserId));
-		
 		return "rsv_member_list";
 	}
 	
+	/*******************************************[  AJAX  ]*******************************************/
+	
 	// 웹에서 rsv_date 선택할때 실행하는 controller
-	@RequestMapping("rsv_date_ajax")
+	@RequestMapping(value = "rsv_date_ajax",produces = "text/plain;charset=UTF-8")
 	@ResponseBody
-	public String rsv_date_ajax(@RequestParam(value = "date", required=true) int date) throws Exception{
-		System.out.println(date + "선택된 날짜!");
-		return "hello";
-		//악~~~~~~~~~~~~!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	public String rsv_date_ajax(@RequestParam String rsv_date,@RequestParam int p_no) throws Exception{
+		System.out.println(rsv_date + "선택된 날짜!");
+		System.out.println(p_no + "선택된 날짜!");
+		List<ProductTime> pt = productTimeService.selectPtTime(rsv_date, p_no);
+		System.out.println(pt);
+		// 화면에서 데이터 받아서 넘어오는것 까지 확인! 시간들 찾는것 까지 확인!
+		
+		String result = "true";
+		return result;
 	}
 	
 	

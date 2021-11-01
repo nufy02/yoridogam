@@ -36,7 +36,11 @@
 				<c:when test="${toDay <= rsv_d}" ><td id="p_status">수강중</td></c:when>
 				<c:when test="${toDay > rsv_d}"><td id="p_status">수강 완료</td></c:when>
 			</c:choose>
-			<c:if test="${toDay <= rsv_d}"> <td><button type="submit" style="background-color: #ffffff; color: #FBB710">결제 취소</button><td> </c:if>
+			<c:if test="${toDay <= rsv_d}"> 
+				<td>
+					<button type="submit" style="background-color: #ffffff; color: #FBB710" onclick="button_event()">결제 취소</button>
+				<td> 
+			</c:if>
 		</tr>
 	</form>
 	</c:forEach>
@@ -44,6 +48,16 @@
 	</table>
 	</div>
 	
+	
+	<script type="text/javascript">
+		function button_event() {
+			if(confirm("정말 강의를 취소 하시겠습니까?") == true){
+				return document.form.submit();
+			}else{
+				return false;
+			}
+		}
+	</script>
 	
 </body>
 </html>

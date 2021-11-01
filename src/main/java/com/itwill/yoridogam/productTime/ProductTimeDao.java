@@ -16,6 +16,9 @@ public interface ProductTimeDao {
 // <selectPtNo> 특정 강의 예약된 인원 조회
 	ProductTime selectPtNo2(ProductTime productTime) throws Exception;
 	
+// <selectPtTime> 특정 강의 특정 날짜에 시간 조회
+	List<ProductTime>selectPtTime(ProductTime productTime)throws Exception;
+	
 // <update> 특정 강의시간 수정
 	int update(ProductTime productTime) throws Exception;
 

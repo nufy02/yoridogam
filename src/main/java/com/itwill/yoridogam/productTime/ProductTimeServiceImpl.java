@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.itwill.yoridogam.product.Product;
+
 @Service("productTimeService")
 public class ProductTimeServiceImpl implements ProductTimeService{
 
@@ -16,7 +18,14 @@ public class ProductTimeServiceImpl implements ProductTimeService{
 		// TODO Auto-generated method stub
 		return productTimeDao.selectAll(p_no);
 	}
-
+// 특정 날짜와 특정 상품 번호 찾아서 특정 강의 시간 구하기
+	@Override
+	public List<ProductTime> selectPtTime(String rsv_date, int p_no) throws Exception {
+		ProductTime productTime = new ProductTime(0, rsv_date, null, 0, 0, new Product(p_no, null, null, null, null, null, null, null));
+		
+		return productTimeDao.selectPtTime(productTime);
+	}
+	
 	@Override
 	public ProductTime selectByNo(int pt_no) throws Exception {
 		// TODO Auto-generated method stub
@@ -52,5 +61,7 @@ public class ProductTimeServiceImpl implements ProductTimeService{
 		// TODO Auto-generated method stub
 		return productTimeDao.delete(pt_no);
 	}
+
+
 
 }
