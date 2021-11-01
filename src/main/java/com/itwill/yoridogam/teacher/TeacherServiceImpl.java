@@ -27,10 +27,10 @@ public class TeacherServiceImpl implements TeacherService {
 	 * 강사로그인
 	 */
 	@Override
-	public int login(String sUserId, String password) throws Exception {
+	public int login(String sTeacherId, String password) throws Exception {
 		int result=-1;
 		//1.아이디 존재여부
-		Teacher teacher = teacherDao.findTeacher(sUserId);
+		Teacher teacher = teacherDao.findTeacher(sTeacherId);
 		if(teacher==null) {
 			result=0;
 		}else {
@@ -46,8 +46,8 @@ public class TeacherServiceImpl implements TeacherService {
 	 * 강사정보
 	 */
 	@Override
-	public Teacher findMember(String sUserId) throws Exception {
-		Teacher findTeacher = teacherDao.findTeacher(sUserId);
+	public Teacher findMember(String sTeacherId) throws Exception {
+		Teacher findTeacher = teacherDao.findTeacher(sTeacherId);
 		return findTeacher;
 	}
 	/*
@@ -70,16 +70,16 @@ public class TeacherServiceImpl implements TeacherService {
 	 * 강사탈퇴
 	 */
 	@Override
-	public int remove(String sUserId) throws Exception {
-		return teacherDao.remove(sUserId);
+	public int remove(String sTeacherId) throws Exception {
+		return teacherDao.remove(sTeacherId);
 	}
 	/*
 	 * 아이디중복여부확인
 	 */
 
 	@Override
-	public boolean isDuplcateTeacherId(String sUserId) throws Exception {
-		boolean isExist = teacherDao.existedTeacher(sUserId);
+	public boolean isDuplcateTeacherId(String sTeacherId) throws Exception {
+		boolean isExist = teacherDao.existedTeacher(sTeacherId);
 		if (isExist) {
 			return true;
 		} else {

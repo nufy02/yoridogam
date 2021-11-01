@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.itwill.yoridogam.controller.interceptor.LoginCheck;
+import com.itwill.yoridogam.member.Member;
 import com.itwill.yoridogam.teacher.Teacher;
 import com.itwill.yoridogam.teacher.TeacherService;
 
@@ -69,7 +70,7 @@ public class TeacherController {
 			model.addAttribute("nteacher", teacher);
 			forwardPath="teacher_login_form";
 		}else if(result==2) {
-			session.setAttribute("sUserId", teacher.getT_id());
+			session.setAttribute("sTeacherId", teacher.getT_id());
 			forwardPath="redirect:home";
 		}
 		return forwardPath ;
@@ -112,16 +113,16 @@ public class TeacherController {
 	@PostMapping(value ="/teacher_duplicate_action")
 	public String teacher_duplicate_action_post(Model model,HttpServletRequest request) throws Exception{
 		String forwardPath="";
-		String sUserId = request.getParameter("sUserId");
-		boolean isDuplicate = teacherService.isDuplcateTeacherId(sUserId);
+		String sTeacherId = request.getParameter("sTeacherId");
+		boolean isDuplicate = teacherService.isDuplcateTeacherId(sTeacherId);
 		if (isDuplicate) {
-			model.addAttribute("sUserId", sUserId);
-			model.addAttribute("msg", sUserId+"는 사용불가합니다.");
+			model.addAttribute("sTeacherId", sTeacherId);
+			model.addAttribute("msg", sTeacherId+"는 사용불가합니다.");
 			model.addAttribute("isduplicate", isDuplicate);
 			forwardPath="teacher_duplicate_form";
 		}else {
-			model.addAttribute("sUserId", sUserId);
-			model.addAttribute("msg", sUserId+"는 사용가능합니다.");
+			model.addAttribute("sTeacherId", sTeacherId);
+			model.addAttribute("msg", sTeacherId+"는 사용가능합니다.");
 			model.addAttribute("isduplicate", isDuplicate);
 			forwardPath="teacher_duplicate_form";
 		}
@@ -141,10 +142,19 @@ public class TeacherController {
 	 * 회원정보수정
 	 */
 	@LoginCheck
+	@PostMapping(value = "/teacher_modify_form")
+	public String teacher_modify_form(HttpSession session, Model model) throws Exception{
+		String loginUserId = (String)session.getAttribute("sTeacherId");
+		Teacher loginUser = teacherService.findMember(loginUserId);
+		model.addAttribute("loginUser", loginUser);
+		return "teacher_modify_form";
+	}
+	
+	@LoginCheck
 	@PostMapping(value = "/teacher_modify_action")
 	public String teacher_modify_action_post(@ModelAttribute Teacher teacher,HttpSession session) throws Exception {
 		String forwardPath="";
-		String loginUserId=(String)session.getAttribute("sUserId");
+		String loginUserId=(String)session.getAttribute("sTeacherId");
 		teacher.setT_id(loginUserId);
 		forwardPath="redirect:teacher_detail";
 		return forwardPath;
@@ -162,11 +172,11 @@ public class TeacherController {
 	@LoginCheck
 	@RequestMapping(value = "/teacher_detail")
 	public String teacher_detail(HttpSession session,HttpServletRequest request ) throws Exception {
-		String loginUserId =(String)session.getAttribute("sUserId");
+		String loginUserId =(String)session.getAttribute("sTeacherId");
 		// 회원정보
 		Teacher loginUser = teacherService.findMember(loginUserId);
 		request.setAttribute("loginUser", loginUser);
-		return"";
+		return"teacher_detail";
 	}
 	
 	/*
@@ -176,7 +186,7 @@ public class TeacherController {
 	@PostMapping(value = "teacher_remove_action")
 	public String teacher_remove_action_post(HttpServletRequest request) throws Exception{
 		String forwardPath="";
-		String loginUser=(String)request.getSession().getAttribute("sUserId");
+		String loginUser=(String)request.getSession().getAttribute("sTeacherId");
 		teacherService.remove(loginUser);
 		forwardPath="redirect:teacher_logout_action";
 		return forwardPath;

@@ -71,8 +71,8 @@ function teacher_write_action() {
 
 	if (f.t_pass.value != f.t_pass2.value) {
 		alert("비밀번호 비밀번호확인은 일치해야 합니다.");
-		f.t_password.focus();
-		f.t_password.select();
+		f.t_pass.focus();
+		f.t_pass.select();
 		return false;
 	}
 	f.action = "teacher_write_action";
@@ -84,7 +84,29 @@ function home_main() {
 	f.action = "home"
 	f.submit();
 }
+function teacher_detail() {
+	f.action = "teacher_detail"
+	f.submit();
+}
 
+function teacher_modify_form() {
+	ff.action = "teacher_modify_form";
+	ff.method = "POST";
+	ff.submit();
+}
+function teacher_modify_action() {
+		document.f.action = "teacher_modify_action";
+		document.f.method='POST';
+		document.f.submit();
+	}
+
+function teacher_remove_action() {
+	if(confirm("정말 탈퇴 하시겠습니까?")){
+		ff.action = "teacher_remove_action";
+		ff.method = "POST";
+		ff.submit();
+	}
+}
 
 
 function id_duplicate_check(){
@@ -92,8 +114,8 @@ function id_duplicate_check(){
 	}
 	
 	function id_duplicate_check2() {
-		var userId=document.getElementById("sUserId").value;
-		if(sUserId==null|| sUserId==''){
+		var userId=document.getElementById("sTeacherId").value;
+		if(sTeacherId==null|| sTeacherId==''){
 			alert('아이디를 입력하시고 중복체크를 하세요.');
 			return;
 		}
@@ -104,6 +126,6 @@ function id_duplicate_check(){
 	}
 
 	function id_duplicate_send_value() {
-		opener.document.f.t_id.value = window.document.getElementById('sUserId').value;
+		opener.document.f.t_id.value = window.document.getElementById('sTeacherId').value;
 		window.close();
 	}

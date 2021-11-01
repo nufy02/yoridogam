@@ -12,11 +12,11 @@ public interface TeacherService {
 	/*
 	 * 강사 로그인
 	 */
-	int login(String sUserId, String password) throws Exception;
+	int login(String sTeacherId, String password) throws Exception;
 	/*
 	 * 강사상세정보
 	 */
-	Teacher findMember(String sUserId) throws Exception;
+	Teacher findMember(String sTeacherId) throws Exception;
 	/*
 	 * 강사리스트
 	 */
@@ -28,11 +28,11 @@ public interface TeacherService {
 	/*
 	 * 강사탈퇴
 	 */
-	int remove(String sUserId) throws Exception;
+	int remove(String sTeacherId) throws Exception;
 	/*
 	 * 강사아이디 중복체크
 	 */
-	boolean isDuplcateTeacherId(String sUserId) throws Exception;
+	boolean isDuplcateTeacherId(String sTeacherId) throws Exception;
 	
 	
 	

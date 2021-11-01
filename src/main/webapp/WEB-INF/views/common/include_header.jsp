@@ -72,10 +72,14 @@
             <!-- Amado Nav -->
             <nav class="amado-nav">
                 <ul>
+         
                 <c:choose>
-                <c:when test ="${!empty(sUserId)}" >
-                	<li><a href="member_detail">${sUserId}님</a></li>
+                <c:when test ="${!empty(sTeacherId)}" >
+                	<li><a href="teacher_detail">${sTeacherId}</a></li>
                 </c:when>
+                <c:otherwise>
+                	<li><a href="member_detail">${sUserId}</a></li>                
+                </c:otherwise>
                 </c:choose>
                     <li class="active"><a href="home">메인</a></li>
                     <li><a href=".html">온라인 강의</a></li>
@@ -88,7 +92,7 @@
             <!-- Button Group -->
             <div class="amado-btn-group mt-30 mb-100">
             <c:choose>
-            <c:when test ="${empty(sUserId)}" >
+            <c:when test ="${empty(sUserId)&&empty(sTeacherId)}" >
                 <a href="member_login_form" class="btn amado-btn mb-15">회원로그인</a>
                 <a href="teacher_login_form" class="btn amado-btn mb-15">강사로그인</a>
                 <a href="#" class="btn amado-btn active">New this week</a>

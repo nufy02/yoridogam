@@ -35,9 +35,10 @@ public class AuthLoginInterceptor extends HandlerInterceptorAdapter{ //implement
 		
 		//login시 session에 설정한 session id(sUserId)
 		String sUserId=(String) session.getAttribute("sUserId");
+		String sTeacherId=(String) session.getAttribute("sTeacherId");
 
 		//login 상태인지 확인
-		if(sUserId==null) {
+		if(sUserId==null&&sTeacherId==null) {
 			response.sendRedirect("home");//추후 로그인폼으로 수정
 			//아니면 로그인하러 가
 			return false;

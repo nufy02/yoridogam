@@ -99,32 +99,35 @@ function member_remove_action() {
 }
 
 function member_modify_action() {
-	if (f.m_password.value == "") {
+	if (f.m_pass.value == "") {
 		alert("비밀번호를 입력하세요.");
-		f.m_password.focus();
+		f.m_pass.focus();
 		return false;
 	}
-	if (f.m_password2.value == "") {
+	if (f.m_pass2.value == "") {
 		alert("비밀번호확인을 입력하세요.");
-		f.m_password2.focus();
+		f.m_pass2.focus();
 		return false;
 	}
-	if (f.m_name.value == "") {
-		alert("이름을 입력하세요.");
-		f.m_name.focus();
-		return false;
-	}
-	if (f.m_address.value == "") {
+
+		if (f.m_addr.value == "") {
 		alert("주소를 입력하세요.");
-		f.m_address.focus();
+		f.m_addr.focus();
+		return false;
+	}
+	if (f.m_email.value == ""){
+		alert("이메일을 입력하세요.");
+		f.m_email.focus();
 		return false;
 	}
 	if (f.m_phone.value == ""){
-		alert("전화번호를 입력하세요.");
+		alert("핸도폰번호를 입력하세요.");
 		f.m_phone.focus();
+		return false;
+
 	}
-	if (f.m_password.value != f.m_password2.value) {
-		alert("비밀번호와 비밀번호확인은 일치해야 합니다.");
+	if (f.m_pass.value != f.m_pass2.value) {
+		alert("비밀번호 비밀번호확인은 일치해야 합니다.");
 		f.m_password.focus();
 		f.m_password.select();
 		return false;

@@ -176,6 +176,7 @@ public class MemberController {
 		String forwardPath="";
 		String loginUserId=(String)session.getAttribute("sUserId");
 		member.setM_id(loginUserId);
+		memberInterest.setMember(new Member(member.getM_id(), null, null, null, null, null, null));
 		memberService.update(member, memberInterest);
 		forwardPath="redirect:member_detail";
 		return forwardPath;

@@ -29,14 +29,14 @@ public class TeacherDaoImpl implements TeacherDao {
 	}
 
 	@Override
-	public Teacher findTeacher(String sUserId) throws Exception {
+	public Teacher findTeacher(String sTeacherId) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.selectOne(NAMESPACE+"findTeacher",sUserId); 
+		return sqlSession.selectOne(NAMESPACE+"findTeacher",sTeacherId); 
 	}
 
 	@Override
-	public int remove(String sUserId) throws Exception {
-		return sqlSession.delete(NAMESPACE+"remove", sUserId);
+	public int remove(String sTeacherId) throws Exception {
+		return sqlSession.delete(NAMESPACE+"remove", sTeacherId);
 	}
 
 	@Override
@@ -47,8 +47,8 @@ public class TeacherDaoImpl implements TeacherDao {
 	}
 
 	@Override
-	public boolean existedTeacher (String sUserId) throws Exception {
-		int count = sqlSession.selectOne(NAMESPACE+"existedTeacher",sUserId);
+	public boolean existedTeacher (String sTeacherId) throws Exception {
+		int count = sqlSession.selectOne(NAMESPACE+"existedTeacher",sTeacherId);
 		if(count==1) {
 			return true;
 		}else {
