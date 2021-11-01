@@ -56,7 +56,7 @@ public class NoticeController {
 	/**** 공지사항 작성 폼 ****/
 	@RequestMapping("noti_write_form")
 	public String noti_write_form() {
-		return"noti_write_form";
+		return"notice_write_form";
 	}
 	
 	/**** 공지사항 작성 액션(get) ****/
@@ -106,7 +106,7 @@ public class NoticeController {
 		return "noti_list";
 	}
 	
-	
+
 }
 
 

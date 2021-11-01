@@ -5,7 +5,8 @@
 <%@taglib prefix="s" uri="http://www.springframework.org/tags" %>  
 <%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-        
+
+			
         <!-- Header Area Start -->
 		<%@include file="/WEB-INF/views/common/include_header.jsp"%>
         <!-- Header Area End -->
@@ -41,9 +42,13 @@
 											${resultNotiDate}</td>
                                     		<td>${notice.noti_viewCount}</td>
 	                                  	</c:forEach>
-                                    </tr>
+	                                  	
+                                    
                                 </tbody>
                             </table>
+	                                  	<td style="padding-top: 50px;padding-left:200px">                               
+					                        <input type="button"  class="btn amado-btn w-20" value="글작성"   onClick="noti_write_form();">
+		                            	</td>
                         </div>
                         
                     </div>
@@ -70,6 +75,7 @@
     <script src="js/active.js"></script>
 	<!-- Custom -->
 	<script src="js/custom/cart.js"></script>
+	
 </body>
 
 </html>

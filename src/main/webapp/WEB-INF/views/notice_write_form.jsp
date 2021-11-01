@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col-12 col-lg-20">
                         <div class="notice-title">
-                            <h2>문의 게시판</h2>
+                            <h2>공지사항</h2>
                         </div>
                         
 						<div class="cart-table clearfix" id="check">
@@ -27,8 +27,9 @@
 							<td align="center">제목</td>
 							<td><input name="title" size="50" maxlength="100"></td>
 							<td>&nbsp;</td>
+							
 						</tr>
-						
+						<hr>
 						<tr>
 							<td align="center">이름</td>
 							<td><input name="name" size="50" maxlength="50"></td>
