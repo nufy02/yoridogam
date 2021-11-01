@@ -20,25 +20,28 @@
 					<h2>공지사항</h2>
 				</div>
 
-				<div class="notice-table clearfix" id="check">
-					<table class="table table-noti-detail">
-						<!-- 내용 들어갈 자리 시작 -->
-
-						<tr>
-							<td class="title"><strong>제목 []</strong></td>
-						</tr>
-						<tr>
-							<td class="date">작성일 []</td>
-							<td class="count">조회수 []</td>
-							<hr>
-						</tr>
-						<tr>
-							
-						</tr>
-						
+				 <div class="col-12 col-lg-100">
+                        <div class="cart-summary">
+                    <form name="ff" method="post">
+                    <table>
+                        <span>[제목] </span> <span>${notiDetail.noti_title}</span>
+                        <hr> 
+                        <span>[작성일] </span> 
+                        <span><fmt:formatDate var="resultNotiDate" value="${notiDetail.noti_date}" pattern="yyyy-MM-dd"/>
+								${resultNotiDate}</span> 
+						<hr> 
+                        <span>[조회수] </span> <span>${notiDetail.noti_viewCount} </span>
+                        <hr> 
+						<span>${notiDetail.noti_content}</span>
+                        
+					</table>
+					</form>
 		
 						<!-- 내용 들어갈 자리 끝 -->
-					</table>
+				</div>
+						<button type="button" class="btn btn-outline-warning  btn-sm" onClick="location.href='noti_update_form'">수정</button>                          
+						<button type="button" class="btn btn-outline-warning  btn-sm" onClick="location.href='noti_delete_action'">삭제</button>                          
+	                        
 				</div>
 			</div>
 		</div>

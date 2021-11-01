@@ -82,7 +82,7 @@ public class NoticeController {
 	/**** 공지사항 수정 액션(Get) ****/
 	@GetMapping("noti_update_action")
 	public String noti_update_action_get() {
-		return "redirect:noti_list";
+		return "redirect:notice_list";
 	}
 	
 	/**** 공지사항 수정 액션(Post) ****/
@@ -96,14 +96,14 @@ public class NoticeController {
 	/**** 공지사항 삭제 액션(Get) ****/
 	@GetMapping("noti_delete_action")
 	public String noti_delete_action_get() {
-		return "redirect:noti_list";
+		return "redirect:notice_list";
 	}
 	
 	/**** 공지사항 삭제 액션(Post) ****/
 	@PostMapping("noti_delete_action")
 	public String noti_delete_action_post(@RequestParam int noti_no) {
 		noticeService.deleteNoti(noti_no);
-		return "noti_list";
+		return "notice_list";
 	}
 	
 

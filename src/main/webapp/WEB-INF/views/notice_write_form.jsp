@@ -29,13 +29,13 @@
 							<td>&nbsp;</td>
 							
 						</tr>
-						<hr>
 						<tr>
-							<td align="center">이름</td>
-							<td><input name="name" size="50" maxlength="50"></td>
+							<td align="center">작성자</td>
+							<td><input name="title" size="50" maxlength="100" placeholder="&nbsp;${sUserId }" readonly></td>
 							<td>&nbsp;</td>
+							
 						</tr>
-						
+						<hr>
 						<tr>
 							<td align="center">내용</td>
 							<td><textarea name="memo" cols="50" rows="13"></textarea></td>
@@ -47,17 +47,8 @@
 						</tr>
 					</table>
 
-					<div class="form-group"> </div>   
-	
-							 <div class="form-group">
-							 	<table>
-							 	<tr>
-							 	<td style="padding-top: 50px;padding-left:200px">                               
-			                        <input type="button"  class="btn amado-btn w-20" value="글작성"   onClick="inquiry_write_action();">
-                            	</td>
-                            	<tr>
-                            	</table>
-                            </div>      
+				 	<button type="button" class="btn btn-outline-warning btn-sm" onClick="location.href='noti_write_action'">작성</button>                
+					    
                     </div>
 
                 </div>
