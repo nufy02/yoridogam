@@ -15,4 +15,9 @@ public class Pay_itemDaoImpl implements Pay_itemDao{
 		return sqlSession.insert(NAMESPACE+"createPayItem",pay_item);
 	}
 
+	@Override
+	public Pay_item findPayItemDetail(int pi_no) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"findPayItemDetail",pi_no);
+	}
+
 }

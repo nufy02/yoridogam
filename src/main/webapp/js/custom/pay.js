@@ -20,5 +20,15 @@ $(document).ready(function(){
         $("#modal").attr("style", "display:none");
     });      
   
-
-
+// 결제내역 상세 - 결제list 출력용
+	$('.detailBtn').click(function(){
+		var pay_no=($(this).val());
+		var data = { "pay_no": pay_no };
+					$('#productDetail').empty();
+					$('#productDetail').load('payItem_detail_form',data);
+					e.preventDefault();
+	})
+	
+	
+	
+	

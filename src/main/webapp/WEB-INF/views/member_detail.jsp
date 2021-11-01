@@ -16,7 +16,8 @@
                        <div >
 						<input type="button" class="btn btn-info btn-md" style="background-color: #FBB710; border-color: #FBB710" value="관심강의" onClick="">&nbsp;&nbsp; 
 						<input type="button" class="btn btn-info btn-md" style="background-color: #FBB710; border-color: #FBB710" value="장바구니" onClick="">&nbsp;&nbsp; 
-						<input type="button" class="btn btn-info btn-md" style="background-color: #FBB710; border-color: #FBB710" value="결제내역" onClick=""> 
+						<input type="button" class="btn btn-info btn-md"  id="payList" style="background-color: #FBB710; border-color: #FBB710" value="결제내역" >&nbsp;&nbsp;
+						<input type="button" class="btn btn-info btn-md" style="background-color: #FBB710; border-color: #FBB710" value="예약내역" onClick=""> 
 						<h3>&nbsp;&nbsp;</h3>
          			   </div>
 
@@ -93,7 +94,7 @@
     <!-- Active js -->
     <script src="js/active.js"></script>
 	<!-- Custom -->
-	<script src="js/custom/cart.js"></script>
+	<script src="js/member.js"></script>
 </body>
 
 </html>

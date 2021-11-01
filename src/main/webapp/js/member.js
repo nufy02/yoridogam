@@ -157,3 +157,24 @@ function id_duplicate_check(){
 		opener.document.f.m_id.value = window.document.getElementById('sUserId').value;
 		window.close();
 	}
+	
+	
+	/************결제내역 ajx*************/
+	$(document).ready(function(){
+		$('#payList').click(function(){
+			$('#check').empty();
+			$('#check').load('pay_list_form');
+		})
+	})
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

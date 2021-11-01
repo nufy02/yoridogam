@@ -63,6 +63,7 @@ public class ProductController {
 		for(int i=0; i<pt_timeList.length; i++) {
 			productTimeService.create(new ProductTime(0, productTime.getPt_date(), pt_timeList[i], productTime.getPt_max(), 0, product));
 		}
+		System.out.println(productTime.getPt_date().getClass().getName());
 		return "home"; // 추후 수정, 상동
 	}
 	/* 없어도 될 거 같아요

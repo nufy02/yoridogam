@@ -26,6 +26,10 @@
 				<result column="P_PRICE" property="p_price"/>
 				<result column="P_TYPE" property="p_type"/>
 				<result column="P_PHOTO" property="p_photo"/>
+				<association property="teacher" javaType="com.itwill.yoridogam.teacher.Teacher" autoMapping="true">
+					<result column="T_ID" property="t_id"/>
+					<result column="T_NAME" property="t_name"/>
+				</association>
 			</association>
 		</collection>
 	</resultMap>
@@ -62,7 +66,7 @@
 	</select>
 	
 	<select id="findPayDetailByNo" parameterType="Integer" resultMap="payResultMap">
-		select * from pay py join pay_item pi on py.pay_no=pi.pay_no join product p on pi.p_no=p.p_no join member m on py.m_id = m.m_id where py.pay_no=#{pay_no}
+		select * from pay py join pay_item pi on py.pay_no=pi.pay_no join product p on pi.p_no=p.p_no join member m on py.m_id = m.m_id join teacher t on t.t_id=p.t_id where py.pay_no=#{pay_no}
 	</select>
 	
 </mapper>

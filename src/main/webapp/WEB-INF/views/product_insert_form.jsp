@@ -40,7 +40,7 @@
                                         	<option value="있지">있니</option>
                                         </select>
                                     </div>
-                                        <input type="hidden" class="form-control" name="teacher.t_id" value="teacher1" >
+                                        <input type="hidden" class="form-control" name="teacher.t_id" value="test1" >
                                     <div class="col-12 mb-3">
                                         <input type="text" class="form-control" name="p_name" placeholder="상품명" value="">
                                     </div>
