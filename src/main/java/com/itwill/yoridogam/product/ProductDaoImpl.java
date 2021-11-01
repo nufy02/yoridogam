@@ -16,7 +16,8 @@ public class ProductDaoImpl implements ProductDao {
 	
 	@Override
 	public int create(Product product) throws Exception{
-		return sqlSession.insert(NAMESPACE+"create",product);
+		sqlSession.insert(NAMESPACE+"create",product);
+		return product.getP_no();
 	}
 	@Override
 	public int updateByNo(Product product) throws Exception{

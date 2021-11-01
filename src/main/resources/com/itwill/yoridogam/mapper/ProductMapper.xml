@@ -30,6 +30,9 @@
 	<insert id="create" parameterType="com.itwill.yoridogam.product.Product">
 		insert into product(p_no,p_name,p_detail,p_category,p_price,p_type,p_photo,t_id)
 			values(product_p_no_seq.nextval,#{p_name},#{p_detail},#{p_category},#{p_price},#{p_type},#{p_photo},#{teacher.t_id})
+	<selectKey keyProperty="p_no" resultType="Integer" order="AFTER">
+		SELECT PRODUCT_P_NO_SEQ.CURRVAL FROM DUAL
+	</selectKey>
 	</insert>
 	
 	<update id="updateByNo" parameterType="com.itwill.yoridogam.product.Product">

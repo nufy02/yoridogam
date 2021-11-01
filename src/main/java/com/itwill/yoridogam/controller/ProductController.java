@@ -1,5 +1,6 @@
 package com.itwill.yoridogam.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -16,12 +17,15 @@ import com.itwill.yoridogam.controller.interceptor.LoginCheck;
 import com.itwill.yoridogam.product.Product;
 import com.itwill.yoridogam.product.ProductService;
 import com.itwill.yoridogam.productTime.ProductTime;
+import com.itwill.yoridogam.productTime.ProductTimeService;
 import com.itwill.yoridogam.teacher.Teacher;
 
 @Controller
 public class ProductController {
 	@Autowired
 	private ProductService productService;
+	@Autowired
+	private ProductTimeService productTimeService;
 	
 	@RequestMapping("product_list_form")
 	public String product_list(Model model)throws Exception{
@@ -50,7 +54,15 @@ public class ProductController {
 	
 	@LoginCheck
 	@RequestMapping("product_insert_off_action")
-	public String product_insert_off_action(Product product,HttpSession session, Model model) throws Exception{
+	public String product_insert_off_action(Product product,ProductTime productTime,HttpSession session, Model model) throws Exception{
+		product.setP_photo("img/product-img/"+product.getP_photo());
+		int newP_no=productService.create(product);
+		product.setP_no(newP_no);
+		
+		String[] pt_timeList=productTime.getPt_time().split(",");
+		for(int i=0; i<pt_timeList.length; i++) {
+			productTimeService.create(new ProductTime(0, productTime.getPt_date(), pt_timeList[i], productTime.getPt_max(), 0, product));
+		}
 		return "home"; // 추후 수정
 	}
 	@RequestMapping("product_delete_form")

@@ -15,7 +15,8 @@ public class ProductServiceImpl implements ProductService {
 	
 	@Override
 	public int create(Product product) throws Exception{
-		return productDao.create(product);
+		productDao.create(product);
+		return product.getP_no();
 	}
 	@Override
 	public int updateByNo(Product product) throws Exception{
