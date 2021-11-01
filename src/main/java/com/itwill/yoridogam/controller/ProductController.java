@@ -34,10 +34,10 @@ public class ProductController {
 		model.addAttribute("product",product);
 		return "product_detail";
 	}
-	@RequestMapping("product_insert_from")
-	public String product_insert_form() {
-		
-		return null;
+	@LoginCheck
+	@RequestMapping("product_insert_form")
+	public String product_insert_form() throws Exception{
+		return "product_insert_form";
 	}
 	@LoginCheck
 	@RequestMapping("product_insert_action")
