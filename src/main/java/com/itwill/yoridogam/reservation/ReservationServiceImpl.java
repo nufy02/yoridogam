@@ -19,6 +19,8 @@ public class ReservationServiceImpl implements ReservationService {
 	@Autowired
 	private ProductTimeDao productTimeDao;
 	@Autowired
+	private ProductTimeService productTimeService;
+	@Autowired
 	private ProductDao productDao;
 	
 	// 상품 예약
@@ -31,7 +33,9 @@ public class ReservationServiceImpl implements ReservationService {
 		ProductTime PTrsv = productTimeDao.selectPtNo2(pt);
 		// 웹에서 받아온 reservation값을 넣어서 DB reservaion insert
 		// selectPtNo 데이터를 PTrsv에 넣어준다	
-		PTrsv.setPt_rsv(reservation.getRsv_qty());
+		int rsv = PTrsv.getPt_rsv();
+		int newQty = reservation.getRsv_qty();
+		PTrsv.setPt_rsv( rsv+newQty);
 		 productTimeDao.updatePt_rsv(PTrsv);
 		return reservationDao.create(reservation);
 	}
@@ -69,10 +73,11 @@ public class ReservationServiceImpl implements ReservationService {
 		int p_no = reservation.getProduct().getP_no();
 		String rsv_date = reservation.getRsv_date();
 		String rsv_time = reservation.getRsv_time();
-		int rsv = reservation.getRsv_qty();
 		ProductTime pt= productTimeDao.selectPtNo2(new ProductTime(0, rsv_date, rsv_time, 0, 0, new Product(p_no, null, null, null, null, null, null, null)));
-		pt.setPt_rsv(rsv);
-		productTimeDao.updatePt_rsv(pt);
+		int rsv = reservation.getRsv_qty();
+		int nowQty = pt.getPt_rsv();
+		pt.setPt_rsv(nowQty-rsv);
+		productTimeService.updatePt_rsv(pt);
 		return reservationDao.deleteById(rsv_no);
 	}
 

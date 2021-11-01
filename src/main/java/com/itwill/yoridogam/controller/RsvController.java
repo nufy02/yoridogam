@@ -108,7 +108,7 @@ public class RsvController {
 	// 오프라인 결제 취소
 	@LoginCheck
 	@RequestMapping("rsv_no_delete")
-	public String rsv_no_delete(int rsv_no) throws Exception {
+	public String rsv_no_delete(@RequestParam(value = "rsv_no")int rsv_no) throws Exception {
 		reservationService.deletByRsv(rsv_no);
 		return "member_list_form";
 	}

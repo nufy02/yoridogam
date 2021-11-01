@@ -18,12 +18,13 @@
 			<th>현재 상황</th>
 		</tr>
 	</thead>
-	
 	<tbody>
 	<c:forEach var="rsv_data" items="${member_rsv}">
+	<form action="rsv_no_delete" method="get">
+	<input type="hidden" name="rsv_no" value="${rsv_data.rsv_no}">
 		<tr>
 			<th>${rsv_data.rsv_no }</th>
-			<td>${rsv_data.product.p_no}</td>
+			<td>${rsv_data.product.p_name}</td>
 			<td>${rsv_data.rsv_date}</td>
 			<td>${rsv_data.rsv_time}</td>
 			<td>${rsv_data.rsv_payDate}</td>
@@ -32,13 +33,17 @@
 			<jsp:useBean id="now" class="java.util.Date"/>
 			<fmt:formatDate var="toDay" value="${now}" pattern="yyyy-MM-dd"/>
 			<c:choose>
-				<c:when test="${toDay <= rsv_d}"><td>수강중</td></c:when>
-				<c:when test="${toDay > rsv_d}"><td>수강 완료</td></c:when>
+				<c:when test="${toDay <= rsv_d}" ><td id="p_status">수강중</td></c:when>
+				<c:when test="${toDay > rsv_d}"><td id="p_status">수강 완료</td></c:when>
 			</c:choose>
+			<c:if test="${toDay <= rsv_d}"> <td><button type="submit" style="background-color: #ffffff; color: #FBB710">결제 취소</button><td> </c:if>
 		</tr>
+	</form>
 	</c:forEach>
 	</tbody>
 	</table>
 	</div>
+	
+	
 </body>
 </html>
