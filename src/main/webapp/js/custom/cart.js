@@ -18,6 +18,7 @@ $("button[name=deleteAll]").click(function () {
 		data: data,
 		success: function(){
 		alert("삭제되었습니다");
+		$("td").remove(".qty, .price, .cart_product_desc, .cart_product_img")
 		}
     });
 	}else{
@@ -25,7 +26,7 @@ $("button[name=deleteAll]").click(function () {
 	}
 });
 
-//카트 선택 삭제
+//카트 선택 삭제 - 추후수정
 function cart_delete_select_item() {
 	alert("선택된 강의를 삭제합니다.")
 	document.cartInfo.method = 'POST';

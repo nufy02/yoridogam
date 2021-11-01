@@ -46,4 +46,5 @@ $("select[name=p_type]").change(function(){ // select 옵션 값이 변한다면
                                     </div>`);
 	}
 }); //간단히 변경하ㄹ 수 있으면 좋을 듯..
-//select option 재변경시 재출력 불가 두 경우 다 .html 하기엔 너무 길어짐
+
+

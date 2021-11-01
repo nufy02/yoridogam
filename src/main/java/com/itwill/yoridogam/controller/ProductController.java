@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.itwill.yoridogam.controller.interceptor.LoginCheck;
 import com.itwill.yoridogam.product.Product;
 import com.itwill.yoridogam.product.ProductService;
+import com.itwill.yoridogam.productTime.ProductTime;
 import com.itwill.yoridogam.teacher.Teacher;
 
 @Controller
@@ -41,9 +42,16 @@ public class ProductController {
 	}
 	@LoginCheck
 	@RequestMapping("product_insert_action")
-	public String product_insert_action(@ModelAttribute Product product,int t_id,HttpSession session, Model model) {
-		
-		return null;
+	public String product_insert_action(Product product,HttpSession session, Model model) throws Exception{
+		product.setP_photo("img/product-img/"+product.getP_photo());
+		productService.create(product);
+		return "home"; // 추후 수정
+	}
+	
+	@LoginCheck
+	@RequestMapping("product_insert_off_action")
+	public String product_insert_off_action(Product product,HttpSession session, Model model) throws Exception{
+		return "home"; // 추후 수정
 	}
 	@RequestMapping("product_delete_form")
 	public String proudct_delete_form() {

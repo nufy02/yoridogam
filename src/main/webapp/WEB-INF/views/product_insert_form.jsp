@@ -23,7 +23,7 @@
                                 <h2>상품등록</h2>
                             </div>
 
-                            <form action="#" method="post">
+                            <form action="product_insert_action" method="post">
                                 <div class="col-md-3 mb-1">
                                  	<select name="p_type" id="p_type">
                                     	<option value="">-유형 선택-</option>
@@ -40,6 +40,7 @@
                                         	<option value="있지">있니</option>
                                         </select>
                                     </div>
+                                        <input type="hidden" class="form-control" name="teacher.t_id" value="teacher1" >
                                     <div class="col-12 mb-3">
                                         <input type="text" class="form-control" name="p_name" placeholder="상품명" value="">
                                     </div>
@@ -50,7 +51,7 @@
                                         <input type="text" class="form-control mb-3" id="" placeholder="사진업로드" value="" disabled="disabled">
                                     </div>
                                     <div class="col-5 mb-2">
-                                        <input type="file" class="form-control mb-3" name="" accept="">
+                                        <input type="file" class="form-control mb-3" name="p_photo" accept="">
                                     </div>
                                     <div class="col-12 mb-3">
                                         <textarea name="p_detail" class="form-control w-100" id="" cols="30" rows="10" placeholder="상품설명"></textarea>
@@ -66,8 +67,8 @@
                                             <label class="custom-control-label" for="customCheck3">Ship to a different address</label>
                                         </div>
                                         <div class="cart-btn mt-100">
-                                			<a href="#" class="btn amado-btn w-100">상품등록</a><br><br/>
-                                			<a href="#" class="btn amado-btn w-100">취소하기</a>
+                                			<input type="submit" class="btn amado-btn w-100" value="결제하기"><br><br/>
+                                			<a href="home" class="btn amado-btn w-100">취소하기</a>
                            				</div>
                                     </div>
                                 </div>
