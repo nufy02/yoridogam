@@ -64,8 +64,8 @@ table.table2 td {
 											<tr>
 												<input type="hidden" name=noti_no value="${notice.noti_no }">
 												<td>작성자</td>
-												<td><input type=text size=50
-													value="${sUserId }" readonly></td>
+												<td><input type=text size=50 name = member.m_id
+													placeholder="&nbsp;${sUserId }" readonly></td>
 											</tr>
 
 											<tr>
@@ -85,10 +85,8 @@ table.table2 td {
 									</td>
 								</tr>
 							</table>
-							<a href="noti_update_action?noti_no=${notice.noti_no}"
-								role="button" class="btn btn-outline-warning btn-sm"
-								onclick="alert('수정되었습니다.');">수정</a>
-								
+								<button type="submit" class="btn btn-outline-warning btn-sm"
+								onClick="location.href='noti_update_action'; alert('수정되었습니다.');" >수정</button>
 						</form>
 
 

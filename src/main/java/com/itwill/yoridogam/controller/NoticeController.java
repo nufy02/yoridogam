@@ -90,13 +90,13 @@ public class NoticeController {
 	public String noti_update_action_get() {
 		return "redirect:notice_list";
 	}
-	/**** 공지사항 수정 액션(Post) ****/
 	
+	/**** 공지사항 수정 액션(Post) ****/
 	@PostMapping("noti_update_action")
-	public String noti_update_action_post(@RequestParam Notice notice, Model model) {
-		noticeService.updateNoti(notice);
-		model.addAttribute("notice", notice);
-		return "notice_list";
+	public String noti_update_action_post(@ModelAttribute Notice notice, Model model) {
+		int noti_no = noticeService.updateNoti(notice);
+		model.addAttribute("notice", noticeService.selectByNotiNo(noti_no));
+		return "redirect:notice_detail?noti_no="+noti_no;
 	}
 
 
