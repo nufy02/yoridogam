@@ -22,21 +22,25 @@
 	<input type="hidden" name="rsv_no" value="${rsv_data.rsv_no}">
 		<tr>
 			<th scope="row">${rsv_data.rsv_no }</th>
-			<td scope="row">${rsv_data.product.p_name}</td>
+			<td scope="row">${rsv_data.product.p_no}</td>
 			<td scope="row">${rsv_data.rsv_date}</td>
 			<td scope="row">${rsv_data.rsv_time}</td>
-			<td scope="row">${rsv_data.rsv_payDate}</td>
-			<fmt:parseDate var="date" value="${rsv_data.rsv_date}" pattern="yyyy/MM/dd"/>
+			
+			<fmt:formatDate var="rsv_payDate" value="${rsv_data.rsv_payDate}" pattern="yyyy-MM-dd"/>
+			<td scope="row">${rsv_payDate}</td>
+			
+			<fmt:parseDate var="date" value="${rsv_data.rsv_date}" pattern="yyyy-MM-dd"/>
 			<fmt:formatDate var="rsv_d" value="${date}" pattern="yyyy-MM-dd"/>
 			<jsp:useBean id="now" class="java.util.Date"/>
 			<fmt:formatDate var="toDay" value="${now}" pattern="yyyy-MM-dd"/>
 			<c:choose>
 				<c:when test="${toDay <= rsv_d}" ><td id="p_status" scope="row">수강중</td></c:when>
 				<c:when test="${toDay > rsv_d}"><td id="p_status" scope="row">수강 완료</td></c:when>
+			
 			</c:choose>
 			<c:if test="${toDay <= rsv_d}"> 
 				<td scope="row">
-					<button type="submit" style="background-color: #ffffff; color: #FBB710" onclick="button_event()">결제 취소</button>
+					<button type="button" class="btn btn-outline-warning" name="deleteRsv" value="${rsv_data.rsv_no}">결제 취소</button>
 				<td> 
 			</c:if>
 		</tr>
@@ -46,15 +50,26 @@
 	</table>
 	</div>
 	
-	
 	<script type="text/javascript">
-		function button_event() {
-			if(confirm("정말 강의를 취소 하시겠습니까?") == true){
-				return document.form.submit();
-			}else{
-				return false;
-			}
-		}
+		$('button[name=deleteRsv]').click(function(e) {
+			var cf = confirm("결제를 취소하시겠습니까?");
+			if (cf) {
+				var rsv_no=$(this).val();
+			alert(rsv_no)
+				var ajaxData = {"rsv_no" : rsv_no};
+				$.ajax({
+					url: "rsv_no_delete",
+					method: "POST",
+					data: ajaxData,
+					success: function(){
+						$('#check').empty();
+						$('#check').load('rsv_member_form').hide().fadeIn("slow");
+					}
+					
+				})
+
+		});
+
 	</script>
 	
 </body>
