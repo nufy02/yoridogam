@@ -9,109 +9,116 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script type="text/javascript">
 
-
 </script>
+
 <style>
-        table.table2{
-                border-collapse: separate;
-                border-spacing: 1px;
-                text-align: left;
-                line-height: 1.5;
-                border-top: 1px solid #ccc;
-                margin : 10px 5px;
-        }
-        table.table2 tr {
-                 width: 50px;
-                 padding: 10px;
-                font-weight: bold;
-                vertical-align: top;
-                border-bottom: 1px solid #ccc;
-        }
-        table.table2 td {
-                 width: 50px;
-                 padding: 10px;
-                 vertical-align: top;
-                 border-bottom: 1px solid #ccc;
-        }
- 
+table.table2 {
+	border-collapse: separate;
+	border-spacing: 1px;
+	text-align: left;
+	line-height: 1.5;
+	border-top: 1px solid #ccc;
+	margin: 10px 5px;
+}
+
+table.table2 tr {
+	width: 50px;
+	padding: 10px;
+	font-weight: bold;
+	vertical-align: top;
+	border-bottom: 1px solid #ccc;
+}
+
+table.table2 td {
+	width: 50px;
+	padding: 10px;
+	vertical-align: top;
+	border-bottom: 1px solid #ccc;
+}
 </style>
 
 <body>
-        <!-- Header Area Start -->
-		<%@include file="/WEB-INF/views/common/include_header.jsp"%>
-        <!-- Header Area End -->
-          <div class="cart-table-area section-padding-100" >
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12 col-lg-20">
-                        <div class="notice-title">
-                            <h2>공지사항</h2>
-                        </div>
-                         <div class="col-12 col-lg-20">
-                  		  <div class="cart-title mt-50">
-						<div class="cart-table clearfix" id="check">
-                        </div>  
-                    </div>
-                    <!--  -->
-           <form method = "POST" action = "/yoridogam/noti_update_action">
-        <table  style="padding-top:50px" align = center width=50 border=0 cellpadding=2 >
-                
-                <tr>
-                <td bgcolor=white>
-                <table class = "table2">
-                        <tr>
-                        <td>작성자</td>
-                        <td><input type = text name = member.m_id size=50 placeholder="&nbsp;${sUserId }" readonly> </td>
-                        </tr>
- 
-                        <tr>
-                        <td>제목</td>
-                        <td><input type = text name = noti_title size=50>${notice.noti_title }</td>
-                        </tr>
- 
-                        <tr>
-                        <td>내용</td>
-                        <td><textarea name = noti_content cols=50 rows=10>${notice.noti_content}</textarea></td>
-                        </tr>
- 
-                        </table>
- 
-                        
-                </td>
-                </tr>
-        </table>
-				 	<button type="submit" class="btn btn-outline-warning btn-sm"  onClick="location.href='noti_write_action'" >작성</button>           
-        </form>
+	<!-- Header Area Start -->
+	<%@include file="/WEB-INF/views/common/include_header.jsp"%>
+	<!-- Header Area End -->
+	<div class="cart-table-area section-padding-100">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12 col-lg-20">
+					<div class="notice-title">
+						<h2>공지사항</h2>
+					</div>
+					<div class="col-12 col-lg-20">
+						<div class="cart-title mt-50">
+							<div class="cart-table clearfix" id="check"></div>
+						</div>
+						<!--  -->
+						<form method="POST" action="/yoridogam/noti_update_action">
+							<table style="padding-top: 50px" align=center width=50 border=0	cellpadding=2>
+
+								<tr>
+									<td bgcolor=white>
+										<table class="table2">
+										
+
+											<tr>
+												<input type="hidden" name=noti_no value="${notice.noti_no }">
+												<td>작성자</td>
+												<td><input type=text size=50
+													value="${sUserId }" readonly></td>
+											</tr>
+
+											<tr>
+												<td>제목</td>
+												<td><input type=text name=noti_title size=50
+													value="${notice.noti_title }"></td>
+											</tr>
+
+											<tr>
+												<td>내용</td>
+												<td><textarea name=noti_content cols=50 rows=10>${notice.noti_content}</textarea></td>
+											</tr>
+
+										</table>
 
 
-                    <!--  -->
-                   
-                    </div>
-                </div>
-            		<!-- 버튼 가운데 정렬 해결하기 -->
-            </div>
-        </div>
-    </div>
-  <!-- ##### Main Content Wrapper End ##### -->
+									</td>
+								</tr>
+							</table>
+							<a href="noti_update_action?noti_no=${notice.noti_no}"
+								role="button" class="btn btn-outline-warning btn-sm"
+								onclick="alert('수정되었습니다.');">수정</a>
+								
+						</form>
 
-    <!-- ##### Footer Area Start ##### -->
+
+						<!--  -->
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- ##### Main Content Wrapper End ##### -->
+
+	<!-- ##### Footer Area Start ##### -->
 	<%@include file="/WEB-INF/views/common/include_footer.jsp"%>
-    <!-- ##### Footer Area End ##### -->
-    
-    <!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
-    <script src="js/jquery/jquery-2.2.4.min.js"></script>
-    <!-- Popper js -->
-    <script src="js/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- Plugins js -->
-    <script src="js/plugins.js"></script>
-    <!-- Active js -->
-    <script src="js/active.js"></script>
+	<!-- ##### Footer Area End ##### -->
+
+	<!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
+	<script src="js/jquery/jquery-2.2.4.min.js"></script>
+	<!-- Popper js -->
+	<script src="js/popper.min.js"></script>
+	<!-- Bootstrap js -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Plugins js -->
+	<script src="js/plugins.js"></script>
+	<!-- Active js -->
+	<script src="js/active.js"></script>
 	<!-- Custom -->
 	<script src="js/custom/cart.js"></script>
 
-	
+
 </body>
 
 </html>

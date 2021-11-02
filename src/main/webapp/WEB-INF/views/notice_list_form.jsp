@@ -46,7 +46,9 @@
                                     
                                 </tbody>
                             </table>
-	                            <button type="button" class="btn btn-outline-warning btn-sm" onClick="location.href='noti_write_form'">작성</button> 
+                            	<span><center>
+	                            <button type="button" class="btn btn-outline-warning btn-sm" onClick="location.href='noti_write_form'">작성</button>
+	                            </span> 
                         </div>
                         
                     </div>
