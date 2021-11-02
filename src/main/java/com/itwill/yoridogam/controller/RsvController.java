@@ -109,9 +109,10 @@ public class RsvController {
 	// 오프라인 결제 취소
 	@LoginCheck
 	@RequestMapping("rsv_no_delete")
-	public String rsv_no_delete(@RequestParam(value = "rsv_no")int rsv_no) throws Exception {
+	@ResponseBody
+	public void rsv_no_delete(@RequestParam(value = "rsv_no")int rsv_no) throws Exception {
 		reservationService.deletByRsv(rsv_no);
-		return "member_detail";
+		
 	}
 	
 	//회원 예약 상품 보여주기
@@ -127,17 +128,16 @@ public class RsvController {
 	/*******************************************[  AJAX  ]*******************************************/
 	
 	// 웹에서 rsv_date 선택할때 실행하는 controller
-	@RequestMapping(value = "rsv_date_ajax",produces = "text/plain;charset=UTF-8")
+	@PostMapping(value = "rsv_date_ajax",produces = "application/json;charset=UTF-8")
 	@ResponseBody
-	public String rsv_date_ajax(@RequestParam String rsv_date,@RequestParam int p_no) throws Exception{
+	public List<ProductTime> rsv_date_ajax(@RequestParam String rsv_date,@RequestParam int p_no) throws Exception{
 		System.out.println(rsv_date + "선택된 날짜!");
 		System.out.println(p_no + "선택된 날짜!");
 		List<ProductTime> pt = productTimeService.selectPtTime(rsv_date, p_no);
 		System.out.println(pt);
 		// 화면에서 데이터 받아서 넘어오는것 까지 확인! 시간들 찾는것 까지 확인!
-		
-		String result = "true";
-		return result;
+
+		return pt;
 	}
 	
 	
