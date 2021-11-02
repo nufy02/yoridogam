@@ -12,7 +12,8 @@ public class NoticeServiceImpl implements NoticeService{
 	
 	@Override
 	public int insertNoti(Notice notice) {
-		return noticeDao.insertNoti(notice);
+		noticeDao.insertNoti(notice);
+		return notice.getNoti_no();
 	}
 
 	@Override

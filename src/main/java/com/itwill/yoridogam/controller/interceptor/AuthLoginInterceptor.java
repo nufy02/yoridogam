@@ -39,7 +39,7 @@ public class AuthLoginInterceptor extends HandlerInterceptorAdapter{ //implement
 
 		//login 상태인지 확인
 		if(sUserId==null&&sTeacherId==null) {
-			response.sendRedirect("home");//추후 로그인폼으로 수정
+			response.sendRedirect("member_login_form");//추후 로그인폼으로 수정
 			//아니면 로그인하러 가
 			return false;
 		}

@@ -20,7 +20,8 @@ public class NoticeDaoImpl implements NoticeDao {
 	
 	@Override
 	public int insertNoti(Notice notice) {
-		return sqlSession.insert(NAMESPACE+"insertNoti", notice);
+		sqlSession.insert(NAMESPACE+"insertNoti", notice);
+		return notice.getNoti_no();
 	}
 
 	@Override

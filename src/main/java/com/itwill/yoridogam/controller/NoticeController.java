@@ -1,5 +1,6 @@
 package com.itwill.yoridogam.controller;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.itwill.yoridogam.controller.interceptor.LoginCheck;
 import com.itwill.yoridogam.notice.Notice;
 import com.itwill.yoridogam.notice.NoticeService;
 
@@ -55,6 +57,7 @@ public class NoticeController {
 	
 	/**** 공지사항 작성 폼 ****/
 	@RequestMapping("noti_write_form")
+	@LoginCheck
 	public String noti_write_form() {
 		return"notice_write_form";
 	}
@@ -62,19 +65,20 @@ public class NoticeController {
 	/**** 공지사항 작성 액션(get) ****/
 	@GetMapping("noti_write_action")
 	public String noti_write_action_get() {
-		return "redirect:notice_list";
+		return "redirect:notice_list_form";
 	}
 	
 	/**** 공지사항 작성 액션(post) ****/
 	@PostMapping("noti_write_action")
 	public String noti_write_action_post(@ModelAttribute Notice notice, Model model) {
-		noticeService.insertNoti(notice);
-		model.addAttribute("notice", notice);
-		return "noti_detail";
+		int noti_no = noticeService.insertNoti(notice);
+		model.addAttribute("notice", noticeService.selectByNotiNo(noti_no));
+		return "redirect:notice_detail?noti_no="+noti_no;
 	}
 	
 	/**** 공지사항 수정 폼 ****/
 	@RequestMapping("noti_update_form")
+	@LoginCheck
 	public String noti_update_form() {
 		return "noti_update_form";
 	}
@@ -90,17 +94,19 @@ public class NoticeController {
 	public String noti_update_action_post(@ModelAttribute Notice notice, Model model) {
 		noticeService.updateNoti(notice);
 		model.addAttribute("notice", notice);
-		return "noti_detail";
+		return "notice_detail";
 	}
 	
 	/**** 공지사항 삭제 액션(Get) ****/
 	@GetMapping("noti_delete_action")
+	@LoginCheck
 	public String noti_delete_action_get() {
 		return "redirect:notice_list";
 	}
 	
 	/**** 공지사항 삭제 액션(Post) ****/
 	@PostMapping("noti_delete_action")
+	@LoginCheck
 	public String noti_delete_action_post(@RequestParam int noti_no) {
 		noticeService.deleteNoti(noti_no);
 		return "notice_list";

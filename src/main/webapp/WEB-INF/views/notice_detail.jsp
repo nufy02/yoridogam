@@ -7,6 +7,14 @@
 <%@taglib prefix="s" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<script type="text/javascript">
+$("#delete_btn").on("click", function(e){
+    form.attr("action", "/noti_delete_action");
+    form.attr("method", "post");
+    form.submit();
+});
+</script>
+
 
 <!-- Header Area Start -->
 <%@include file="/WEB-INF/views/common/include_header.jsp"%>
@@ -39,9 +47,9 @@
 		
 						<!-- 내용 들어갈 자리 끝 -->
 				</div>
-						<button type="button" class="btn btn-outline-warning  btn-sm" onClick="location.href='noti_update_form'">수정</button>                          
-						<button type="button" class="btn btn-outline-warning  btn-sm" onClick="location.href='noti_delete_action'">삭제</button>                          
-	                        
+						<button type="button" class="btn btn-outline-warning btn-sm" onClick="location.href='noti_update_form'">수정</button>                          
+						<button type="submit" class="btn btn-outline-warning btn-sm" value="noti_delete_action?noti_no=${notiDetail.noti_no}">삭제</button>                          
+	                    <a class="btn btn-outline-warning btn-sm" id="delete_btn">삭제</a>
 				</div>
 			</div>
 		</div>
@@ -65,6 +73,7 @@
     <script src="js/active.js"></script>
 	<!-- Custom -->
 	<script src="js/custom/cart.js"></script>
+
 	
 </body>
 
