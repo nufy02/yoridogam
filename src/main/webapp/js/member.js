@@ -163,11 +163,17 @@ function id_duplicate_check(){
 	$(document).ready(function(){
 		$('#payList').click(function(){
 			$('#check').empty();
-			$('#check').load('pay_list_form');
+			$('#check').load('pay_list_form').hide().fadeIn("slow");
 		})
 	})
 
 	
+	$(document).ready(function(){
+		$('#rsvList').click(function(){
+			$('#check').empty();
+			$('#check').load('rsv_member_list');
+		})
+	})
 	
 	
 	
