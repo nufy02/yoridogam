@@ -23,6 +23,9 @@
 	<update id="updateNoti" parameterType="com.itwill.yoridogam.notice.Notice">
 		update NOTICE set NOTI_TITLE =#{noti_title}, NOTI_CONTENT=#{noti_content} 
 			where NOTI_NO=#{noti_no}
+	<selectKey keyProperty="noti_no" resultType="java.lang.Integer" order="AFTER">
+		SELECT #{noti_no} FROM DUAL
+	</selectKey>
 	</update>
 	
 	<delete id="deleteNoti" parameterType="java.lang.Integer">

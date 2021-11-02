@@ -42,13 +42,14 @@
 		
 						<!-- 내용 들어갈 자리 끝 -->
 				</div>
-						<a href="noti_update?noti_no=${notiDetail.noti_no}" role="button"
-							class="btn btn-outline-warning btn-sm" >수정</a>
-						
+						<span><center>
+						<input type="button" class="btn btn-outline-warning btn-sm" 
+								value="목록" onClick="location.href='notice_list'"> 
 						<input type="button" class="btn btn-outline-warning btn-sm" 
 								value="수정" onClick="location.href='noti_update?noti_no=${notiDetail.noti_no}' "> 
 						<a href="noti_delete_action?noti_no=${notiDetail.noti_no}" role="button"
 							class="btn btn-outline-warning btn-sm" onclick="alert('삭제되었습니다.');" >삭제</a>
+						</span>
 				</div>
 			</div>
 		</div>

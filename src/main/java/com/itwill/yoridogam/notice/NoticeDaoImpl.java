@@ -26,7 +26,8 @@ public class NoticeDaoImpl implements NoticeDao {
 
 	@Override
 	public int updateNoti(Notice notice) {
-		return sqlSession.update(NAMESPACE+"updateNoti", notice);
+		sqlSession.update(NAMESPACE+"updateNoti", notice);
+		return notice.getNoti_no();
 	}
 
 	@Override
