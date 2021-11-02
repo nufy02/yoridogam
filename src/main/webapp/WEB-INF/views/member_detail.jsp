@@ -15,7 +15,7 @@
                 <div class="row">
                     <div class="col-12 col-lg-8">
                        <div >
-						<input type="button" class="btn btn-info btn-md" style="background-color: #FBB710; border-color: #FBB710" value="관심강의" onClick="">&nbsp;&nbsp; 
+						<input type="button" class="btn btn-info btn-md"  id="interestList" style="background-color: #FBB710; border-color: #FBB710" value="관심강의">&nbsp;&nbsp; 
 						<input type="button" class="btn btn-info btn-md" style="background-color: #FBB710; border-color: #FBB710" value="장바구니" onClick="">&nbsp;&nbsp; 
 						<input type="button" class="btn btn-info btn-md"  id="payList" style="background-color: #FBB710; border-color: #FBB710" value="결제내역" >&nbsp;&nbsp;
 						<input type="button" class="btn btn-info btn-md" id="rsvList"  style="background-color: #FBB710; border-color: #FBB710" value="예약내역"> 
@@ -26,12 +26,7 @@
                             <table class="table table-responsive">
                                 <thead>
                                     <tr>
-                                        <th align="center">
-                                        No.
-                                        <!--  전체선택<br/><input type="checkbox" name="allCheckbox" id="allCheckbox"></th>-->
-                                        <th>강의명</th>
-                                        <th>가격</th>
-                                        <th>강사명</th>
+                                   
                                     </tr>
                                 </thead>
                                 <tbody>

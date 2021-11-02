@@ -175,6 +175,13 @@ function id_duplicate_check(){
 		})
 	})
 	
+	$(document).ready(function(){
+		$('#interestList').click(function(){
+			$('#check').empty();
+			$('#check').load('interest_list');
+		})
+	})
+	
 	
 	
 	
