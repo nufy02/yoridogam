@@ -50,7 +50,6 @@
 	</table>
 	</div>
 	
-	
 	<script type="text/javascript">
 		$('button[name=deleteRsv]').click(function(e) {
 			var cf = confirm("결제를 취소하시겠습니까?");
@@ -68,10 +67,9 @@
 					}
 					
 				})
-			}
-			
-			
+
 		});
+
 	</script>
 	
 </body>

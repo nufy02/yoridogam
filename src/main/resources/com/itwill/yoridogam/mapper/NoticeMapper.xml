@@ -15,9 +15,12 @@
 	<insert id="insertNoti" parameterType="com.itwill.yoridogam.notice.Notice">
 		insert INTO NOTICE(NOTI_NO, NOTI_TITLE, NOTI_DATE, NOTI_VIEWCOUNT, NOTI_CONTENT, M_ID)
 			 VALUES(notice_noti_no_SEQ.nextval, #{noti_title}, sysdate, 0, #{noti_content}, #{member.m_id})
+	<selectKey keyProperty="noti_no" resultType="java.lang.Integer" order="AFTER">
+		SELECT notice_noti_no_SEQ.CURRVAL FROM DUAL
+	</selectKey>
 	</insert>
 	
-	<update id="updateNoti">
+	<update id="updateNoti" parameterType="com.itwill.yoridogam.notice.Notice">
 		update NOTICE set NOTI_TITLE =#{noti_title}, NOTI_CONTENT=#{noti_content} 
 			where NOTI_NO=#{noti_no}
 	</update>

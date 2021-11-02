@@ -7,7 +7,10 @@
 <%@taglib prefix="s" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<script type="text/javascript">
 
+
+</script>
 <!-- Header Area Start -->
 <%@include file="/WEB-INF/views/common/include_header.jsp"%>
 <!-- Header Area End -->
@@ -39,9 +42,13 @@
 		
 						<!-- 내용 들어갈 자리 끝 -->
 				</div>
-						<button type="button" class="btn btn-outline-warning  btn-sm" onClick="location.href='noti_update_form'">수정</button>                          
-						<button type="button" class="btn btn-outline-warning  btn-sm" onClick="location.href='noti_delete_action'">삭제</button>                          
-	                        
+						<a href="noti_update?noti_no=${notiDetail.noti_no}" role="button"
+							class="btn btn-outline-warning btn-sm" >수정</a>
+						
+						<input type="button" class="btn btn-outline-warning btn-sm" 
+								value="수정" onClick="location.href='noti_update?noti_no=${notiDetail.noti_no}' "> 
+						<a href="noti_delete_action?noti_no=${notiDetail.noti_no}" role="button"
+							class="btn btn-outline-warning btn-sm" onclick="alert('삭제되었습니다.');" >삭제</a>
 				</div>
 			</div>
 		</div>
@@ -65,6 +72,7 @@
     <script src="js/active.js"></script>
 	<!-- Custom -->
 	<script src="js/custom/cart.js"></script>
+
 	
 </body>
 
