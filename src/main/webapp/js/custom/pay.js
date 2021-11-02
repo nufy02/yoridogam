@@ -21,12 +21,28 @@ $(document).ready(function(){
     });      
   
 // 결제내역 상세 - 결제list 출력용
-	$('.detailBtn').click(function(){
+	$('button[name=detailBtn]').click(function(){
 		var pay_no=($(this).val());
 		var data = { "pay_no": pay_no };
 					$('#productDetail').empty();
-					$('#productDetail').load('payItem_detail_form',data);
-					e.preventDefault();
+					$('#productDetail').load('payItem_detail_form',data).hide().fadeIn("3000")
+	})
+// 결제내역 삭제 - 결제list 출력용
+	$('button[name=deleteBtn]').click(function(){
+		var confirmD=confirm( "해당 결제내역을 삭제하시겠습니까?");
+		if(confirmD){
+			var pay_no=($(this).val());
+			var data = { "pay_no": pay_no };
+			$.ajax({
+				url:'pay_delNo_action',
+				method:'POST',
+				data: data,
+				success: function(){
+						$('#check').empty();
+						$('#check').load('pay_list_form').hide().fadeIn("slow");
+					}
+			})
+		}
 	})
 	
 	

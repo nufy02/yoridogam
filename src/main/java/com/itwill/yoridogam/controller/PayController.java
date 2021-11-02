@@ -133,9 +133,9 @@ public class PayController {
 	 *********************************************************************/
 	@LoginCheck
 	@RequestMapping(value = "pay_delNo_action")
-	public String pay_delNo_action(HttpSession session, int pay_no)throws Exception {
+	@ResponseBody
+	public void pay_delNo_action(HttpSession session, int pay_no)throws Exception {
 		payService.deletePayByNo(pay_no);
-		return "pay_list_form";
 	}
 	
 	/*********************************************************************

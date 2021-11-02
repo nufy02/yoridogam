@@ -25,7 +25,7 @@
                     <th>결제번호</th>
                     <th>결제날짜</th>
                     <th>결제금액</th>
-                    <th>상세보기</th>
+                    <th>강의명</th>
                     <th></th>
                   </tr>
                 </thead>
@@ -35,9 +35,9 @@
                     <td>${pay.pay_no}</td>
                     <td>${pay.pay_date}</td>
                     <td>${pay.pay_total }</td>
-                    <td><button class="detailBtn" value="${pay.pay_no}">상세보기</button></td>
-                    <c:forEach var="pay" items="${pay.payItemList}" begin="0" end="0" step="1" varStatus="status">
-                    <td style="text-overflow: ellipsis; overflow: hidden;">[${pay.product.p_name}] 등</c:forEach></td>
+                    <td style="text-overflow: ellipsis; overflow: hidden;">[${pay.payItemList[0].product.p_name}] 등</td>
+                    <td><button class="btn btn-outline-warning" name="detailBtn" value="${pay.pay_no}">상세</button>&nbsp;	
+                    <button class="btn btn-outline-warning" name="deleteBtn" value="${pay.pay_no}">삭제</button></td>
                   </tr>
                   </c:forEach>
                 </tbody>
