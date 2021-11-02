@@ -44,8 +44,24 @@
 		update NOTICE set NOTI_VIEWCOUNT = NOTI_VIEWCOUNT+1 where NOTI_NO=#{noti_no}
 	</update>
 	
-	<select id="countAllNoti" resultType="java.lang.Integer">
-		select count(*) from NOTICE
+	<!-- 페이징 -->
+	<select id="listCount" resultType="java.lang.Integer">
+		<![CDATA[
+		select count(*) from NOTICE where noti_no>0
+		]]>
 	</select>
+	<!-- 페이징 처리 후 게시글 조회 -->
+	<select id="selectPageNotice" resultType="com.itwill.yoridogam.notice.page.PagingVO">
+		SELECT * FROM (SELECT NOTI_NO, 
+                       NOTI_TITLE, 
+                       NOTI_DATE, 
+                       NOTI_VIEWCOUNT, 
+                       NOTI_CONTENT, 
+                       ROW_NUMBER() OVER(ORDER BY NOTI_NO DESC) AS RNUM
+                FROM NOTICE)
+		WHERE RNUM BETWEEN #{rowStart} AND #{rowEnd}
+		ORDER BY NOTI_NO DESC
+	</select>
+	
 
 </mapper>
