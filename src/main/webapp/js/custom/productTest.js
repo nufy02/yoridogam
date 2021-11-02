@@ -57,4 +57,65 @@ $("select[name=p_type]").change(function(){ // select 옵션 값이 변한다면
 	}
 }); //간단히 변경하ㄹ 수 있으면 좋을 듯..
 
+$(document).ready(function(){
+    $("#pt_timeSetting").click(function(){
+	$("#exampleModalCenter").modal();
+       // $("#exampleModalCenter").attr("style", "display:flex; opacity:1"); 
+        console.log(s);
+    });
+});
+
+$('#pt_dateSelect').change(function(e){
+	var date = $('#pt_dateSelect').val();
+	var p_no = $('input[name=p_no]').val();
+	$.ajax({
+		type : 'post',
+		url : 'pt_date_ajax',
+		data : {'pt_date' : date, 'p_no' : p_no },
+		dataType:'json',
+		success: function(result){
+			$('#time_tbody').empty();
+			$.each(result, function(i, jsonObject){
+			$('#time_tbody').append(`<tr id="timeTr">
+                    <td></td>
+                    <td>${result[i].pt_time}</td>
+                    <td>${result[i].pt_max}</td>
+                    <td>${result[i].pt_rsv}</td>
+                    <td><a href="#" id="deletePt" value="${result[i].pt_no}">삭제</a></td>
+					</tr>`);
+		    })
+		}
+	})
+});
+
+
+$("#submitPT").click(function(){
+	var p_no=$('input[name=p_no]').val();
+	var pt_date=$('input[name=pt_date]').val();
+	var pt_time=$('input[name=pt_time]').val();
+	var pt_max=$('input[name=pt_max]').val();
+	var data={"p_no":p_no, "pt_date":pt_date, "pt_time":pt_time, "pt_max":pt_max};
+	$.ajax({ 
+		type: 'POST',
+		url: "pt_create_action",
+		data: JSON.stringify(data),
+		contentType: "application/json; charset=UTF-8",
+		success: function(pt) {
+			alert("강의 시간이 추가 되었습니다.");
+			$('#time_tbody').empty();
+			$.each(pt, function(i){
+			$('#time_tbody').append(`<tr id="timeTr">
+                    <td></td>
+                    <td>${pt[i].pt_time}</td>
+                    <td>${pt[i].pt_max}</td>
+                    <td>${pt[i].pt_rsv}</td>
+                    <td><a href="#" id="deletePt" value="${pt[i].pt_no}">삭제</a></td>
+					</tr>`);
+		    })
+		}
+	});
+
+
+})
+
 
