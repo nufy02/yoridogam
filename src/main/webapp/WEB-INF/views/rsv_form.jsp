@@ -43,7 +43,7 @@
 							<div class="cart-title">
 								<h2 style="color: #FBB710; margin-bottom: 100px">오프라인 강의 결제</h2>
 							</div>
-							<form action="rsv_action" method="post">
+							<form action="rsv_action" method="get">
 								<h4 style="color: #FBB710">-회원 정보-</h4>		
 								<div>
 									<!--회원정보 -->
@@ -96,15 +96,6 @@
                                     <p>예약 날짜</p>
 									<div class="col-12 mb-3">
 									 <input p-no="${product.p_no}" type="date" class="form-control mb-3" id="rsv_date" name="rsv_date" value="">
-	                                        	<%-- <select class="w-100" name ="rsv_date" id="rsv_date" >
-	                                        		<option value="" >원하는 날짜를 선택해주세요</option>
-													<c:forEach var="pt" items="${pTList}" >
-															<c:if test="${pt.pt_date != date}">
-					                                        <option  value="${pt.pt_date}">${pt.pt_date}</option>
-															<c:set var="date" value="${pt.pt_date}"/>
-					                                        </c:if>
-													</c:forEach>
-                                  				  </select> --%>
                                     	</div>
 								</div>
 								</li>
@@ -114,33 +105,30 @@
 								<li>
 								<div>
                                     <p>예약 시간</p>
-									<div class="col-12 mb-3" id="sdsdasd">
-	                                	<p>날짜를 선택해주세요</p>        	
+									<div class="col-12 mb-3" id="rsv_date_time">
+	                                	<p>날짜를 선택해주세요.</p>    
+	                                	  	
                                     </div>
 								</div>
 								</li>
 								<!-- 예약시간 끝 -->
 								
 								<li>
-								 <div class="cart-btn d-flex mb-50">
+								 <div>
                                     <p>인원</p>
-                                    <div class="quantity">
-                                 
-                                    	<select class="w_100" name="rsv_qty">
-                                    		<c:forEach begin="1" end="30" items=''>
-                                    			
-                                    		</c:forEach>
-                                    	</select>
-         
+                                    <div class="quantity" id="rsv_date_qty">
+                                 		<p>날짜와 시간을 선택해주세요.</p>
+                                 		
                                     </div>
                                 </div>
 								</li>
 								<li><span>total:</span> 
 								
 								<!-- 가격 변경하는거 구현해야됨! -->
-								<input type="hidden"  id="rsv_total" name="rsv_total" value="${product.p_price}"> 
-								<label for="rsv_total">${product.p_price} 원 </label>
-								
+								<div id="rsv_pay_total">
+									<input type="hidden"  id="rsv_total" name="rsv_total" value="${product.p_price}"> 
+									<label for="rsv_total">${product.p_price} 원 </label>
+								</div>
 								</li>
 							</ul>
 							                           <!-- 인원 카운트 한느거

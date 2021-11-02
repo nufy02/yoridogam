@@ -79,7 +79,7 @@ public class RsvController {
 
 	// 결제 action
 	@LoginCheck
-	@PostMapping("rsv_action")
+	@GetMapping("rsv_action")
 	public String rsv_action(@ModelAttribute("reservation") Reservation reservation,int p_no,HttpSession session,Model model) throws Exception {
 		String sUserId=(String)session.getAttribute("sUserId");
 		reservation.setProduct(new Product(p_no, null, null, null, null, null, null, null));
@@ -131,19 +131,29 @@ public class RsvController {
 	@PostMapping(value = "rsv_date_ajax",produces = "application/json;charset=UTF-8")
 	@ResponseBody
 	public List<ProductTime> rsv_date_ajax(@RequestParam String rsv_date,@RequestParam int p_no) throws Exception{
-		System.out.println(rsv_date + "선택된 날짜!");
-		System.out.println(p_no + "선택된 날짜!");
 		List<ProductTime> pt = productTimeService.selectPtTime(rsv_date, p_no);
-		System.out.println(pt);
-		// 화면에서 데이터 받아서 넘어오는것 까지 확인! 시간들 찾는것 까지 확인!
-
+		
 		return pt;
+		
 	}
 	
+	// 웹에서 rsv_time 선택할때 실행하는 controller
+	@PostMapping(value = "rsv_time_ajax",produces = "application/json;charset=UTF-8")
+	@ResponseBody
+	public ProductTime rsv_time_ajax(@RequestParam String rsv_date,@RequestParam int p_no,@RequestParam String rsv_time)throws Exception {
+		
+		ProductTime productTime = productTimeService.selectPtNo2(new ProductTime(0, rsv_date, rsv_time, 0, 0, new Product(p_no, null, null, null, null, null, null, null)));
+		System.out.println(productTime);
+		return productTime;
+	}
 	
-	
-	
-	
+	// 웹에서 rsv_qty 선택할때 실행하는 controller
+	@PostMapping(value = "rsv_qty_ajax",produces = "application/json;charset=UTF-8")
+	@ResponseBody
+	public Product rsv_qty_ajax(@RequestParam int p_no)throws Exception {
+		Product product = productService.selectByNo(p_no);
+		return product;
+	}
 	
 	
 	
