@@ -39,7 +39,7 @@
 		<br>
 		<div id="chk">
 			<form id="checkForm">
-				<input type="text" name="sUserId" id="sUserId" value="${sUserId}"> <input
+				<input type="text" name="sTeacherId" id="sTeacherId" value="${sTeacherId}"> <input
 					type="button" value="중복확인" onclick="id_duplicate_check2();">
 			</form>
 			<div id="msg">${msg}</div>
