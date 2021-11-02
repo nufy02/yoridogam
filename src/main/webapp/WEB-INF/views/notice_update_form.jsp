@@ -1,13 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="com.itwill.yoridogam.notice.NoticeService"%>
+<%@ page import="com.itwill.yoridogam.member.Member"%>
 <%@page import="java.text.DecimalFormat"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="s" uri="http://www.springframework.org/tags" %>  
-<%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<script type="text/javascript" src="js/address.js">
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="s" uri="http://www.springframework.org/tags"%>
+<%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<script type="text/javascript">
 
-</script> 
+
+</script>
 <style>
         table.table2{
                 border-collapse: separate;
@@ -50,7 +53,7 @@
                         </div>  
                     </div>
                     <!--  -->
-           <form method = "POST" action = "/yoridogam/noti_write_action">
+           <form method = "POST" action = "/yoridogam/noti_update_action">
         <table  style="padding-top:50px" align = center width=50 border=0 cellpadding=2 >
                 
                 <tr>
@@ -63,12 +66,12 @@
  
                         <tr>
                         <td>제목</td>
-                        <td><input type = text name = noti_title size=50></td>
+                        <td><input type = text name = noti_title size=50>${notice.noti_title }</td>
                         </tr>
  
                         <tr>
                         <td>내용</td>
-                        <td><textarea name = noti_content cols=50 rows=10></textarea></td>
+                        <td><textarea name = noti_content cols=50 rows=10>${notice.noti_content}</textarea></td>
                         </tr>
  
                         </table>
@@ -89,8 +92,7 @@
             </div>
         </div>
     </div>
-
-    <!-- ##### Main Content Wrapper End ##### -->
+  <!-- ##### Main Content Wrapper End ##### -->
 
     <!-- ##### Footer Area Start ##### -->
 	<%@include file="/WEB-INF/views/common/include_footer.jsp"%>
@@ -108,6 +110,8 @@
     <script src="js/active.js"></script>
 	<!-- Custom -->
 	<script src="js/custom/cart.js"></script>
+
+	
 </body>
 
 </html>

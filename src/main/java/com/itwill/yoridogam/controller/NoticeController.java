@@ -77,10 +77,12 @@ public class NoticeController {
 	}
 	
 	/**** 공지사항 수정 폼 ****/
-	@RequestMapping("noti_update_form")
 	@LoginCheck
-	public String noti_update_form() {
-		return "noti_update_form";
+	@RequestMapping(value = "noti_update", params = "noti_no")
+	public String noti_update_form(@ModelAttribute int noti_no, Model model) {
+		Notice notiUpdate = noticeService.selectByNotiNo(noti_no);
+		model.addAttribute("notice", notiUpdate);
+		return "notice_update_form";
 	}
 	
 	/**** 공지사항 수정 액션(Get) ****/
@@ -88,28 +90,23 @@ public class NoticeController {
 	public String noti_update_action_get() {
 		return "redirect:notice_list";
 	}
-	
 	/**** 공지사항 수정 액션(Post) ****/
+	/*
 	@PostMapping("noti_update_action")
-	public String noti_update_action_post(@ModelAttribute Notice notice, Model model) {
-		noticeService.updateNoti(notice);
+	public String noti_update_action_post(@ModelAttribute int noti_no, Model model) {
+		noticeService.updateNoti(noti_no);
 		model.addAttribute("notice", notice);
 		return "notice_detail";
 	}
-	
-	/**** 공지사항 삭제 액션(Get) ****/
-	@GetMapping("noti_delete_action")
+	*/
+
+	/**** 공지사항 삭제 액션 ****/
+	@RequestMapping("noti_delete_action")
 	@LoginCheck
-	public String noti_delete_action_get() {
-		return "redirect:notice_list";
-	}
-	
-	/**** 공지사항 삭제 액션(Post) ****/
-	@PostMapping("noti_delete_action")
-	@LoginCheck
-	public String noti_delete_action_post(@RequestParam int noti_no) {
+	public String noti_delete_action_post(@RequestParam int noti_no, Model model) {
+		model.addAttribute("msg", "공지사항이 삭제되었습니다.");
 		noticeService.deleteNoti(noti_no);
-		return "notice_list";
+		return "redirect:notice_list";
 	}
 	
 

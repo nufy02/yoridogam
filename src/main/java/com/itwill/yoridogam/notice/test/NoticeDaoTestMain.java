@@ -29,17 +29,19 @@ public class NoticeDaoTestMain {
 		Notice insertNoti2 = new Notice(0, "공지사항입니다2", new Date(0), 0, "공지사항 내용입니다4", aa);
 		Notice insertNoti3 = new Notice(0, "공지사항입니다3", new Date(0), 0, "공지사항 내용입니다4", aa);
 		
+		Notice updateNoti1 = new Notice(12, "수정 확인하겠습니다", new Date(0), 0, "공지사항 내용입니다4", aa);
+		
 		//System.out.println(noticeDao.insertNoti(insertNoti1));
 		//System.out.println(noticeDao.insertNoti(insertNoti2));
 		//System.out.println(noticeDao.insertNoti(insertNoti3));
 		
 		//System.out.println(noticeDao.insertNoti(insertNoti100));
 		
-		/*글 번호로 보기*/
-		//System.out.println(noticeDao.selectByNotiNo(2));
 		
 		/*글 수정*/
-		//System.out.println(noticeDao.updateNoti(updateNoti1));
+		System.out.println(noticeDao.updateNoti(updateNoti1));
+		/*글 번호로 보기*/
+		System.out.println(noticeDao.selectByNotiNo(12));
 		
 		/*글 삭제*/
 		//System.out.println(noticeDao.deleteNoti(5));
