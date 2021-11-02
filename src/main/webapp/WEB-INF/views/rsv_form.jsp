@@ -114,16 +114,9 @@
 								<li>
 								<div>
                                     <p>예약 시간</p>
-									<div class="col-12 mb-3">
-	                                        	<select class="w-100" name ="rsv_time" id="rsv_time">
-													<c:forEach var="pt" items="${pTList}">
-													<c:if test="${pt.pt_date ==date }">
-					                                    <option  value="${pt.pt_time}">${pt.pt_time}</option>
-					                                    <c:set var="date" value="${pt.pt_date}"/>
-					                                    </c:if>
-													</c:forEach>
-                                  				  </select>
-                                    	</div>
+									<div class="col-12 mb-3" id="sdsdasd">
+	                                	<p>날짜를 선택해주세요</p>        	
+                                    </div>
 								</div>
 								</li>
 								<!-- 예약시간 끝 -->
