@@ -15,7 +15,7 @@
               <table class="table table-inverse" style="color: orange;">
                 <thead>
                   <tr style="width: 750px;">
-                    <th>결제상세번호</th>
+                    <th></th>
                     <th>강의명</th>
                     <th>강의 수</th>
                     <th>강의 금액</th>
@@ -25,7 +25,7 @@
                 <tbody>
                 <c:forEach var="pay" items="${pay.payItemList}" begin="0" end="${pay.payItemList.size()}" step="1" varStatus="status">
                   <tr style="width: 750px;">
-                    <td>${pay.pi_no }</td>
+                    <td><img src="${pay.product.p_photo }"/></td>
                     <td>${pay.product.p_name }</td>
                     <td>${pay.pi_qty }</td>
                     <td>${pay.product.p_price }</td>
