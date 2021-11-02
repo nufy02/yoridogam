@@ -81,4 +81,6 @@ public class CartRestController {
 		int total=Integer.parseInt(nCart.getProduct().getP_price())*nCart.getCi_qty();
 		return total;
 	}
+
+
 }
