@@ -8,7 +8,7 @@
 		<result column="P_CATEGORY" property="p_category"/>
 		<result column="P_PRICE" property="p_price"/>
 		<result column="P_TYPE" property="p_type"/>
-		<result column="p_PHOTO" property="p_photo"/>
+		<result column="P_PHOTO" property="p_photo"/>
 		<association property="teacher" javaType="com.itwill.yoridogam.teacher.Teacher" autoMapping="true">
 				<result column="T_ID" property="t_id"/>
 				<result column="T_NAME" property="t_name"/>
@@ -37,7 +37,7 @@
 	
 	<update id="updateByNo" parameterType="com.itwill.yoridogam.product.Product">
 		update product 
-		set p_name=#{p_name},p_detail=#{p_detail},p_category=#{p_category},p_price=#{p_price},p_type=#{p_type} where p_no=#{p_no}
+		set p_name=#{p_name},p_detail=#{p_detail},p_category=#{p_category},p_price=#{p_price},p_type=#{p_type}, p_photo=#{p_photo} where p_no=#{p_no}
 	</update>
 	<delete id="deleteByNo" parameterType="java.lang.Integer">
 		delete product where p_no=#{p_no}

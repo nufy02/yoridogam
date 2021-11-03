@@ -59,9 +59,8 @@ $("select[name=p_type]").change(function(){ // select 옵션 값이 변한다면
 
 $(document).ready(function(){
     $("#pt_timeSetting").click(function(){
-	$("#exampleModalCenter").modal();
+		$("#exampleModalCenter").modal();
        // $("#exampleModalCenter").attr("style", "display:flex; opacity:1"); 
-        console.log(s);
     });
 });
 
@@ -81,7 +80,7 @@ $('#pt_dateSelect').change(function(e){
                     <td>${result[i].pt_time}</td>
                     <td>${result[i].pt_max}</td>
                     <td>${result[i].pt_rsv}</td>
-                    <td><a href="#" id="deletePt" value="${result[i].pt_no}">삭제</a></td>
+                    <td><input type="checkbox" class="checkPt" value="${result[i].pt_no}"/></td>
 					</tr>`);
 		    })
 		}
@@ -109,13 +108,42 @@ $("#submitPT").click(function(){
                     <td>${pt[i].pt_time}</td>
                     <td>${pt[i].pt_max}</td>
                     <td>${pt[i].pt_rsv}</td>
-                    <td><a href="#" id="deletePt" value="${pt[i].pt_no}">삭제</a></td>
+                    <td><input type="checkbox" class="checkPt" value="${pt[i].pt_no}"/></td>
 					</tr>`);
 		    })
 		}
 	});
-
-
 })
+
+$("#deletePt").click(function(){
+	var pt_noList=[];
+	var pt_date=$('input[name=pt_dateSelect]').val();
+	var p_no=$('input[name=p_no]').val();
+    $('.checkPt:checked').each(function(){
+        var pt_no=$(this).val()
+        pt_noList.push(pt_no)
+		});
+		var data={"pt_noList": pt_noList, "pt_date":pt_date, "p_no":p_no}
+		$.ajax({
+		type : 'post',
+		url : 'product_time_delete_action',
+		data : data,
+		dataType:'json',
+		success: function(result){
+			alert("강의 시간이 삭제 되었습니다.");
+			$('#time_tbody').empty();
+			$.each(result, function(i){
+			$('#time_tbody').append(`<tr id="timeTr">
+                    <td></td>
+                    <td>${result[i].pt_time}</td>
+                    <td>${result[i].pt_max}</td>
+                    <td>${result[i].pt_rsv}</td>
+                    <td><input type="checkbox" class="checkPt" value="${result[i].pt_no}"/></td>
+					</tr>`);
+					})
+			}
+		})
+})
+
 
 
