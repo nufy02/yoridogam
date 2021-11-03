@@ -34,7 +34,7 @@ $("select[name=p_type]").change(function(){ // select 옵션 값이 변한다면
                                         <input type="date" class="form-control mb-3" name="pt_date" value="">
                                     </div>
                                     <div class="col-6 mb-3">
-                                        <input type="text" class="form-control mb-3" name="pt_time" placeholder="ex)10:00~11:00,11:00~12:00,13:00,~14:00" value="">
+                                        <input type="text" class="form-control mb-3" name="pt_time" placeholder="ex)10:00-11:00,11:00-12:00,13:00-14:00" value="">
                                     </div>
                                     <div class="col-12 mb-3">
                                         <textarea name="p_detail" class="form-control w-100" id="" cols="30" rows="10" placeholder="상품설명"></textarea>
@@ -50,7 +50,7 @@ $("select[name=p_type]").change(function(){ // select 옵션 값이 변한다면
                                             <label class="custom-control-label" for="customCheck3">Ship to a different address</label>
                                         </div>
                                         <div class="cart-btn mt-100">
-                                			<input type="submit"  class="btn amado-btn w-100" value="결제하기" onclick="javascript: form.action='product_insert_off_action';"/><br><br/>
+                                			<input type="submit"  class="btn amado-btn w-100" value="등록하기" onclick="javascript: form.action='product_insert_off_action';"/><br><br/>
                                 			<a href="home" class="btn amado-btn w-100">취소하기</a>
                            				</div>
                                     </div>`);
