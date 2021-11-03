@@ -14,22 +14,20 @@
             <div class="table-responsive">
               <table class="table table-inverse" style="color: orange;">
                 <thead>
-                  <tr style="width: 750px;">
+                  <tr>
                     <th></th>
                     <th>강의명</th>
                     <th>강의 수</th>
                     <th>강의 금액</th>
-                    <th>강사 이름</th>
                   </tr>
                 </thead>
                 <tbody>
                 <c:forEach var="pay" items="${pay.payItemList}" begin="0" end="${pay.payItemList.size()}" step="1" varStatus="status">
-                  <tr style="width: 750px;">
+                  <tr>
                     <td><img src="${pay.product.p_photo }"/></td>
                     <td>${pay.product.p_name }</td>
                     <td>${pay.pi_qty }</td>
                     <td>${pay.product.p_price }</td>
-                    <td>${pay.product.teacher.t_name }</td>
                   </tr>
                   </c:forEach>
                 </tbody>

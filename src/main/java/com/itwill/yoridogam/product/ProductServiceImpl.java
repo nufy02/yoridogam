@@ -48,4 +48,8 @@ public class ProductServiceImpl implements ProductService {
 		return productDao.selectpByT_id(t_id);
 	}
 	
+	@Override
+	public List<Product> selectPTAll() throws Exception {
+		return productDao.selectPTAll();
+	}
 }

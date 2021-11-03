@@ -14,15 +14,14 @@
 <body>
 	
 <div class="container padding-bottom-2x" id="dc">
-        <div class="row" style="width: 1300px;">
-          <div class="col-lg-9 col-md-8 order-md-2">
+        <div class="row" >
+          <div class="col-lg-10 col-md-8 order-md-2">
             <h6 class="text-muted text-normal text-uppercase">결제 내역</h6>
             <hr class="margin-bottom-1x">
             <div class="table-responsive">
               <table class="table">
                 <thead>
-                  <tr style="width: 750px;">
-                    <th>결제번호</th>
+                  <tr>
                     <th>결제날짜</th>
                     <th>결제금액</th>
                     <th>강의명</th>
@@ -31,8 +30,7 @@
                 </thead>
                 <tbody>
                   <c:forEach var="pay" items="${payList}" begin="0" end="${payList.size()}" step="1" varStatus="status">
-                  <tr style="width: 750px;">
-                    <td>${pay.pay_no}</td>
+                  <tr>
                     <td>${pay.pay_date}</td>
                     <td>${pay.pay_total }</td>
                     <td style="text-overflow: ellipsis; overflow: hidden;">[${pay.payItemList[0].product.p_name}] 등</td>
@@ -46,7 +44,7 @@
 		</div>
 	</div>
 </div>
-<div id="productDetail" style="padding-left: 10px;">
+<div id="productDetail" class="col-lg-10 col-md-8 order-md-2">
 </div>
     <!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
     <script src="js/jquery/jquery-2.2.4.min.js"></script>

@@ -75,16 +75,19 @@
          
                 <c:choose>
                 <c:when test ="${!empty(sTeacherId)}" >
-                	<li><a href="teacher_detail" style="color: blue;">[${sTeacherId_name}]</a></li>
+                	<li><a href="teacher_detail" style="color: blue;">[${sTeacherId_name}] <span style="color: black;">님 반갑습니다</span></a></li>
+                </c:when>
+                <c:when test ="${!empty(sUserId)}" >
+                	<li><a href="member_detail" style="color: blue;">[${sUserId_name}] <span style="color: black;">님 반갑습니다</span></a></li>   
                 </c:when>
                 <c:otherwise>
-                	<li><a href="member_detail" style="color: blue;">[${sUserId_name}]</a></li>                
+        	        <li><a href="member_login_form" style="color: blue;">guest <span style="color: black;">님 반갑습니다</span></a></li>   
                 </c:otherwise>
                 </c:choose>
                     <li class="active"><a href="home">메인</a></li>
                     <li><a href=".html">온라인 강의</a></li>
                     <li><a href=".html">오프라인 강의</a></li>
-                    <li><a href=".html">내 주변 강의</a></li>
+                    <li><a href="product_maps">내 주변 강의</a></li>
                     <li><a href="notice_list">공지사항</a></li>
                     <li><a href="inquiry_list">문의게시판</a></li>
                 </ul>
@@ -106,7 +109,7 @@
             <!-- Cart Menu -->
             <div class="cart-fav-search mb-100">
                 <a href="cart_list_form" class="cart-nav"><img src="img/core-img/cart.png" alt=""> 장바구니 <span>(0)</span></a>
-                <a href="#" class="fav-nav"><img src="img/core-img/favorites.png" alt=""> 관심목록</a>
+                <a href="member_detail" class="fav-nav"><img src="img/core-img/favorites.png" alt=""> 관심목록</a>
                 <a href="#" class="search-nav"><img src="img/core-img/search.png" alt=""> 검색</a>
             </div>
             <!-- Social Button -->

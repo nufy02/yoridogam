@@ -22,4 +22,8 @@ public interface ProductDao {
 	
 	/* 강사 번호로 상품 정보 얻기 */
 	List<Product> selectpByT_id(String t_id)throws Exception;
+	
+	/*  상품 강사 정보 조건 없이 */
+	List<Product> selectPTAll()throws Exception;
+	
 }

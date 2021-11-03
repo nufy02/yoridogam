@@ -24,7 +24,6 @@
                                     <tr>
                                         <th align="center">
                                         No.
-                                        <!--  전체선택<br/><input type="checkbox" name="allCheckbox" id="allCheckbox"></th>-->
                                         <th>강의명</th>
                                         <th>가격</th>
                                         <th>강사명</th>

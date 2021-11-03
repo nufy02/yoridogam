@@ -105,8 +105,6 @@ public class ProductController {
 	@LoginCheck
 	@RequestMapping("product_recentView_list")
 	public String product_recentView_list(Product product,HttpSession session, HttpServletRequest request) throws Exception{
-		Cookie[] cookies=request.getCookies();
-		System.out.println(cookies);
 	return "product_recentView_list";
 	}
 	
@@ -132,10 +130,6 @@ public class ProductController {
 		List<ProductTime> pt = productTimeService.selectPtTime(pt_date, p_no);
 		return pt;
 	}
-	@RequestMapping("product_recentview_list")
-	public String pt_recentView_list()throws Exception{
-		return "product_recentview_list";
-	}
 	
 	@RequestMapping("product_time_delete_action")
 	@ResponseBody
@@ -147,5 +141,11 @@ public class ProductController {
 			return result;
 	}
 	
-	
+	@LoginCheck
+	@RequestMapping("product_maps")
+	public String product_maps(HttpSession session, Model model) throws Exception {
+		List<Product> pList=productService.selectPTAll();
+		model.addAttribute("pList",pList);
+		return "product_maps";
+	}
 }

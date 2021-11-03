@@ -47,5 +47,9 @@ public class ProductDaoImpl implements ProductDao {
 		return sqlSession.selectList(NAMESPACE+"selectpByT_id",t_id);
 	}
 
-	
+	/* 강사,상품 조건없이 */
+	@Override
+	public List<Product> selectPTAll() throws Exception {
+		return sqlSession.selectList(NAMESPACE+"selectPTAll");
+	}
 }

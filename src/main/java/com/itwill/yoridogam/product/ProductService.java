@@ -21,4 +21,7 @@ public interface ProductService {
 	
 	/* 강사 아이디 받아서 상품정보 뽑기 */
 	List<Product>selectpByT_id(String t_id)throws Exception;
+	
+	/*  상품 강사 조건 없이 */
+	List<Product> selectPTAll()throws Exception;
 }
