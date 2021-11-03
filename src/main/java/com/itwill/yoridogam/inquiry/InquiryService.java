@@ -29,6 +29,6 @@ public interface InquiryService {
 	boolean updateInquiryViewCount(int ib_no);
 	
 	/*************** 문의글 총 개수 ***************/
-	int countAllInquiry();
+	int countTotalInquiry();
 
 }

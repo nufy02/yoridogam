@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="com.itwill.yoridogam.notice.NoticeService"%>
-<%@ page import="com.itwill.yoridogam.member.Member"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="s" uri="http://www.springframework.org/tags"%>
@@ -19,23 +17,26 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-12 col-lg-20">
-				<div class="notice-title">
-					<h2>공지사항</h2>
+				<div class="inquiry-title">
+					<h2>문의 게시판</h2>
 				</div>
 
 				 <div class="col-12 col-lg-100">
                         <div class="cart-summary">
                     <form name="ff" method="post">
                     <table>
-                        <span>[제목] </span> <span>${notiDetail.noti_title}</span>
+                    	
+                        <span>[제목] </span> <span>${inquiry.ib_title}</span>
                         <hr> 
                         <span>[작성일] </span> 
-                        <span><fmt:formatDate var="resultNotiDate" value="${notiDetail.noti_date}" pattern="yyyy-MM-dd"/>
-								${resultNotiDate}</span> 
-						<hr> 
-                        <span>[조회수] </span> <span>${notiDetail.noti_viewCount} </span>
+                        <span><fmt:formatDate var="resultNotiDate" value="${inquiry.ib_date}" pattern="yyyy-MM-dd"/>
+								${resultNotiDate}</span>  
                         <hr> 
-						<span><textarea name=ib_content cols=60 rows=15 style="resize: none; margin: 5px; " readonly="readonly" >${notiDetail.noti_content}</textarea></span>
+                        <span>[조회수] </span> <span>${inquiry.ib_viewCount} </span>
+						<hr> 
+                        <span>[작성자] </span> <span>${inquiry.member.m_id} </span>
+                        <hr> 
+						<span><textarea name=ib_content cols=60 rows=15 style="resize: none; margin: 5px; " readonly="readonly" >${inquiry.ib_content}</textarea></span>
                         
 					</table>
 					</form>
@@ -43,14 +44,16 @@
 						<!-- 내용 들어갈 자리 끝 -->
 				</div>
 				<hr> 
-						<span><center>
+						<span>
 						<input type="button" class="btn btn-outline-warning btn-sm" 
-								value="목록" onClick="location.href='notice_list'"> 
+								value="목록" onClick="location.href='inquiry_list'"> 
 						<input type="button" class="btn btn-outline-warning btn-sm" 
-								value="수정" onClick="location.href='noti_update?noti_no=${notiDetail.noti_no}' "> 
-						<a href="noti_delete_action?noti_no=${notiDetail.noti_no}" role="button"
+								value="수정" onClick="location.href='inquiry_update?ib_no=${inquiry.ib_no}' "> 
+						<a href="inquiry_delete_action?ib_no=${inquiry.ib_no}" role="button"
 							class="btn btn-outline-warning btn-sm" onclick="alert('삭제되었습니다.');" >삭제</a>
 						</span>
+						<input type="button" class="btn btn-outline-warning btn-sm" style="float: right;"
+								value="답글" onClick="location.href='inquiryA_write?ib_no=${inquiry.ib_no}' "> 
 				</div>
 			</div>
 		</div>

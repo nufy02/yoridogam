@@ -40,7 +40,7 @@ public class NoticeDaoImpl implements NoticeDao {
 	@Override
 	public List<Notice> notiList() {
 		List<Notice> noticeList = sqlSession.selectList(NAMESPACE+"notiList");
-		Collections.reverse(noticeList);
+		//Collections.reverse(noticeList);
 		return noticeList;
 	}
 

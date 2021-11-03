@@ -48,7 +48,7 @@ public class InquiryServiceTestMain {
 		//System.out.println(inquiryService.updateInquiry(updateInq1));
 		
 		/*문의사항 총 개수 보기*/
-		System.out.println(inquiryService.countAllInquiry());
+		System.out.println(inquiryService.countTotalInquiry());
 		
 		/*문의사항 답변 수정*/
 		//System.out.println(inquiryService.updateInquiry(updateInq1));

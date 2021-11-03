@@ -158,7 +158,7 @@ DROP SEQUENCE inquiry_ib_no_SEQ;
 
 CREATE SEQUENCE inquiry_ib_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
-
+CREATE SEQUENCE seqInquiry start with 1 increment by 1 nocache;
 
 CREATE TABLE product_time(
 		pt_no                         		NUMBER(10)		 NULL ,
