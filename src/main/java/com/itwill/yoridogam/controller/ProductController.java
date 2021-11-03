@@ -98,13 +98,7 @@ public class ProductController {
 	@RequestMapping("product_update_action")
 	public String product_update_action(ProductTime productTime,Product product,HttpSession session) throws Exception{
 		product.setP_photo("img/product-img/"+product.getP_photo());
-		if(product.getP_type().equals("온라인")) {
-			productService.updateByNo(product);
-			return "home"; // on ok 수정
-		}else if(product.getP_type().equals("오프라인")) {
-			productService.updateByNo(product);
-			//수정중
-		}
+		productService.updateByNo(product);
 		return "home";
 	}
 	
@@ -138,5 +132,20 @@ public class ProductController {
 		List<ProductTime> pt = productTimeService.selectPtTime(pt_date, p_no);
 		return pt;
 	}
+	@RequestMapping("product_recentview_list")
+	public String pt_recentView_list()throws Exception{
+		return "product_recentview_list";
+	}
+	
+	@RequestMapping("product_time_delete_action")
+	@ResponseBody
+	public List proudct_delete_form(@RequestParam(value="pt_noList[]") List<String> pt_noList, @RequestParam(value="pt_date") String pt_date, String p_no) throws Exception {
+		for(int i=0; i<pt_noList.size(); i++) {
+			productTimeService.delete(Integer.parseInt(pt_noList.get(i)));
+		}
+			List<ProductTime> result = productTimeService.selectPtTime(pt_date, Integer.parseInt(p_no));
+			return result;
+	}
+	
 	
 }

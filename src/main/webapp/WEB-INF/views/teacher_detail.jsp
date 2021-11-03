@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col-12 col-lg-8">
                        <div >
-						<input type="button" class="btn btn-info btn-md" style="background-color: #FBB710; border-color: #FBB710" value="강의등록" onClick="">&nbsp;&nbsp; 
+						<input type="button" class="btn btn-info btn-md"  id="productCreate" style="background-color: #FBB710; border-color: #FBB710" value="강의등록" >&nbsp;&nbsp;
 						<h3>&nbsp;&nbsp;</h3>
          			   </div>
 
@@ -91,7 +91,7 @@
     <!-- Active js -->
     <script src="js/active.js"></script>
 	<!-- Custom -->
-	<script src="js/custom/cart.js"></script>
+	<script src="js/teacher.js"></script>
 </body>
 
 </html>

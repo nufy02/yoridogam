@@ -12,7 +12,6 @@ $('#rsv_date').change(function(e){
 				},
 		dataType:'json',
 		success: function(result){
-			console.log(result)
 			// 컨트롤러에서 받아온 데이터는 result에 담아옴.
          // result는 json 형식으로 받아옴
           $('#rsv_date_time').empty();
@@ -48,7 +47,6 @@ $("#rsv_date_time").on("change","#rsv_time",function(e){
 				},
 		dataType:'json',
 		success: function(result){
-			console.log(result);
 			 $('#rsv_date_qty').empty();
 			 $('#rsv_date_qty').append(`<select class="w_100" name="rsv_qty" id="rsv_qty">`);//append 끝
 			 var ptLength = result.pt_max-result.pt_rsv;
@@ -66,7 +64,6 @@ $("#rsv_date_time").on("change","#rsv_time",function(e){
 $("#rsv_date_qty").on("change","#rsv_qty",function(e){
 	
 	var qty = $('#rsv_qty').val();
-	console.log(qty)
 	$.ajax({
 		type : 'post',
 		url : 'rsv_qty_ajax',
@@ -82,7 +79,23 @@ $("#rsv_date_qty").on("change","#rsv_qty",function(e){
 
 });
 
+$("#deleteRsvTD").on("click","#deleteRsv",function(e) {
+			var cf = confirm("결제를 취소하시겠습니까?");
+			if (cf) {
+				var rsv_no=$(this).val();
+				var ajaxData = {"rsv_no" : rsv_no};
+				$.ajax({
+					url: "rsv_no_delete",
+					method: "POST",
+					data: ajaxData,
+					success: function(){
+						$('#check').empty();
+						$('#check').load('rsv_member_form').hide().fadeIn("slow");
+					}
+					
+				})
 
+		}});
 
 
 

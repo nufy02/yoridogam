@@ -43,7 +43,6 @@
 							<div class="cart-title">
 								<h2 style="color: #FBB710; margin-bottom: 100px">오프라인 강의 결제</h2>
 							</div>
-							<form action="rsv_action" method="get">
 								<h4 style="color: #FBB710">-회원 정보-</h4>		
 								<div>
 									<!--회원정보 -->
@@ -67,24 +66,26 @@
 								<h4 style="color: #FBB710">-상품 정보-</h4>		
 								<!-- 상품 정보 -->
 								<div class="row">
-								<input type="hidden"  name="p_no" value="${product.p_no}">
+							
 									<div class="col-md-6 mb-3">
 										<input type="text" class="form-control" id="t_name"
-											placeholder="name" value="${teacher.t_name}">
+											placeholder="name" value="${teacher.t_name}" readonly="readonly">
 									</div>
 									<div class="col-md-6 mb-3">
 										<input type="text" class="form-control" id="t_phone"
-											placeholder="phone" value="${teacher.t_phone}">
+											placeholder="phone" value="${teacher.t_phone}" readonly="readonly">
 									</div>
 									<div class="col-12 mb-3">
 										<input type="text" class="form-control mb-3" id="t_address"
-											placeholder="Address" value="${teacher.t_location}">
+											placeholder="Address" value="${teacher.t_location}" readonly="readonly">
 									</div>
 								</div>
 								<!-- 상품정보 끝! -->
 						</div>
 					</div>
 					<div class="col-12 col-lg-4">
+							<form action="rsv_action" method="get">
+						<input type="hidden"  name="p_no" value="${product.p_no}">
 						<div class="cart-summary">
 							<h5 style="color: #FBB710; text-align: center; font-weight: 700; padding-bottom: 20px">주문서</h5>
 							<ul class="summary-table">

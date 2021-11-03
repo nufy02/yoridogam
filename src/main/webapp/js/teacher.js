@@ -129,3 +129,8 @@ function id_duplicate_check(){
 		opener.document.f.t_id.value = window.document.getElementById('sTeacherId').value;
 		window.close();
 	}
+	
+	
+	
+	
+	

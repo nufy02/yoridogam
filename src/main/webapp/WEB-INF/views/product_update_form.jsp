@@ -34,7 +34,7 @@
 	            <th>시간</th>
 	            <th>최대 인원</th>
 	            <th>예약 인원</th>
-	            <th>삭제</th>
+	            <th>선택</th>
 	          </tr>
 	        </thead>
 	        <tbody id="time_tbody">
@@ -46,8 +46,8 @@
 	          </tr>
 	        </tbody>
 	      </table>
-	      
 	      <div>
+		      <input type="button"  class="form-control mb-3" id="deletePt" value="삭제하기" ><br></br>
 	      	<form action="#" method="post">
 	  	  		<div class="col-6 mb-3">
           			<input type="date" class="form-control mb-3" name="pt_date" value="">
@@ -68,7 +68,6 @@
 </div>
 <!-- Modal -->
 		 
-
         <div class="cart-table-area section-padding-100">
             <div class="container-fluid">
                 <div class="row">
@@ -119,9 +118,10 @@
 									<c:set var="product_type" value="${product.p_type }"/>
 										<c:choose>
 											<c:when test="${product_type == '오프라인' }">
-												<input type="button" class="btn btn-outline-warning" id="pt_timeSetting" style="width: 961px" value="강의시간 관리">
+												<input type="button" class="btn amado-btn w-100" id="pt_timeSetting" style="" value="강의시간관리">
 											</c:when>
 										</c:choose>
+										
                                         <div class="cart-btn mt-100">
                                 			<input type="submit"  class="btn amado-btn w-100" value="수정하기" ><br><br/>
                                 			<a href="home" class="btn amado-btn w-100">취소하기</a>

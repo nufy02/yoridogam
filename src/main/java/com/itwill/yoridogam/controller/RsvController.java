@@ -67,7 +67,7 @@ public class RsvController {
 		//String sUserId=(String)session.getAttribute("sUserId");
 		String sUserId="member1";
 		int p_no =4;
-		String t_id = "teacher1";
+		String t_id = "teacher2";
 		model.addAttribute("sUserId", memberService.findMember(sUserId));
 		model.addAttribute("teacher", teacherService.findMember(t_id));
 		model.addAttribute("product",productService.selectByNo(p_no));

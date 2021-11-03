@@ -75,10 +75,10 @@
          
                 <c:choose>
                 <c:when test ="${!empty(sTeacherId)}" >
-                	<li><a href="teacher_detail">${sTeacherId}</a></li>
+                	<li><a href="teacher_detail" style="color: blue;">[${sTeacherId_name}]</a></li>
                 </c:when>
                 <c:otherwise>
-                	<li><a href="member_detail">${sUserId}</a></li>                
+                	<li><a href="member_detail" style="color: blue;">[${sUserId_name}]</a></li>                
                 </c:otherwise>
                 </c:choose>
                     <li class="active"><a href="home">메인</a></li>
