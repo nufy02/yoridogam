@@ -55,6 +55,10 @@ public class InquiryController {
 		model.addAttribute("inquiry", inquiryList);
 		return "inquiry_list_form";
 	}
+	/*
+	 * inquiry.setMember(new Member());
+		inquiry.getMember().setM_id(m_id);
+	 */
 	
 	/**** 문의게시판 한 개 상세보기 ****/
 	@RequestMapping("inquiry_detail")
@@ -115,7 +119,9 @@ public class InquiryController {
 	/**** 문의게시판 답글 작성 액션(관리자)(POST) ****/
 	@PostMapping("inquiryA_write_action")
 	@LoginCheck
-	public String inquiryA_write_action_post(@ModelAttribute Inquiry inquiry, Model model) {
+	public String inquiryA_write_action_post(@ModelAttribute Inquiry inquiry, @RequestParam String m_id, Model model) {
+		inquiry.setMember(new Member());
+		inquiry.getMember().setM_id(m_id);
 		int ib_no = inquiryService.insertInquiryA(inquiry);
 		
 		model.addAttribute("inquiry", inquiryService.selectByNoInquiry(ib_no));

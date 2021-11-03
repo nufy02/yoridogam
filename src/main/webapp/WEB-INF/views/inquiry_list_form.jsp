@@ -13,36 +13,25 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-12 col-lg-20">
-				<div class="notice-title">
+				<div class="cart-title mt-50">
 					<h2>문의 게시판</h2>
 				</div>
 
-				<div class="inquiry-table clearfix" id="check">
-					<table class="table table-responsive">
-						<!--
-							  -->
-
-						<!-- 
-							<table id="iList" width="95%" border="3" bordercolor="lightgray">
-							 <table width="100%" class="table01">
-                    <colgroup>
-                        <col width="35%" />
-                        <col width="15%" />
-                        <col width="20%" />
-                        <col width="10%" />
-                    </colgroup>	
-							 -->
+				<div class="cart-table clearfix">
+					<table class="table table-responsive" tabindex="1"
+						style="overflow: hidden; outline: none;">
+			<!-- ddd -->
 						<thead>
-							<tr>
-								<td>제목</td>
-								<td>작성자</td>
-								<td>작성일</td>
-								<td>조회수</td>
+							<tr style="text-align: center;">
+								<th>제목</th>
+								<th>작성자</th>
+								<th>작성일</th>
+								<th>조회수</th>
 							</tr>
 						</thead>
-						<tbody>
-							<c:forEach var="inquiry" items="${inquiry}" begin="0"
-								end="${inquiry.size()}">
+							<c:forEach var="inquiry" items="${inquiry}" begin="0" end="${inquiry.size()}">
+						<tbody style="text-align: center;">
+						<!--  -->
 								<tr>
 									<td><c:if test="${inquiry.ib_depth > 0}">
 											<c:forEach begin="1" end="${inquiry.ib_depth}">
@@ -50,30 +39,26 @@
 											</c:forEach>
 										</c:if> <a href="inquiry_detail?ib_no=${inquiry.ib_no}">${inquiry.ib_title}</a>
 									</td>
-									<td>${member.m_id}</td>
+									<td>작성자</td>
 									<td><fmt:formatDate var="resultIbDate"
 											value="${inquiry.ib_date}" pattern="yyyy-MM-dd" />
 										${resultIbDate}</td>
 									<td>${inquiry.ib_viewCount}</td>
 								</tr>
+								</tbody>
 							</c:forEach>
-						</tbody>
-					</table>
+							<!--  -->
+			<!-- ddd -->		
 					</table>
 				</div>
 
 				<!--  -->
 
 			</div>
-			<hr>
-			
-			<button type="button" class="btn btn-outline-warning btn-sm" style=""
-				onClick="location.href='inquiry_write'">작성</button>
 		</div>
+			<hr><center><button type="button" class="btn btn-outline-warning btn-sm" onClick="location.href='inquiry_write'">작성</button>
 
 	</div>
-</div>
-</div>
 </div>
 <!-- ##### Main Content Wrapper End ##### -->
 

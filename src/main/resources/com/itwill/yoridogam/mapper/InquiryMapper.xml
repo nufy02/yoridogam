@@ -77,7 +77,7 @@
                                             IB_DEPTH, 
                                             IB_GROUPNO, 
                                             IB_STEP, 
-                                            M_ID 
+                                            M_ID
                                     from inquiry  
                                     order by IB_GROUPNO desc, IB_DEPTH asc) s )
 	</select>
