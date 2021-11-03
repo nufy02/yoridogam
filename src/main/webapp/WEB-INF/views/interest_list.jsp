@@ -4,6 +4,7 @@
 
 
 	<div class="">
+		 <h6 class="text-muted text-normal text-uppercase">관심강의</h6>
 	<table class="table table-responsive">
 	<thead>
 		<tr style="width: 750px">

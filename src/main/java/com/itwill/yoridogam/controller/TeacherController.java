@@ -1,5 +1,7 @@
 package com.itwill.yoridogam.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -13,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.itwill.yoridogam.controller.interceptor.LoginCheck;
 import com.itwill.yoridogam.member.Member;
+import com.itwill.yoridogam.product.Product;
+import com.itwill.yoridogam.product.ProductService;
 import com.itwill.yoridogam.teacher.Teacher;
 import com.itwill.yoridogam.teacher.TeacherService;
 
@@ -34,6 +38,9 @@ public class TeacherController {
 	
 	@Autowired
 	private TeacherService teacherService;
+	
+	@Autowired
+	private ProductService productSerivce;
 	
 	/*
 	 * 로그인 폼
@@ -173,6 +180,8 @@ public class TeacherController {
 	@RequestMapping(value = "/teacher_detail")
 	public String teacher_detail(HttpSession session,HttpServletRequest request ) throws Exception {
 		String loginUserId =(String)session.getAttribute("sTeacherId");
+		//내강의 리시트 보여주기
+		
 		// 회원정보
 		Teacher loginUser = teacherService.findMember(loginUserId);
 		request.setAttribute("loginUser", loginUser);
