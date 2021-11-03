@@ -59,6 +59,8 @@ public class TeacherController {
 		String forwardPath="";
 		int result = teacherService.login(teacher.getT_id(), teacher.getT_pass());
 		
+		Teacher loginTeacher=teacherService.findMember(teacher.getT_id()); // 이름뽑기용
+		
 		if (result==0) {
 			//아이디 불일치
 			model.addAttribute("msg1", teacher.getT_id()+" 은 존재하지 않는 아이디입니다.");
@@ -71,6 +73,7 @@ public class TeacherController {
 			forwardPath="teacher_login_form";
 		}else if(result==2) {
 			session.setAttribute("sTeacherId", teacher.getT_id());
+			session.setAttribute("sTeacherId_name", loginTeacher.getT_name());
 			forwardPath="redirect:home";
 		}
 		return forwardPath ;
