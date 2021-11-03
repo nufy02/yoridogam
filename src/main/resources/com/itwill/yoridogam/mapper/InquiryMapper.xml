@@ -16,39 +16,51 @@
 	</resultMap>
 	
 	<insert id="insertInquiry" parameterType="com.itwill.yoridogam.inquiry.Inquiry">
-		insert into inquiry	values(inquiry_ib_no_SEQ.nextval, 
+		<selectKey keyProperty="ib_no" resultType="java.lang.Integer" order="BEFORE">
+			SELECT inquiry_ib_no_SEQ.nextval FROM DUAL
+		</selectKey>
+		insert into inquiry	values(#{ib_no}, 
 									#{ib_title},
 									#{ib_content},
 									sysdate,
 									0,
 									0,
-									inquiry_ib_no_SEQ.nextval,
-									1,
+									#{ib_no},
+									0,
 									#{member.m_id})
-
+		
 	</insert>
 	
-	<update id="updateInquiry">
+	<update id="updateInquiry"  parameterType="com.itwill.yoridogam.inquiry.Inquiry">
 		update inquiry set IB_TITLE=#{ib_title}, IB_CONTENT=#{ib_content} 
 			where IB_NO=#{ib_no}
-
+		<selectKey keyProperty="ib_no" resultType="java.lang.Integer" order="AFTER">
+			SELECT #{ib_no} FROM DUAL
+		</selectKey>
 	</update>
 	
 	<insert id="insertInquiryA" parameterType="com.itwill.yoridogam.inquiry.Inquiry">
-		insert into inquiry VALUES(inquiry_ib_no_SEQ.nextval, 
+		insert into inquiry VALUES(inquiry_ib_no_SEQ.nextval,
 									#{ib_title},
 									#{ib_content},
 									sysdate,
 									0,
-									1,
-									#{ib_groupNo},
-									2,
+									#{ib_depth}+1,
+									#{ib_no},
+									#{ib_step}+1,
 									#{member.m_id})
+		<selectKey keyProperty="ib_no" resultType="java.lang.Integer" order="AFTER">
+			SELECT inquiry_ib_no_SEQ.CURRVAL FROM DUAL
+		</selectKey>
+		
 	</insert>
 	
-	<update id="updateInquiryA">
+	<update id="updateInquiryA"  parameterType="com.itwill.yoridogam.inquiry.Inquiry">
 		update inquiry set IB_TITLE=#{ib_title}, IB_CONTENT=#{ib_content} 
 			where IB_NO=#{ib_no}
+		<selectKey keyProperty="ib_no" resultType="java.lang.Integer" order="AFTER">
+			SELECT #{ib_no} FROM DUAL
+		</selectKey>
 	</update>
 	
 	<delete id="deleteInquiry" parameterType="java.lang.Integer">
@@ -56,7 +68,18 @@
 	</delete>
 	
 	<select id="inquiryList" resultType="com.itwill.yoridogam.inquiry.Inquiry">
-		select * from inquiry
+		select * from (select rownum idx, s.* from
+                                    (select IB_NO, 
+                                            IB_TITLE, 
+                                            IB_CONTENT, 
+                                            IB_DATE, 
+                                            IB_VIEWCOUNT, 
+                                            IB_DEPTH, 
+                                            IB_GROUPNO, 
+                                            IB_STEP, 
+                                            M_ID
+                                    from inquiry  
+                                    order by IB_GROUPNO desc, IB_DEPTH asc) s )
 	</select>
 	
 	<select id="selectByNoInquiry" parameterType="java.lang.Integer" resultType="com.itwill.yoridogam.inquiry.Inquiry">
@@ -67,7 +90,7 @@
 		update inquiry set IB_VIEWCOUNT = IB_VIEWCOUNT+1 where IB_NO=#{ib_no}
 	</update>
 	
-	<select id="countAllInquiry" resultType="java.lang.Integer">
+	<select id="countTotalInquiry" resultType="java.lang.Integer">
 		select count(*) from inquiry
 	</select>
 	

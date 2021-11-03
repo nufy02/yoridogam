@@ -85,7 +85,8 @@ table.table2 td {
 									</td>
 								</tr>
 							</table>
-								<button type="submit" class="btn btn-outline-warning btn-sm"
+							
+								<center><button type="submit" class="btn btn-outline-warning btn-sm"
 								onClick="location.href='noti_update_action'; alert('수정되었습니다.');" >수정</button>
 						</form>
 

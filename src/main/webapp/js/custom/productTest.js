@@ -34,7 +34,7 @@ $("select[name=p_type]").change(function(){ // select 옵션 값이 변한다면
                                         <input type="date" class="form-control mb-3" name="pt_date" value="">
                                     </div>
                                     <div class="col-6 mb-3">
-                                        <input type="text" class="form-control mb-3" name="pt_time" placeholder="ex)10:00~11:00,11:00~12:00,13:00,~14:00" value="">
+                                        <input type="text" class="form-control mb-3" name="pt_time" placeholder="ex)10:00-11:00,11:00-12:00,13:00-14:00" value="">
                                     </div>
                                     <div class="col-12 mb-3">
                                         <textarea name="p_detail" class="form-control w-100" id="" cols="30" rows="10" placeholder="상품설명"></textarea>
@@ -50,11 +50,100 @@ $("select[name=p_type]").change(function(){ // select 옵션 값이 변한다면
                                             <label class="custom-control-label" for="customCheck3">Ship to a different address</label>
                                         </div>
                                         <div class="cart-btn mt-100">
-                                			<input type="submit"  class="btn amado-btn w-100" value="결제하기" onclick="javascript: form.action='product_insert_off_action';"/><br><br/>
+                                			<input type="submit"  class="btn amado-btn w-100" value="등록하기" onclick="javascript: form.action='product_insert_off_action';"/><br><br/>
                                 			<a href="home" class="btn amado-btn w-100">취소하기</a>
                            				</div>
                                     </div>`);
 	}
 }); //간단히 변경하ㄹ 수 있으면 좋을 듯..
+
+$(document).ready(function(){
+    $("#pt_timeSetting").click(function(){
+		$("#exampleModalCenter").modal();
+       // $("#exampleModalCenter").attr("style", "display:flex; opacity:1"); 
+    });
+});
+
+$('#pt_dateSelect').change(function(e){
+	var date = $('#pt_dateSelect').val();
+	var p_no = $('input[name=p_no]').val();
+	$.ajax({
+		type : 'post',
+		url : 'pt_date_ajax',
+		data : {'pt_date' : date, 'p_no' : p_no },
+		dataType:'json',
+		success: function(result){
+			$('#time_tbody').empty();
+			$.each(result, function(i, jsonObject){
+			$('#time_tbody').append(`<tr id="timeTr">
+                    <td></td>
+                    <td>${result[i].pt_time}</td>
+                    <td>${result[i].pt_max}</td>
+                    <td>${result[i].pt_rsv}</td>
+                    <td><input type="checkbox" class="checkPt" value="${result[i].pt_no}"/></td>
+					</tr>`);
+		    })
+		}
+	})
+});
+
+
+$("#submitPT").click(function(){
+	var p_no=$('input[name=p_no]').val();
+	var pt_date=$('input[name=pt_date]').val();
+	var pt_time=$('input[name=pt_time]').val();
+	var pt_max=$('input[name=pt_max]').val();
+	var data={"p_no":p_no, "pt_date":pt_date, "pt_time":pt_time, "pt_max":pt_max};
+	$.ajax({ 
+		type: 'POST',
+		url: "pt_create_action",
+		data: JSON.stringify(data),
+		contentType: "application/json; charset=UTF-8",
+		success: function(pt) {
+			alert("강의 시간이 추가 되었습니다.");
+			$('#time_tbody').empty();
+			$.each(pt, function(i){
+			$('#time_tbody').append(`<tr id="timeTr">
+                    <td></td>
+                    <td>${pt[i].pt_time}</td>
+                    <td>${pt[i].pt_max}</td>
+                    <td>${pt[i].pt_rsv}</td>
+                    <td><input type="checkbox" class="checkPt" value="${pt[i].pt_no}"/></td>
+					</tr>`);
+		    })
+		}
+	});
+})
+
+$("#deletePt").click(function(){
+	var pt_noList=[];
+	var pt_date=$('input[name=pt_dateSelect]').val();
+	var p_no=$('input[name=p_no]').val();
+    $('.checkPt:checked').each(function(){
+        var pt_no=$(this).val()
+        pt_noList.push(pt_no)
+		});
+		var data={"pt_noList": pt_noList, "pt_date":pt_date, "p_no":p_no}
+		$.ajax({
+		type : 'post',
+		url : 'product_time_delete_action',
+		data : data,
+		dataType:'json',
+		success: function(result){
+			alert("강의 시간이 삭제 되었습니다.");
+			$('#time_tbody').empty();
+			$.each(result, function(i){
+			$('#time_tbody').append(`<tr id="timeTr">
+                    <td></td>
+                    <td>${result[i].pt_time}</td>
+                    <td>${result[i].pt_max}</td>
+                    <td>${result[i].pt_rsv}</td>
+                    <td><input type="checkbox" class="checkPt" value="${result[i].pt_no}"/></td>
+					</tr>`);
+					})
+			}
+		})
+})
+
 
 

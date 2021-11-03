@@ -10,11 +10,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.itwill.yoridogam.controller.interceptor.LoginCheck;
+import com.itwill.yoridogam.member.Member;
 import com.itwill.yoridogam.notice.Notice;
 import com.itwill.yoridogam.notice.NoticeService;
+import com.itwill.yoridogam.notice.page.PageMaker;
+import com.itwill.yoridogam.notice.page.PagingVO;
 
 @Controller
 public class NoticeController {
@@ -64,13 +68,17 @@ public class NoticeController {
 	
 	/**** 공지사항 작성 액션(get) ****/
 	@GetMapping("noti_write_action")
+	@LoginCheck
 	public String noti_write_action_get() {
 		return "redirect:notice_list_form";
 	}
 	
 	/**** 공지사항 작성 액션(post) ****/
 	@PostMapping("noti_write_action")
-	public String noti_write_action_post(@ModelAttribute Notice notice, Model model) {
+	@LoginCheck
+	public String noti_write_action_post(@ModelAttribute Notice notice, @RequestParam String m_id, Model model) {
+		notice.setMember(new Member());
+		notice.getMember().setM_id(m_id);
 		int noti_no = noticeService.insertNoti(notice);
 		model.addAttribute("notice", noticeService.selectByNotiNo(noti_no));
 		return "redirect:notice_detail?noti_no="+noti_no;
@@ -93,6 +101,7 @@ public class NoticeController {
 	
 	/**** 공지사항 수정 액션(Post) ****/
 	@PostMapping("noti_update_action")
+	@LoginCheck
 	public String noti_update_action_post(@ModelAttribute Notice notice, Model model) {
 		int noti_no = noticeService.updateNoti(notice);
 		model.addAttribute("notice", noticeService.selectByNotiNo(noti_no));
@@ -103,12 +112,24 @@ public class NoticeController {
 	/**** 공지사항 삭제 액션 ****/
 	@RequestMapping("noti_delete_action")
 	@LoginCheck
-	public String noti_delete_action_post(@RequestParam int noti_no, Model model) {
+	public String noti_delete_action(@RequestParam int noti_no) {
 		noticeService.deleteNoti(noti_no);
 		return "redirect:notice_list";
 	}
 	
-
+	/**** 공지사항 목록 조회 ****/
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public String list(Model model, PagingVO pagingVO) throws Exception{
+		//logger.info("list");
+		model.addAttribute("list", noticeService.noticePageList(pagingVO));
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setVo(pagingVO);
+		pageMaker.setTotalCount(noticeService.listCount());
+		model.addAttribute("pageMaker", pageMaker);
+		
+		return "notice_list_form";
+	}
+	
 }
 
 

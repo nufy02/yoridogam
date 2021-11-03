@@ -40,6 +40,12 @@ public class ProductDaoImpl implements ProductDao {
 	public Teacher selectTByP_no(int p_no)throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"selectTByP_no",p_no);
 	}
+	/* 강사 아이디 받아서 상품 정보 얻기 */
+	@Override
+	public List<Product> selectpByT_id(String t_id) throws Exception {
+		
+		return sqlSession.selectList(NAMESPACE+"selectpByT_id",t_id);
+	}
 
 	
 }

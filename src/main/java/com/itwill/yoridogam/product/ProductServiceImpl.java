@@ -41,5 +41,11 @@ public class ProductServiceImpl implements ProductService {
 		// TODO Auto-generated method stub
 		return productDao.selectTByP_no(p_no);
 	}
+	/* 강사 아이디 받아서 상품 정보 얻기 */
+	@Override
+	public List<Product> selectpByT_id(String t_id) throws Exception {
+		// TODO Auto-generated method stub
+		return productDao.selectpByT_id(t_id);
+	}
 	
 }

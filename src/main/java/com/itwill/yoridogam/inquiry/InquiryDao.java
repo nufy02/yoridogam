@@ -29,7 +29,7 @@ public interface InquiryDao {
 	boolean updateInquiryViewCount(int ib_no);
 
 	/*************** 문의글 총 개수 ***************/
-	int countAllInquiry();
+	int countTotalInquiry();
 	
 	/*************** 답글 존재 여부 ***************/
 	boolean countA(Inquiry inquiry);

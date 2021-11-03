@@ -3,15 +3,21 @@ package com.itwill.yoridogam.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.itwill.yoridogam.controller.interceptor.LoginCheck;
 import com.itwill.yoridogam.product.Product;
@@ -92,14 +98,54 @@ public class ProductController {
 	@RequestMapping("product_update_action")
 	public String product_update_action(ProductTime productTime,Product product,HttpSession session) throws Exception{
 		product.setP_photo("img/product-img/"+product.getP_photo());
-		if(product.getP_type().equals("온라인")) {
-			System.out.println(product);
-			productService.updateByNo(product);
-			return "home"; // 수정
-		}else if(product.getP_type().equals("오프라인")) {
-			productService.updateByNo(product);
-			//수정중
-		}
+		productService.updateByNo(product);
 		return "home";
 	}
+	
+	@LoginCheck
+	@RequestMapping("product_recentView_list")
+	public String product_recentView_list(Product product,HttpSession session, HttpServletRequest request) throws Exception{
+		Cookie[] cookies=request.getCookies();
+		System.out.println(cookies);
+	return "product_recentView_list";
+	}
+	
+	@PostMapping(value = "pt_date_ajax",produces = "application/json;charset=UTF-8")
+	@ResponseBody
+	public List<ProductTime> rsv_date_ajax(@RequestParam String pt_date,@RequestParam int p_no) throws Exception{
+		List<ProductTime> pt = productTimeService.selectPtTime(pt_date, p_no);
+		return pt;
+	}
+	
+	@PostMapping(value = "pt_create_action")
+	@ResponseBody
+	public List pt_create_action(@RequestBody Map<String, Object> data) throws Exception{
+		String[] pt_timeList=((String) data.get("pt_time")).split(",");
+		String pt_date=(String)data.get("pt_date");
+		int p_no=Integer.valueOf((String)data.get("p_no"));
+		Product product=productService.selectByNo(p_no);
+		
+		for(int i=0; i<pt_timeList.length; i++) {
+			productTimeService.create(new ProductTime(0,pt_date, pt_timeList[i],Integer.valueOf((String)data.get("pt_max")) , 0, product));
+		}
+		
+		List<ProductTime> pt = productTimeService.selectPtTime(pt_date, p_no);
+		return pt;
+	}
+	@RequestMapping("product_recentview_list")
+	public String pt_recentView_list()throws Exception{
+		return "product_recentview_list";
+	}
+	
+	@RequestMapping("product_time_delete_action")
+	@ResponseBody
+	public List proudct_delete_form(@RequestParam(value="pt_noList[]") List<String> pt_noList, @RequestParam(value="pt_date") String pt_date, String p_no) throws Exception {
+		for(int i=0; i<pt_noList.size(); i++) {
+			productTimeService.delete(Integer.parseInt(pt_noList.get(i)));
+		}
+			List<ProductTime> result = productTimeService.selectPtTime(pt_date, Integer.parseInt(p_no));
+			return result;
+	}
+	
+	
 }

@@ -18,4 +18,7 @@ public interface ProductService {
 	
 	/*  상품 강사 정보 얻기 */
 	Teacher selectTByP_no(int p_no)throws Exception;
+	
+	/* 강사 아이디 받아서 상품정보 뽑기 */
+	List<Product>selectpByT_id(String t_id)throws Exception;
 }

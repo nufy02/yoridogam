@@ -67,6 +67,8 @@ public class MemberController {
 		String forwardPath="";
 		int result = memberService.login(member.getM_id(), member.getM_pass());
 		
+		Member LoginMember=memberService.findMember(member.getM_id()); // name뽑기용
+		
 		if (result==0) {
 			//아이디 불일치
 			model.addAttribute("msg1", member.getM_id()+" 은 존재하지 않는 아이디입니다.");
@@ -79,6 +81,7 @@ public class MemberController {
 			forwardPath="member_login_form";
 		}else if(result==2) {
 			session.setAttribute("sUserId", member.getM_id());
+			session.setAttribute("sUserId_name", LoginMember.getM_name());
 			forwardPath="redirect:home";
 		}
 		return forwardPath ;

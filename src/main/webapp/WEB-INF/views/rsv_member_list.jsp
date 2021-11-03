@@ -39,8 +39,8 @@
 			
 			</c:choose>
 			<c:if test="${toDay <= rsv_d}"> 
-				<td scope="row">
-					<button type="button" class="btn btn-outline-warning" name="deleteRsv" value="${rsv_data.rsv_no}">결제 취소</button>
+				<td scope="row" id="deleteRsvTD" >
+					<button type="button" class="btn btn-outline-warning" id="deleteRsv"  name="deleteRsv" value="${rsv_data.rsv_no}" >결제 취소</button>
 				<td> 
 			</c:if>
 		</tr>
@@ -49,28 +49,8 @@
 	</tbody>
 	</table>
 	</div>
-	
-	<script type="text/javascript">
-		$('button[name=deleteRsv]').click(function(e) {
-			var cf = confirm("결제를 취소하시겠습니까?");
-			if (cf) {
-				var rsv_no=$(this).val();
-			alert(rsv_no)
-				var ajaxData = {"rsv_no" : rsv_no};
-				$.ajax({
-					url: "rsv_no_delete",
-					method: "POST",
-					data: ajaxData,
-					success: function(){
-						$('#check').empty();
-						$('#check').load('rsv_member_form').hide().fadeIn("slow");
-					}
-					
-				})
 
-		});
-
-	</script>
-	
 </body>
+<script type="text/javascript" src="js/rsv.js"></script> 
+
 </html>

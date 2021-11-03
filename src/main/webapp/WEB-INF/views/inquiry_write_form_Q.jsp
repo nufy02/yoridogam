@@ -42,15 +42,15 @@ table.table2 td {
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-12 col-lg-20">
-					<div class="notice-title">
-						<h2>공지사항</h2>
+					<div class="inquiry-title">
+						<h2>문의 게시판</h2>
 					</div>
 					<div class="col-12 col-lg-20">
 						<div class="cart-title mt-50">
 							<div class="cart-table clearfix" id="check"></div>
 						</div>
 						<!--  -->
-						<form method="POST" action="/yoridogam/noti_write_action">
+						<form method="POST" action="/yoridogam/inquiry_write_action">
 							<table style="padding-top: 50px" align=center width=50 border=0
 								cellpadding=2>
 
@@ -59,18 +59,18 @@ table.table2 td {
 										<table class="table2">
 											<tr>
 												<td>작성자</td>
-												<td><input type=text name=m_id size=50 value="${sUserId }"
+												<td><input type=text name="m_id" size=50 value="${sUserId }"
 													placeholder="&nbsp;${sUserId }" readonly></td>
 											</tr>
 
 											<tr>
 												<td>제목</td>
-												<td><input type=text name=noti_title size=50></td>
+												<td><input type=text name=ib_title size=50></td>
 											</tr>
 
 											<tr>
 												<td>내용</td>
-												<td><textarea name=noti_content cols=50 rows=10></textarea></td>
+												<td><textarea name=ib_content cols=50 rows=10></textarea></td>
 											</tr>
 
 										</table>
@@ -79,7 +79,7 @@ table.table2 td {
 									</td>
 								</tr>
 							</table>
-							<center><button type="submit" class="btn btn-outline-warning btn-sm" onClick="alert('작성되었습니다.');">작성</button>
+							<center><button type="submit" class="btn btn-outline-warning btn-sm" >작성</button>
 						</form>
 
 

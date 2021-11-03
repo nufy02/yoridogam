@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.itwill.yoridogam.controller.interceptor.LoginCheck;
 import com.itwill.yoridogam.inquiry.Inquiry;
 import com.itwill.yoridogam.inquiry.InquiryService;
+import com.itwill.yoridogam.member.Member;
 import com.itwill.yoridogam.notice.Notice;
 
 @Controller
@@ -50,118 +52,116 @@ public class InquiryController {
 	@RequestMapping("inquiry_list")
 	public String inquiry_list(Model model) {
 		List<Inquiry> inquiryList = inquiryService.inquiryList();
-		model.addAttribute("inquiryList", inquiryList);
+		model.addAttribute("inquiry", inquiryList);
 		return "inquiry_list_form";
 	}
+	/*
+	 * inquiry.setMember(new Member());
+		inquiry.getMember().setM_id(m_id);
+	 */
 	
 	/**** 문의게시판 한 개 상세보기 ****/
 	@RequestMapping("inquiry_detail")
+	@LoginCheck
 	public String inquiry_detail(@RequestParam int ib_no, Model model) {
 		inquiryService.updateInquiryViewCount(ib_no);
 		Inquiry inquiryDetail = inquiryService.selectByNoInquiry(ib_no);
-		model.addAttribute("inquiryDetail", inquiryDetail);
+		model.addAttribute("inquiry", inquiryDetail);
 		return "inquiry_detail";
 	}
 	
 	/***************************************************************************/
 	
 	/**** 문의게시판 글 작성 폼(회원) ****/
-	@RequestMapping("inquiry_write_form")
+	@RequestMapping("inquiry_write")
+	@LoginCheck
 	public String inquiry_write_form() {
-		return"inquiry_write_form_Q";
+		return "inquiry_write_form_Q";
 	}
 	
 	/**** 문의게시판 글 작성 액션(회원)(GET) ****/
 	@GetMapping("inquiry_write_action")
+	@LoginCheck
 	public String inquiry_write_action_get() {
-		return "redirect:inquiry_write_form";
+		return "redirect:inquiry_write_form_Q";
 	}
 	
 	/**** 문의게시판 글 작성 액션(회원)(POST) ****/
 	@PostMapping("inquiry_write_action")
-	public String inquiry_write_action_post(@ModelAttribute Inquiry inquiry, Model model) {
-		inquiryService.insertInquiry(inquiry);
-		model.addAttribute("inquiry", inquiry);
-		return "inquiry_detail";
-	}
-	
-	/**** 문의게시판 글 수정 폼(회원) ****/
-	@RequestMapping("inquiry_update_form")
-	public String inquiry_update_form() {
-		return"inquiry_update_form";
-	}
-	
-	/**** 문의게시판 글 수정 액션(회원)(GET) ****/
-	@GetMapping("inquiry_update_action")
-	public String inquiry_update_action_get() {
-		return"redirect:inquiry_update_form";
-	}
-
-	/**** 문의게시판 글 수정 액션(회원)(POST) ****/
-	
-	@PostMapping("inquiry_update_action")
-	public String inquiry_update_action_post(@ModelAttribute Inquiry inquiry, Model model) {
-		inquiryService.updateInquiry(inquiry);
-		model.addAttribute("inquiryUpdate", inquiry);
-		return"inquiry_detail";
+	@LoginCheck
+	public String inquiry_write_action_post(@ModelAttribute Inquiry inquiry,@RequestParam String m_id, Model model) {
+		inquiry.setMember(new Member());
+		inquiry.getMember().setM_id(m_id);
+		int ib_no = inquiryService.insertInquiry(inquiry);
+		
+		model.addAttribute("inquiry", inquiryService.selectByNoInquiry(ib_no));
+		return "redirect:inquiry_detail?ib_no="+ib_no;
 	}
 
 	/***************************************************************************/
 	
 	/**** 문의게시판 답글 작성 폼(관리자) ****/
-	@RequestMapping("inquiryA_write_form")
-	public String inquiryA_write_form() {
+	@RequestMapping("inquiryA_write")
+	@LoginCheck
+	public String inquiryA_write_form(@RequestParam int ib_no, Model model) {
+		Inquiry inquiry = inquiryService.selectByNoInquiry(ib_no);
+		model.addAttribute("inquiry", inquiry);
 		return"inquiryA_write_form";
 	}
 	
 	/**** 문의게시판 답글 작성 액션(관리자)(GET) ****/
 	@GetMapping("inquiryA_write_action")
+	@LoginCheck
 	public String inquiryA_write_action_get() {
 		return "redirect:inquiryA_write_form";
 	}
 	
 	/**** 문의게시판 답글 작성 액션(관리자)(POST) ****/
 	@PostMapping("inquiryA_write_action")
-	public String inquiryA_write_action_post(@ModelAttribute Inquiry inquiry, @RequestParam int ib_no, Model model) {
-		inquiryService.insertInquiryA(inquiry);
-		model.addAttribute("inquiryA", inquiry);
-		return "inquiry_detail";
-	}	//>> Post 방식 잘 모르겠음ㅜㅜ 
-	
-	/**** 문의게시판 글 수정 폼(회원) ****/
-	@RequestMapping("inquiryA_update_form")
-	public String inquiryA_update_form() {
-		return"inquiryA_update_form";
+	@LoginCheck
+	public String inquiryA_write_action_post(@ModelAttribute Inquiry inquiry, @RequestParam String m_id, Model model) {
+		inquiry.setMember(new Member());
+		inquiry.getMember().setM_id(m_id);
+		int ib_no = inquiryService.insertInquiryA(inquiry);
+		
+		model.addAttribute("inquiry", inquiryService.selectByNoInquiry(ib_no));
+		return "redirect:inquiry_detail?ib_no="+ib_no;
 	}
 	
-	/**** 문의게시판 글 수정 액션(회원)(GET) ****/
-	@GetMapping("inquiryA_update_action")
-	public String inquiryA_update_action_get() {
-		return"redirect:inquiryA_update_form";
-	}
-
-	/**** 문의게시판 글 수정 액션(회원)(POST) ****/
-	
-	@PostMapping("inquiryA_update_action")
-	public String inquiryA_update_action_post(@ModelAttribute Inquiry inquiry, Model model) {
-		inquiryService.updateInquiryA(inquiry);
-		model.addAttribute("inquiryAUpdate", inquiry);
-		return"inquiryA_detail";
-	}
 	
 	/***************************************************************************/
-	
-	/**** 문의게시판 글 삭제 액션(GET) ****/
-	@GetMapping("inquiry_delete_action")
-	public String inquiry_delete_action_get() {
+		
+	/**** 문의게시판 글 삭제 액션 ****/
+	@RequestMapping("inquiry_delete_action")
+	@LoginCheck
+	public String inquiry_delete_action(@RequestParam int ib_no) {
+		inquiryService.deleteInquiry(ib_no);
 		return "redirect:inquiry_list";
 	}
+	/***************************************************************************/
 	
-	/**** 문의게시판 글 삭제 액션(Post) ****/
-	@PostMapping("inquiry_delete_action")
-	public String inquiry_delete_action_post(@RequestParam int noti_no) {
-		inquiryService.deleteInquiry(noti_no);
-		return "inquiry_list";
+	/**** 문의게시판 글 수정 폼 ****/
+	@LoginCheck
+	@RequestMapping(value = "inquiry_update", params = "ib_no")
+	public String inquiry_update_form(@RequestParam int ib_no, Model model) {
+		Inquiry ibUpdate = inquiryService.selectByNoInquiry(ib_no);
+		model.addAttribute("inquiry", ibUpdate);
+		return"inquiry_update_form";
+	}
+	
+	/**** 문의게시판 글 수정 액션(GET) ****/
+	@GetMapping("inquiry_update_action")
+	public String inquiry_update_action_get() {
+		return"redirect:inquiry_update_form";
+	}
+	
+	/**** 문의게시판 글 수정 액션(POST) ****/
+	@LoginCheck
+	@PostMapping("inquiry_update_action")
+	public String inquiry_update_action_post(@ModelAttribute Inquiry inquiry, Model model) {
+		int ib_no = inquiryService.updateInquiry(inquiry);
+		model.addAttribute("inquiry", inquiryService.selectByNoInquiry(ib_no));
+		return "redirect:inquiry_detail?ib_no="+ib_no;
 	}
 	
 }
