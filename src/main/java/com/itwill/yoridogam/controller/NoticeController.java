@@ -106,7 +106,7 @@ public class NoticeController {
 	/**** 공지사항 삭제 액션 ****/
 	@RequestMapping("noti_delete_action")
 	@LoginCheck
-	public String noti_delete_action_post(@RequestParam int noti_no, Model model) {
+	public String noti_delete_action(@RequestParam int noti_no) {
 		noticeService.deleteNoti(noti_no);
 		return "redirect:notice_list";
 	}

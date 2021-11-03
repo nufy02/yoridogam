@@ -17,17 +17,20 @@ public class InquiryDaoImpl implements InquiryDao{
 	
 	@Override
 	public int insertInquiry(Inquiry inquiry) {
-		return sqlSession.insert(NAMESPACE+"insertInquiry", inquiry);
+		sqlSession.insert(NAMESPACE+"insertInquiry", inquiry);
+		return inquiry.getIb_no();
 	}
 
 	@Override
 	public int updateInquiry(Inquiry inquiry) {
-		return sqlSession.update(NAMESPACE+"updateInquiry", inquiry);
+		sqlSession.update(NAMESPACE+"updateInquiry", inquiry);
+		return inquiry.getIb_no();
 	}
 
 	@Override
 	public int insertInquiryA(Inquiry inquiry) {
-		return sqlSession.insert(NAMESPACE+"insertInquiryA", inquiry);
+		sqlSession.insert(NAMESPACE+"insertInquiryA", inquiry);
+		return inquiry.getIb_no();
 	}
 
 	@Override
@@ -43,7 +46,7 @@ public class InquiryDaoImpl implements InquiryDao{
 	@Override
 	public List<Inquiry> inquiryList() {
 		List<Inquiry> inquiryList = sqlSession.selectList(NAMESPACE+"inquiryList");
-		Collections.reverse(inquiryList);
+		//Collections.reverse(inquiryList);
 		return inquiryList;
 	}
 
@@ -64,8 +67,8 @@ public class InquiryDaoImpl implements InquiryDao{
 	}
 
 	@Override
-	public int countAllInquiry() {
-		return sqlSession.selectOne(NAMESPACE+"countAllInquiry");
+	public int countTotalInquiry() {
+		return sqlSession.selectOne(NAMESPACE+"countTotalInquiry");
 	}
 
 	@Override

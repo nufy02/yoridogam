@@ -79,7 +79,7 @@ table.table2 td {
 									</td>
 								</tr>
 							</table>
-							<button type="submit" class="btn btn-outline-warning btn-sm"
+							<center><button type="submit" class="btn btn-outline-warning btn-sm"
 								onClick="location.href='noti_write_action'; alert('작성되었습니다.');">작성</button>
 						</form>
 

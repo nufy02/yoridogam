@@ -1,16 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="com.itwill.yoridogam.notice.NoticeService"%>
-<%@ page import="com.itwill.yoridogam.member.Member"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="s" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<script type="text/javascript">
+<script type="text/javascript" src="js/address.js">
 
 </script>
-
 <style>
 table.table2 {
 	border-collapse: separate;
@@ -45,38 +42,36 @@ table.table2 td {
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-12 col-lg-20">
-					<div class="notice-title">
-						<h2>공지사항</h2>
+					<div class="inquiry-title">
+						<h2>문의 게시판</h2>
 					</div>
 					<div class="col-12 col-lg-20">
 						<div class="cart-title mt-50">
 							<div class="cart-table clearfix" id="check"></div>
 						</div>
 						<!--  -->
-						<form method="POST" action="/yoridogam/noti_update_action">
-							<table style="padding-top: 50px" align=center width=50 border=0	cellpadding=2>
+						<form method="POST" action="/yoridogam/inquiryA_write_action">
+							<input type="text" name = "ib_no" value="${inquiry.ib_no }"/>
+							<table style="padding-top: 50px" align=center width=50 border=0
+								cellpadding=2>
 
 								<tr>
 									<td bgcolor=white>
 										<table class="table2">
-										
-
 											<tr>
-												<input type="hidden" name=noti_no value="${notice.noti_no }">
 												<td>작성자</td>
-												<td><input type=text size=50 name = member.m_id
+												<td><input type=text name=member.m_id size=50
 													placeholder="&nbsp;${sUserId }" readonly></td>
 											</tr>
 
 											<tr>
 												<td>제목</td>
-												<td><input type=text name=noti_title size=50
-													value="${notice.noti_title }"></td>
+												<td><input type=text name=ib_title size=50></td>
 											</tr>
 
 											<tr>
 												<td>내용</td>
-												<td><textarea name=noti_content cols=50 rows=10>${notice.noti_content}</textarea></td>
+												<td><textarea name=ib_content cols=50 rows=10></textarea></td>
 											</tr>
 
 										</table>
@@ -85,9 +80,8 @@ table.table2 td {
 									</td>
 								</tr>
 							</table>
-							
-								<center><button type="submit" class="btn btn-outline-warning btn-sm"
-								onClick="location.href='noti_update_action'; alert('수정되었습니다.');" >수정</button>
+							<center><button type="submit" class="btn btn-outline-warning btn-sm"
+								onClick="location.href='inquiryA_write_action'; alert('작성되었습니다.');">작성</button>
 						</form>
 
 
@@ -95,9 +89,11 @@ table.table2 td {
 
 					</div>
 				</div>
+				<!-- 버튼 가운데 정렬 해결하기 -->
 			</div>
 		</div>
 	</div>
+
 	<!-- ##### Main Content Wrapper End ##### -->
 
 	<!-- ##### Footer Area Start ##### -->
@@ -116,8 +112,6 @@ table.table2 td {
 	<script src="js/active.js"></script>
 	<!-- Custom -->
 	<script src="js/custom/cart.js"></script>
-
-
 </body>
 
 </html>

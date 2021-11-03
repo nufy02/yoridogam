@@ -33,7 +33,15 @@
 	</delete>
 	
 	<select id="notiList" resultType="com.itwill.yoridogam.notice.Notice">
-		select * from NOTICE
+		select * from (select rownum idx, s.* from
+                                    (select NOTI_NO, 
+                                            NOTI_TITLE, 
+                                            NOTI_DATE, 
+                                            NOTI_VIEWCOUNT, 
+                                            NOTI_CONTENT, 
+                                            M_ID 
+                                    from notice  
+                                    order by NOTI_NO desc) s )
 	</select>
 	
 	<select id="selectByNotiNo" parameterType="Integer" resultMap="noticeResultMap">

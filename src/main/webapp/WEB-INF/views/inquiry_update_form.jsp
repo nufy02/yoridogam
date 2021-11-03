@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="com.itwill.yoridogam.notice.NoticeService"%>
 <%@ page import="com.itwill.yoridogam.member.Member"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -45,15 +44,15 @@ table.table2 td {
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-12 col-lg-20">
-					<div class="notice-title">
-						<h2>공지사항</h2>
+					<div class="inquiry-title">
+						<h2>문의 게시판</h2>
 					</div>
 					<div class="col-12 col-lg-20">
 						<div class="cart-title mt-50">
 							<div class="cart-table clearfix" id="check"></div>
 						</div>
 						<!--  -->
-						<form method="POST" action="/yoridogam/noti_update_action">
+						<form method="POST" action="/yoridogam/inquiry_update_action">
 							<table style="padding-top: 50px" align=center width=50 border=0	cellpadding=2>
 
 								<tr>
@@ -62,7 +61,7 @@ table.table2 td {
 										
 
 											<tr>
-												<input type="hidden" name=noti_no value="${notice.noti_no }">
+												<input type="hidden" name=ib_no value="${inquiry.ib_no}">
 												<td>작성자</td>
 												<td><input type=text size=50 name = member.m_id
 													placeholder="&nbsp;${sUserId }" readonly></td>
@@ -70,13 +69,13 @@ table.table2 td {
 
 											<tr>
 												<td>제목</td>
-												<td><input type=text name=noti_title size=50
-													value="${notice.noti_title }"></td>
+												<td><input type=text name=ib_title size=50
+													value="${inquiry.ib_title }"></td>
 											</tr>
 
 											<tr>
 												<td>내용</td>
-												<td><textarea name=noti_content cols=50 rows=10>${notice.noti_content}</textarea></td>
+												<td><textarea name=ib_content cols=50 rows=10>${inquiry.ib_content}</textarea></td>
 											</tr>
 
 										</table>
@@ -87,7 +86,7 @@ table.table2 td {
 							</table>
 							
 								<center><button type="submit" class="btn btn-outline-warning btn-sm"
-								onClick="location.href='noti_update_action'; alert('수정되었습니다.');" >수정</button>
+								onClick="location.href='inquiry_update_action'; alert('수정되었습니다.');" >수정</button>
 						</form>
 
 
