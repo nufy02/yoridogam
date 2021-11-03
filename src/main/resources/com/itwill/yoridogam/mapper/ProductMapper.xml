@@ -55,5 +55,10 @@
 		select * from teacher t join product p on p.t_Id = t.t_id where p_no=#{p_no}
 	</select>
 	
+	<!-- 강사 아이디 받아서 상품 정보 얻기 -->
+	<select id="selectpByT_id" parameterType="java.lang.String" resultMap="ProductResultMap">
+		select * from product p join teacher t on p.t_id = t.t_id where p.t_id =#{t_id}
+	</select>
+	
 	
 </mapper>

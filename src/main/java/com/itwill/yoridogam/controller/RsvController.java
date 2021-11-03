@@ -30,6 +30,7 @@ import com.itwill.yoridogam.productTime.ProductTimeDao;
 import com.itwill.yoridogam.productTime.ProductTimeService;
 import com.itwill.yoridogam.reservation.Reservation;
 import com.itwill.yoridogam.reservation.ReservationService;
+import com.itwill.yoridogam.teacher.Teacher;
 import com.itwill.yoridogam.teacher.TeacherService;
 
 @SessionAttributes("reservation")
@@ -59,15 +60,15 @@ public class RsvController {
 	
 	// 강의 결제 form
 	@LoginCheck
-	@RequestMapping("rsv_form")
-	public String rsv_form(//@RequestParam int p_no,
-							//@RequestParam String t_id,
+	@PostMapping("rsv_form")
+	public String rsv_form(@RequestParam int p_no,
+							@RequestParam String t_id,
 							HttpSession session,
 							Model model) throws Exception {
-		//String sUserId=(String)session.getAttribute("sUserId");
-		String sUserId="member1";
-		int p_no =4;
-		String t_id = "teacher2";
+		String sUserId=(String)session.getAttribute("sUserId");
+		//String sUserId="member1";
+		//int p_no =4;
+		//String t_id = "teacher2";
 		model.addAttribute("sUserId", memberService.findMember(sUserId));
 		model.addAttribute("teacher", teacherService.findMember(t_id));
 		model.addAttribute("product",productService.selectByNo(p_no));
@@ -79,8 +80,11 @@ public class RsvController {
 
 	// 결제 action
 	@LoginCheck
-	@GetMapping("rsv_action")
-	public String rsv_action(@ModelAttribute("reservation") Reservation reservation,int p_no,HttpSession session,Model model) throws Exception {
+	@PostMapping("rsv_action")
+	public String rsv_action(@ModelAttribute("reservation") Reservation reservation,
+															int p_no,
+															HttpSession session,
+															Model model) throws Exception {
 		String sUserId=(String)session.getAttribute("sUserId");
 		reservation.setProduct(new Product(p_no, null, null, null, null, null, null, null));
 		Member member = memberService.findMember(sUserId);
@@ -89,7 +93,11 @@ public class RsvController {
 		reservationService.insert(reservation,sUserId);
 		return "rsv_success";
 	}
-	
+	@GetMapping("rsv_action")
+	public String rsv_action() {
+		
+		return "redirect:product_detail";
+	}
 	
 	// 오프라인 결제 성공화면(영수증) --> 확인 누르면 메인으로
 	@LoginCheck
@@ -119,12 +127,21 @@ public class RsvController {
 	@LoginCheck
 	@RequestMapping("rsv_member_list")
 	public String m_rsv_list(HttpSession session, Model model) throws Exception {
-		//String sUserId=(String)session.getAttribute("sUserId");
-		String sUserId="member1";
+		String sUserId=(String)session.getAttribute("sUserId");
+		//String sUserId="member1";
 		model.addAttribute("member_rsv",reservationService.selectAll(sUserId));
 		return "rsv_member_list";
 	}
 	
+	// 강사 디테일에서 상품 보여주기
+	@RequestMapping("teacher_product_list")
+	public String t_product_list(HttpSession session, Model model)throws Exception{
+		String loginUserId =(String)session.getAttribute("sTeacherId");
+		List<Product> pList = productService.selectpByT_id(loginUserId);
+		
+		return "teacher_product_list";
+	}
+
 	
 	/*******************************************[  AJAX  ]*******************************************/
 	
@@ -143,7 +160,8 @@ public class RsvController {
 	@ResponseBody
 	public ProductTime rsv_time_ajax(@RequestParam String rsv_date,@RequestParam int p_no,@RequestParam String rsv_time)throws Exception {
 		
-		ProductTime productTime = productTimeService.selectPtNo2(new ProductTime(0, rsv_date, rsv_time, 0, 0, new Product(p_no, null, null, null, null, null, null, null)));
+		ProductTime productTime = productTimeService.selectPtNo2(new ProductTime(0, rsv_date, rsv_time, 0, 0, 
+																  new Product(p_no, null, null, null, null, null, null, null)));
 		System.out.println(productTime);
 		return productTime;
 	}
