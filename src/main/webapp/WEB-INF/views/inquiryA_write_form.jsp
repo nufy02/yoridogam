@@ -51,7 +51,7 @@ table.table2 td {
 						</div>
 						<!--  -->
 						<form method="POST" action="/yoridogam/inquiryA_write_action">
-							<input type="text" name = "ib_no" value="${inquiry.ib_no }"/>
+							<input type="hidden" name = "ib_no" value="${inquiry.ib_no }"/>
 							<table style="padding-top: 50px" align=center width=50 border=0
 								cellpadding=2>
 

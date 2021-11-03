@@ -66,7 +66,8 @@
 
 			</div>
 			<hr>
-			<button type="button" class="btn btn-outline-warning btn-sm"
+			
+			<button type="button" class="btn btn-outline-warning btn-sm" style=""
 				onClick="location.href='inquiry_write'">작성</button>
 		</div>
 

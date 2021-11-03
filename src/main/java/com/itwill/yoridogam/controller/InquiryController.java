@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.itwill.yoridogam.controller.interceptor.LoginCheck;
 import com.itwill.yoridogam.inquiry.Inquiry;
 import com.itwill.yoridogam.inquiry.InquiryService;
+import com.itwill.yoridogam.member.Member;
 import com.itwill.yoridogam.notice.Notice;
 
 @Controller
@@ -71,7 +72,7 @@ public class InquiryController {
 	@RequestMapping("inquiry_write")
 	@LoginCheck
 	public String inquiry_write_form() {
-		return"inquiry_write_form_Q";
+		return "inquiry_write_form_Q";
 	}
 	
 	/**** 문의게시판 글 작성 액션(회원)(GET) ****/
@@ -84,7 +85,9 @@ public class InquiryController {
 	/**** 문의게시판 글 작성 액션(회원)(POST) ****/
 	@PostMapping("inquiry_write_action")
 	@LoginCheck
-	public String inquiry_write_action_post(@ModelAttribute Inquiry inquiry, Model model) {
+	public String inquiry_write_action_post(@ModelAttribute Inquiry inquiry,@RequestParam String m_id, Model model) {
+		inquiry.setMember(new Member());
+		inquiry.getMember().setM_id(m_id);
 		int ib_no = inquiryService.insertInquiry(inquiry);
 		
 		model.addAttribute("inquiry", inquiryService.selectByNoInquiry(ib_no));
