@@ -125,6 +125,7 @@ public class RsvController {
 		return "rsv_member_list";
 	}
 	
+	
 	/*******************************************[  AJAX  ]*******************************************/
 	
 	// 웹에서 rsv_date 선택할때 실행하는 controller
