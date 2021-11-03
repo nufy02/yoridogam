@@ -59,7 +59,7 @@ table.table2 td {
 										<table class="table2">
 											<tr>
 												<td>작성자</td>
-												<td><input type=text name=member.m_id size=50
+												<td><input type=text name=m_id size=50 value="${sUserId }"
 													placeholder="&nbsp;${sUserId }" readonly></td>
 											</tr>
 
@@ -79,8 +79,7 @@ table.table2 td {
 									</td>
 								</tr>
 							</table>
-							<center><button type="submit" class="btn btn-outline-warning btn-sm"
-								onClick="location.href='noti_write_action'; alert('작성되었습니다.');">작성</button>
+							<center><button type="submit" class="btn btn-outline-warning btn-sm" onClick="alert('작성되었습니다.');">작성</button>
 						</form>
 
 
