@@ -24,9 +24,8 @@
                             <div id="product_details_slider" class="carousel slide" >
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
-                                            <div class="d-block w-100" id="map" style="width:100%;height:800px;"></div>
+                                            <div class="d-block w-100" id="map" style="width:100%;height:800px;">
                                             </div>
-                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -38,23 +37,21 @@
                        		<option value="부산">부산</option>
                        		<option value="대전">대전</option>
                        		<option value="제주도">제주도</option>
-                       	</select><br></br>
-                       			<hr>
+                       	</select><br></br><hr>
 		                        <div class="single_product_desc">
-                            	<table >
-	                            <ul class="summary-table">
-	                            <c:forEach var="product" items="${pList }" begin="0" varStatus="status">
-                              	<li><span>[${product.teacher.t_name }] 강사 </span>&nbsp;&nbsp;
-                              	<span style="color: orange;">${product.p_name }</span>
-                              	<hr>
-                              	<button class="btn btn-outline-warning" name="mapBtn" value="${product.teacher.t_location }">위치 보기</button>&nbsp;&nbsp;
-                              	<span>${product.teacher.t_location}</span>
-                              	</li>
-                                <hr>
-	                            </c:forEach>
-                            </ul>
-                       </table>   
-                        </div>
+                            		<table>
+			                            <ul class="summary-table" id="classList">
+                            				<c:forEach var="product" items="${pList }" begin="0" varStatus="status">
+        			                      	<li>
+        			                      		[${product.teacher.t_name }] 강사 &nbsp;&nbsp;
+                    				         	<span style="color: orange;">${product.p_name }</span><hr>
+                            				  	<button class="btn btn-outline-warning" name="mapBtn" value="${product.teacher.t_location }">위치 보기</button>&nbsp;&nbsp;
+                              					${product.teacher.t_location}
+                              				</li><hr>
+                         				   </c:forEach>
+			                            </ul>
+			                       </table>   
+	                        </div>
                     </div>
                 </div>
             </div>
