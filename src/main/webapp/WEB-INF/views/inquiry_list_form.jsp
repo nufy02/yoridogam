@@ -27,6 +27,7 @@
 			return;
 		}
 	}
+
 </script>
 <div class="cart-table-area section-padding-100">
 	<div class="container-fluid">
@@ -56,7 +57,8 @@
 											<c:forEach begin="1" end="${inquiry.ib_depth}">
 														&nbsp;&nbsp; ㄴRE :<!-- 글 제목 앞에 공백, RE -->
 											</c:forEach>
-										</c:if> <a href="inquiry_detail?ib_no=${inquiry.ib_no}">${inquiry.ib_title}</a>
+										</c:if> 
+												<a href="inquiry_detail?ib_no=${inquiry.ib_no}">${inquiry.ib_title}</a>
 									</td>
 									<td>${inquiry.member.m_id}</td>
 									<td><fmt:formatDate value="${inquiry.ib_date}" pattern="yyyy-MM-dd"/>

@@ -38,7 +38,6 @@
 		}
 	};
 </script>
-
 <div class="cart-table-area section-padding-100">
 	<div class="container-fluid">
 		<div class="row">
@@ -66,15 +65,18 @@
 		
 						<!-- 내용 들어갈 자리 끝 -->
 				</div>
-				<hr> 
+				<hr> <center>
 				
 					<button type="button" class="btn btn-outline-warning btn-sm"
 							onClick="location.href='notice_list'" >목록</button>
 				
+				<c:if test="${sUserId eq 'admin' }">
 					<button type="button" class="btn btn-outline-warning btn-sm"
-							onClick="notice_update()" style="float: right;">수정</button>
-					<button type="button" class="btn btn-outline-warning btn-sm"
-							onClick="notice_delete()" style="float: right;">삭제</button>
+							onClick="notice_delete()">삭제</button>
+							
+					<button type="button" class="btn btn-outline-warning btn-sm" 
+							onClick="notice_update()">수정</button>
+				</c:if>			
 				</div>
 			</div>
 		</div>

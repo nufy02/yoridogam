@@ -6,21 +6,28 @@
 <%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script type="text/javascript">
-	function notice_write() {
-		
-		if ("${sUserId}" == "") {
-			alert("로그인 후 이용가능합니다");
-			location.href = "member_login_form";
-			return;
+$(document).ready(function() {
+
+	$('#inquiry_title').on('click', function(e){
+		var sUserId = '<%=(String) session.getAttribute("sUserId")%>';
+		var m_id = $(e.target).attr('m_id'); 
+		if(sUserId != m_id){
+			  alert("작성자만 수정할 수 있습니다.");
+			 e.preventDefault();
+		}else{
+				if(sUserId=='admin'){
+						location.href='inquiry_detail?ib_no='+$(e.target).attr('inquiry.ib_no');   					  
+				}else{
+						location.href='inquiry_detail?ib_no='+$(e.target).attr('inquiry.ib_no');      
+				}
 		}
-		if ("${sUserId}" != "admin") {
-			alert("공지사항 작성은 관리자만 가능합니다.");
-			location.href = "notice_list";
-			return;
-		}
-		f.action = "noti_write_form";
-		f.submit();
 	}
+});	
+
+	
+
+
+
 </script>
 
 <!-- Header Area Start -->

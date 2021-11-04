@@ -58,6 +58,7 @@
 		select count(*) from NOTICE where noti_no>0
 		]]>
 	</select>
+	
 	<!-- 페이징 처리 후 게시글 조회 -->
 	<select id="selectPageNotice" resultType="com.itwill.yoridogam.notice.page.PagingVO">
 		SELECT * FROM (SELECT NOTI_NO, 
