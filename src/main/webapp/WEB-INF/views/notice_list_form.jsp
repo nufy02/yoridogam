@@ -72,8 +72,10 @@
 		</div>
 		<hr>
 		<center>
+		<c:if test="${sUserId eq 'admin' }">
 			<button type="button" class="btn btn-outline-warning btn-sm"
 				onClick="notice_write()"style="float: right;">작성</button>
+		</c:if>
 			<!-- 붙여온 거 끝점 -->
 			<!-- 삭제점 -->
 	</div>
