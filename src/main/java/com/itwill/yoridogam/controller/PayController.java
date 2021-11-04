@@ -48,13 +48,10 @@ public class PayController {
 	 강의상세->결제 페이지
 	 *********************************************************************/
 	@LoginCheck
-	@RequestMapping("pay_form")
-	//@PostMapping("pay_form")
-	public String pay_form(HttpSession session, Model model) throws Exception{
-	//public String pay_form(HttpSession session, int p_no, int qty) throws Exception{
+	@PostMapping("pay_form")
+	//public String pay_form(HttpSession session, Model model) throws Exception{
+	public String pay_form(HttpSession session, Model model,int p_no, int qty) throws Exception{
 		String sUserId=(String)session.getAttribute("sUserId");
-		int qty=1;//test
-		int p_no=1;//test
 		session.setAttribute("qty",qty);
 		model.addAttribute("sUserId", memberService.findMember(sUserId));
 		model.addAttribute("product", productService.selectByNo(p_no));

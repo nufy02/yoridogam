@@ -57,13 +57,18 @@ $("select[name=p_type]").change(function(){ // select 옵션 값이 변한다면
 	}
 }); //간단히 변경하ㄹ 수 있으면 좋을 듯..
 
-$(document).ready(function(){
+$(document).ready(function(){//update pt
     $("#pt_timeSetting").click(function(){
 		$("#exampleModalCenter").modal();
        // $("#exampleModalCenter").attr("style", "display:flex; opacity:1"); 
     });
 });
-
+$(document).ready(function(){ //detail
+    $("button[name=detailMap]").click(function(){
+		$("#exampleModalCenter").modal();
+       // $("#exampleModalCenter").attr("style", "display:flex; opacity:1"); 
+    });
+});
 $('#pt_dateSelect').change(function(e){
 	var date = $('#pt_dateSelect').val();
 	var p_no = $('input[name=p_no]').val();
@@ -144,6 +149,12 @@ $("#deletePt").click(function(){
 			}
 		})
 })
+
+
+
+
+
+
 
 
 

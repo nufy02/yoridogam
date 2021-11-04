@@ -5,7 +5,12 @@ $("button[name=mapBtn]").click(function () {
 	$("#map").empty();
 	map();
 })
-
+$("button[name=detailMap]").click(function() {
+	pName=$("#detailPName").val();
+	console.log(pName)
+	map();
+	})
+	
 function map(){
 var mapContainer = document.getElementById('map'), 
     mapOption = {

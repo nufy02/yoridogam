@@ -13,6 +13,7 @@
 				<result column="T_ID" property="t_id"/>
 				<result column="T_NAME" property="t_name"/>
 				<result column="T_LOCATION" property="t_location"/>
+				<result column="T_DETAIL" property="t_detail"/>
 		</association>
 	</resultMap>
 	

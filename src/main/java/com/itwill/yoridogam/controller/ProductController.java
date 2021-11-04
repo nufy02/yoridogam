@@ -25,6 +25,7 @@ import com.itwill.yoridogam.product.ProductService;
 import com.itwill.yoridogam.productTime.ProductTime;
 import com.itwill.yoridogam.productTime.ProductTimeService;
 import com.itwill.yoridogam.teacher.Teacher;
+import com.itwill.yoridogam.teacher.TeacherService;
 
 @Controller
 public class ProductController {
@@ -32,16 +33,19 @@ public class ProductController {
 	private ProductService productService;
 	@Autowired
 	private ProductTimeService productTimeService;
+	@Autowired
+	private TeacherService teacherService;
 	
-	@RequestMapping("product_list_form")
+	@RequestMapping("product_list")
 	public String product_list(Model model)throws Exception{
 		List<Product> productList=productService.selectAll();
-		model.addAttribute("productList", productList);
+		model.addAttribute("pList", productList);
 		return "product_list";
 	}
-	@RequestMapping("product_detail_form")
-	public String product_detail(@RequestParam int p_no,Model model)throws Exception{
+	@RequestMapping("product_detail")
+	public String product_detail(int p_no,Model model)throws Exception{
 		Product product=productService.selectByNo(p_no);
+		product.setTeacher(teacherService.findMember(product.getTeacher().getT_id()));
 		model.addAttribute("product",product);
 		return "product_detail";
 	}
@@ -157,7 +161,7 @@ public class ProductController {
 		List<Product> result=new ArrayList<Product>();
 		for(int i=0; i<pList.size(); i++) {
 			if(pList.get(i).getTeacher().getT_location().contains(region)) {
-				result.add(pList.get(i));
+					result.add(pList.get(i));
 			}
 		}
 		System.out.println(result);

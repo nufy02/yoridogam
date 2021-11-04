@@ -61,14 +61,12 @@ public class RsvController {
 	// 강의 결제 form
 	@LoginCheck
 	@RequestMapping("rsv_form")
-	public String rsv_form(//@RequestParam int p_no,
-							//@RequestParam String t_id,
+	public String rsv_form(@RequestParam int p_no,
+							@RequestParam String t_id,
 							HttpSession session,
 							Model model) throws Exception {
 		String sUserId=(String)session.getAttribute("sUserId");
 		//String sUserId="member1";
-		int p_no =4;
-		String t_id = "teacher2";
 		model.addAttribute("sUserId", memberService.findMember(sUserId));
 		model.addAttribute("teacher", teacherService.findMember(t_id));
 		model.addAttribute("product",productService.selectByNo(p_no));

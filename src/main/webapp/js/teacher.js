@@ -141,3 +141,13 @@ function id_duplicate_check(){
 	})
 	
 	
+	
+$('button[name="ptdetail"]').click(function(){
+	alert("d");
+	var pt_no=$(this).val();
+	if($('.abc'+pt_no).css("display") == "none"){
+    $('.abc'+pt_no).show();
+} else {
+    $('.abc'+pt_no).hide();
+}
+})

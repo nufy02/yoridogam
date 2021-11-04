@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -85,8 +85,7 @@
                 </c:otherwise>
                 </c:choose>
                     <li class="active"><a href="home">메인</a></li>
-                    <li><a href=".html">온라인 강의</a></li>
-                    <li><a href=".html">오프라인 강의</a></li>
+                    <li><a href="product_list">강의 목록</a></li>
                     <li><a href="product_maps">내 주변 강의</a></li>
                     <li><a href="notice_list">공지사항</a></li>
                     <li><a href="inquiry_list">문의게시판</a></li>
@@ -98,7 +97,6 @@
             <c:when test ="${empty(sUserId)&&empty(sTeacherId)}" >
                 <a href="member_login_form" class="btn amado-btn mb-15">회원로그인</a>
                 <a href="teacher_login_form" class="btn amado-btn mb-15">강사로그인</a>
-                <a href="#" class="btn amado-btn active">New this week</a>
            	</c:when>
            	<c:otherwise>
            		   <a href="member_logout_action" class="btn amado-btn mb-15">로그아웃</a>
