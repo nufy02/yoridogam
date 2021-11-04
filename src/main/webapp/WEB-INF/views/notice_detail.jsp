@@ -8,8 +8,32 @@
 <%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script type="text/javascript">
+	function notice_update() {
 
+		if ("${sUserId}" != "admin") {
+			alert("공지사항 수정은 관리자만 가능합니다.");
+			location.href = 'notice_detail?noti_no=${notiDetail.noti_no}';
+			return;
+		}
+		if ("${sUserId}" == "admin") {
+			location.href = 'noti_update?noti_no=${notiDetail.noti_no}';
+			return;
+		}
+	};
+	
+	function notice_delete() {
 
+		if ("${sUserId}" != "admin") {
+			alert("공지사항 삭제는 관리자만 가능합니다.");
+			location.href = 'notice_detail?noti_no=${notiDetail.noti_no}';
+			return;
+		}
+		if ("${sUserId}" == "admin") {
+			location.href = 'noti_delete_action?noti_no=${notiDetail.noti_no}';
+			alert("공지사항이 삭제되었습니다.");
+			return;
+		}
+	};
 </script>
 <!-- Header Area Start -->
 <%@include file="/WEB-INF/views/common/include_header.jsp"%>
@@ -35,7 +59,7 @@
 						<hr> 
                         <span>[조회수] </span> <span>${notiDetail.noti_viewCount} </span>
                         <hr> 
-						<span><textarea name=ib_content cols=60 rows=15 style="resize: none; margin: 5px; " readonly="readonly" >${notiDetail.noti_content}</textarea></span>
+						<span><textarea name=ib_content cols=60 rows=15 style="resize: none; margin: 5px; vertical-align: middle;" readonly="readonly" >${notiDetail.noti_content}</textarea></span>
                         
 					</table>
 					</form>
@@ -43,14 +67,14 @@
 						<!-- 내용 들어갈 자리 끝 -->
 				</div>
 				<hr> 
-						<span><center>
-						<input type="button" class="btn btn-outline-warning btn-sm" 
-								value="목록" onClick="location.href='notice_list'"> 
-						<input type="button" class="btn btn-outline-warning btn-sm" 
-								value="수정" onClick="location.href='noti_update?noti_no=${notiDetail.noti_no}' "> 
-						<a href="noti_delete_action?noti_no=${notiDetail.noti_no}" role="button"
-							class="btn btn-outline-warning btn-sm" onclick="alert('삭제되었습니다.');" >삭제</a>
-						</span>
+				
+					<button type="button" class="btn btn-outline-warning btn-sm"
+							onClick="location.href='notice_list'" >목록</button>
+				
+					<button type="button" class="btn btn-outline-warning btn-sm"
+							onClick="notice_update()" style="float: right;">수정</button>
+					<button type="button" class="btn btn-outline-warning btn-sm"
+							onClick="notice_delete()" style="float: right;">삭제</button>
 				</div>
 			</div>
 		</div>
