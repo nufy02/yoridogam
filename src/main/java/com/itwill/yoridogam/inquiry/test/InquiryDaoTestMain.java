@@ -69,10 +69,10 @@ public class InquiryDaoTestMain {
 		//System.out.println(inquiryDao.selectByNoInquiry(9));
 		
 		/*문의사항 답변 여부 보기*/
-		System.out.println(inquiryDao.countA(updateInq1));
+		//System.out.println(inquiryDao.countA(updateInq1));
 		
 		/*문의사항 총 개수 보기*/
-		System.out.println(inquiryDao.countTotalInquiry());
+		//System.out.println(inquiryDao.countTotalInquiry());
 		
 		/*문의사항 전체 보기*/
 		System.out.println(inquiryDao.inquiryList());

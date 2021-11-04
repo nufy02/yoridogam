@@ -7,6 +7,9 @@
 <%@taglib prefix="s" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<!-- Header Area Start -->
+<%@include file="/WEB-INF/views/common/include_header.jsp"%>
+<!-- Header Area End -->
 <script type="text/javascript">
 	function notice_update() {
 
@@ -35,9 +38,6 @@
 		}
 	};
 </script>
-<!-- Header Area Start -->
-<%@include file="/WEB-INF/views/common/include_header.jsp"%>
-<!-- Header Area End -->
 
 <div class="cart-table-area section-padding-100">
 	<div class="container-fluid">

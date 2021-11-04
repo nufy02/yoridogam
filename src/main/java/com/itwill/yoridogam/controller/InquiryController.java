@@ -68,6 +68,13 @@ public class InquiryController {
 		Inquiry inquiryDetail = inquiryService.selectByNoInquiry(ib_no);
 		model.addAttribute("inquiry", inquiryDetail);
 		return "inquiry_detail";
+		/*
+		 inquiryService.updateInquiryViewCount(ib_no);
+		Inquiry inquiryDetail = inquiryService.selectByNoInquiry(ib_no);
+		inquiryDetail.getMember().getM_id();
+		model.addAttribute("inquiry", inquiryDetail);
+		return "inquiry_detail";
+		 */
 	}
 	
 	/***************************************************************************/

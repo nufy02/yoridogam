@@ -67,7 +67,7 @@
 		DELETE FROM inquiry WHERE IB_NO=#{ib_no}
 	</delete>
 	
-	<select id="inquiryList" resultType="com.itwill.yoridogam.inquiry.Inquiry">
+	<select id="inquiryList" resultMap="inquiryResultMap">
 		select * from (select rownum idx, s.* from
                                     (select IB_NO, 
                                             IB_TITLE, 
@@ -82,7 +82,7 @@
                                     order by IB_GROUPNO desc, IB_DEPTH asc) s )
 	</select>
 	
-	<select id="selectByNoInquiry" parameterType="java.lang.Integer" resultType="com.itwill.yoridogam.inquiry.Inquiry">
+	<select id="selectByNoInquiry" parameterType="java.lang.Integer" resultMap="inquiryResultMap">
 		select * from inquiry where IB_NO=#{ib_no}
 	</select>
 	

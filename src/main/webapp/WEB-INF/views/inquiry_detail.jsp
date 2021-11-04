@@ -44,14 +44,13 @@
 						<!-- 내용 들어갈 자리 끝 -->
 				</div>
 				<hr> 
-						<span>
+				
 						<input type="button" class="btn btn-outline-warning btn-sm" 
 								value="목록" onClick="location.href='inquiry_list'"> 
 						<input type="button" class="btn btn-outline-warning btn-sm" 
 								value="수정" onClick="location.href='inquiry_update?ib_no=${inquiry.ib_no}' "> 
 						<a href="inquiry_delete_action?ib_no=${inquiry.ib_no}" role="button"
 							class="btn btn-outline-warning btn-sm" onclick="alert('삭제되었습니다.');" >삭제</a>
-						</span>
 						<input type="button" class="btn btn-outline-warning btn-sm" style="float: right;"
 								value="답글" onClick="location.href='inquiryA_write?ib_no=${inquiry.ib_no}' "> 
 				</div>

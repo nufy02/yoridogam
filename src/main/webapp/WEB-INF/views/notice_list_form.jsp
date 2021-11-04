@@ -57,7 +57,7 @@
 								<!--  -->
 								<tr>
 									<td><a href="notice_detail?noti_no=${notice.noti_no}">${notice.noti_title}</a></td>
-									<td>작성자</td>
+									<td>${notice.member.m_id}</td>
 									<td><fmt:formatDate var="resultNotiDate"
 											value="${notice.noti_date}" pattern="yyyy-MM-dd" />
 										${resultNotiDate}</td>

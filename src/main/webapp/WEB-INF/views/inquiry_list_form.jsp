@@ -9,6 +9,25 @@
 <%@include file="/WEB-INF/views/common/include_header.jsp"%>
 <!-- Header Area End -->
 
+<script type="text/javascript">
+	function inquiry_write() {
+		
+		if ("${sUserId}" == "") {
+			alert("로그인 후 이용가능합니다");
+			location.href = "member_login_form";
+			return;
+		}
+		if ("${sUserId}" != "admin") {
+			alert("공지사항 작성은 관리자만 가능합니다.");
+			location.href = "notice_list";
+			return;
+		}
+		if ("${sUserId}" == "admin") {
+			location.href = "noti_write_form";
+			return;
+		}
+	}
+</script>
 <div class="cart-table-area section-padding-100">
 	<div class="container-fluid">
 		<div class="row">
@@ -39,10 +58,8 @@
 											</c:forEach>
 										</c:if> <a href="inquiry_detail?ib_no=${inquiry.ib_no}">${inquiry.ib_title}</a>
 									</td>
-									<td>작성자</td>
-									<td><fmt:formatDate var="resultIbDate"
-											value="${inquiry.ib_date}" pattern="yyyy-MM-dd" />
-										${resultIbDate}</td>
+									<td>${inquiry.member.m_id}</td>
+									<td><fmt:formatDate value="${inquiry.ib_date}" pattern="yyyy-MM-dd"/>
 									<td>${inquiry.ib_viewCount}</td>
 								</tr>
 								</tbody>
