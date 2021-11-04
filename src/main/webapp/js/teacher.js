@@ -131,6 +131,13 @@ function id_duplicate_check(){
 	}
 	
 	
-	
+	/*************************AJAX*************************/
+	// 강사 상세리스트 보기
+	$(document).ready(function(){
+		$('#productList').click(function(){
+			$('#check').empty();
+			$('#check').load('teacher_product_list').hide().fadeIn("slow");
+		})
+	})
 	
 	

@@ -29,7 +29,7 @@ public class ReservationServiceImpl implements ReservationService {
 		String date = reservation.getRsv_date();
 		String time = reservation.getRsv_time();
 		int p_no = reservation.getProduct().getP_no();
-		ProductTime pt = new ProductTime(0, date, time, 0, 0, new Product(p_no, null, null, null, null, null, null, null));
+		ProductTime pt = new ProductTime(0, date, time, 0, 0, productDao.selectByNo(p_no));
 		ProductTime PTrsv = productTimeDao.selectPtNo2(pt);
 		// 웹에서 받아온 reservation값을 넣어서 DB reservaion insert
 		// selectPtNo 데이터를 PTrsv에 넣어준다	

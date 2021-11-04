@@ -14,6 +14,7 @@
 			<th scope="col">강의 시간</th>
 			<th scope="col">결제 일자</th>
 			<th scope="col">현재 상황</th>
+			<th scope="col"></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -21,8 +22,8 @@
 	<form action="rsv_no_delete" method="get">
 	<input type="hidden" name="rsv_no" value="${rsv_data.rsv_no}">
 		<tr>
-			<th scope="row">${rsv_data.rsv_no }</th>
-			<td scope="row">${rsv_data.product.p_no}</td>
+			<td scope="row">${rsv_data.rsv_no }</th>
+			<td scope="row">${rsv_data.product.p_name}</td>
 			<td scope="row">${rsv_data.rsv_date}</td>
 			<td scope="row">${rsv_data.rsv_time}</td>
 			

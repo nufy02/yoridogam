@@ -60,15 +60,15 @@ public class RsvController {
 	
 	// 강의 결제 form
 	@LoginCheck
-	@PostMapping("rsv_form")
-	public String rsv_form(@RequestParam int p_no,
-							@RequestParam String t_id,
+	@RequestMapping("rsv_form")
+	public String rsv_form(//@RequestParam int p_no,
+							//@RequestParam String t_id,
 							HttpSession session,
 							Model model) throws Exception {
 		String sUserId=(String)session.getAttribute("sUserId");
 		//String sUserId="member1";
-		//int p_no =4;
-		//String t_id = "teacher2";
+		int p_no =4;
+		String t_id = "teacher2";
 		model.addAttribute("sUserId", memberService.findMember(sUserId));
 		model.addAttribute("teacher", teacherService.findMember(t_id));
 		model.addAttribute("product",productService.selectByNo(p_no));
@@ -80,25 +80,26 @@ public class RsvController {
 
 	// 결제 action
 	@LoginCheck
-	@PostMapping("rsv_action")
+	@RequestMapping("rsv_action")
 	public String rsv_action(@ModelAttribute("reservation") Reservation reservation,
 															int p_no,
 															HttpSession session,
 															Model model) throws Exception {
 		String sUserId=(String)session.getAttribute("sUserId");
-		reservation.setProduct(new Product(p_no, null, null, null, null, null, null, null));
+		Product product = productService.selectByNo(p_no);
+		reservation.setProduct(product);
 		Member member = memberService.findMember(sUserId);
 		reservation.setMember(member);
-		model.addAttribute("product", productService.selectByNo(reservation.getProduct().getP_no()));
+		model.addAttribute("product", product);
 		reservationService.insert(reservation,sUserId);
 		return "rsv_success";
 	}
-	@GetMapping("rsv_action")
-	public String rsv_action() {
-		
-		return "redirect:product_detail";
-	}
-	
+
+	/*
+	 * @GetMapping("rsv_action") public String rsv_action() {
+	 * 
+	 * return "redirect:product_detail"; }
+	 */
 	// 오프라인 결제 성공화면(영수증) --> 확인 누르면 메인으로
 	@LoginCheck
 	@RequestMapping("rsv_success")
@@ -137,7 +138,7 @@ public class RsvController {
 	@RequestMapping("teacher_product_list")
 	public String t_product_list(HttpSession session, Model model)throws Exception{
 		String loginUserId =(String)session.getAttribute("sTeacherId");
-		List<Product> pList = productService.selectpByT_id(loginUserId);
+		model.addAttribute("TPList", productService.selectpByT_id(loginUserId));
 		
 		return "teacher_product_list";
 	}
