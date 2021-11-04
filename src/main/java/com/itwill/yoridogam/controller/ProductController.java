@@ -148,4 +148,26 @@ public class ProductController {
 		model.addAttribute("pList",pList);
 		return "product_maps";
 	}
+
+	@LoginCheck
+	@RequestMapping("product_maps_region")
+	@ResponseBody
+	public List product_maps_region(String region)throws Exception {
+		List<Product> pList=productService.selectPTAll();
+		List<Product> result=new ArrayList<Product>();
+		for(int i=0; i<pList.size(); i++) {
+			if(pList.get(i).getTeacher().getT_location().contains(region)) {
+				result.add(pList.get(i));
+			}
+		}
+		System.out.println(result);
+		return result;
+	}
+
+
+
+
+
+
+
 }

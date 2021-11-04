@@ -6,10 +6,29 @@
 <%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-
 <!-- Header Area Start -->
 <%@include file="/WEB-INF/views/common/include_header.jsp"%>
 <!-- Header Area End -->
+
+<script type="text/javascript">
+	function notice_write() {
+		
+		if ("${sUserId}" == "") {
+			alert("로그인 후 이용가능합니다");
+			location.href = "member_login_form";
+			return;
+		}
+		if ("${sUserId}" != "admin") {
+			alert("공지사항 작성은 관리자만 가능합니다.");
+			location.href = "notice_list";
+			return;
+		}
+		if ("${sUserId}" == "admin") {
+			location.href = "noti_write_form";
+			return;
+		}
+	}
+</script>
 
 <div class="cart-table-area section-padding-100">
 	<div class="container-fluid">
@@ -54,7 +73,7 @@
 		<hr>
 		<center>
 			<button type="button" class="btn btn-outline-warning btn-sm"
-				onClick="location.href='noti_write_form'">작성</button>
+				onClick="notice_write()"style="float: right;">작성</button>
 			<!-- 붙여온 거 끝점 -->
 			<!-- 삭제점 -->
 	</div>
