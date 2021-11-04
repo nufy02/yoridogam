@@ -45,16 +45,24 @@
               	</td>
                </tr>
 	           <!-- 회원정보 -->
-	               <tr class="collapse" id="collapse${pt.pt_no}">
+	               <tbody class="collapse" id="collapse${pt.pt_no}" style="border-spacing: 30px;">
+	               	<tr style="background-color: lightgray;">
+	               		<th scope="col">회원 성함</th>
+		               	<th scope="col">회원 번호</th>
+		               	<th scope="col">회원 이메일</th>
+		               	<th scope="col">인원</th>
+	               	</tr>
 	           		<c:forEach var="rsv" items="${mList}">
-	           			<c:if test="${(pt.pt_date eq rsv.rsv_date) && pt.pt_time eq rsv.rsv_time }">
-		               <tr >
-		               	<th scope="col">${rsv.rsv_no}</th>
-		               	<th scope="col">${rsv.member.m_id}</th>
+	           			<tr>
+	           			 <c:if test="${(pt.pt_date eq rsv.rsv_date) && pt.pt_time eq rsv.rsv_time }"> 
+		               	<td scope="row">${rsv.member.m_name}</td>
+		               	<td scope="row">${rsv.member.m_phone}</td>
+		               	<td scope="row">${rsv.member.m_email}</td>
+		               	<td scope="row">${rsv.rsv_qty}</td>
+	           			 </c:if> 
 		               	</tr>
-	           			 </c:if>
 	           		</c:forEach>
-               		</tr>
+               		</tbody>
                	
                		
 	           <!-- 회원정보 -->

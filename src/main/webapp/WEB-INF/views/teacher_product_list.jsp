@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
 <body>
 	
 <div class="container padding-bottom-2x" id="dc">
@@ -35,6 +36,13 @@
             </div>
 		</div>
 	</div>
+</div>
+<br>
+<br>
+
+<div id="detail" class="form-post" style="">
+
+
 </div>
 <div id="productDetail" class="col-lg-10 col-md-8 order-md-2">
 </div>
