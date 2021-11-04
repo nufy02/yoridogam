@@ -52,6 +52,13 @@ public class ReservationServiceImpl implements ReservationService {
 		
 		return reservationDao.selectRsv_no(rsv_no);
 	}
+	
+	// 상품으로 예약한 인원 조회
+	@Override
+	public List<Reservation> selectAllbyP(int p_no) throws Exception {
+		// TODO Auto-generated method stub
+		return reservationDao.selectAllbyP(p_no);
+	}
 
 	// 회원의 예약 특정 상세 조회
 	@Override
@@ -94,6 +101,8 @@ public class ReservationServiceImpl implements ReservationService {
 
 		return productDao.selectTByP_no(p_no);
 	}
+
+
 
 
 

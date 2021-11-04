@@ -12,6 +12,11 @@ public interface ReservationDao {
  */
 	List<Reservation> selectAll(String sUserId) throws Exception;
 /*
+ <selectAll> 회원의 예약 전체 조회
+*/
+	List<Reservation> selectAllbyP(int p_no)throws Exception;
+	
+/*
    에약 조회
 */
 	Reservation selectRsv_no(int rsv_no) throws Exception;

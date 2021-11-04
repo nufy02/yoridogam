@@ -142,9 +142,23 @@ public class RsvController {
 		
 		return "teacher_product_list";
 	}
-
 	
+
 	/*******************************************[  AJAX  ]*******************************************/
+	
+	// 강사 디테일에서 강의 상세보기
+	@RequestMapping(value = "teacher_product_detail")
+	public String t_product_detail(//@RequestParam int p_no,
+									Model model)throws Exception {
+		int p_no =2;
+		model.addAttribute("ptList",productTimeService.selectAll(p_no)); // 수업 시간별 얻기
+		model.addAttribute("mList",reservationService.selectAllbyP(p_no)); // 수업 예약인원 얻기
+		model.addAttribute("product",productService.selectByNo(p_no));// 수업 정보
+		
+		return "teacher_product_detail";
+	}
+	
+	
 	
 	// 웹에서 rsv_date 선택할때 실행하는 controller
 	@PostMapping(value = "rsv_date_ajax",produces = "application/json;charset=UTF-8")
