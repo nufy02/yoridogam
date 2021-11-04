@@ -98,7 +98,13 @@ $("#deleteRsvTD").on("click","#deleteRsv",function(e) {
 		}});
 
 
-
+// 강사 디테일에서 등록된 상품 디테일보기
+	$('button[name=detailBtn]').click(function(){
+		var p_no=($(this).val());
+		var data = { "p_no": p_no };
+					$('#productDetail').empty();
+					$('#productDetail').load('teacher_product_detail',data).hide().fadeIn("3000")
+	})
 
 
 

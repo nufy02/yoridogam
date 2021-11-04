@@ -40,6 +40,11 @@ values(RESERVATION_RSV_NO_SEQ.nextval,#{rsv_total},#{rsv_type},#{rsv_qty},#{rsv_
  select * from reservation join product on m_id=#{member.m_id} order by rsv_no desc
 </select>
 
+<!-- p_no 상품 예약 내역 조회 -->
+<select id="selectAllbyP" parameterType="java.lang.Integer" resultMap="ReservationResultMap">
+ select * from reservation rsv join member m  on rsv.m_id=m.m_id where p_no=#{product.p_no}  order by rsv_no desc
+</select>
+
 <!-- selectRsv_no -->
 <select id="selectRsv_no" parameterType="java.lang.Integer" resultMap="ReservationResultMap" >
  select * from reservation where rsv_no=#{rsv_no}

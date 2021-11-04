@@ -24,6 +24,9 @@ public interface ReservationService {
 	
 	// 회원의 예약내역 조회
 	List<Reservation> selectAll(String sUserId)throws Exception;
+	
+	// 상품별 예약 내역 조회
+	List<Reservation> selectAllbyP(int p_no)throws Exception;
 
 	// 예약 조회
 	Reservation selectRsv_no(int rsv_no) throws Exception;

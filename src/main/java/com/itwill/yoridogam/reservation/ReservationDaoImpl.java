@@ -54,6 +54,14 @@ public class ReservationDaoImpl implements ReservationDao{
 		
 		return sqlSession.delete(NAMESPACE+"deleteAll",sUserId);
 	}
+	/*
+	 <selectAll> 회원의 예약 전체 조회
+	*/
+	@Override
+	public List<Reservation> selectAllbyP(int p_no) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(NAMESPACE+"selectAllbyP", p_no);
+	}
 
 
 }
