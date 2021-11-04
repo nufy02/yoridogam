@@ -24,7 +24,7 @@
                             <div id="product_details_slider" class="carousel slide" >
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
-                                            <div class="d-block w-100" id="map" style="width:100%;height:800px;"</div>
+                                            <div class="d-block w-100" id="map" style="width:100%;height:800px;"></div>
                                             </div>
                                         </a>
                                     </div>
