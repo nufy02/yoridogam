@@ -80,11 +80,10 @@ $("#region").change(function(){
 			$("#classList").append(`<li>`)
 			$("#classList").append(`[${result[i].teacher.t_name }] 강사 &nbsp;&nbsp;
                 				         	<span style="color: orange;">${result[i].p_name }</span><hr>
-                        				  	<button class="btn btn-outline-warning" name="mapBtn" value="${result[i].teacher.t_location }">위치 보기</button>&nbsp;&nbsp;
+                        				  	<button class="btn btn-outline-warning" name="mapBtn" value="${result[i].teacher.t_name }">위치 보기</button>&nbsp;&nbsp;
                           					${result[i].teacher.t_location}`)
 			$("#classList").append(`</li><hr>`)
 			})
-			
 		}
     });
 })

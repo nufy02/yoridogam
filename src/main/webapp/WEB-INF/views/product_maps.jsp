@@ -42,12 +42,14 @@
                             		<table>
 			                            <ul class="summary-table" id="classList">
                             				<c:forEach var="product" items="${pList }" begin="0" varStatus="status">
+                           					<c:if test="${product.p_type eq '오프라인'}">
         			                      	<li>
         			                      		[${product.teacher.t_name }] 강사 &nbsp;&nbsp;
                     				         	<span style="color: orange;">${product.p_name }</span><hr>
                             				  	<button class="btn btn-outline-warning" name="mapBtn" value="${product.teacher.t_location }">위치 보기</button>&nbsp;&nbsp;
                               					${product.teacher.t_location}
                               				</li><hr>
+                           					</c:if>
                          				   </c:forEach>
 			                            </ul>
 			                       </table>   
