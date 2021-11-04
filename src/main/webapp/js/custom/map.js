@@ -58,3 +58,34 @@ var zoomControl = new kakao.maps.ZoomControl();
 map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 
 })
+
+
+
+$("#region").change(function(){ 
+	 $.ajax({
+		url:'product_maps_region',
+		method:'POST',
+		data: {"region":$(this).val()},
+		success: function(result){
+			if(result.length==0){
+				
+				//reload 될 부분 또 다른 function으로 분리 할 것.
+				$("#classList").empty();
+				$("#classList").append(`<span>해당 지역에 강의가 없어요!</span>`)
+				return false;
+			}
+			$("#classList").empty();
+			$.each(result, function(i){
+			
+			$("#classList").append(`<li>`)
+			$("#classList").append(`[${result[i].teacher.t_name }] 강사 &nbsp;&nbsp;
+                				         	<span style="color: orange;">${result[i].p_name }</span><hr>
+                        				  	<button class="btn btn-outline-warning" name="mapBtn" value="${result[i].teacher.t_location }">위치 보기</button>&nbsp;&nbsp;
+                          					${result[i].teacher.t_location}`)
+			$("#classList").append(`</li><hr>`)
+			})
+			
+		}
+    });
+})
+
