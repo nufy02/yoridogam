@@ -15,13 +15,9 @@
                 <div class="row">
                     <div class="col-12 col-lg-8">
                        <div >
-<<<<<<< HEAD
 						<input type="button" class="btn btn-info btn-md"  id="interestList" style="background-color: #FBB710; border-color: #FBB710" value="관심강의">&nbsp;&nbsp; 
 						<input type="button" class="btn btn-info btn-md" style="background-color: #FBB710; border-color: #FBB710" value="장바구니" onClick="">&nbsp;&nbsp; 
-=======
-						<input type="button" class="btn btn-info btn-md" style="background-color: #FBB710; border-color: #FBB710" value="관심강의" onClick="">&nbsp;&nbsp; 
 						<input type="button" class="btn btn-info btn-md" style="background-color: #FBB710; border-color: #FBB710" value="최근조회강의" onClick="">&nbsp;&nbsp; 
->>>>>>> branch 'main' of https://github.com/2021-05-JAVA-DEVELOPER/final-project-team3-yoridogam.git
 						<input type="button" class="btn btn-info btn-md"  id="payList" style="background-color: #FBB710; border-color: #FBB710" value="결제내역" >&nbsp;&nbsp;
 						<input type="button" class="btn btn-info btn-md" id="rsvList"  style="background-color: #FBB710; border-color: #FBB710" value="예약내역"> 
 						<h3>&nbsp;&nbsp;</h3>

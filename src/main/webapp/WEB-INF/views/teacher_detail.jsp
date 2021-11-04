@@ -15,6 +15,7 @@
                     <div class="col-12 col-lg-8">
                        <div >
 						<input type="button" class="btn btn-info btn-md"  id="productCreate" style="background-color: #FBB710; border-color: #FBB710" value="강의등록" >&nbsp;&nbsp;
+						<input type="button" class="btn btn-info btn-md" id="productList"  style="background-color: #FBB710; border-color: #FBB710" value="등록 강의">
 						<h3>&nbsp;&nbsp;</h3>
          			   </div>
 
