@@ -52,11 +52,14 @@ public class CartController {
 												   new Member((String)session.getAttribute("sUserId"),
 												   "", "", "", "", "", ""));
 		boolean isCartI=cartService.isExistCartItem(nCartI);
-		System.out.println(isCartI);
 		if(isCartI==true) {
-			//
+			Cart cart =cartService.selectCartItemPNo(p_no);
+			for(int i=0; i<qty; i++) {
+				cartService.increaseQty(cart.getCi_no());
+			}
+			return;
 		}else {
-		cartService.insertCart(nCartI);
+			cartService.insertCart(nCartI);
 		}
 	}
 	

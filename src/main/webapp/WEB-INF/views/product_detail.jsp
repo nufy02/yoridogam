@@ -69,7 +69,8 @@
                             </div>
                             <hr><br/>
 
-                            <!-- Add to Cart Form -->
+                            <c:choose>
+                            <c:when test="${product.p_type eq '온라인' }">
                             <form class="cart clearfix" method="post">
                                 <div class="cart-btn d-flex mb-50">
                                     <p>수량</p>
@@ -79,10 +80,8 @@
                                         <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-caret-up" aria-hidden="true"></i></span>
                                     </div>
                                 </div>
-                                <c:choose>
-                                <c:when test="${product.p_type eq '온라인' }">
                                 <button type="submit" name="pay_form" class="btn amado-btn">결제하기</button><br></br>
-                                <button type="button" name="addtocart" class="btn amado-btn">장바구니</button>
+                                <button type="button"  onclick="cartAdd()" name="detailCartAdd" class="btn amado-btn" value="${product.p_no }">장바구니</button>
                                 </c:when>
                                 <c:otherwise>
                                 <button type="submit" name="rsv_form"  class="btn amado-btn">예약하기</button><br></br>
@@ -140,6 +139,8 @@
 	<!-- Custom -->
 	<script src="js/custom/productTest.js"></script>
 	<script src="js/custom/map.js"></script>
+	<!-- List,Detail cartAdd -->
+	<script src='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js'></script>
 </body>
 
 </html>

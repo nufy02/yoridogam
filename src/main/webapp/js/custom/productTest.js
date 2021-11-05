@@ -166,7 +166,19 @@ $(".listCartAdd").click(function(){
 		method:'POST',
 		data: data,
 		success: function(){	
-			cartAdd();			
+		}
+	})
+})
+
+$("button[name=detailCartAdd]").click(function(){
+	var p_no=$(this).val();
+	var qty=$("#qty").val();
+	data={"p_no":p_no, "qty":qty}
+	$.ajax({
+		url:'cart_insert_action',
+		method:'POST',
+		data: data,
+		success: function(){	
 		}
 	})
 })

@@ -92,7 +92,7 @@
                                     <c:choose>
                                     <c:when test="${product.p_type eq '온라인' }">
                                     <div class="cart">
-                                    	<button  class="listCartAdd" style="border: 0px" data-toggle="tooltip" data-placement="left" title="장바구니 담기" value="${product.p_no }">
+                                    	<button onclick="cartAdd()" class="listCartAdd" style="border: 0px" data-toggle="tooltip" data-placement="left" title="장바구니 담기" value="${product.p_no }">
                                     	<img src="img/core-img/cart.png" alt=""></button>
                                     </div>
                                     </c:when>
