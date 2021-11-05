@@ -51,6 +51,11 @@
 			</div>
 		</div>
 		<hr>
+		
+		<c:if test="${sUserId eq 'admin' }">
+			<button type="button" class="btn btn-outline-warning btn-sm"
+				onClick="notice_write()">작성</button>
+		</c:if>
 		<div>
 			<ul style="text-align: center;">
 				<c:if test="${paging.startPage != 1}">
@@ -59,10 +64,11 @@
 			<!-- 페이지 번호를 누르면 해당 페이지로 가게 만듦 -->
 				<c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="p">
 					<c:choose>
-						<c:when test="${p == paging.nowPage}"><li><a style="font-size: 18px;">${p}</a></li>
+						<c:when test="${p == paging.nowPage}"><a style="font-size: 18px;">${p}</a>
 						</c:when>
 						<c:when test="${p != paging.nowPage}">
-							<li><a href="notice_list?nowPage=${p}&cntPerPage=${paging.cntPerPage}">${p}</a></li>
+							<a href="notice_list?nowPage=${p}&cntPerPage=${paging.cntPerPage}"
+								style="font-size: 14px;">&nbsp;&nbsp;&nbsp;&nbsp;${p}&nbsp;&nbsp;&nbsp;&nbsp;</a>
 						</c:when>
 					</c:choose>
 				</c:forEach>
@@ -72,11 +78,6 @@
 				</c:if>
 			</ul>
 		</div>
-		<center>
-		<c:if test="${sUserId eq 'admin' }">
-			<button type="button" class="btn btn-outline-warning btn-sm"
-				onClick="notice_write()">작성</button>
-		</c:if>
 			<!-- 붙여온 거 끝점 -->
 			<!-- 삭제점 -->
 		
