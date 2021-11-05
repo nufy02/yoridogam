@@ -136,7 +136,7 @@ function id_duplicate_check(){
 	$(document).ready(function(){
 		$('#productCreate').click(function(){
 			$('#check').empty();
-			$('#check').load('prdocut_insert_form').hide().fadeIn("slow");
+			$('#check').load('product_insert_form').hide().fadeIn("slow");
 		})
 	})
 	

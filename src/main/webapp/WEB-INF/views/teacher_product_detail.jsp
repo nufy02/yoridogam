@@ -17,7 +17,6 @@
     <!-- Active js -->
     <script src="js/active.js"></script>
     <script src="js/rsv.js"></script>
-  <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <h6 class="text-muted text-normal text-uppercase padding-top-2x"><strong>[${product.p_name}]</strong></h6>
