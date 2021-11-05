@@ -2,6 +2,7 @@ package com.itwill.yoridogam.notice;
 
 import java.util.List;
 
+import com.itwill.yoridogam.notice.paging.PageDto;
 
 
 public interface NoticeDao {
@@ -25,6 +26,9 @@ public interface NoticeDao {
 	boolean updateNotiViewCount(int noti_no);
 	
 	/*************** 공지사항 총 개수 ***************/
-	int listCount();
+	int getTotal();
+	
+	/*************** 페이징 ***************/
+	List<Notice> getListWithPaging(PageDto pageDto);
 	
 }

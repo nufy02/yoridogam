@@ -52,5 +52,19 @@
 		update NOTICE set NOTI_VIEWCOUNT = NOTI_VIEWCOUNT+1 where NOTI_NO=#{noti_no}
 	</update>
 	
+	<select id="getListWithPaging" resultMap="NoticeResultMap">
+		SELECT * FROM 
+		            (SELECT
+		                ROWNUM AS RN,
+		                NOTICE.*
+		           	FROM NOTICE
+		            ORDER BY NOTI_NO DESC)
+		WHERE RN between #{start} and #{end}
+	</select>
+	
+	<select id="getTotal" resultType="int">
+		SELECT count(*) from notice
+	</select>
+		
 
 </mapper>

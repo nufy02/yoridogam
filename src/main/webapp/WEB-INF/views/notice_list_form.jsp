@@ -51,6 +51,27 @@
 			</div>
 		</div>
 		<hr>
+		<div>
+			<ul style="text-align: center;">
+				<c:if test="${paging.startPage != 1}">
+					<li><a href="notice_list?nowPage=${paging.startPage-1}&cntPerPage=${paging.cntPerPage}"></a></li>
+				</c:if>
+			<!-- 페이지 번호를 누르면 해당 페이지로 가게 만듦 -->
+				<c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="p">
+					<c:choose>
+						<c:when test="${p == paging.nowPage}"><li><a style="font-size: 18px;">${p}</a></li>
+						</c:when>
+						<c:when test="${p != paging.nowPage}">
+							<li><a href="notice_list?nowPage=${p}&cntPerPage=${paging.cntPerPage}">${p}</a></li>
+						</c:when>
+					</c:choose>
+				</c:forEach>
+				<c:if test="${paging.endPage != paging.lastPage}">
+					<li><a href="notice_list?nowPage=${paging.endPage + 1}&cntPerPage=${paging.cntPerPage}"
+							style="font-size: 18px;"></a></li>
+				</c:if>
+			</ul>
+		</div>
 		<center>
 		<c:if test="${sUserId eq 'admin' }">
 			<button type="button" class="btn btn-outline-warning btn-sm"
@@ -58,6 +79,7 @@
 		</c:if>
 			<!-- 붙여온 거 끝점 -->
 			<!-- 삭제점 -->
+		
 	</div>
 </div>
 

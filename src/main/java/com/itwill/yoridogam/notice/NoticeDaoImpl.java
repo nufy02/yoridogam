@@ -9,6 +9,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.itwill.yoridogam.notice.paging.PageDto;
+
 
 
 
@@ -60,8 +62,17 @@ public class NoticeDaoImpl implements NoticeDao {
 	}
 
 	@Override
-	public int listCount() {
-		return sqlSession.selectOne(NAMESPACE+"listCount");
+	public int getTotal() {
+		return sqlSession.selectOne(NAMESPACE+"getTotal");
+	}
+	
+	/*************** 페이징 ***************/
+	@Override
+	public List<Notice> getListWithPaging(PageDto pageDto) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("start", pageDto.getStart());
+		map.put("end", pageDto.getEnd());
+		return sqlSession.selectList(NAMESPACE+"getListWithPaging", map);
 	}
 
 

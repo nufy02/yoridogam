@@ -3,6 +3,8 @@ package com.itwill.yoridogam.controller;
 import java.sql.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,7 @@ import com.itwill.yoridogam.controller.interceptor.LoginCheck;
 import com.itwill.yoridogam.member.Member;
 import com.itwill.yoridogam.notice.Notice;
 import com.itwill.yoridogam.notice.NoticeService;
+import com.itwill.yoridogam.notice.paging.PageDto;
 
 @Controller
 public class NoticeController {
@@ -35,10 +38,17 @@ public class NoticeController {
 	 */
 	
 	/**** 공지사항 리스트 ****/
+	//페이징 추가..
 	@RequestMapping("notice_list")
-	public String noti_List(Model model) {
-		List<Notice> notiList = noticeService.notiList();
-		model.addAttribute("notiList", notiList); 
+	public String noti_List(Model model, PageDto pageDto, 
+							@RequestParam(defaultValue = "1")String nowPage, 
+							@RequestParam(defaultValue = "5")String cntPerPage) {
+		
+		int total = noticeService.getTotal();
+		pageDto = new PageDto(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		model.addAttribute("paging", pageDto);
+		//List<Notice> notiList = noticeService.notiList();
+		model.addAttribute("notiList", noticeService.getListWithPaging(pageDto)); 
 		return "notice_list_form";
 		/*
 		 notiList 객체를 "notiList" 이름으로 추가한다. 
@@ -114,6 +124,7 @@ public class NoticeController {
 		return "redirect:notice_list";
 	}
 	
+		
 }
 
 

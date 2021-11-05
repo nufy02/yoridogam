@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.itwill.yoridogam.notice.paging.PageDto;
+
 @Service("noticeService")
 public class NoticeServiceImpl implements NoticeService{
 
@@ -44,10 +46,17 @@ public class NoticeServiceImpl implements NoticeService{
 		result = noticeDao.updateNotiViewCount(noti_no);
 		return result;
 	}
+	
 	/*************** 공지사항 총 개수 ***************/
 	@Override
-	public int listCount() {
-		return noticeDao.listCount();
+	public int getTotal() {
+		return noticeDao.getTotal();
+	}
+	
+	/*************** 페이징 ***************/
+	@Override
+	public List<Notice> getListWithPaging(PageDto pageDto) {
+		return noticeDao.getListWithPaging(pageDto);
 	}
 
 }
