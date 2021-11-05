@@ -16,6 +16,7 @@
     <script src="js/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
+    <script src="js/rsv.js"></script>
   <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -39,13 +40,13 @@
               	<td scope="row">${pt.pt_time}</td>
               	<td scope="row">${pt.pt_rsv}/${pt.pt_max}</td>
               	<td scope="row">
-              		<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse${pt.pt_no }" aria-expanded="false" aria-controls="collapseExample">
+              		<button type="button" name="ptdetail" value="${pt.pt_no}" class="btn btn-outline-warning">
               			등록 회원 정보
               		</button>
               	</td>
                </tr>
 	           <!-- 회원정보 -->
-	               <tbody class="collapse" id="collapse${pt.pt_no}" style="border-spacing: 30px;">
+	               <tbody style="display:none;" class="abc${pt.pt_no} ">
 	               	<tr style="background-color: lightgray;">
 	               		<th scope="col">회원 성함</th>
 		               	<th scope="col">회원 번호</th>
