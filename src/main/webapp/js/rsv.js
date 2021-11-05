@@ -106,11 +106,25 @@ $("#deleteRsvTD").on("click","#deleteRsv",function(e) {
 					$('#detail').empty();
 					$('#detail').load('teacher_product_detail',data).hide().fadeIn("3000")
 
-	})
+	});
 
 
 
-
+// 강사 디테일에서 등록된 상품 디테일에서 회원 디테일
+	$('button[name="ptdetail"]').click(function(){
+		var pt_no = $(this).val();
+		
+			alert("a")
+		if($('.abc'+pt_no).css('display') === 'none'){
+			alert("b")
+			$('.abc'+pt_no).show();
+		}else if($('.abc'+pt_no).css('display') != 'none'){
+			alert("c")
+			$('.abc'+pt_no).hide();
+		}
+		
+	});//끝
+	
 
 
 
