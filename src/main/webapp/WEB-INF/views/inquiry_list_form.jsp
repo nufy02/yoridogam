@@ -9,26 +9,6 @@
 <%@include file="/WEB-INF/views/common/include_header.jsp"%>
 <!-- Header Area End -->
 
-<script type="text/javascript">
-	function inquiry_write() {
-		
-		if ("${sUserId}" == "") {
-			alert("로그인 후 이용가능합니다");
-			location.href = "member_login_form";
-			return;
-		}
-		if ("${sUserId}" != "admin") {
-			alert("공지사항 작성은 관리자만 가능합니다.");
-			location.href = "notice_list";
-			return;
-		}
-		if ("${sUserId}" == "admin") {
-			location.href = "noti_write_form";
-			return;
-		}
-	}
-
-</script>
 <div class="cart-table-area section-padding-100">
 	<div class="container-fluid">
 		<div class="row">
@@ -75,7 +55,7 @@
 
 			</div>
 		</div>
-			<hr><center><button type="button" class="btn btn-outline-warning btn-sm" onClick="location.href='inquiry_write'">작성</button>
+			<hr><center><button type="button" class="btn btn-outline-warning btn-sm" onClick="inquiry_write()">작성</button>
 
 	</div>
 </div>
@@ -97,6 +77,25 @@
 <script src="js/active.js"></script>
 <!-- Custom -->
 <script src="js/custom/cart.js"></script>
+
+
+<script type="text/javascript">
+	function inquiry_write() {
+		
+		if ("${sUserId}" == "") {
+			alert("로그인 후 이용가능합니다");
+			location.href = "member_login_form";
+			return;
+		}
+		
+		else{
+			location.href = "inquiry_write";
+			return;
+		}
+
+	}
+
+</script>
 </body>
 
 </html>

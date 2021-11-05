@@ -7,19 +7,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script type="text/javascript">
 
-function inquiry_write_A() {
-	
-	if ("${sUserId}" != "admin") {
-		alert("답글 작성은 관리자만 가능합니다.");
-		location.href = "inquiry_list";
-		return;
-	}
-	if ("${sUserId}" == "admin") {
-		location.href = "inquiryA_write";
-		return;
-	}
-}
-
 </script>
 <!-- Header Area Start -->
 <%@include file="/WEB-INF/views/common/include_header.jsp"%>
@@ -59,17 +46,18 @@ function inquiry_write_A() {
 						<button type="button" class="btn btn-outline-warning btn-sm"
 								onClick="location.href='inquiry_list'">목록</button>
 						<!-- 본인이 작성한 글에만 수정 / 삭제 버튼 보이게 -->
-					<c:if test="${sUserId eq inquiry.member.m_id }">
+					<c:if test="${sUserId eq inquiry.member.m_id || sUserId eq 'admin'}">
 						<button type="button" class="btn btn-outline-warning btn-sm"
 								onClick="location.href='inquiry_update?ib_no=${inquiry.ib_no}'">수정</button>
 						<a href="inquiry_delete_action?ib_no=${inquiry.ib_no}" role="button"
 							class="btn btn-outline-warning btn-sm" onclick="alert('삭제되었습니다.');" >삭제</a>
 					</c:if>
-						
+					
 					<c:if test="${sUserId eq 'admin' }">
 						<button type="button" class="btn btn-outline-warning btn-sm"
-								onClick="inquiry_write_A()"style="float: right;">답글</button>
+								onClick="location.href='inquiryA_write?ib_no=${inquiry.ib_no}'" >답글</button>
 					</c:if>
+						
 				</div>
 			</div>
 		</div>

@@ -9,7 +9,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.itwill.yoridogam.notice.page.PagingVO;
 
 
 
@@ -65,11 +64,6 @@ public class NoticeDaoImpl implements NoticeDao {
 		return sqlSession.selectOne(NAMESPACE+"listCount");
 	}
 
-	//게시물 목록 조회
-	@Override
-	public List<PagingVO> noticePageList(PagingVO vo) {
-		return sqlSession.selectList(NAMESPACE+"selectPageNotice", vo);
-	}
 
 	
 }

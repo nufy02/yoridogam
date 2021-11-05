@@ -10,15 +10,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.itwill.yoridogam.controller.interceptor.LoginCheck;
 import com.itwill.yoridogam.member.Member;
 import com.itwill.yoridogam.notice.Notice;
 import com.itwill.yoridogam.notice.NoticeService;
-import com.itwill.yoridogam.notice.page.PageMaker;
-import com.itwill.yoridogam.notice.page.PagingVO;
 
 @Controller
 public class NoticeController {
@@ -115,19 +112,6 @@ public class NoticeController {
 	public String noti_delete_action(@RequestParam int noti_no) {
 		noticeService.deleteNoti(noti_no);
 		return "redirect:notice_list";
-	}
-	
-	/**** 공지사항 목록 조회 ****/
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public String list(Model model, PagingVO pagingVO) throws Exception{
-		//logger.info("list");
-		model.addAttribute("list", noticeService.noticePageList(pagingVO));
-		PageMaker pageMaker = new PageMaker();
-		pageMaker.setVo(pagingVO);
-		pageMaker.setTotalCount(noticeService.listCount());
-		model.addAttribute("pageMaker", pageMaker);
-		
-		return "notice_list_form";
 	}
 	
 }

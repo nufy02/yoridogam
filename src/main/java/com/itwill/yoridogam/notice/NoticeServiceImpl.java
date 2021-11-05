@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.itwill.yoridogam.notice.page.PagingVO;
 @Service("noticeService")
 public class NoticeServiceImpl implements NoticeService{
 
@@ -50,14 +49,5 @@ public class NoticeServiceImpl implements NoticeService{
 	public int listCount() {
 		return noticeDao.listCount();
 	}
-	/*************** 공지사항 페이징 처리 게시글 목록 조회 ***************/
-	@Override
-	public List<PagingVO> noticePageList(PagingVO vo) {
-		return noticeDao.noticePageList(vo);
-	}
-
-	
-
-	
 
 }

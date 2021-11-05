@@ -10,26 +10,6 @@
 <%@include file="/WEB-INF/views/common/include_header.jsp"%>
 <!-- Header Area End -->
 
-<script type="text/javascript">
-	function notice_write() {
-		
-		if ("${sUserId}" == "") {
-			alert("로그인 후 이용가능합니다");
-			location.href = "member_login_form";
-			return;
-		}
-		if ("${sUserId}" != "admin") {
-			alert("공지사항 작성은 관리자만 가능합니다.");
-			location.href = "notice_list";
-			return;
-		}
-		if ("${sUserId}" == "admin") {
-			location.href = "noti_write_form";
-			return;
-		}
-	}
-</script>
-
 <div class="cart-table-area section-padding-100">
 	<div class="container-fluid">
 		<!-- 붙여온 거 시작점 -->
@@ -74,7 +54,7 @@
 		<center>
 		<c:if test="${sUserId eq 'admin' }">
 			<button type="button" class="btn btn-outline-warning btn-sm"
-				onClick="notice_write()"style="float: right;">작성</button>
+				onClick="notice_write()">작성</button>
 		</c:if>
 			<!-- 붙여온 거 끝점 -->
 			<!-- 삭제점 -->
@@ -99,6 +79,21 @@
 <script src="js/active.js"></script>
 <!-- Custom -->
 <script src="js/custom/cart.js"></script>
+
+<script type="text/javascript">
+	function notice_write() {
+
+		if ("${sUserId}" != "admin") {
+			alert("공지사항 작성은 관리자만 가능합니다.");
+			location.href = "notice_list";
+			return;
+		}
+		if ("${sUserId}" == "admin") {
+			location.href = "noti_write_form";
+			return;
+		}
+	}
+</script>
 
 </body>
 
