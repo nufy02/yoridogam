@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.itwill.yoridogam.notice.paging.PageDto;
 @Service("inquiryService")
 public class InquiryServiceImpl implements InquiryService {
 	@Autowired
@@ -50,10 +52,17 @@ public class InquiryServiceImpl implements InquiryService {
 		result = inquiryDao.updateInquiryViewCount(ib_no);
 		return result;
 	}
-
+	/*************** 문의 총 개수 ***************/
 	@Override
-	public int countTotalInquiry() {
-		return inquiryDao.countTotalInquiry();
+	public int getTotal() {
+		return inquiryDao.getTotal();
 	}
+
+	/*************** 페이징 ***************/
+	@Override
+	public List<Inquiry> getListWithPaging(PageDto pageDto) {
+		return inquiryDao.getListWithPaging(pageDto);
+	}
+
 
 }

@@ -55,8 +55,34 @@
 
 			</div>
 		</div>
-			<hr><center><button type="button" class="btn btn-outline-warning btn-sm" onClick="inquiry_write()">작성</button>
-
+		<hr>
+				<button type="button" class="btn btn-outline-warning btn-sm" onClick="inquiry_write()">작성</button>
+		 <!-- 페이징 시작 -->
+		<div>
+			<ul style="text-align: center;">
+				<c:if test="${paging.startPage != 1}">
+					<li><a href="inquiry_list?nowPage=${paging.startPage - 1}&cntPerPage=${paging.cntPerPage}"></a></li>
+				</c:if>
+			<!-- 페이지 번호를 누르면 해당 페이지로 가게 만듦 
+				http://localhost/yoridogam/inquiry_list?nowPage=1&cntPerPage=6
+			-->
+				<c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="p">
+					<c:choose>
+						<c:when test="${p == paging.nowPage}"><a style="font-size: 18px;">${p}</a>
+						</c:when>
+						<c:when test="${p != paging.nowPage}">
+							<a href="inquiry_list?nowPage=${p}&cntPerPage=${paging.cntPerPage}"
+								style="font-size: 14px;">&nbsp;&nbsp;&nbsp;&nbsp;${p}&nbsp;&nbsp;&nbsp;&nbsp;</a>
+						</c:when>
+					</c:choose>
+				</c:forEach>
+				<c:if test="${paging.endPage != paging.lastPage}">
+					<li><a href="inquiry_list?nowPage=${paging.endPage + 1}&cntPerPage=${paging.cntPerPage}"
+							style="font-size: 18px;"></a></li>
+				</c:if>
+			</ul>
+		</div>
+		<!-- 페이징 끝 -->
 	</div>
 </div>
 <!-- ##### Main Content Wrapper End ##### -->

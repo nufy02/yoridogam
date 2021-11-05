@@ -15,7 +15,7 @@ import com.itwill.yoridogam.controller.interceptor.LoginCheck;
 import com.itwill.yoridogam.inquiry.Inquiry;
 import com.itwill.yoridogam.inquiry.InquiryService;
 import com.itwill.yoridogam.member.Member;
-import com.itwill.yoridogam.notice.Notice;
+import com.itwill.yoridogam.notice.paging.PageDto;
 
 @Controller
 public class InquiryController {
@@ -50,9 +50,15 @@ public class InquiryController {
 	
 	/**** 문의게시판 리스트 ****/
 	@RequestMapping("inquiry_list")
-	public String inquiry_list(Model model) {
-		List<Inquiry> inquiryList = inquiryService.inquiryList();
-		model.addAttribute("inquiry", inquiryList);
+	public String inquiry_list(Model model, PageDto pageDto, 
+								@RequestParam(defaultValue = "1")String nowPage, 
+								@RequestParam(defaultValue = "6")String cntPerPage) {
+		
+		int total = inquiryService.getTotal();
+		pageDto = new PageDto(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		model.addAttribute("paging", pageDto);
+		//List<Inquiry> inquiryList = inquiryService.inquiryList();
+		model.addAttribute("inquiry", inquiryService.getListWithPaging(pageDto));
 		return "inquiry_list_form";
 	}
 	/*

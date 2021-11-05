@@ -2,6 +2,8 @@ package com.itwill.yoridogam.inquiry;
 
 import java.util.List;
 
+import com.itwill.yoridogam.notice.paging.PageDto;
+
 public interface InquiryDao {
 
 	/*************** 문의글 추가 ***************/
@@ -29,9 +31,9 @@ public interface InquiryDao {
 	boolean updateInquiryViewCount(int ib_no);
 
 	/*************** 문의글 총 개수 ***************/
-	int countTotalInquiry();
+	int getTotal();
 	
-	/*************** 답글 존재 여부 ***************/
-	boolean countA(Inquiry inquiry);
+	/*************** 페이징 ***************/
+	List<Inquiry> getListWithPaging(PageDto pageDto);
 	
 }

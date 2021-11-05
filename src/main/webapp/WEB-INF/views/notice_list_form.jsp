@@ -22,7 +22,7 @@
 
 				<div class="cart-table clearfix">
 					<table class="table table-responsive" tabindex="1"
-						style="overflow: hidden; outline: none;">
+						style="overflow: hidden; outline: none; ">
 						<thead>
 							<tr style="text-align: center;">
 								<th>제목</th>
@@ -35,7 +35,7 @@
 							end="${notiList.size()}">
 							<tbody style="text-align: center;">
 								<!--  -->
-								<tr>
+								<tr">
 									<td><a href="notice_detail?noti_no=${notice.noti_no}">${notice.noti_title}</a></td>
 									<td>${notice.member.m_id}</td>
 									<td><fmt:formatDate var="resultNotiDate"

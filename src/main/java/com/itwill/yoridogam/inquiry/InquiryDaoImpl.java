@@ -1,11 +1,14 @@
 package com.itwill.yoridogam.inquiry;
 
-import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.itwill.yoridogam.notice.paging.PageDto;
 
 @Repository("inquiryDao")
 public class InquiryDaoImpl implements InquiryDao{
@@ -66,19 +69,20 @@ public class InquiryDaoImpl implements InquiryDao{
 	}
 
 	@Override
-	public int countTotalInquiry() {
-		return sqlSession.selectOne(NAMESPACE+"countTotalInquiry");
+	public int getTotal() {
+		return sqlSession.selectOne(NAMESPACE+"getTotal");
 	}
 
 	@Override
-	public boolean countA(Inquiry inquiry) {
-		boolean isExist = false;
-		int countA = sqlSession.selectOne(NAMESPACE+"countA", inquiry);
-		if (countA>1) {
-			isExist = true;
-		}
-		return isExist;
+	public List<Inquiry> getListWithPaging(PageDto pageDto) {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("start", pageDto.getStart());
+		map.put("end", pageDto.getEnd());
+		
+		return sqlSession.selectList(NAMESPACE+"getListWithPaging", map);
 	}
+
 
 
 }

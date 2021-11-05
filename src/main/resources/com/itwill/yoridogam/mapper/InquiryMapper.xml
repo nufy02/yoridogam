@@ -90,7 +90,26 @@
 		update inquiry set IB_VIEWCOUNT = IB_VIEWCOUNT+1 where IB_NO=#{ib_no}
 	</update>
 	
-
+	<select id="getListWithPaging" resultMap="inquiryResultMap">
+	
+		select * from (select  ROWNUM AS RN, s.* from
+		                                    (select IB_NO, 
+		                                            IB_TITLE, 
+		                                            IB_CONTENT, 
+		                                            IB_DATE, 
+		                                            IB_VIEWCOUNT, 
+		                                            IB_DEPTH, 
+		                                            IB_GROUPNO, 
+		                                            IB_STEP, 
+		                                            M_ID
+		                                    from inquiry  
+		                                    order by IB_GROUPNO desc, IB_DEPTH asc) s )
+		WHERE RN between #{start} and #{end}
+	</select>
+	
+	<select id="getTotal" resultType="int">
+		SELECT count(*) from inquiry
+	</select>
 	
 	
 </mapper>
