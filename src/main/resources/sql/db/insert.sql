@@ -131,42 +131,7 @@ values(RESERVATION_RSV_NO_SEQ.nextval,91800,'카드결제',2,'2021/10/21','13:00
 /********** Review **********/
 
 
-/********** Notice **********/
-insert INTO NOTICE(NOTI_NO, NOTI_TITLE, NOTI_DATE, NOTI_VIEWCOUNT, NOTI_CONTENT, M_ID)
-VALUES(notice_noti_no_SEQ.nextval, '저희 yoridogam이 온라인 강의를 시작하였습니다.', sysdate, 0,
-'코로나 시기를 맞이하여 대면 수업에 어려움이 많으시죠?
-저희 요리도감에서는 온, 오프라인 강의를 모두 진행합니다.
-여러분의 많은 참여 부탁드립니다.
-감사합니다.', 'admin1');	
-
-insert INTO NOTICE(NOTI_NO, NOTI_TITLE, NOTI_DATE, NOTI_VIEWCOUNT, NOTI_CONTENT, M_ID)
-VALUES(notice_noti_no_SEQ.nextval, '결제 방식의 다양화가 이루어졌습니다.', sysdate, 0,
-'안녕하세요, 요리도감을 사랑해 주시는 고객여러분.
-이전의 카드 결제, 무통장 입금으로만 진행되었던 결제 방식이
-카카오페이가 추가되어 총 세 가지 방법으로 진행될 예정입니다.
-많은 참여 부탁드립니다. 감사합니다.', 'admin1');
-
-insert INTO NOTICE(NOTI_NO, NOTI_TITLE, NOTI_DATE, NOTI_VIEWCOUNT, NOTI_CONTENT, M_ID)
-VALUES(notice_noti_no_SEQ.nextval, '[온/오프 통합] 2021년 11월 강의가 개설되었습니다.', sysdate, 0,
-'SNS 이벤트 진행 중에 있습니다.많은 참여 부탁드립니다. ','admin1');
-
-insert INTO NOTICE(NOTI_NO, NOTI_TITLE, NOTI_DATE, NOTI_VIEWCOUNT, NOTI_CONTENT, M_ID)
-VALUES(notice_noti_no_SEQ.nextval, '[온라인 클래스] 2+1 이벤트!', sysdate, 0,
-'안녕하세요. yoridogam입니다.
-온라인 클래스에 많은 사랑 주시고 계셔서 이벤트를 진행해 보자 합니다.
-기간: 2021.11.01~2021.11.10
-기간 내에 두 개의 클래스를 결제해 주시는 고객분들에 한하여 한 개의 클래스를 무료로 수강할 수 있는 수강권을 드리고 있습니다. 
-많은 참여와 관심 부탁드립니다.
-감사합니다. ', 'admin1');
-
-insert INTO NOTICE(NOTI_NO, NOTI_TITLE, NOTI_DATE, NOTI_VIEWCOUNT, NOTI_CONTENT, M_ID)
-VALUES(notice_noti_no_SEQ.nextval, '[온/오프 동시 진행] 빼빼로데이 이벤트', sysdate, 0,
-'안녕하세요. yoridogam입니다.
-곧 다가올 즐거운 빼빼로데이를 위한 이벤트가 시작됩니다.
-기간: 2021.11.05~2021.11.10
-기간 내에 빼빼로 원데이 클래스를 결제해 주시는 고객분들에 한하여 추첨을 통해 총 5분께 수강권을 지급해 드릴 예정입니다. 
-많은 참여와 관심 부탁드립니다.
-감사합니다. ', 'admin1');
+/********** Notice  엑셀 작업 **********/
 
 
 
@@ -174,30 +139,8 @@ VALUES(notice_noti_no_SEQ.nextval, '[온/오프 동시 진행] 빼빼로데이 �
 
 
 
-/********** Inquiry *********실데이터 가공 전*/ 
-insert into inquiry(IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, ib_depth, ib_groupno, ib_step, m_id)
-VALUES(inquiry_ib_no_SEQ.nextval, '케이크 수업의 종류에 대해..', '케이크 수업이 추가될 수 있나요?', 
-       sysdate, 0, 0, inquiry_ib_no_SEQ.nextval, 1, 'member1');
-       
-insert into inquiry(IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, ib_depth, ib_groupno, ib_step, m_id) 
-VALUES(inquiry_ib_no_SEQ.nextval, '결제 방식에 대해..', '네이버페이 포인트를 사용할 수 있나요?', 
-       sysdate, 0, 0, inquiry_ib_no_SEQ.nextval, 1, 'member2');
-       
-insert into inquiry(IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, ib_depth, ib_groupno, ib_step, m_id) 
-VALUES(inquiry_ib_no_SEQ.nextval, '원하는 선생님 수업 종류에 대해..', '더?', 
-       sysdate, 0, 0, inquiry_ib_no_SEQ.nextval, 1, 'member1');
+/********** Inquiry 엑셀 작업 **********/ 
 
-insert into inquiry(IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, ib_depth, ib_groupno, ib_step, m_id)
-VALUES(inquiry_ib_no_SEQ.nextval, '답변 드립니다 고객님', '요청이 많이 들어오고 있어 검토중에 있습니다..', 
-       sysdate, 0, 1, 1, 2, 'admin1');
-
-insert into inquiry(IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, ib_depth, ib_groupno, ib_step, m_id)
-VALUES(inquiry_ib_no_SEQ.nextval, '답변 드립니다 고객님', '네이버측에서 사용 가능하십니다..', 
-       sysdate, 0, 1, 2, 2, 'admin1');
-
-insert into inquiry(IB_NO, IB_TITLE, IB_CONTENT, IB_DATE, IB_VIEWCOUNT, ib_depth, ib_groupno, ib_step, m_id)
-VALUES(inquiry_ib_no_SEQ.nextval, '답변 드립니다 고객님', '현재 어려울 것으로 판단되어 예정 없습니다. 죄송합니다.', 
-       sysdate, 0, 1, 3, 2, 'admin1');
 
 
 

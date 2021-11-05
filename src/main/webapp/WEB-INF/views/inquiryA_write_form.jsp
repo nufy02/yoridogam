@@ -71,7 +71,17 @@ table.table2 td {
 
 											<tr>
 												<td>내용</td>
-												<td><textarea name=ib_content cols=50 rows=10></textarea></td>
+												<td><textarea name=ib_content cols=50 rows=10 >
+안녕하세요 고객님.^^ yoridogam입니다.
+
+
+
+관련하여 문의하실 사항은 저희 고객센터로 연락 주시기 바랍니다. 
+
+Yoridogam 고객센터 02)1223-6678
+
+감사합니다.
+													</textarea></td>
 											</tr>
 
 										</table>
