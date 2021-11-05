@@ -10,32 +10,36 @@
 
         <div class="shop_sidebar_area">
 		 <!-- ##### 상품 유형 (온오프) ##### -->
+          <h5 class="widget-title mb-30">상품 검색하기</h5><hr>
             <div class="widget brands mb-50">
-                <h6 class="widget-title mb-30">유형 내일구현</h6>
+                <h6 class="widget-title mb-30">1) 유형</h6>
                 <div class="widget-desc">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="amado">
-                        <label class="form-check-label" for="amado">온라인</label>
+                        <input class="form-check-input" type="radio" name="onOff"  value="온라인" >
+                        온라인</input>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="artdeco">
-                        <label class="form-check-label" for="artdeco">오프라인</label>
+                        <input class="form-check-input" type="radio" name="onOff"  value="오프라인" >
+                        오프라인</input>
                     </div>
                 </div>
             </div>
             
-            
             <!-- ##### 상품 카테고리(비건 등) ##### -->
-            <div class="widget catagory mb-50">
-                <h6 class="widget-title mb-30">카테고리</h6>
+            <div class="widget catagory mb-50" id="category" style="display: none">
+            <hr>
+                <h6 class="widget-title mb-30">2) 카테고리</h6>
                 <div class="catagories-menu">
                     <ul>
-                        <li><a href="#">베이킹</a></li>
-                        <li><a href="#">한식</a></li>
-                        <li><a href="#">비건</a></li>
+                        <li><a href="#"  class="listCategory" onclick="listCategory(this)">베이킹</a></li>
+                        <li><a href="#"  class="listCategory"  onclick="listCategory(this)">한식</a></li>
+                        <li><a href="#"  class="listCategory" onclick="listCategory(this)">비건</a></li>
                     </ul>
                 </div>
             </div>
+            
+            
+            <input type="button" name="cancelSearch" style="display: none" onclick="location.href = 'product_list' " value="검색 초기화">
         </div>
 
 
@@ -55,9 +59,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                <c:forEach var="product" items="${pList}" begin="0" step="1"  end="${pList.size()}">
-                    <div class="col-12 col-sm-6 col-md-12 col-xl-6">
+                <div class="row" id="ListCategory">
+                <c:forEach var="product" items="${pList}" begin="0" step="1"  end="${pList.size()}" >
+                    <div class="col-12 col-sm-6 col-md-12 col-xl-6" >
                         <div class="single-product-wrapper">
                             <div class="product-img">
                             	<a href="product_detail?p_no=${product.p_no }" >
@@ -85,9 +89,14 @@
                                         <i class="fa fa-star" aria-hidden="true"></i>
                                         <i class="fa fa-star" aria-hidden="true"></i>
                                     </div>
+                                    <c:choose>
+                                    <c:when test="${product.p_type eq '온라인' }">
                                     <div class="cart">
-                                        <a href="cart.html" data-toggle="tooltip" data-placement="left" title="장바구니 담기"><img src="img/core-img/cart.png" alt=""></a>
+                                    	<button  class="listCartAdd" style="border: 0px" data-toggle="tooltip" data-placement="left" title="장바구니 담기" value="${product.p_no }">
+                                    	<img src="img/core-img/cart.png" alt=""></button>
                                     </div>
+                                    </c:when>
+                                    </c:choose>
                                 </div>
                             </div>
                         </div>
@@ -98,7 +107,7 @@
         </div>
     </div>
     
-    
+
     <!-- ##### Main Content Wrapper End ##### -->
 
     <!-- ##### Footer Area Start ##### -->
@@ -117,6 +126,8 @@
     <script src="js/active.js"></script>
 	<!-- Custom -->
 	<script src="js/custom/productTest.js"></script>
+	<!-- List,Detail cartAdd -->
+	<script src='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js'></script>
 </body>
 
 </html>

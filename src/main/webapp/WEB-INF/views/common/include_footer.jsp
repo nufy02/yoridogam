@@ -30,7 +30,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <!-- Single Widget Area -->
-                <div class="col-12 col-lg-4">
+                <div class="col-12 col-lg-3">
                     <div class="single_widget_area">
                         <!-- Logo -->
                         <div class="footer-logo mr-50">

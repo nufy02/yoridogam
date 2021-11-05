@@ -63,6 +63,11 @@ public class CartServiceImpl implements CartService{
 		return cartDao.selectCartItem(ci_no);
 	}
 
+	@Override
+	public Cart selectCartItemPNo(int p_no) {
+		return cartDao.selectCartItemPNo(p_no);
+	}
+
 
 	
 	

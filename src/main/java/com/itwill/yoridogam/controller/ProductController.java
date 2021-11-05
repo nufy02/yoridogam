@@ -145,7 +145,6 @@ public class ProductController {
 			return result;
 	}
 	
-	@LoginCheck
 	@RequestMapping("product_maps")
 	public String product_maps(HttpSession session, Model model) throws Exception {
 		List<Product> pList=productService.selectPTAll();
@@ -153,7 +152,6 @@ public class ProductController {
 		return "product_maps";
 	}
 
-	@LoginCheck
 	@RequestMapping("product_maps_region")
 	@ResponseBody
 	public List product_maps_region(String region)throws Exception {
@@ -164,11 +162,29 @@ public class ProductController {
 					result.add(pList.get(i));
 			}
 		}
-		System.out.println(result);
 		return result;
 	}
 
-
+	@RequestMapping("product_list_category")
+	@ResponseBody
+	public List product_list_category(String p_category, String p_type)throws Exception {
+		List<Product> pList=productService.selectPTAll();
+		List<Product> result=new ArrayList<Product>();
+		if(p_type!=null) {
+			for(int i=0; i<pList.size(); i++) {
+				if(pList.get(i).getP_category().equals(p_category) && pList.get(i).getP_type().equals(p_type)) {
+					result.add(pList.get(i));
+				}
+			}
+		}else{
+			for(int i=0; i<pList.size(); i++) {
+				if(pList.get(i).getP_category().equals(p_category)) {
+					result.add(pList.get(i));
+				}
+			}
+		}
+		return result;
+	}
 
 
 

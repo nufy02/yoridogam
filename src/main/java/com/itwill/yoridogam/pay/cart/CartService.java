@@ -28,4 +28,6 @@ public interface CartService {
 	
 	/***********장바구니 강의 1개셀렉*/
 	 Cart selectCartItem(int ci_no);
+	 /**********By No*/
+	 Cart selectCartItemPNo(int p_no);
 }

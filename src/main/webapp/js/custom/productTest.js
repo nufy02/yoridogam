@@ -150,11 +150,92 @@ $("#deletePt").click(function(){
 		})
 })
 
+$("input[name=onOff]").change(function(){
+	$("#category").show();
+		$(".listCategory").click(function(){
+			$("input[name=cancelSearch]").show();
+	})
+})
+
+
+$(".listCartAdd").click(function(){
+	var p_no=$(this).val();
+	data={"p_no":p_no}
+	$.ajax({
+		url:'cart_insert_list_action',
+		method:'POST',
+		data: data,
+		success: function(){	
+			cartAdd();			
+		}
+	})
+})
+
+
+
+function cartAdd(){
+toastr.options = {
+	"timeOut": 2000,
+}
+    toastr.success("장바구니 추가되었습니다", {timeOut: 2000});
+}
 
 
 
 
+function listCategory(e){
+		var p_type=$('input:radio[name=onOff]:checked').val();
+		var p_category=$(e).text();
+		var data={"p_category":p_category, "p_type":p_type}
+	$.ajax({
+		type : 'post',
+		url : 'product_list_category',
+		data : data,
+		dataType:'json',
+		success: function(result){
+			console.log(result)
+			$('#ListCategory').empty();
+			$.each(result, function(i){
+				$("#ListCategory").append(`
+				<div class="col-12 col-sm-6 col-md-12 col-xl-6" >
+				<div class="single-product-wrapper">
+                            <div class="product-img">
+                            	<a href="product_detail?p_no=${result[i].p_no }" >
+                                <img src="${result[i].p_photo }" >
+                            	</a>
+                                <!--<img class="hover-img" src="img/product-img/product2.png" >--> <!-- hover효과 추후 상세정보나 다른 사진삽입 --> 
+                            </div>
 
+                            <div class="product-description d-flex align-items-center justify-content-between">
+                                <div class="product-meta-data">
+                                    <div class="line"></div>
+                                    <p class="product-price"><f:formatNumber> ${result[i].p_price }</f:formatNumber>원</p>
+                                    <a href="product_detail?p_no=${result[i].p_no }" >
+                                        <h5>${result[i].p_name }</h5>
+                                    </a>
+                                    <span>
+                                        <h6 style="color: red">[${result[i].p_type } 강의]</h6>
+                                    </span>
+                                </div>
+                                <div class="ratings-cart text-right">
+                                    <div class="ratings">
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="cart">
+                                        <a href="cart.html" data-toggle="tooltip" data-placement="left" title="장바구니 담기"><img src="img/core-img/cart.png" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`)
+			})
+		}
+	})
+}
 
 
 
