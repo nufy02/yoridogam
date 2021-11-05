@@ -114,12 +114,9 @@ $("#deleteRsvTD").on("click","#deleteRsv",function(e) {
 	$('button[name="ptdetail"]').click(function(){
 		var pt_no = $(this).val();
 		
-			alert("a")
 		if($('.abc'+pt_no).css('display') === 'none'){
-			alert("b")
 			$('.abc'+pt_no).show();
 		}else if($('.abc'+pt_no).css('display') != 'none'){
-			alert("c")
 			$('.abc'+pt_no).hide();
 		}
 		
