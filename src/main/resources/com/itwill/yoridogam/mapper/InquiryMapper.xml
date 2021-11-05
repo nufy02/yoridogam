@@ -90,15 +90,7 @@
 		update inquiry set IB_VIEWCOUNT = IB_VIEWCOUNT+1 where IB_NO=#{ib_no}
 	</update>
 	
-	<select id="countTotalInquiry" resultType="java.lang.Integer">
-		select count(*) from inquiry
-	</select>
-	
-	<select id="countA" parameterType="com.itwill.yoridogam.inquiry.Inquiry" resultType="java.lang.Integer">
-		select count(*) from inquiry where IB_GROUPNO = #{ib_groupNo}
-			and IB_DEPTH >= #{ib_depth} and IB_STEP >= #{ib_step}
-			order by IB_STEP, IB_DEPTH asc
-	</select>
+
 	
 	
 </mapper>
