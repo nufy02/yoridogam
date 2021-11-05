@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-  <link href="css/bootstrap.min.css" rel="stylesheet">
 <body>
 	
 <div class="container padding-bottom-2x" id="dc">
