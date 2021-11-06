@@ -117,7 +117,7 @@
 							 	<table>
 							 	<tr>
 							 	<td style="padding-top: 50px;padding-left:200px">                               
-							 		<input type="button" class="btn btn-info btn-md" value="가입하기" onClick="member_write_action()">
+							 		<input type="button" class="btn btn-info btn-md" value="가입하기" style="background-color: #FBB710; border-color: #FBB710" onClick="member_write_action()">
                             	</td>
                             	<tr>
                             	</table>
