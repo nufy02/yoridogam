@@ -80,9 +80,9 @@
                                 <div class="row">
                                     <div class="col-2 mb-3">
                                         <select name="p_category">
-                                        	<option value="제빵">제빵</option>
-                                        	<option value="뭐가">뭐가</option>
-                                        	<option value="있지">있니</option>
+                                        	<option value="베이킹">베이킹</option>
+                                        	<option value="한식">한식</option>
+                                        	<option value="비건">비건</option>
                                         </select>
                                     </div>
                                         <input type="hidden" class="form-control" name="teacher.t_id" value="teacher1" >
@@ -106,7 +106,7 @@
                                     <div class="col-6 mb-3">
                                         <textarea name="p_detail" class="form-control w-80" id="" cols="30" rows="30" placeholder="상품설명">${product.p_detail }</textarea>
                                     </div>
-                                    <div class="col-12">
+                                    <div  class="col-12">
                                         <div class="custom-control custom-checkbox d-block mb-2">
                                             <input type="checkbox" class="custom-control-input" id="customCheck2">
                                             <label class="custom-control-label" for="customCheck2">Create an accout</label>

@@ -39,7 +39,7 @@
                                     <h6>${product.p_name }</h6>
                                 </a>
                                 <input type="hidden" id="detailPNo" name="p_no" value="${product.p_no }"/>
-                                <input type="hidden" id="detailPName" value="${product.p_name }"/>
+                                <input type="hidden" id="detailTLocation" value="${product.teacher.t_location }"/>
                                 <input type="hidden" id="detailTId" name="t_id" value="${product.teacher.t_id }"/>
                                 <!-- Ratings & Review -->
                                 <div class="ratings-review mb-15 d-flex align-items-center justify-content-between">
@@ -85,7 +85,7 @@
                                 </c:when>
                                 <c:otherwise>
                                 <button type="submit" name="rsv_form"  class="btn amado-btn">예약하기</button><br></br>
-                                <button type="button" name="detailMap"  class="btn amado-btn">위치보기</button>
+                                <button type="button" name="detailMap"  class="btn amado-btn" p_name="${product.p_name }" p_photo="${product.p_photo }">위치보기</button>
                                 </c:otherwise>
                                 </c:choose>
                             </form>
@@ -97,6 +97,8 @@
         </div>
     </div>
     
+
+
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" >
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -108,7 +110,9 @@
         </button>
       </div>
       <div class="modal-body">
-	  <div class="d-block w-100" id="map" style="width:100%;height:500px;">
+      <div class="col-12 mb-3">
+	  <div class="d-block w-200" id="map" style="width:100%;height:500px;">
+	  </div>
 	  </div>
       </div>
       <div class="modal-footer">

@@ -158,7 +158,7 @@ public class ProductController {
 		List<Product> pList=productService.selectPTAll();
 		List<Product> result=new ArrayList<Product>();
 		for(int i=0; i<pList.size(); i++) {
-			if(pList.get(i).getTeacher().getT_location().contains(region)) {
+			if(pList.get(i).getTeacher().getT_location().contains(region) && pList.get(i).getP_type().equals("오프라인")) {
 					result.add(pList.get(i));
 			}
 		}

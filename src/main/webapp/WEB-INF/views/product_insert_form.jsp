@@ -35,9 +35,9 @@
                                 <div class="rowCustom">
                                     <div class="col-2 mb-3">
                                         <select name="p_category">
-                                        	<option value="제빵">제빵</option>
-                                        	<option value="뭐가">뭐가</option>
-                                        	<option value="있지">있니</option>
+                                        	<option value="베이킹">베이킹</option>
+                                        	<option value="한식">한식</option>
+                                        	<option value="비건">비건</option>
                                         </select>
                                     </div>
                                         <input type="hidden" class="form-control" name="teacher.t_id" value="test1" >

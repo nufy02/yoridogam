@@ -1,15 +1,22 @@
 
-var pName=""; 
+var pLo=""; // location 
+var pName="";
+var pPhoto="";
 $("button[name=mapBtn]").click(function () {
-	pName=$(this).val();
+	pLo=$(this).val();
+	pName=$(this).attr('p_name');
+	pPhoto=$(this).attr('p_photo');
 	$("#map").empty();
 	map();
 })
 $("button[name=detailMap]").click(function() {
-	pName=$("#detailPName").val();
-	console.log(pName)
-	map();
+	pLo=$("#detailTLocation").val();
+	pName=$(this).attr('p_name');
+	pPhoto=$(this).attr('p_photo');
+	$('#exampleModalCenter').on('shown.bs.modal', function (e) { // 모달창 켜질 때 딜레이 동안 map()실행되면 지도가 짤림 방지
+		map();
 	})
+})
 	
 function map(){
 var mapContainer = document.getElementById('map'), 
@@ -21,7 +28,7 @@ var mapContainer = document.getElementById('map'),
 var map = new kakao.maps.Map(mapContainer, mapOption);  // kakao api 지도생성
 var geocoder = new kakao.maps.services.Geocoder(); // kakao api lib service 주소->좌표 변환
 
-geocoder.addressSearch(pName, function(result, status) { // 주소 입력
+geocoder.addressSearch(pLo, function(result, status) { // 주소 입력
      if (status === kakao.maps.services.Status.OK) { // 주소가 성공적으로 검색되면
         var coords = new kakao.maps.LatLng(result[0].y, result[0].x); // 위도 경도 값을 얻어 변수에 넣음(array시 유사배열로 들어감..)
 
@@ -38,7 +45,9 @@ geocoder.addressSearch(pName, function(result, status) { // 주소 입력
 
 
         var infowindow = new kakao.maps.InfoWindow({ // 해당 마커 상단에 띄워질 info 추후 강의명으로 뿌리자
-            content: '<div style="width:150px;text-align:center;padding:6px 0;">강의 장소</div>'
+            content: `<div class='mapInfoBox'>${pName}</div>
+            				<div align="center"><img width="100" height="100" src="${pPhoto }"></div>
+            				<hr><div style="text-align:center;padding:6px 0;">${pLo}</div>`
         });
         infowindow.open(map, marker);
 
@@ -55,13 +64,13 @@ var mapContainer = document.getElementById('map'),
     };  
 
 var map = new kakao.maps.Map(mapContainer, mapOption); 
-
+/*
 var mapTypeControl = new kakao.maps.MapTypeControl();
 map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
 
 var zoomControl = new kakao.maps.ZoomControl();
 map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
-
+*/
 })
 
 
@@ -85,7 +94,7 @@ $("#region").change(function(){
 			$("#classList").append(`<li>`)
 			$("#classList").append(`[${result[i].teacher.t_name }] 강사 &nbsp;&nbsp;
                 				         	<span style="color: orange;">${result[i].p_name }</span><hr>
-                        				  	<button class="btn btn-outline-warning" name="mapBtn" value="${result[i].teacher.t_name }">위치 보기</button>&nbsp;&nbsp;
+                        				  	<button class="btn btn-outline-warning" name="mapBtn" value="${result[i].teacher.t_location }">위치 보기</button>&nbsp;&nbsp;
                           					${result[i].teacher.t_location}`)
 			$("#classList").append(`</li><hr>`)
 			})
