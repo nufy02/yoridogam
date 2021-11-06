@@ -51,21 +51,25 @@ public class ProductController {
 	}
 	@LoginCheck
 	@RequestMapping("product_insert_form")
-	public String product_insert_form() throws Exception{
+	public String product_insert_form(HttpSession session,Model model) throws Exception{
+		String loginUserId =(String)session.getAttribute("sTeacherId");
+		model.addAttribute("teacher", loginUserId);
 		return "product_insert_form";
 	}
 	@LoginCheck
 	@RequestMapping("product_insert_action")
-	public String product_insert_action(Product product,HttpSession session, Model model) throws Exception{
+	public String product_insert_action(Product product,HttpSession session, Model model,@RequestParam String t_id) throws Exception{
 		product.setP_photo("img/product-img/"+product.getP_photo()); 
+		product.setTeacher(teacherService.findMember(t_id));
 		int p_no=productService.create(product);
 		return "home"; // 추후 수정: 해당 p_no detail로 redirect
 	}
 	
 	@LoginCheck
 	@RequestMapping("product_insert_off_action")
-	public String product_insert_off_action(Product product,ProductTime productTime,HttpSession session, Model model) throws Exception{
+	public String product_insert_off_action(Product product,ProductTime productTime,HttpSession session, Model model,@RequestParam String t_id) throws Exception{
 		product.setP_photo("img/product-img/"+product.getP_photo());
+		product.setTeacher(teacherService.findMember(t_id));
 		int p_no=productService.create(product); 
 		product.setP_no(p_no);
 		

@@ -24,6 +24,7 @@
                             </div>
 
                             <form  method="post">
+                            <input type="hidden"  name="t_id" value="${teacher}">
                                 <div class="col-md-3 mb-1">
                                  	<select name="p_type" id="p_type">
                                     	<option value="">-유형 선택-</option>
