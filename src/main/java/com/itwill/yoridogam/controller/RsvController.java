@@ -82,7 +82,7 @@ public class RsvController {
 	public String rsv_action(@ModelAttribute("reservation") Reservation reservation,
 															int p_no,
 															HttpSession session,
-															Model model) throws Exception {
+															Model model) throws Exception  {
 		String sUserId=(String)session.getAttribute("sUserId");
 		Product product = productService.selectByNo(p_no);
 		reservation.setProduct(product);
