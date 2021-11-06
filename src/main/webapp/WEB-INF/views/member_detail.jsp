@@ -16,7 +16,7 @@
                     <div class="col-12 col-lg-8">
 						<div >
 						<input type="button" class="btn btn-info btn-md"  id="interestList" style="background-color: #FBB710; border-color: #FBB710" value="관심강의">&nbsp;&nbsp; 
-						<input type="button" class="btn btn-info btn-md" style="background-color: #FBB710; border-color: #FBB710" value="장바구니" onClick="">&nbsp;&nbsp; 
+						<input type="button" class="btn btn-info btn-md" style="background-color: #FBB710; border-color: #FBB710" value="장바구니" onclick="location.href='cart_list_form'">&nbsp;&nbsp; 
 						<input type="button" class="btn btn-info btn-md" style="background-color: #FBB710; border-color: #FBB710" value="최근조회강의" onClick="">&nbsp;&nbsp; 
 						<input type="button" class="btn btn-info btn-md"  id="payList" style="background-color: #FBB710; border-color: #FBB710" value="결제내역" >&nbsp;&nbsp;
 						<input type="button" class="btn btn-info btn-md" id="rsvList"  style="background-color: #FBB710; border-color: #FBB710" value="예약내역"> 
@@ -24,18 +24,33 @@
          			   </div>
 
                         <div class="cart-table clearfix" id="check">
-                            <table class="table table-responsive">
-                                <thead>
-                                    <tr>
-                                   
-                                    </tr>
-                                </thead>
-                                <tbody>
-									
-                                   
-                                  	
-                                </tbody>
-                            </table>
+                             <h6 class="text-muted text-normal text-uppercase">관심강의</h6>
+	<table class="table table-responsive">
+	<thead>
+		<tr style="width: 750px">
+			<th scope="col">강의 사진</th>
+			<th scope="col">강의  명</th>
+			<th scope="col">강의 유형</th>
+			<th scope="col">강의 상세</th>
+		</tr>
+	</thead>
+	<tbody>
+	<c:forEach var="interest" items="${interestList}">
+		<c:forEach var="product" items="${productList }">
+		<form >
+		<c:if test="${interest.mi_interest==product.p_category }">
+			<tr style="width: 750px">
+						<td align="left" scope="row"><a href="product_detail?p_no=${product.p_no }"><img src="${product.p_photo }" width="70%"/></a></td>	 
+						<td scope="row">${product.p_name}</td>
+						<td scope="row">${product.p_type}</td>
+						<td scope="row">${product.p_detail}</td>
+					</tr>
+				</c:if>
+			</form>
+		</c:forEach>
+	</c:forEach>
+	</tbody>
+	</table>
                         </div>
                        
                     </div>

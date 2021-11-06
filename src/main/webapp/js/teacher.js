@@ -133,13 +133,14 @@ function id_duplicate_check(){
 	
 	/*************************AJAX*************************/
 	// 강사 상품등록
+	/*
 	$(document).ready(function(){
 		$('#productCreate').click(function(){
 			$('#check').empty();
-			$('#check').load('product_insert_form').hide().fadeIn("slow");
+			$('#check').load('product_insert_form');
 		})
 	})
-	
+	*/
 	
 	// 강사 상세리스트 보기
 	$(document).ready(function(){

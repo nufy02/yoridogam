@@ -213,7 +213,10 @@ public class MemberController {
 		String loginUserId =(String)session.getAttribute("sUserId");
 		// 회원정보
 		Member loginUser = memberService.findMember(loginUserId);
-		
+		List<Product> productList =productService.selectAll();
+		List<MemberInterest> interestList= memberService.getMemberInterestList(loginUserId);
+		request.setAttribute("interestList", interestList);
+		request.setAttribute("productList", productList);
 		request.setAttribute("loginUser", loginUser);
 		return"member_detail";
 	}
