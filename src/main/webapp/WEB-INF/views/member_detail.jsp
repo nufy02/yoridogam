@@ -19,7 +19,7 @@
 						<input type="button" class="btn btn-info btn-md" style="background-color: #FBB710; border-color: #FBB710" value="장바구니" onClick="">&nbsp;&nbsp; 
 						<input type="button" class="btn btn-info btn-md" style="background-color: #FBB710; border-color: #FBB710" value="최근조회강의" onClick="">&nbsp;&nbsp; 
 						<input type="button" class="btn btn-info btn-md"  id="payList" style="background-color: #FBB710; border-color: #FBB710" value="결제내역" >&nbsp;&nbsp;
-						<input type="button" class="btn btn-info btn-md" id="rsvList"  style="background-color: #FBB710; border-color: #FBB710" value="예약내역"> 
+						<input type="button" class="btn btn-info btn-md" id="rsvList"  style="background-color: #FBB710; border-color: #FBB710" value="오프라인 수업"> 
 						<h3>&nbsp;&nbsp;</h3>
          			   </div>
 
