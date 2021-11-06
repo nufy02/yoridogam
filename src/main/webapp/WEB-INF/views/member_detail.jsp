@@ -16,8 +16,8 @@
                     <div class="col-12 col-lg-8">
 						<div >
 						<input type="button" class="btn btn-info btn-md"  id="interestList" style="background-color: #FBB710; border-color: #FBB710" value="관심강의">&nbsp;&nbsp; 
-						<input type="button" class="btn btn-info btn-md" style="background-color: #FBB710; border-color: #FBB710" value="장바구니" onclick="location.href='cart_list_form'">&nbsp;&nbsp; 
 						<input type="button" class="btn btn-info btn-md" style="background-color: #FBB710; border-color: #FBB710" value="최근조회강의" onClick="">&nbsp;&nbsp; 
+						<input type="button" class="btn btn-info btn-md"  id="boardList" style="background-color: #FBB710; border-color: #FBB710" value="내가 쓴 글" >&nbsp;&nbsp;
 						<input type="button" class="btn btn-info btn-md"  id="payList" style="background-color: #FBB710; border-color: #FBB710" value="결제내역" >&nbsp;&nbsp;
 						<input type="button" class="btn btn-info btn-md" id="rsvList"  style="background-color: #FBB710; border-color: #FBB710" value="오프라인 수업"> 
 						<h3>&nbsp;&nbsp;</h3>

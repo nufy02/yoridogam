@@ -20,6 +20,28 @@
                     <div class="col-12 col-lg-7">
                         <div class="single_product_thumb">
                            <img class="d-block w-100" src="${product.p_photo }" alt="First slide">
+                          	<br/><hr><br/>
+                          	<div class="card">
+	                			<div class="card-header" role="tab">
+	          	        			<h6><a href="#collapseOne" data-toggle="collapse">수강생 한줄평</a></h6>
+      							  	 <p id="stars" style="color: orange;"> </p>
+    	            			</div>
+               				<div class="collapse show" id="collapseOne" data-parent="#accordion1" role="tabpanel"  style="">
+                  				<div class="card-body">
+				                <c:forEach var="review" items="${rList }" end="${rList.size() }">
+                  				 <section class="reviewList">
+      							  <h6>[${review.member.m_name }] 수강생</h6>
+      							  	 <p style="color: orange;">
+      							  	 <c:forEach var="i" begin="1" step="1" end="${review.r_grade }">
+	      							  	 <span class="star" aria-hidden="true">★</span>
+                                 	 </c:forEach>
+      							  	 </p>
+							        <p>${review.r_content }</p>
+							    </section><hr/>
+				                </c:forEach>
+                  				</div>
+	                			</div>
+         				   	 </div>
                         </div>
                     </div>
                     <div class="col-12 col-lg-5">
@@ -44,11 +66,6 @@
                                 <!-- Ratings & Review -->
                                 <div class="ratings-review mb-15 d-flex align-items-center justify-content-between">
                                     <div class="ratings">
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
                                     </div>
                                     <div class="review">
                                         <a href="#">리뷰 작성</a>

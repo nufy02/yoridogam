@@ -82,17 +82,11 @@
                                     </span>
                                 </div>
                                 <div class="ratings-cart text-right">
-                                    <div class="ratings">
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                    </div>
                                     <c:choose>
                                     <c:when test="${product.p_type eq '온라인' }">
                                     <div class="cart">
                                     	<button onclick="cartAdd()" class="listCartAdd" style="border: 0px" data-toggle="tooltip" data-placement="left" title="장바구니 담기" value="${product.p_no }">
+                                         담기
                                     	<img src="img/core-img/cart.png" alt=""></button>
                                     </div>
                                     </c:when>

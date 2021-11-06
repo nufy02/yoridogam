@@ -182,7 +182,10 @@ function id_duplicate_check(){
 		})
 	})
 	
-	
+		$('#boardList').click(function(){
+			$('#check').empty();
+			$('#check').load('member_board_list');
+	})
 	
 	
 	

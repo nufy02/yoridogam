@@ -9,9 +9,9 @@ $("select[name=p_type]").change(function(){ // select 옵션 값이 변한다면
 		//오프라인 강의 등록용 html apend
 		$(".rowCustom").html(`<div class="col-2 mb-3">
                                         <select name="p_category">
-                                        	<option value="제빵">제빵</option>
-                                        	<option value="뭐가">뭐가</option>
-                                        	<option value="있지">있니</option>
+                                        	<option value="베이킹">베이킹</option>
+                                        	<option value="한식">한식</option>
+                                        	<option value="비건">비건</option>
                                         </select>
                                     </div>
                                         <input type="hidden" class="form-control" name="teacher.t_id" value="test1" >
@@ -249,5 +249,20 @@ function listCategory(e){
 	})
 }
 
-
+$(document).ready(function(){
+	var star=$(".star").length;
+	var review=$(".reviewList").length
+	var avgStar=Math.round(star/review);
+	
+	for(var i=0; i<avgStar; i++){
+		$(".ratings").append(`<i class="fa fa-star" aria-hidden="true"></i>`)
+	}
+	$(".ratings").append(`<span>  (${review}명 참여)</span>`)
+	
+	for(var i=0; i<avgStar; i++){
+	$("#stars").append(`<span class="star" aria-hidden="true">★</span>`)
+	}
+	$("#stars").append(`<span>  (${review}명 참여)</span>`)
+})
+	
 

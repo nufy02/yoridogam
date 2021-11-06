@@ -15,11 +15,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.itwill.yoridogam.controller.interceptor.LoginCheck;
+import com.itwill.yoridogam.inquiry.InquiryService;
 import com.itwill.yoridogam.member.Member;
 import com.itwill.yoridogam.member.MemberService;
 import com.itwill.yoridogam.memberInterest.MemberInterest;
 import com.itwill.yoridogam.product.Product;
 import com.itwill.yoridogam.product.ProductService;
+import com.itwill.yoridogam.review.Review;
+import com.itwill.yoridogam.review.ReviewService;
 
 /*
  <<Member관련 페이지>>
@@ -42,6 +45,12 @@ public class MemberController {
 	
 	@Autowired
 	private ProductService productService;
+	
+	@Autowired
+	private ReviewService reviewService;
+
+	@Autowired
+	private InquiryService inquiryService;
 	
 	/*
 	 * 로그인 폼
@@ -249,4 +258,26 @@ public class MemberController {
 	public String member_remove_action_get() {
 		return "redirect:home";
 	}
+	
+	@RequestMapping("member_board_list")
+	public String board_list(HttpSession session, Model model) throws Exception{
+		String sUserId=(String)session.getAttribute("sUserId");
+		List<Review> rList=reviewService.reviewAllId(sUserId);
+		for(int i=0; i<rList.size(); i++) {
+			rList.get(i).setProduct(productService.selectByNo(rList.get(i).getProduct().getP_no()));
+		}
+		//inquiry
+		
+		model.addAttribute("rList",rList);
+		
+		return "member_board_list";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 }
