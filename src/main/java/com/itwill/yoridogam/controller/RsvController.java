@@ -60,7 +60,7 @@ public class RsvController {
 	
 	// 강의 결제 form
 	@LoginCheck
-	@RequestMapping("rsv_form")
+	@PostMapping("rsv_form")
 	public String rsv_form(@RequestParam int p_no,
 							@RequestParam String t_id,
 							HttpSession session,
@@ -78,7 +78,7 @@ public class RsvController {
 
 	// 결제 action
 	@LoginCheck
-	@RequestMapping("rsv_action")
+	@PostMapping("rsv_action")
 	public String rsv_action(@ModelAttribute("reservation") Reservation reservation,
 															int p_no,
 															HttpSession session,
@@ -100,7 +100,7 @@ public class RsvController {
 	 */
 	// 오프라인 결제 성공화면(영수증) --> 확인 누르면 메인으로
 	@LoginCheck
-	@RequestMapping("rsv_success")
+	@PostMapping("rsv_success")
 	public String rsv_success(@ModelAttribute("reservation") Reservation reservation,
 								Model model,
 								SessionStatus sessionStatus) throws Exception {

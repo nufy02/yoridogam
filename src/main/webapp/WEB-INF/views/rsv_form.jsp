@@ -96,7 +96,7 @@ h6{
 						</div>
 					</div>
 					<div class="col-12 col-lg-4">
-							<form action="rsv_action" method="get">
+							<form action="rsv_action" method="post">
 						<input type="hidden"  name="p_no" value="${product.p_no}">
 						<div class="cart-summary">
 							<h5 style="color: #FBB710; text-align: center; font-weight: 700; padding-bottom: 20px">주문서</h5>
