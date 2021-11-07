@@ -23,6 +23,7 @@
 	
 	<!-- toastr -->
 	<link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css'/>
+	
 </head>
 
 <body>
@@ -86,8 +87,8 @@
         	        <li><a href="member_login_form" style="color: blue;">guest <span style="color: black;">님 반갑습니다</span></a></li>   
                 </c:otherwise>
                 </c:choose>
-                    <li class="active"><a href="home">메인</a></li>
-                    <li><a href="product_list">강의 목록</a></li>
+                    <li class="active" ><a href="home">메인</a></li>
+                    <li><a class="" href="product_list">강의 목록</a></li>
                     <li><a href="product_maps">내 주변 강의</a></li>
                     <li><a href="notice_list">공지사항</a></li>
                     <li><a href="inquiry_list">문의게시판</a></li>
@@ -101,6 +102,7 @@
                 <a href="teacher_login_form" class="btn amado-btn mb-15">강사로그인</a>
            	</c:when>
            	<c:otherwise>
+           		   <a href="member_detail" class="btn amado-btn mb-15">마이페이지</a>
            		   <a href="member_logout_action" class="btn amado-btn mb-15">로그아웃</a>
            	</c:otherwise>
            	

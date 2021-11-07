@@ -45,7 +45,7 @@
                                             <h5>${pay.product.p_name}</h5>
                                         </td>
                                         <td class="price">
-                                            <span><f:formatNumber>${pay.product.p_price}</f:formatNumber> 원</span>
+                                            <span>${pay.product.p_price} 원</span>
                                         </td>
                                         <td>
                                             <a href="product_detail?p_no=${pay.product.p_no}" class="btn amado-btn w-50" >강의보기</a>

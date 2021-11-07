@@ -98,6 +98,3 @@ $(document).ready(function(){
 		
 		
 		
-		
-		
-		

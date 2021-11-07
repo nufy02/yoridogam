@@ -45,7 +45,7 @@
                            					<c:if test="${product.p_type eq '오프라인'}">
         			                      	<li>
         			                      		[${product.teacher.t_name }] 강사 &nbsp;&nbsp;
-                    				         	<span style="color: orange;">${product.p_name }</span><hr>
+                    				         	<a href="product_detail?p_no=${product.p_no }" style="color: orange; font-size: large;">${product.p_name }</a><hr>
                             				  	<button class="btn btn-outline-warning" name="mapBtn"  p_photo="${product.p_photo }" p_name="${product.p_name }"  value="${product.teacher.t_location }">위치 보기</button>&nbsp;&nbsp;
                               					${product.teacher.t_location}
                               				</li><hr>
