@@ -46,17 +46,38 @@ public class CartController {
 	 *********************************************************************/
 	@LoginCheck
 	@PostMapping("cart_insert_action")
-	public String insertCart_action(HttpSession session, int p_no, int qty) throws Exception{
+	public void insertCart_action(HttpSession session, int p_no, int qty) throws Exception{
 		Cart nCartI=new Cart(0,qty,new Product(p_no,
 													"", "", "", "", "", "", null),
 												   new Member((String)session.getAttribute("sUserId"),
 												   "", "", "", "", "", ""));
 		boolean isCartI=cartService.isExistCartItem(nCartI);
 		if(isCartI==true) {
-			//cartService.increaseQty(ci_no);
+			Cart cart =cartService.selectCartItemPNo(p_no);
+			for(int i=0; i<qty; i++) {
+				cartService.increaseQty(cart.getCi_no());
+			}
+			return;
+		}else {
+			cartService.insertCart(nCartI);
 		}
+	}
+	
+	@LoginCheck
+	@PostMapping("cart_insert_list_action")
+	public void insertListCart_action(HttpSession session, int p_no) throws Exception{
+		Cart nCartI=new Cart(0,1,new Product(p_no,
+				"", "", "", "", "", "", null),
+				new Member((String)session.getAttribute("sUserId"),
+						"", "", "", "", "", ""));
+		boolean isCartI=cartService.isExistCartItem(nCartI);
+		if(isCartI==true) {
+			Cart cart =cartService.selectCartItemPNo(p_no);
+			cartService.increaseQty(cart.getCi_no());
+			return;
+		}else {
 		cartService.insertCart(nCartI);
-		return "cart_list_form";
+		}
 	}
 	
 	/*********************************************************************

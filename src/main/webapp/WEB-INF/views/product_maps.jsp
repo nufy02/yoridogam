@@ -46,7 +46,7 @@
         			                      	<li>
         			                      		[${product.teacher.t_name }] 강사 &nbsp;&nbsp;
                     				         	<span style="color: orange;">${product.p_name }</span><hr>
-                            				  	<button class="btn btn-outline-warning" name="mapBtn" value="${product.teacher.t_location }">위치 보기</button>&nbsp;&nbsp;
+                            				  	<button class="btn btn-outline-warning" name="mapBtn"  p_photo="${product.p_photo }" p_name="${product.p_name }"  value="${product.teacher.t_location }">위치 보기</button>&nbsp;&nbsp;
                               					${product.teacher.t_location}
                               				</li><hr>
                            					</c:if>

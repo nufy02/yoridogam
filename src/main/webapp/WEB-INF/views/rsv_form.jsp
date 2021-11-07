@@ -3,9 +3,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!-- Header Area Start -->
+
 <%@include file="/WEB-INF/views/common/include_header.jsp"%>
 <!-- Header Area End -->
-
+<style>
+h6{
+ color: #FBB710; font-size: 20px;
+}
+</style>
 
 
 		<!-- Search Wrapper Area Start -->
@@ -43,39 +48,46 @@
 							<div class="cart-title">
 								<h2 style="color: #FBB710; margin-bottom: 100px">오프라인 강의 결제</h2>
 							</div>
-								<h4 style="color: #FBB710">-회원 정보-</h4>		
+								<h4 style="color: #FBB710; text-align: center; ">-회원 정보-</h4>
+								<br>		
 								<div>
 									<!--회원정보 -->
 									
 									<input type="hidden" name="sUserId" value="${sUserId.m_id}">
+									<h6 class="col-md-6 mb-3" >-성함-</h6>
 									<div class="col-md-6 mb-3">
-										<div style="text-align: center; padding: 30px; font-size: 14px" class="form-control" >
-											${sUserId.m_name}
-										</div>
+										<input type="text" class="form-control" id="t_name"
+											placeholder="name" value="${sUserId.m_name}" readonly="readonly">
 									</div>
+									<h6 class="col-md-6 mb-3">-전화번호-</h6>
 									<div class="col-md-6 mb-3">
 										<input type="text" class="form-control " id="m_phone"
 											placeholder="Phone" value="${sUserId.m_phone}">
 									</div>
-									<div class="col-12 mb-3">
+									<h6 class="col-md-6 mb-3">-이메일-</h6>
+									<div class="col-9 mb-3">
 										<input type="email" class="form-control mb-5" id="m_email"
 											placeholder="Email" value="${sUserId.m_email}">
 									</div>
 								</div>
+								<br>
 								<!-- 회원정보 끝! -->
-								<h4 style="color: #FBB710">-상품 정보-</h4>		
+								<h4 style="color: #FBB710; text-align: center;">-강사 정보-</h4>	
+								<br>			
 								<!-- 상품 정보 -->
-								<div class="row">
-							
+								<div>
+									<h6 class="col-md-6 mb-3">-강사-</h6>
 									<div class="col-md-6 mb-3">
 										<input type="text" class="form-control" id="t_name"
 											placeholder="name" value="${teacher.t_name}" readonly="readonly">
 									</div>
+									<h6 class="col-md-6 mb-3">-강사 번호-</h6>
 									<div class="col-md-6 mb-3">
 										<input type="text" class="form-control" id="t_phone"
 											placeholder="phone" value="${teacher.t_phone}" readonly="readonly">
 									</div>
-									<div class="col-12 mb-3">
+									<h6 class="col-md-6 mb-3">-수업 위치-</h6>
+									<div class="col-9 mb-3">
 										<input type="text" class="form-control mb-3" id="t_address"
 											placeholder="Address" value="${teacher.t_location}" readonly="readonly">
 									</div>
@@ -84,13 +96,15 @@
 						</div>
 					</div>
 					<div class="col-12 col-lg-4">
-							<form action="rsv_action" method="get">
+							<form action="rsv_action" method="post">
 						<input type="hidden"  name="p_no" value="${product.p_no}">
 						<div class="cart-summary">
 							<h5 style="color: #FBB710; text-align: center; font-weight: 700; padding-bottom: 20px">주문서</h5>
 							<ul class="summary-table">
+							
+								<p >예약하신 수업</p>
 								
-								<li style="font-size: 13px; padding-bottom: 30px;"><span>${product.p_name}</span></li>
+								<li style="padding-bottom: 30px;"><span style="font-size: 15px">${product.p_name}</span></li>
 								<!-- 예약날짜 시작  -->
 								<li>
 								<div>
@@ -107,8 +121,7 @@
 								<div>
                                     <p>예약 시간</p>
 									<div class="col-12 mb-3" id="rsv_date_time">
-	                                	<p>날짜를 선택해주세요.</p>    
-	                                	  	
+	                                	<p>날짜를 선택해주세요.</p>    	
                                     </div>
 								</div>
 								</li>
@@ -123,7 +136,7 @@
                                     </div>
                                 </div>
 								</li>
-								<li><span>total:</span> 
+								<li><p>total:</p> 
 								
 								<!-- 가격 변경하는거 구현해야됨! -->
 								<div id="rsv_pay_total">
@@ -176,11 +189,12 @@
 				</div>
 			</div>
 		</div>
+		</div>
+		<%@include file="/WEB-INF/views/common/include_footer.jsp"%>
 		
 		<!-- ##### Main Content Wrapper End ##### -->
 		
 		<!-- ##### Footer Area Start ##### -->
-		<%@include file="/WEB-INF/views/common/include_footer.jsp"%>
 		<!-- ##### Footer Area End ##### -->
 		
 		<!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->

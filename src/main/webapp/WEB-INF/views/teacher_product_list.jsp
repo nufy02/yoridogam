@@ -27,6 +27,7 @@
                     <td scope="row">${product.p_name}</td>
                     <td scope="row">${product.p_type}</td>
                     <td scope="row"><button class="btn btn-outline-warning" name="detailBtn" value="${product.p_no}">상세보기</button></td>
+                    <td scope="row"><form action="product_update_form" method="post" name="updateProduct"><button class="btn btn-outline-warning" id="updateBtn" name="p_no" value="${product.p_no}">수정</button></form></td>
                     <td scope="row"><button class="btn btn-outline-warning" name="deleteBtn" value="${product.p_no}">삭제</button></td>
                   </tr>
                   </c:forEach>

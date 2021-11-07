@@ -99,11 +99,11 @@
 								<td height="22" align="left">비건
 									<input type="checkbox" name="mi_interest"  value="비건"   checked>
 								</td>
-								<td height="22" align="left">빵
-									<input type="checkbox" name="mi_interest"  value="빵"  checked>
+								<td height="22" align="left">한식
+									<input type="checkbox" name="mi_interest"  value="한식"  checked>
 								</td>
-								<td height="22" align="left">쿠키
-									<input type="checkbox" name="mi_interest"  value="쿠키"  checked>
+								<td height="22" align="left">베이킹
+									<input type="checkbox" name="mi_interest"  value="베이킹"  checked>
 								</td>
 
 								
@@ -116,7 +116,7 @@
 							 	<table>
 							 	<tr>
 							 	<td style="padding-top: 50px;padding-left:200px">                               
-							 		<input type="button" class="btn btn-info btn-md" value="정보수정" onClick="member_modify_action()">
+							 		<input type="button" class="btn btn-info btn-md" style="background-color: #FBB710; border-color: #FBB710" value="정보수정" onClick="member_modify_action()">
                             	</td>
                             	<tr>
                             	</table>

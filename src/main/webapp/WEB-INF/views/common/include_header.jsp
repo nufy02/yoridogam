@@ -20,7 +20,9 @@
     <!-- Core Style CSS -->
     <link rel="stylesheet" href="css/core-style.css">
     <link rel="stylesheet" href="css/style.css">
-
+	
+	<!-- toastr -->
+	<link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css'/>
 </head>
 
 <body>
@@ -106,7 +108,11 @@
             </div>
             <!-- Cart Menu -->
             <div class="cart-fav-search mb-100">
-                <a href="cart_list_form" class="cart-nav"><img src="img/core-img/cart.png" alt=""> 장바구니 <span>(0)</span></a>
+            <c:choose>
+	            <c:when test ="${!empty(sUserId)}" >
+                <a href="cart_list_form" class="cart-nav"><img src="img/core-img/cart.png" alt=""> 장바구니 <span></span></a>
+                </c:when>
+            </c:choose>
                 <a href="member_detail" class="fav-nav"><img src="img/core-img/favorites.png" alt=""> 관심목록</a>
                 <a href="#" class="search-nav"><img src="img/core-img/search.png" alt=""> 검색</a>
             </div>

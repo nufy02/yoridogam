@@ -29,4 +29,6 @@ public interface CartDao {
 	
 	/***********장바구니 강의 1개셀렉*/
 	 Cart selectCartItem(int ci_no);
+	 /**********By no*/
+	 Cart selectCartItemPNo(int p_no);
 }

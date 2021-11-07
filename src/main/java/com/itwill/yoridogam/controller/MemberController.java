@@ -1,5 +1,7 @@
 package com.itwill.yoridogam.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -13,13 +15,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.itwill.yoridogam.controller.interceptor.LoginCheck;
+import com.itwill.yoridogam.inquiry.InquiryService;
 import com.itwill.yoridogam.member.Member;
 import com.itwill.yoridogam.member.MemberService;
 import com.itwill.yoridogam.memberInterest.MemberInterest;
 import com.itwill.yoridogam.product.Product;
 import com.itwill.yoridogam.product.ProductService;
+import com.itwill.yoridogam.review.Review;
+import com.itwill.yoridogam.review.ReviewService;
 
 /*
  <<Member관련 페이지>>
@@ -42,6 +48,12 @@ public class MemberController {
 	
 	@Autowired
 	private ProductService productService;
+	
+	@Autowired
+	private ReviewService reviewService;
+
+	@Autowired
+	private InquiryService inquiryService;
 	
 	/*
 	 * 로그인 폼
@@ -109,6 +121,7 @@ public class MemberController {
 		String[] interestList = memberInterest.getMi_interest().split(",");
 		for (int i = 0; i < interestList.length; i++) {
 			int result2 = memberService.createInterest(new MemberInterest(0, interestList[i],member1));
+			System.out.println(memberService.createInterest(new MemberInterest(0, interestList[i],member1)));
 		}
 		if (result1 == 1) {
 			forwardPath = "redirect:member_login_form";
@@ -180,6 +193,7 @@ public class MemberController {
 	@LoginCheck
 	@PostMapping(value = "/member_modify_form")
 	public String member_modify_form(HttpSession session, Model model) throws Exception{
+		
 		String loginUserId = (String)session.getAttribute("sUserId");
 		Member loginUser = memberService.findMember(loginUserId);
 		model.addAttribute("loginUser", loginUser);
@@ -189,11 +203,21 @@ public class MemberController {
 	@LoginCheck
 	@PostMapping(value = "/member_modify_action")
 	public String member_modify_action_post(@ModelAttribute Member member,@ModelAttribute MemberInterest memberInterest,HttpSession session) throws Exception {
-		String forwardPath="";
+	String forwardPath="";
+
 		String loginUserId=(String)session.getAttribute("sUserId");
 		member.setM_id(loginUserId);
-		memberInterest.setMember(new Member(member.getM_id(), null, null, null, null, null, null));
-		memberService.update(member, memberInterest);
+		
+		memberService.update(member);
+		
+		Member member1 = new Member(member.getM_id(), null, null, null, null, null, null);
+		memberInterest.setMember(member1);
+		
+		String[] interestList = memberInterest.getMi_interest().split(",");
+		for (int i = 0; i < interestList.length; i++) {
+			memberService.updateInterest(new MemberInterest(0, interestList[i],member1));
+		}
+		
 		forwardPath="redirect:member_detail";
 		return forwardPath;
 	}
@@ -213,7 +237,10 @@ public class MemberController {
 		String loginUserId =(String)session.getAttribute("sUserId");
 		// 회원정보
 		Member loginUser = memberService.findMember(loginUserId);
-		
+		List<Product> productList =productService.selectAll();
+		List<MemberInterest> interestList= memberService.getMemberInterestList(loginUserId);
+		request.setAttribute("interestList", interestList);
+		request.setAttribute("productList", productList);
 		request.setAttribute("loginUser", loginUser);
 		return"member_detail";
 	}
@@ -246,4 +273,39 @@ public class MemberController {
 	public String member_remove_action_get() {
 		return "redirect:home";
 	}
+	
+	@RequestMapping("member_board_list")
+	public String board_list(HttpSession session, Model model) throws Exception{
+		String sUserId=(String)session.getAttribute("sUserId");
+		List<Review> rList=reviewService.reviewAllId(sUserId);
+		for(int i=0; i<rList.size(); i++) {
+			rList.get(i).setProduct(productService.selectByNo(rList.get(i).getProduct().getP_no()));
+		}
+		//inquiry
+		
+		model.addAttribute("rList",rList);
+		
+		return "member_board_list";
+	}
+	
+	@RequestMapping("category_list")
+	@ResponseBody
+	public List category_list(HttpSession session, Model model, String mi_interest) throws Exception{
+		List<Product> productList =productService.selectAll();
+		List<Product> categoryList=new ArrayList<Product>();
+		for(int i=0; i<productList.size(); i++) {
+			if(productList.get(i).getP_category().equals(mi_interest)) {
+				categoryList.add(productList.get(i));
+			}else if(mi_interest.equals("all")) {
+				categoryList.add(productList.get(i));
+			}
+		}
+		return categoryList;
+	}
+	
+	
+	
+	
+	
+	
 }

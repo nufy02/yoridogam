@@ -24,6 +24,7 @@
                             </div>
 
                             <form  method="post">
+                            <input type="hidden"  name="t_id" value="${teacher}">
                                 <div class="col-md-3 mb-1">
                                  	<select name="p_type" id="p_type">
                                     	<option value="">-유형 선택-</option>
@@ -35,12 +36,11 @@
                                 <div class="rowCustom">
                                     <div class="col-2 mb-3">
                                         <select name="p_category">
-                                        	<option value="제빵">제빵</option>
-                                        	<option value="뭐가">뭐가</option>
-                                        	<option value="있지">있니</option>
+                                        	<option value="베이킹">베이킹</option>
+                                        	<option value="한식">한식</option>
+                                        	<option value="비건">비건</option>
                                         </select>
                                     </div>
-                                        <input type="hidden" class="form-control" name="teacher.t_id" value="test1" >
                                     <div class="col-12 mb-3">
                                         <input type="text" class="form-control" name="p_name" placeholder="상품명" value="">
                                     </div>
@@ -67,7 +67,7 @@
                                             <label class="custom-control-label" for="customCheck3">Ship to a different address</label>
                                         </div>
                                         <div class="cart-btn mt-100">
-                                			<input type="submit"  class="btn amado-btn w-100" value="결제하기" onclick="javascript: form.action='product_insert_action';"/><br><br/>
+                                			<input type="submit"  class="btn amado-btn w-100" value="등록하기" onclick="javascript: form.action='product_insert_action';"/><br><br/>
                                 			<a href="home" class="btn amado-btn w-100">취소하기</a>
                            				</div>
                                     </div>

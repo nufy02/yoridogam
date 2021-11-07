@@ -45,6 +45,59 @@ $(document).ready(function(){
 		}
 	})
 	
+	$('button[name=createReview]').click(function(){
+		$("#exampleModalCenter").modal();
+		p_no=$(this).val();
+		p_name=$(this).attr('p_name');
+		p_photo=$(this).attr('p_photo');
+		
+		$("#pPhoto").append(`<img width="100" height="100" src="${p_photo }">
+										<span>${p_name}<span>
+										<input type="hidden" class="p_noRV" value="${p_no}">`)
+		
+	})
+	var r_star=0;
+	$('#star a').click(function(){
+		$(this).parent().children("a").removeClass("on");
+		$(this).addClass("on").prevAll("a").addClass("on");
+		r_star=$(this).attr("r_grade");
+
+		})
 	
+	$("#submitRV").click(function(){
+	var p_no=$('.p_noRV').val();
+	var r_grade=r_star;
+	var r_detail=$("#r_detail").val();
 	
-	
+	var data={"p_no" : p_no, "r_grade":r_grade, "r_detail" : r_detail};
+	$.ajax({ 
+		type: 'POST',
+		url: "review_create_action",
+		data: data,
+		success: function() {
+			alert("한줄평 등록되었습니다");
+			$('#exampleModalCenter').modal("hide");
+		}
+	});
+})
+
+	$("button[name=deleteRv]").click(function(){
+		var r_no=$(this).val();
+		var data={"r_no":r_no}
+		$.ajax({ 
+		type: 'POST',
+		url: "review_delete_action",
+		data: data,
+		success: function(rList) {
+			alert("삭제되었습니다");
+			location.reload();
+			}	
+		})
+	})
+		
+		
+		
+		
+		
+		
+		

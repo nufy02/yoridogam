@@ -14,28 +14,15 @@
                 <div class="row">
                     <div class="col-12 col-lg-8">
                        <div >
-						<input type="button" class="btn btn-info btn-md"  id="productCreate" style="background-color: #FBB710; border-color: #FBB710" value="강의등록" >&nbsp;&nbsp;
+						<!--<input type="button" class="btn btn-info btn-md"  id="productCreate" style="background-color: #FBB710; border-color: #FBB710" value="강의등록" >&nbsp;&nbsp;-->
+				 		<input type="button" class="btn btn-info btn-md"  id="productCreate" style="background-color: #FBB710; border-color: #FBB710" value="강의등록" onclick="location.href='product_insert_form'" >&nbsp;&nbsp; 
+						
 						<input type="button" class="btn btn-info btn-md" id="productList"  style="background-color: #FBB710; border-color: #FBB710" value="등록 강의">
 						<h3>&nbsp;&nbsp;</h3>
          			   </div>
 
                         <div class="cart-table clearfix" id="check">
-                            <table class="table table-responsive">
-                                <thead>
-                                    <tr>
-                                        <th align="center">
-                                        No.
-                                        <th>강의명</th>
-                                        <th>가격</th>
-                                        <th>강사명</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-									
-                                   
-                                  	
-                                </tbody>
-                            </table>
+                       			
                         </div>
                        
                     </div>
@@ -71,9 +58,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+                         </div>
         </div>
     </div>
+
     <!-- ##### Main Content Wrapper End ##### -->
 
     <!-- ##### Footer Area Start ##### -->

@@ -79,8 +79,9 @@ $("#rsv_date_qty").on("change","#rsv_qty",function(e){
 
 });
 
-$("#deleteRsvTD").on("click","#deleteRsv",function(e) {
+	$('button[name=deleteRsv]').click(function(){
 			var cf = confirm("결제를 취소하시겠습니까?");
+			
 			if (cf) {
 				var rsv_no=$(this).val();
 				var ajaxData = {"rsv_no" : rsv_no};
@@ -106,6 +107,11 @@ $("#deleteRsvTD").on("click","#deleteRsv",function(e) {
 					$('#detail').empty();
 					$('#detail').load('teacher_product_detail',data).hide().fadeIn("3000")
 
+	});
+	
+// 강사 디테일에서 등록된 상품 수정하기
+	$('#updateBtn').click(function(){
+		document.updateProduct.submit();
 	});
 
 

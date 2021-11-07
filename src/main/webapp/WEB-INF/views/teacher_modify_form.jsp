@@ -102,7 +102,7 @@
 							 	<table>
 							 	<tr>
 							 	<td style="padding-top: 50px;padding-left:200px">                               
-							 		<input type="button" class="btn btn-info btn-md" value="정보수정" onClick="teacher_modify_action()">
+							 		<input type="button" class="btn btn-info btn-md" value="정보수정" style="background-color: #FBB710; border-color: #FBB710" onClick="teacher_modify_action()">
                             	</td>
                             	<tr>
                             	</table>

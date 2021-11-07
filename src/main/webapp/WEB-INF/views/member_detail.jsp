@@ -16,28 +16,49 @@
                     <div class="col-12 col-lg-8">
 						<div >
 						<input type="button" class="btn btn-info btn-md"  id="interestList" style="background-color: #FBB710; border-color: #FBB710" value="관심강의">&nbsp;&nbsp; 
-						<input type="button" class="btn btn-info btn-md" style="background-color: #FBB710; border-color: #FBB710" value="장바구니" onClick="">&nbsp;&nbsp; 
-						<input type="button" class="btn btn-info btn-md" style="background-color: #FBB710; border-color: #FBB710" value="최근조회강의" onClick="">&nbsp;&nbsp; 
+						<input type="button" class="btn btn-info btn-md"  id="boardList" style="background-color: #FBB710; border-color: #FBB710" value="내가 쓴 글" >&nbsp;&nbsp;
 						<input type="button" class="btn btn-info btn-md"  id="payList" style="background-color: #FBB710; border-color: #FBB710" value="결제내역" >&nbsp;&nbsp;
-						<input type="button" class="btn btn-info btn-md" id="rsvList"  style="background-color: #FBB710; border-color: #FBB710" value="예약내역"> 
+						<input type="button" class="btn btn-info btn-md" id="rsvList"  style="background-color: #FBB710; border-color: #FBB710" value="오프라인 수업"> 
 						<h3>&nbsp;&nbsp;</h3>
          			   </div>
 
                         <div class="cart-table clearfix" id="check">
-                            <table class="table table-responsive">
-                                <thead>
-                                    <tr>
-                                   
-                                    </tr>
-                                </thead>
-                                <tbody>
-									
-                                   
-                                  	
-                                </tbody>
-                            </table>
+						<section>
+						<p>관심 카테고리</p>
+						</section>
+						<select id="categorySelect">
+							<option  value="all">-전체-
+						<c:forEach var="interest" items="${interestList}">
+							<option value="${interest.mi_interest }">${interest.mi_interest }
+						</c:forEach>
+						</select><br></br>
+						<table class="table table-responsive">
+						<thead>
+							<tr style="width: 750px">
+								<th scope="col">강의 사진</th>
+								<th scope="col">강의  명</th>
+								<th scope="col">강의 유형</th>
+								<th scope="col">강의 상세</th>
+							</tr>
+						</thead>
+						<tbody id="interestProduct">
+						<c:forEach var="interest" items="${interestList}">
+							<c:forEach var="product" items="${productList }">
+							<form >
+							<c:if test="${interest.mi_interest==product.p_category }">
+								<tr style="width: 750px">
+											<td align="left" scope="row"><a href="product_detail?p_no=${product.p_no }"><img src="${product.p_photo }" width="70%"/></a></td>	 
+											<td scope="row">${product.p_name}</td>
+											<td scope="row">${product.p_type}</td>
+											<td scope="row" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">${product.p_detail}</td>
+										</tr>
+								</c:if>
+								</form>
+							</c:forEach>
+						</c:forEach>
+						</tbody>
+						</table>
                         </div>
-                       
                     </div>
                     <div class="col-12 col-lg-4">
                         <div class="cart-summary">

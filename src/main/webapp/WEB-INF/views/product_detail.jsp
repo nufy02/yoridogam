@@ -20,6 +20,28 @@
                     <div class="col-12 col-lg-7">
                         <div class="single_product_thumb">
                            <img class="d-block w-100" src="${product.p_photo }" alt="First slide">
+                          	<br/><hr><br/>
+                          	<div class="card">
+	                			<div class="card-header" role="tab">
+	          	        			<h6><a href="#collapseOne" data-toggle="collapse">수강생 한줄평</a></h6>
+      							  	 <p id="stars" style="color: orange;"> </p>
+    	            			</div>
+               				<div class="collapse show" id="collapseOne" data-parent="#accordion1" role="tabpanel"  style="">
+                  				<div class="card-body">
+				                <c:forEach var="review" items="${rList }" end="${rList.size() }">
+                  				 <section class="reviewList">
+      							  <h6>[${review.member.m_name }] 수강생</h6>
+      							  	 <p style="color: orange;">
+      							  	 <c:forEach var="i" begin="1" step="1" end="${review.r_grade }">
+	      							  	 <span class="star" aria-hidden="true">★</span>
+                                 	 </c:forEach>
+      							  	 </p>
+							        <p>${review.r_content }</p>
+							    </section><hr/>
+				                </c:forEach>
+                  				</div>
+	                			</div>
+         				   	 </div>
                         </div>
                     </div>
                     <div class="col-12 col-lg-5">
@@ -39,19 +61,14 @@
                                     <h6>${product.p_name }</h6>
                                 </a>
                                 <input type="hidden" id="detailPNo" name="p_no" value="${product.p_no }"/>
-                                <input type="hidden" id="detailPName" value="${product.p_name }"/>
+                                <input type="hidden" id="detailTLocation" value="${product.teacher.t_location }"/>
                                 <input type="hidden" id="detailTId" name="t_id" value="${product.teacher.t_id }"/>
                                 <!-- Ratings & Review -->
                                 <div class="ratings-review mb-15 d-flex align-items-center justify-content-between">
                                     <div class="ratings">
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
                                     </div>
                                     <div class="review">
-                                        <a href="#">리뷰 작성</a>
+                                        <a href="member_detail">리뷰 작성</a>
                                     </div>
                                 </div>
                                 <!-- Avaiable -->
@@ -69,7 +86,8 @@
                             </div>
                             <hr><br/>
 
-                            <!-- Add to Cart Form -->
+                            <c:choose>
+                            <c:when test="${product.p_type eq '온라인' }">
                             <form class="cart clearfix" method="post">
                                 <div class="cart-btn d-flex mb-50">
                                     <p>수량</p>
@@ -79,14 +97,12 @@
                                         <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-caret-up" aria-hidden="true"></i></span>
                                     </div>
                                 </div>
-                                <c:choose>
-                                <c:when test="${product.p_type eq '온라인' }">
                                 <button type="submit" name="pay_form" class="btn amado-btn">결제하기</button><br></br>
-                                <button type="button" name="addtocart" class="btn amado-btn">장바구니</button>
+                                <button type="button"  onclick="cartAdd()" name="detailCartAdd" class="btn amado-btn" value="${product.p_no }">장바구니</button>
                                 </c:when>
                                 <c:otherwise>
                                 <button type="submit" name="rsv_form"  class="btn amado-btn">예약하기</button><br></br>
-                                <button type="button" name="detailMap"  class="btn amado-btn">위치보기</button>
+                                <button type="button" name="detailMap"  class="btn amado-btn" p_name="${product.p_name }" p_photo="${product.p_photo }">위치보기</button>
                                 </c:otherwise>
                                 </c:choose>
                             </form>
@@ -98,6 +114,8 @@
         </div>
     </div>
     
+
+
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" >
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -109,7 +127,9 @@
         </button>
       </div>
       <div class="modal-body">
-	  <div class="d-block w-100" id="map" style="width:100%;height:500px;">
+      <div class="col-12 mb-3">
+	  <div class="d-block w-200" id="map" style="width:100%;height:500px;">
+	  </div>
 	  </div>
       </div>
       <div class="modal-footer">
@@ -140,6 +160,8 @@
 	<!-- Custom -->
 	<script src="js/custom/productTest.js"></script>
 	<script src="js/custom/map.js"></script>
+	<!-- List,Detail cartAdd -->
+	<script src='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js'></script>
 </body>
 
 </html>
