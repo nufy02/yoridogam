@@ -68,7 +68,7 @@
                                     <div class="ratings">
                                     </div>
                                     <div class="review">
-                                        <a href="#">리뷰 작성</a>
+                                        <a href="member_detail">리뷰 작성</a>
                                     </div>
                                 </div>
                                 <!-- Avaiable -->
