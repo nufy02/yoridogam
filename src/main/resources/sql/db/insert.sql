@@ -10,7 +10,7 @@
 insert into member(m_id,m_name,m_pass,m_addr,m_email,m_phone,m_gender) values('member1','김봄이','1111','서울 용산구 한남동 737-28','kkihon1@naver.com','010-4356-3458','남자');
 insert into member(m_id,m_name,m_pass,m_addr,m_email,m_phone,m_gender) values('member2','이여름','2223','서울 강남구 신사동 613-7','kkihon2@naver.com','010-1232-8345','여자');
 insert into member(m_id,m_name,m_pass,m_addr,m_email,m_phone,m_gender) values('member3','최가을','3333','서울 송파구 잠실동 19-4','kkihon3@naver.com','010-2323-8488','남자');
-insert into member(m_id,m_name,m_pass,m_addr,m_email,m_phone,m_gender) values('admin1','박겨울','1111','서울 강남구 수서동 747','kkihon3@naver.com','010-5523-8568','여자');
+insert into member(m_id,m_name,m_pass,m_addr,m_email,m_phone,m_gender) values('admin','박겨울','1111','서울 강남구 수서동 747','kkihon3@naver.com','010-5523-8568','여자');
 
 /********** Member Interest ********* 3개로 제한(비건,한식,베이킹)*/
 insert into member_interest values(MEMBER_INTEREST_MI_NO_SEQ.nextval,'비건','member1');
@@ -129,7 +129,18 @@ values(RESERVATION_RSV_NO_SEQ.nextval,91800,'카드결제',2,'2021-11-10','13:00
 
 
 /********** Review **********/
-
+insert into review values(REVIEW_R_NO_SEQ.nextval,'','쉽게 알려줘서 좋습니다',4,'',sysdate,'member1',1);
+insert into review values(REVIEW_R_NO_SEQ.nextval,'','강사님이 열의가 대단하셔서 만족해요',5,'',sysdate,'member1',2);
+insert into review values(REVIEW_R_NO_SEQ.nextval,'','재료가 너무 많이 필요해요..',2,'',sysdate,'member1',3);
+insert into review values(REVIEW_R_NO_SEQ.nextval,'','클래스 장소가 청결하지 못했어요',1,'',sysdate,'member1',4);
+insert into review values(REVIEW_R_NO_SEQ.nextval,'','시간되면 한 번 더 수강 하고싶어요',4,'',sysdate,'member1',5);
+insert into review values(REVIEW_R_NO_SEQ.nextval,'','적당히 달면서도 고소하게 잘 나왔어요',4,'',sysdate,'member2',1);
+insert into review values(REVIEW_R_NO_SEQ.nextval,'','주방시설이나 인테리어가 깔끔하게 잘 되어있어요',5,'',sysdate,'member2',3);
+insert into review values(REVIEW_R_NO_SEQ.nextval,'','좋아하는 아이를 보니 기분좋아지네요',3,'',sysdate,'member3',1);
+insert into review values(REVIEW_R_NO_SEQ.nextval,'','처음 배우는 건데 곧 잘 따라갈 수 있었어요',4,'',sysdate,'member3',4);
+insert into review values(REVIEW_R_NO_SEQ.nextval,'','너무 어려워요ㅠㅠ',2,'',sysdate,'member2',1);
+insert into review values(REVIEW_R_NO_SEQ.nextval,'','이걸 돈받고 가르칠 생각을 하다니',1,'',sysdate,'member3',1);
+insert into review values(REVIEW_R_NO_SEQ.nextval,'','넘나 좋은 시간이었어요!!',5,'',sysdate,'member1',5);
 
 /********** Notice  엑셀 작업 **********/
 
@@ -140,11 +151,5 @@ values(RESERVATION_RSV_NO_SEQ.nextval,91800,'카드결제',2,'2021-11-10','13:00
 
 
 /********** Inquiry 엑셀 작업 **********/ 
-
-
-
-
-
-
 
 
