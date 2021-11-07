@@ -111,9 +111,7 @@ public class ProductController {
 	}
 	@LoginCheck
 	@RequestMapping("product_update_form")
-	//public String product_update_form(int p_no,HttpSession session, Model model) throws Exception {
-	public String product_update_form(HttpSession session, Model model) throws Exception {
-		int p_no=5;//test 2-on 4-off
+	public String product_update_form(int p_no,HttpSession session, Model model) throws Exception {
 		model.addAttribute("product",productService.selectByNo(p_no));
 		model.addAttribute("productTime",productTimeService.selectAll(p_no));
 		return "product_update_form";
@@ -124,7 +122,7 @@ public class ProductController {
 	public String product_update_action(ProductTime productTime,Product product,HttpSession session) throws Exception{
 		product.setP_photo("img/product-img/"+product.getP_photo());
 		productService.updateByNo(product);
-		return "home";
+		return "redirect:teacher_detail";
 	}
 	
 	@LoginCheck

@@ -108,6 +108,11 @@ $("#rsv_date_qty").on("change","#rsv_qty",function(e){
 					$('#detail').load('teacher_product_detail',data).hide().fadeIn("3000")
 
 	});
+	
+// 강사 디테일에서 등록된 상품 수정하기
+	$('#updateBtn').click(function(){
+		document.updateProduct.submit();
+	});
 
 
 
