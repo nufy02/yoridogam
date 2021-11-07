@@ -59,7 +59,7 @@
 		<div>
 			<ul style="text-align: center;">
 				<c:if test="${paging.startPage != 1}">
-					<li><a href="notice_list?nowPage=${paging.startPage-1}&cntPerPage=${paging.cntPerPage}"></a></li>
+					<li><a href="notice_list?nowPage=${paging.startPage-1}&cntPerPage=${paging.cntPerPage}">&#9665;</a></li>
 				</c:if>
 			<!-- 페이지 번호를 누르면 해당 페이지로 가게 만듦 -->
 				<c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="p">
@@ -74,7 +74,7 @@
 				</c:forEach>
 				<c:if test="${paging.endPage != paging.lastPage}">
 					<li><a href="notice_list?nowPage=${paging.endPage + 1}&cntPerPage=${paging.cntPerPage}"
-							style="font-size: 18px;"></a></li>
+							style="font-size: 18px;">&#9655;</a></li>
 				</c:if>
 			</ul>
 		</div>

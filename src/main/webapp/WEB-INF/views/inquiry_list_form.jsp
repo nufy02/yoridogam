@@ -57,6 +57,7 @@
 		</div>
 		<hr>
 				<button type="button" class="btn btn-outline-warning btn-sm" onClick="inquiry_write()">작성</button>
+				
 		 <!-- 페이징 시작 -->
 		<div>
 			<ul style="text-align: center;">
