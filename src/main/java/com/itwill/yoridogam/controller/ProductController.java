@@ -75,9 +75,10 @@ public class ProductController {
 		product.setP_photo("img/product-img/"+product.getP_photo()); 
 		product.setTeacher(teacherService.findMember(t_id));
 		int p_no=productService.create(product);
-		return "home"; // 추후 수정: 해당 p_no detail로 redirect
+		return "redirect:product_detail?p_no="+p_no; // 추후 수정: 해당 p_no detail로 redirect
 	}
 	
+	/*
 	@LoginCheck
 	@RequestMapping("product_insert_off_action")
 	public String product_insert_off_action(Product product,ProductTime productTime,HttpSession session, Model model,@RequestParam String t_id) throws Exception{
@@ -93,6 +94,9 @@ public class ProductController {
 		System.out.println(productTime.getPt_date().getClass().getName());
 		return "home"; // 추후 수정, 상동
 	}
+	*/
+	
+	
 	/* 없어도 될 거 같아요
 	@RequestMapping("product_delete_form")
 	public String proudct_delete_form() {
