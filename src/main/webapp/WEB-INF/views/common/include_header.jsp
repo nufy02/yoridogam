@@ -108,7 +108,11 @@
             </div>
             <!-- Cart Menu -->
             <div class="cart-fav-search mb-100">
+            <c:choose>
+	            <c:when test ="${!empty(sUserId)}" >
                 <a href="cart_list_form" class="cart-nav"><img src="img/core-img/cart.png" alt=""> 장바구니 <span></span></a>
+                </c:when>
+            </c:choose>
                 <a href="member_detail" class="fav-nav"><img src="img/core-img/favorites.png" alt=""> 관심목록</a>
                 <a href="#" class="search-nav"><img src="img/core-img/search.png" alt=""> 검색</a>
             </div>
