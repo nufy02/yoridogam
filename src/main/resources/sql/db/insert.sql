@@ -116,16 +116,16 @@ insert into pay_item(pi_no, pi_qty, pay_no, p_no) values(PAY_ITEM_PI_NO_SEQ.next
 /********** Reservation **********/
 
  insert into reservation(rsv_no, rsv_total, rsv_type, rsv_qty, rsv_date, rsv_time, rsv_paydate, m_id, p_no)
-values(RESERVATION_RSV_NO_SEQ.nextval,8900,'현장결제',1,'2021-11-10','10:00-11:00',sysdate,'member1',5);
+values(RESERVATION_RSV_NO_SEQ.nextval,8900,'현장결제',1,'2021-11-10','10:00-11:00',sysdate,'member1',1);
 
  insert into reservation(rsv_no, rsv_total, rsv_type, rsv_qty, rsv_date, rsv_time, rsv_paydate, m_id, p_no)
-values(RESERVATION_RSV_NO_SEQ.nextval,19800,'카카오페이',2,'2021-11-10','11:00-12:00',sysdate,'member1',7);
+values(RESERVATION_RSV_NO_SEQ.nextval,19800,'카카오페이',2,'2021-11-10','11:00-12:00',sysdate,'member1',2);
 
  insert into reservation(rsv_no, rsv_total, rsv_type, rsv_qty, rsv_date, rsv_time, rsv_paydate, m_id, p_no)
-values(RESERVATION_RSV_NO_SEQ.nextval,45900,'무통장입금',1,'2021-11-10','10:00-11:00',sysdate,'member1',11);
+values(RESERVATION_RSV_NO_SEQ.nextval,45900,'무통장입금',1,'2021-11-10','10:00-11:00',sysdate,'member1',3);
 
  insert into reservation(rsv_no, rsv_total, rsv_type, rsv_qty, rsv_date, rsv_time, rsv_paydate, m_id, p_no)
-values(RESERVATION_RSV_NO_SEQ.nextval,91800,'카드결제',2,'2021-11-10','13:00-14:00',sysdate,'member1',12);
+values(RESERVATION_RSV_NO_SEQ.nextval,91800,'카드결제',2,'2021-11-10','13:00-14:00',sysdate,'member1',4);
 
 
 /********** Review **********/
