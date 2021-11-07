@@ -59,13 +59,13 @@ table.table2 td {
 										<table class="table2">
 											<tr>
 												<td>작성자</td>
-												<td><input type=text name=m_id size=50 value="${sUserId }"
+												<td><input type=text name=m_id size=45 value="${sUserId }"
 													placeholder="&nbsp;${sUserId }" readonly></td>
 											</tr>
 
 											<tr>
 												<td>제목</td>
-												<td><input type=text name=noti_title size=50></td>
+												<td><input type=text name=noti_title size=45></td>
 											</tr>
 
 											<tr>
