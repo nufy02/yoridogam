@@ -230,24 +230,29 @@ function listCategory(e){
                                     </span>
                                 </div>
                                 <div class="ratings-cart text-right">
-                                    <div class="ratings">
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    <div class="cart" id="cartAdds${result[i].p_no}">
                                     </div>
-                                    <div class="cart">
-                                        <a href="cart.html" data-toggle="tooltip" data-placement="left" title="장바구니 담기"><img src="img/core-img/cart.png" alt=""></a>
-                                    </div>
+                                    </c:when>
+                                    </c:choose>
                                 </div>
                             </div>
                         </div>
                     </div>`)
-			})
-		}
-	})
-}
+				})
+				$.each(result, function(i){
+					if(result[i].p_type=='온라인'){
+						var p_no=result[i].p_no
+						$('#cartAdds'+p_no).append(`<button onclick="cartAdd()" class="listCartAdd" style="border: 0px" data-toggle="tooltip" data-placement="left" title="장바구니 담기" value="${result[i].p_no }">
+                                         담기
+                                    	<img src="img/core-img/cart.png" alt=""></button>`)
+					}
+				
+				})
+				
+				
+			}
+		})
+	}
 
 $(document).ready(function(){
 	var star=$(".star").length;

@@ -1,6 +1,7 @@
 package com.itwill.yoridogam.controller;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -20,10 +21,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.itwill.yoridogam.controller.interceptor.LoginCheck;
+import com.itwill.yoridogam.member.MemberService;
 import com.itwill.yoridogam.product.Product;
 import com.itwill.yoridogam.product.ProductService;
 import com.itwill.yoridogam.productTime.ProductTime;
 import com.itwill.yoridogam.productTime.ProductTimeService;
+import com.itwill.yoridogam.review.Review;
+import com.itwill.yoridogam.review.ReviewService;
 import com.itwill.yoridogam.teacher.Teacher;
 import com.itwill.yoridogam.teacher.TeacherService;
 
@@ -35,6 +39,10 @@ public class ProductController {
 	private ProductTimeService productTimeService;
 	@Autowired
 	private TeacherService teacherService;
+	@Autowired
+	private ReviewService reviewService;
+	@Autowired
+	private MemberService memberService;
 	
 	@RequestMapping("product_list")
 	public String product_list(Model model)throws Exception{
@@ -46,7 +54,12 @@ public class ProductController {
 	public String product_detail(int p_no,Model model)throws Exception{
 		Product product=productService.selectByNo(p_no);
 		product.setTeacher(teacherService.findMember(product.getTeacher().getT_id()));
+		List<Review> rList=reviewService.reviewAllPno(p_no);
+		for(int i=0; i<rList.size(); i++) {
+			rList.get(i).setMember(memberService.findMember(rList.get(i).getMember().getM_id()));
+		}
 		model.addAttribute("product",product);
+		model.addAttribute("rList",rList);
 		return "product_detail";
 	}
 	@LoginCheck
@@ -96,7 +109,7 @@ public class ProductController {
 	@RequestMapping("product_update_form")
 	//public String product_update_form(int p_no,HttpSession session, Model model) throws Exception {
 	public String product_update_form(HttpSession session, Model model) throws Exception {
-		int p_no=4;//test 2-on 4-off
+		int p_no=5;//test 2-on 4-off
 		model.addAttribute("product",productService.selectByNo(p_no));
 		model.addAttribute("productTime",productTimeService.selectAll(p_no));
 		return "product_update_form";
