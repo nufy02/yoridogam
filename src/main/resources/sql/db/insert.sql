@@ -133,14 +133,12 @@ insert into review values(REVIEW_R_NO_SEQ.nextval,'','쉽게 알려줘서 좋습
 insert into review values(REVIEW_R_NO_SEQ.nextval,'','강사님이 열의가 대단하셔서 만족해요',5,'',sysdate,'member1',2);
 insert into review values(REVIEW_R_NO_SEQ.nextval,'','재료가 너무 많이 필요해요..',2,'',sysdate,'member1',3);
 insert into review values(REVIEW_R_NO_SEQ.nextval,'','클래스 장소가 청결하지 못했어요',1,'',sysdate,'member1',4);
-insert into review values(REVIEW_R_NO_SEQ.nextval,'','시간되면 한 번 더 수강 하고싶어요',4,'',sysdate,'member1',5);
 insert into review values(REVIEW_R_NO_SEQ.nextval,'','적당히 달면서도 고소하게 잘 나왔어요',4,'',sysdate,'member2',1);
 insert into review values(REVIEW_R_NO_SEQ.nextval,'','주방시설이나 인테리어가 깔끔하게 잘 되어있어요',5,'',sysdate,'member2',3);
 insert into review values(REVIEW_R_NO_SEQ.nextval,'','좋아하는 아이를 보니 기분좋아지네요',3,'',sysdate,'member3',1);
-insert into review values(REVIEW_R_NO_SEQ.nextval,'','처음 배우는 건데 곧 잘 따라갈 수 있었어요',4,'',sysdate,'member3',4);
+insert into review values(REVIEW_R_NO_SEQ.nextval,'','처음 배우는 건데 곧 잘 따라갈 수 있었어요',4,'',sysdate,'member3',3);
 insert into review values(REVIEW_R_NO_SEQ.nextval,'','너무 어려워요ㅠㅠ',2,'',sysdate,'member2',1);
 insert into review values(REVIEW_R_NO_SEQ.nextval,'','이걸 돈받고 가르칠 생각을 하다니',1,'',sysdate,'member3',1);
-insert into review values(REVIEW_R_NO_SEQ.nextval,'','넘나 좋은 시간이었어요!!',5,'',sysdate,'member1',5);
 
 /********** Notice  엑셀 작업 **********/
 insert INTO NOTICE VALUES(1, '[yoridogam 전체 공지]저희 yoridogam이 온라인 강의를 시작하였습니다.', '2021-08-01', 20, 
@@ -291,7 +289,7 @@ Yoridogam 고객센터 02)1223-6678
 감사합니다.',	'2021-08-30',	18, 1, 2,	1,	'admin');
 
 insert into inquiry	
-values(10, '예전에 아빠와 함께 이벤트',	'당첨됐다고 문자가 온 후로 수강권을 못 받은 것 같아서요 어떻게 해요?',
+values(9, '예전에 아빠와 함께 이벤트',	'당첨됐다고 문자가 온 후로 수강권을 못 받은 것 같아서요 어떻게 해요?',
 '2021-11-01',	7,	0,	9,	0,	'member1');
 
 insert into inquiry	

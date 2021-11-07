@@ -101,10 +101,14 @@
                 <a href="member_login_form" class="btn amado-btn mb-15">회원로그인</a>
                 <a href="teacher_login_form" class="btn amado-btn mb-15">강사로그인</a>
            	</c:when>
-           	<c:otherwise>
+           	<c:when test ="${!empty(sUserId)&&empty(sTeacherId)}" >
            		   <a href="member_detail" class="btn amado-btn mb-15">마이페이지</a>
            		   <a href="member_logout_action" class="btn amado-btn mb-15">로그아웃</a>
-           	</c:otherwise>
+           	</c:when>
+           	<c:when test ="${empty(sUserId)&&!empty(sTeacherId)}" >
+           		   <a href="teacher_detail" class="btn amado-btn mb-15">마이페이지</a>
+           		   <a href="member_logout_action" class="btn amado-btn mb-15">로그아웃</a>
+           	</c:when>
            	
            	</c:choose>
             </div>

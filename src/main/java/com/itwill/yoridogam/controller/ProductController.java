@@ -58,6 +58,7 @@ public class ProductController {
 		for(int i=0; i<rList.size(); i++) {
 			rList.get(i).setMember(memberService.findMember(rList.get(i).getMember().getM_id()));
 		}
+		System.out.println(rList);
 		model.addAttribute("product",product);
 		model.addAttribute("rList",rList);
 		return "product_detail";
@@ -75,6 +76,7 @@ public class ProductController {
 		product.setP_photo("img/product-img/"+product.getP_photo()); 
 		product.setTeacher(teacherService.findMember(t_id));
 		int p_no=productService.create(product);
+		System.out.println(product);
 		return "redirect:product_detail?p_no="+p_no; // 추후 수정: 해당 p_no detail로 redirect
 	}
 	
@@ -105,9 +107,11 @@ public class ProductController {
 	}
 	*/
 	@RequestMapping("product_delete_action")
-	public String product_delete_action() {
-		
-		return null;
+	@ResponseBody
+	public List product_delete_action(HttpSession session, int p_no) throws Exception{
+		productService.deleteByNo(p_no);
+		List<Product> pList=productService.selectpByT_id((String)session.getAttribute("sTeacherId"));
+		return pList;
 	}
 	@LoginCheck
 	@RequestMapping("product_update_form")

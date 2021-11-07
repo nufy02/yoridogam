@@ -101,7 +101,7 @@ $("#rsv_date_qty").on("change","#rsv_qty",function(e){
 
 
 // 강사 디테일에서 등록된 상품 디테일보기
-	$('button[name=detailBtn]').click(function(){
+ $(document).on("click", 'button[name=detailBtn]', function() {
 		var p_no=($(this).val());
 		var data = { "p_no": p_no };
 
@@ -114,9 +114,37 @@ $("#rsv_date_qty").on("change","#rsv_qty",function(e){
 	$('#updateBtn').click(function(){
 		document.updateProduct.submit();
 	});
-
-
-
+// 강사 디테일에서 등록된 상품 삭제하기
+ 	$(document).on("click", 'button[name=deleteProductBtn]', function() {
+		var p_no=$(this).val();
+		var data={"p_no":p_no}
+		$.ajax({
+		type : 'post',
+		url : 'product_delete_action',
+		data : data,
+		dataType:'json',
+		success: function(pList){
+				$("#tpList").empty()
+				$.each(pList, function(i){
+				$("#tpList").append(`
+					<tr class="tpListTr${i}">
+                    <td scope="row">${pList[i].p_no}</td>
+                    <td scope="row">${pList[i].p_name}</td>
+                    <td scope="row">${pList[i].p_type}</td>
+                    <td scope="row"><form action="product_update_form" method="post" name="updateProduct"><button class="btn btn-outline-warning" id="updateBtn" name="p_no" value="${pList[i].p_no}">수정</button></form></td>
+                    <td scope="row"><button class="btn btn-outline-warning" name="deleteProductBtn" value="${pList[i].p_no}">삭제</button></td>
+                  </tr>				
+				`)
+				})
+				$.each(pList, function(i){
+					var type="오프라인"
+					if(pList[i].p_type == type){
+						$(".tpListTr"+i).append(`<td scope="row"><button class="btn btn-outline-warning" name="detailBtn" value="${pList[i].p_no}">상세보기</button></td>`)
+					}
+				})
+			}
+		})
+	})
 // 강사 디테일에서 등록된 상품 디테일에서 회원 디테일
 	$('button[name="ptdetail"]').click(function(){
 		var pt_no = $(this).val();

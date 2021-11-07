@@ -2,14 +2,14 @@
 var pLo=""; // location 
 var pName="";
 var pPhoto="";
-$("button[name=mapBtn]").click(function () {
+$(document).on("click", "button[name=mapBtn]", function() {
 	pLo=$(this).val();
 	pName=$(this).attr('p_name');
 	pPhoto=$(this).attr('p_photo');
 	$("#map").empty();
 	map();
 })
-$("button[name=detailMap]").click(function() {
+$(document).on("click", "button[name=detailMap]", function() {
 	pLo=$("#detailTLocation").val();
 	pName=$(this).attr('p_name');
 	pPhoto=$(this).attr('p_photo');

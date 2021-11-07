@@ -14,7 +14,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
-                    <img src="img/custom-icon/productMap.png"/><br></br>
+                    <img width="300" height="70" src="img/custom-icon/productMap.png"/><br></br>
                     </div>
                 </div>
 
