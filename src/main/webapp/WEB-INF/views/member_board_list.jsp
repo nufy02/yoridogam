@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
-
+<%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +30,7 @@
                 <c:forEach var="review" items="${rList }" end="${rList.size() }">
                 	<tr id="insertList">
                 	<td><img width="100" height="100" src="${review.product.p_photo }"/></td>
-                	<td>${review.product.p_name }</td>
+                	<td style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">${review.product.p_name }</td>
                 	<td>${review.r_content }</td>
                 	<td>
                 	<p style="color: orange;">
@@ -38,7 +38,7 @@
 					  	 <span class="star" aria-hidden="true">★</span>
                     	 </c:forEach>
 				  	 </p>
-                    	 <button type="button" name="deleteRv" value="${review.r_no }">삭제</button>
+                    	 <button class="btn-outline-warning" type="button" name="deleteRv" value="${review.r_no }">삭제</button>
                 	</td>
                 	</tr>
                 </c:forEach>
@@ -58,7 +58,6 @@
               <table class="table">
                 <thead>
                   <tr>
-                    <th></th>
                     <th>제목</th>
                     <th>내용</th>
                     <th>날짜</th>
@@ -66,6 +65,14 @@
                   </tr>
                 </thead>
                 <tbody>
+                 <c:forEach var="inquiry" items="${iList }" end="${iList.size() }">
+                <tr>
+                <td>${inquiry.ib_title }</td>
+                <td style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">${inquiry.ib_content }</td>
+                <td><f:formatDate value="${inquiry.ib_date }" pattern="YYYY-MM-dd"/> </td>
+                <td><a href="inquiry_detail?ib_no=${inquiry.ib_no }" class="btn btn-outline-warning">게시글 이동</a></td>
+                </tr>
+                </c:forEach>
                 </tbody>
               </table>
             </div>

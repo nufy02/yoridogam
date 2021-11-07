@@ -85,7 +85,7 @@
 	<select id="selectByNoInquiry" parameterType="java.lang.Integer" resultMap="inquiryResultMap">
 		select * from inquiry where IB_NO=#{ib_no}
 	</select>
-	
+		
 	<update id="updateInquiryViewCount" parameterType="java.lang.Integer">
 		update inquiry set IB_VIEWCOUNT = IB_VIEWCOUNT+1 where IB_NO=#{ib_no}
 	</update>

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.itwill.yoridogam.controller.interceptor.LoginCheck;
+import com.itwill.yoridogam.inquiry.Inquiry;
 import com.itwill.yoridogam.inquiry.InquiryService;
 import com.itwill.yoridogam.member.Member;
 import com.itwill.yoridogam.member.MemberService;
@@ -274,6 +275,7 @@ public class MemberController {
 		return "redirect:home";
 	}
 	
+	@LoginCheck
 	@RequestMapping("member_board_list")
 	public String board_list(HttpSession session, Model model) throws Exception{
 		String sUserId=(String)session.getAttribute("sUserId");
@@ -282,9 +284,17 @@ public class MemberController {
 			rList.get(i).setProduct(productService.selectByNo(rList.get(i).getProduct().getP_no()));
 		}
 		//inquiry
+		List<Inquiry> iList=inquiryService.inquiryList();
+		List<Inquiry> inquiryList=new ArrayList<Inquiry>();
+		for(int i=0; i<iList.size(); i++) {
+			if(iList.get(i).getMember().getM_id().equals(sUserId)) {
+				inquiryList.add(iList.get(i));
+			}
+		}
+		System.out.println(inquiryList);
 		
 		model.addAttribute("rList",rList);
-		
+		model.addAttribute("iList",inquiryList);
 		return "member_board_list";
 	}
 	
