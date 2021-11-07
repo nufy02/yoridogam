@@ -136,14 +136,12 @@ h6{
                                     </div>
                                 </div>
 								</li>
-								<li>
-									<div>
-										<p>total:</p> 
-									<!-- 가격 변경하는거 구현해야됨! -->
-										<div id="rsv_pay_total">
-											<p>날짜와 시간을 선택해주세요.</p>
-										</div>
-									</div>
+								<li><p>total:</p> 
+								
+								<!-- 가격 변경하는거 구현해야됨! -->
+								<div id="rsv_pay_total">
+									<p>날짜와 시간을 선택해주세요.</p>
+								</div>
 								</li>
 							</ul>
 							                           <!-- 인원 카운트 한느거
