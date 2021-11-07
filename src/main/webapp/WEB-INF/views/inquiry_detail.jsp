@@ -46,8 +46,6 @@
 				<hr>  <center>
 						<button type="button" class="btn btn-outline-warning btn-sm"
 								onClick="location.href='inquiry_list'">목록</button>
-						<button type="button" class="btn btn-outline-warning btn-sm" 
-								onClick="inquiry_detail?ib_no=${inquiry.ib_no - 1}">&#9650;</button>
 						<!-- 본인이 작성한 글에만 수정 / 삭제 버튼 보이게 -->
 					<c:if test="${sUserId eq inquiry.member.m_id || sUserId eq 'admin'}">
 						<button type="button" class="btn btn-outline-warning btn-sm"
