@@ -188,7 +188,6 @@ function id_duplicate_check(){
 	
 	$('#categorySelect').change(function(){
 		var category = $('#categorySelect').val();
-		alert(category);
 		var data={"mi_interest":category}
 		$.ajax({
 		type : 'post',
