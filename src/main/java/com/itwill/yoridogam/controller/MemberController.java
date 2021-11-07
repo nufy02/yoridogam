@@ -1,5 +1,7 @@
 package com.itwill.yoridogam.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.itwill.yoridogam.controller.interceptor.LoginCheck;
 import com.itwill.yoridogam.inquiry.InquiryService;
@@ -285,7 +288,20 @@ public class MemberController {
 		return "member_board_list";
 	}
 	
-	
+	@RequestMapping("category_list")
+	@ResponseBody
+	public List category_list(HttpSession session, Model model, String mi_interest) throws Exception{
+		List<Product> productList =productService.selectAll();
+		List<Product> categoryList=new ArrayList<Product>();
+		for(int i=0; i<productList.size(); i++) {
+			if(productList.get(i).getP_category().equals(mi_interest)) {
+				categoryList.add(productList.get(i));
+			}else if(mi_interest.equals("all")) {
+				categoryList.add(productList.get(i));
+			}
+		}
+		return categoryList;
+	}
 	
 	
 	

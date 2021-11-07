@@ -81,7 +81,7 @@ $(document).ready(function(){
 	});
 })
 
-	$("#deleteRv").click(function(){
+	$("button[name=deleteRv]").click(function(){
 		var r_no=$(this).val();
 		var data={"r_no":r_no}
 		$.ajax({ 

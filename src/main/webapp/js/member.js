@@ -177,8 +177,7 @@ function id_duplicate_check(){
 	
 	$(document).ready(function(){
 		$('#interestList').click(function(){
-			$('#check').empty();
-			$('#check').load('interest_list');
+			location.href="member_detail";
 		})
 	})
 	
@@ -187,10 +186,29 @@ function id_duplicate_check(){
 			$('#check').load('member_board_list');
 	})
 	
-	
-	
-	
-	
-	
+	$('#categorySelect').change(function(){
+		var category = $('#categorySelect').val();
+		alert(category);
+		var data={"mi_interest":category}
+		$.ajax({
+		type : 'post',
+		url : 'category_list',
+		data : data,
+		success: function(categoryList){
+			console.log(categoryList)
+			$("#interestProduct").empty()
+			$.each(categoryList, function(i){
+			$("#interestProduct").append(`
+				<tr style="width: 750px">
+											<td align="left" scope="row"><a href="product_detail?p_no=${categoryList[i].p_no }"><img src="${categoryList[i].p_photo }" width="70%"/></a></td>	 
+											<td scope="row">${categoryList[i].p_name}</td>
+											<td scope="row">${categoryList[i].p_type}</td>
+											<td scope="row" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">${categoryList[i].p_detail}</td>
+										</tr>
+										`)
+			})
+		}	
+	})
+})	
 	
 	

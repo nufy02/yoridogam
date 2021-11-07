@@ -38,7 +38,7 @@
 					  	 <span class="star" aria-hidden="true">★</span>
                     	 </c:forEach>
 				  	 </p>
-                    	 <button type="button" id="deleteRv" value="${review.r_no }">삭제</button>
+                    	 <button type="button" name="deleteRv" value="${review.r_no }">삭제</button>
                 	</td>
                 	</tr>
                 </c:forEach>
