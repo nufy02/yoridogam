@@ -118,6 +118,7 @@ public class MemberController {
 		String[] interestList = memberInterest.getMi_interest().split(",");
 		for (int i = 0; i < interestList.length; i++) {
 			int result2 = memberService.createInterest(new MemberInterest(0, interestList[i],member1));
+			System.out.println(memberService.createInterest(new MemberInterest(0, interestList[i],member1)));
 		}
 		if (result1 == 1) {
 			forwardPath = "redirect:member_login_form";
@@ -189,6 +190,7 @@ public class MemberController {
 	@LoginCheck
 	@PostMapping(value = "/member_modify_form")
 	public String member_modify_form(HttpSession session, Model model) throws Exception{
+		
 		String loginUserId = (String)session.getAttribute("sUserId");
 		Member loginUser = memberService.findMember(loginUserId);
 		model.addAttribute("loginUser", loginUser);
@@ -198,11 +200,21 @@ public class MemberController {
 	@LoginCheck
 	@PostMapping(value = "/member_modify_action")
 	public String member_modify_action_post(@ModelAttribute Member member,@ModelAttribute MemberInterest memberInterest,HttpSession session) throws Exception {
-		String forwardPath="";
+	String forwardPath="";
+
 		String loginUserId=(String)session.getAttribute("sUserId");
 		member.setM_id(loginUserId);
-		memberInterest.setMember(new Member(member.getM_id(), null, null, null, null, null, null));
-		memberService.update(member, memberInterest);
+		
+		memberService.update(member);
+		
+		Member member1 = new Member(member.getM_id(), null, null, null, null, null, null);
+		memberInterest.setMember(member1);
+		
+		String[] interestList = memberInterest.getMi_interest().split(",");
+		for (int i = 0; i < interestList.length; i++) {
+			memberService.updateInterest(new MemberInterest(0, interestList[i],member1));
+		}
+		
 		forwardPath="redirect:member_detail";
 		return forwardPath;
 	}
