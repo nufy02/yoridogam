@@ -50,7 +50,7 @@
 			<!-- ddd -->		
 					</table>
 				</div>
-
+				</div>
 				<!--  -->
 
 			</div>
@@ -82,9 +82,10 @@
 				</c:if>
 			</ul>
 		</div>
-		<!-- 페이징 끝 -->
-	</div>
+		</div>
 </div>
+		<!-- 페이징 끝 -->
+
 <!-- ##### Main Content Wrapper End ##### -->
 
 <!-- ##### Footer Area Start ##### -->

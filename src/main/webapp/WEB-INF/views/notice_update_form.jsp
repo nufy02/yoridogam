@@ -98,6 +98,7 @@ table.table2 td {
 			</div>
 		</div>
 	</div>
+	</div>
 	<!-- ##### Main Content Wrapper End ##### -->
 
 	<!-- ##### Footer Area Start ##### -->

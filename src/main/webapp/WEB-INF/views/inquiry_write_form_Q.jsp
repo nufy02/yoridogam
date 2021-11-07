@@ -81,7 +81,7 @@ table.table2 td {
 							</table>
 							<center><button type="submit" class="btn btn-outline-warning btn-sm" onClick="alert('작성되었습니다.');">작성</button>
 						</form>
-
+					</div>
 
 						<!--  -->
 

@@ -83,6 +83,7 @@
 		
 	</div>
 </div>
+</div>
 
 <!-- ##### Main Content Wrapper End ##### -->
 

@@ -92,8 +92,8 @@ Yoridogam 고객센터 02)1223-6678
 							</table>
 							<center><button type="submit" class="btn btn-outline-warning btn-sm" onClick="alert('작성되었습니다.');">작성</button>
 						</form>
-
-
+						</div>
+						
 						<!--  -->
 
 					</div>
