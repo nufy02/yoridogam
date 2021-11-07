@@ -27,7 +27,8 @@ public interface MemberService {
 	/*
 	 * 회원수정
 	 */
-	int update(Member member, MemberInterest memberInterest) throws Exception;
+	int update(Member member) throws Exception;
+	int updateInterest(MemberInterest memberInterest) throws Exception;
 	/*
 	 * 회원탈퇴
 	 */

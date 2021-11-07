@@ -73,16 +73,24 @@ public class MemberServiceImpl implements MemberService {
 	 * 회원수정
 	 */
 	@Override
-	public int update(Member member, MemberInterest memberInterest) throws Exception {
+	public int update(Member member) throws Exception {
 		// 1. 해당 회원 관심강의 삭제 (여러개 선택시 다바껴서... 삭제하고)
 		// 좀더 알아보고 수정..
-		String sUserId = member.getM_id();
-		int count1 = memberInterestDao.remove(sUserId);
 		//2. 회원정보수정
-		int count2 = memberDao.update(member);
+		String sUserId = member.getM_id();
+		int count1 = memberInterestDao.remove(sUserId); 
+		int count = memberDao.update(member);
 		//3. 회원정보 입력
-		int count3 = memberInterestDao.create(memberInterest);
-		return count1+count2+count3;
+
+		return count;
+	}
+	/*
+	 * 회원관심분야수정
+	 */
+	@Override
+	public int updateInterest(MemberInterest memberInterest) throws Exception{
+		int count = memberInterestDao.create(memberInterest);
+		return count;
 	}
 	/*
 	 * 회원탈퇴

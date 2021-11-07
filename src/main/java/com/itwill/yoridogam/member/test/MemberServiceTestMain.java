@@ -33,7 +33,8 @@ public class MemberServiceTestMain {
 		 */
 		Member m5 = new Member("member56", "update", "update", "update", "update", "update", "update");
 		MemberInterest mi5 = new MemberInterest(0, "비건", m4);
-		System.out.println("3.updateeMember : " +memberService.update(m5, mi5));
+		System.out.println("3.updateeMember : " +memberService.update(m5));
+		System.out.println("4.updateInterest" +memberService.updateInterest(mi5));
 		
 		/*
 		 * 회원상세정보
