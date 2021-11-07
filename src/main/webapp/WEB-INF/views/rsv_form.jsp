@@ -189,11 +189,12 @@ h6{
 				</div>
 			</div>
 		</div>
+		</div>
+		<%@include file="/WEB-INF/views/common/include_footer.jsp"%>
 		
 		<!-- ##### Main Content Wrapper End ##### -->
 		
 		<!-- ##### Footer Area Start ##### -->
-		<%@include file="/WEB-INF/views/common/include_footer.jsp"%>
 		<!-- ##### Footer Area End ##### -->
 		
 		<!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
