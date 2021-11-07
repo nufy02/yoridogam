@@ -72,9 +72,10 @@ $("#rsv_date_qty").on("change","#rsv_qty",function(e){
 		success: function(result){
 			 $('#rsv_pay_total').empty();
 			$('#rsv_pay_total').append(
-				`<input type="hidden"  id="rsv_total" name="rsv_total" value="${result.p_price*qty}"> 
-					<label for="rsv_total">${result.p_price*qty} 원 </label>`
-			);
+				`<input type="hidden"  id="rsv_total" name="rsv_total" value="${result.p_price*qty}">`);
+			 var n1 = result.p_price*qty;
+			 const n2 = n1.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","); //가격 , 찍는 코드
+			$('#rsv_pay_total').append(`<label for="rsv_total">${n2} 원 </label>`);
 		}});//ajax 끝
 
 });
