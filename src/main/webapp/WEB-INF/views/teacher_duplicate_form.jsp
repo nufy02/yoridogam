@@ -34,21 +34,23 @@
 </head>
 <body>
 	<div id="wrap">
-		<br> <b><font size="4" color="gray">아이디 중복체크</font></b>
-		<hr size="1" width="460">
+<br> <b><font size="4" color="black">아이디 중복체크</font></b>
+			<h5>&nbsp;&nbsp;</h5>	
+	
 		<br>
+
 		<div id="chk">
 			<form id="checkForm">
 				<input type="text" name="sTeacherId" id="sTeacherId" value="${sTeacherId}"> <input
-					type="button" value="중복확인" onclick="id_duplicate_check2();">
+					type="button" value="중복검사" style="background-color: #FBB710; border-color: #FBB710" onclick="id_duplicate_check2();">
 			</form>
 			<div id="msg">${msg}</div>
 
 			<br>
-			<input id="cancelBtn" type="button" value="취소" onclick="window.close();"> 
+			<input id="cancelBtn" type="button" value="돌아가기" style="background-color: #FBB710; border-color: #FBB710" onclick="window.close();"> 
 			<c:choose>
 			 <c:when test="${!isduplicate}">
-			<input id="useBtn" type="button" value="사용" onclick="id_duplicate_send_value();">
+			<input id="useBtn" type="button" value="사용" style="background-color: #FBB710; border-color: #FBB710" onclick="id_duplicate_send_value();">
 			</c:when>
 			</c:choose>
 		</div>

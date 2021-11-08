@@ -161,9 +161,9 @@ h6{
 										class="custom-control-label" for="cod1">무통장입금</label>
 								</div>
 								<div class="custom-control custom-checkbox mr-sm-2">
-									<input type="radio" class="custom-control-input" id="cod2"
+									<input type="radio" class="custom-control-input" id="kakaoPay"
 										name="rsv_type" value="카카오페이"> <label
-										class="custom-control-label" for="cod2">카카오페이</label>
+										class="custom-control-label" for="kakaoPay">카카오페이</label>
 								</div>
 								<div class="custom-control custom-checkbox mr-sm-2">
 									<input type="radio" class="custom-control-input"id="cod3"

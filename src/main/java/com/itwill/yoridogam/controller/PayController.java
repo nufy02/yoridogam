@@ -168,4 +168,11 @@ public class PayController {
 		return "payItem_detail_form";
 	}
 	
+	@RequestMapping("pay_method")
+	public String card_pay() throws Exception{
+		return "pay_method";
+	}
+	
+	
+	
 }

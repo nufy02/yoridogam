@@ -14,7 +14,6 @@
                             <div class="cart-title">
                                 <h2>결제</h2>
                             </div>
-
                             <form action="pay_action" name="payInfo" method="post">
                                   <div class="row">
                                     <div class="col-md-12 mb-3">
@@ -63,7 +62,6 @@
                                 </div>
                         </div>
                     </div>
-                    
                     <div class="col-12 col-lg-4">
                         <div class="cart-summary">
                             <h5>주문 정보</h5>
@@ -79,16 +77,16 @@
 	
                             <div class="payment-method">
                                 <div class="custom-control custom-checkbox mr-sm-2">
-                                    <input type="radio" class="custom-control-input" name="pay_type"  id="무통장입금" value="무통장입금" checked="checked">
-                                    <label class="custom-control-label" for="무통장입금">무통장입금</label>
+                                    <input type="radio" class="custom-control-input" name="pay_type"  id="deposit" value="무통장입금" checked="checked">
+                                    <label class="custom-control-label" for="deposit">무통장입금</label>
                                 </div>
                                 <div class="custom-control custom-checkbox mr-sm-2">
-                                    <input type="radio" class="custom-control-input" id="카카오페이" name="pay_type" value="카카오페이">
-                                    <label class="custom-control-label" for="카카오페이">카카오페이</label>
+                                    <input type="radio" class="custom-control-input" id="kakaoPay" name="pay_type"  value="카카오페이">
+                                    <label class="custom-control-label" for="kakaoPay">카카오페이</label>
                                 </div>
                                 <div class="custom-control custom-checkbox mr-sm-2">
-                                    <input type="radio" class="custom-control-input" name="pay_type" id="카드결제" value="카드결제">
-                                    <label class="custom-control-label" for="카드결제">카드결제<img class="ml-15" src="img/core-img/paypal.png" alt=""></label>
+                                    <input type="radio" class="custom-control-input" name="pay_type" id="cardPay" value="카드결제">
+                                    <label class="custom-control-label" for="cardPay">카드결제<img class="ml-15" src="img/core-img/paypal.png" alt=""></label>
                                 </div>
                             </div>
 	
@@ -101,6 +99,7 @@
                 </div>
             </div>
         </div>
+
     </div>
  </form>
     <!-- ##### Main Content Wrapper End ##### -->
@@ -111,6 +110,7 @@
 
     <!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
     <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
     <!-- Popper js -->
     <script src="js/popper.min.js"></script>
     <!-- Bootstrap js -->
@@ -121,6 +121,8 @@
     <script src="js/active.js"></script>
 	<!-- Custom -->
 	<script src="js/custom/pay.js"></script>
+	
+
 </body>
 
 </html>
