@@ -94,7 +94,14 @@ $(document).ready(function(){
 			}	
 		})
 	})
-		
-		
-		
-		
+
+$("#kakaoPay").change(function () {
+	        var url = "pay_method";
+            var name = "카카오 결제";
+            var option = "width = 600, height = 600, top = 100, left = 200, location = no"
+            window.open(url, name, option);
+})
+
+
+
+			 

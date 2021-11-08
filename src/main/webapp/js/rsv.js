@@ -145,6 +145,14 @@ $("#rsv_date_qty").on("change","#rsv_qty",function(e){
 			}
 		})
 	})
+//카카오페이 모양만..	
+$("#kakaoPay").change(function () {
+	        var url = "pay_method";
+            var name = "카카오 결제";
+            var option = "width = 600, height = 600, top = 100, left = 200, location = no"
+            window.open(url, name, option);
+})
+	
 // 강사 디테일에서 등록된 상품 디테일에서 회원 디테일
 	$('button[name="ptdetail"]').click(function(){
 		var pt_no = $(this).val();
