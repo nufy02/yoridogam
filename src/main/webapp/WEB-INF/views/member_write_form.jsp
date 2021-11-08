@@ -37,7 +37,7 @@
 								<th width=250 align=center  height="22"> 아이디 : </th>
 									<td  align="left" height="22"><input onclick="id_duplicate_check();" type="text" name="m_id" style="width: 200px" placeholder="아이디를 입력해주세요"></td>
 									<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-									<td><input type="button" value="중복확인" onclick="id_duplicate_check();"></td>
+									<td><input type="button" value="중복검사"  onclick="id_duplicate_check();"></td>
 							</tr>	
 							
 								<tr><th width=140 align=center  height="40"></th>
