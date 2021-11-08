@@ -189,6 +189,7 @@ h6{
 				</div>
 			</div>
 		</div>
+		</div>
 		
 		<!-- ##### Main Content Wrapper End ##### -->
 		
