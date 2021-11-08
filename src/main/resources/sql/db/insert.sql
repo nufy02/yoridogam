@@ -70,10 +70,10 @@ insert into product values(PRODUCT_P_NO_SEQ.nextval,'육수보다 깊은 채수�
 /********** Product_time **********/
 
 insert into product_time(pt_no,pt_date, pt_max, pt_rsv, pt_time, p_no) 
-values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021-11-10',30,0,'10:00-11:00',3);
+values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021-11-10',30,1,'10:00-11:00',3);
 
 insert into product_time(pt_no,pt_date, pt_max, pt_rsv, pt_time, p_no) 
-values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021-11-10',30,0,'11:00-12:00',3);
+values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021-11-10',30,2,'11:00-12:00',3);
 
 insert into product_time(pt_no,pt_date, pt_max, pt_rsv, pt_time, p_no) 
 values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021-11-10',30,0,'13:00-14:00',3);
@@ -85,7 +85,7 @@ insert into product_time(pt_no,pt_date, pt_max, pt_rsv, pt_time, p_no)
 values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021-11-10',30,0,'11:00-12:00',4);
  
 insert into product_time(pt_no,pt_date, pt_max, pt_rsv, pt_time, p_no)
-values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021-11-10',30,0,'13:00-14:00',4);
+values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021-11-10',30,2,'13:00-14:00',4);
 
 insert into product_time(pt_no,pt_date, pt_max, pt_rsv, pt_time, p_no)
 values(PRODUCT_TIME_PT_NO_SEQ.nextval,'2021-11-10',30,0,'10:00-11:00',5);
@@ -116,7 +116,7 @@ insert into pay_item(pi_no, pi_qty, pay_no, p_no) values(PAY_ITEM_PI_NO_SEQ.next
 /********** Reservation **********/
 
  insert into reservation(rsv_no, rsv_total, rsv_type, rsv_qty, rsv_date, rsv_time, rsv_paydate, m_id, p_no)
-values(RESERVATION_RSV_NO_SEQ.nextval,8900,'현장결제',1,'2021-11-10','10:00-11:00',sysdate,'member1',3);
+values(RESERVATION_RSV_NO_SEQ.nextval,8900,'현장결제',1,'2021-11-07','10:00-11:00',sysdate,'member1',3);
 
  insert into reservation(rsv_no, rsv_total, rsv_type, rsv_qty, rsv_date, rsv_time, rsv_paydate, m_id, p_no)
 values(RESERVATION_RSV_NO_SEQ.nextval,19800,'카카오페이',2,'2021-11-10','11:00-12:00',sysdate,'member1',3);
