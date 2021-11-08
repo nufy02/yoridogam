@@ -23,35 +23,42 @@
          			   </div>
 
                         <div class="cart-table clearfix" id="check">
-                             <h6 class="text-muted text-normal text-uppercase">관심강의</h6>
-	<table class="table table-responsive">
-	<thead>
-		<tr style="width: 750px">
-			<th scope="col">강의 사진</th>
-			<th scope="col">강의  명</th>
-			<th scope="col">강의 유형</th>
-			<th scope="col">강의 상세</th>
-		</tr>
-	</thead>
-	<tbody>
-	<c:forEach var="interest" items="${interestList}">
-		<c:forEach var="product" items="${productList }">
-		<form >
-		<c:if test="${interest.mi_interest==product.p_category }">
-			<tr style="width: 750px">
-						<td align="left" scope="row"><a href="product_detail?p_no=${product.p_no }"><img src="${product.p_photo }" width="70%"/></a></td>	 
-						<td scope="row">${product.p_name}</td>
-						<td scope="row">${product.p_type}</td>
-						<td scope="row">${product.p_detail}</td>
-					</tr>
-				</c:if>
-			</form>
-		</c:forEach>
-	</c:forEach>
-	</tbody>
-	</table>
+						<section>
+						<p>관심 카테고리</p>
+						</section>
+						<select id="categorySelect">
+							<option  value="all">-전체-
+						<c:forEach var="interest" items="${interestList}">
+							<option value="${interest.mi_interest }">${interest.mi_interest }
+						</c:forEach>
+						</select><br></br>
+						<table class="table table-responsive">
+						<thead>
+							<tr style="width: 750px">
+								<th scope="col">강의 사진</th>
+								<th scope="col">강의  명</th>
+								<th scope="col">강의 유형</th>
+								<th scope="col">강의 상세</th>
+							</tr>
+						</thead>
+						<tbody id="interestProduct">
+						<c:forEach var="interest" items="${interestList}">
+							<c:forEach var="product" items="${productList }">
+							<form >
+							<c:if test="${interest.mi_interest==product.p_category }">
+								<tr style="width: 750px">
+											<td align="left" scope="row"><a href="product_detail?p_no=${product.p_no }"><img src="${product.p_photo }" width="70%"/></a></td>	 
+											<td scope="row">${product.p_name}</td>
+											<td scope="row">${product.p_type}</td>
+											<td scope="row" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">${product.p_detail}</td>
+										</tr>
+								</c:if>
+								</form>
+							</c:forEach>
+						</c:forEach>
+						</tbody>
+						</table>
                         </div>
-                       
                     </div>
                     <div class="col-12 col-lg-4">
                         <div class="cart-summary">

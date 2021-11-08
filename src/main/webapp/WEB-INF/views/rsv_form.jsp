@@ -140,8 +140,7 @@ h6{
 								
 								<!-- 가격 변경하는거 구현해야됨! -->
 								<div id="rsv_pay_total">
-									<input type="hidden"  id="rsv_total" name="rsv_total" value="${product.p_price}"> 
-									<label for="rsv_total">${product.p_price} 원 </label>
+									<p>날짜와 시간을 선택해주세요.</p>
 								</div>
 								</li>
 							</ul>
@@ -162,9 +161,9 @@ h6{
 										class="custom-control-label" for="cod1">무통장입금</label>
 								</div>
 								<div class="custom-control custom-checkbox mr-sm-2">
-									<input type="radio" class="custom-control-input" id="cod2"
+									<input type="radio" class="custom-control-input" id="kakaoPay"
 										name="rsv_type" value="카카오페이"> <label
-										class="custom-control-label" for="cod2">카카오페이</label>
+										class="custom-control-label" for="kakaoPay">카카오페이</label>
 								</div>
 								<div class="custom-control custom-checkbox mr-sm-2">
 									<input type="radio" class="custom-control-input"id="cod3"
@@ -190,11 +189,11 @@ h6{
 			</div>
 		</div>
 		</div>
+		<%@include file="/WEB-INF/views/common/include_footer.jsp"%>
 		
 		<!-- ##### Main Content Wrapper End ##### -->
 		
 		<!-- ##### Footer Area Start ##### -->
-		<%@include file="/WEB-INF/views/common/include_footer.jsp"%>
 		<!-- ##### Footer Area End ##### -->
 		
 		<!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->

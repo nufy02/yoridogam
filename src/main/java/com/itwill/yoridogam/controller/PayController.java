@@ -85,7 +85,9 @@ public class PayController {
 	public String pay_action_post(Pay pay,Member member,int qty,int p_no,HttpSession session, Model model) throws Exception{
 		pay.setMember(member); // 결제자 수정을 위한.
 		int pay_no=payService.createPay(pay,qty,p_no);
-		model.addAttribute("pay",payService.findPayDetailByNo(pay_no));
+		Pay pays=payService.findPayDetailByNo(pay_no);
+		System.out.println(pays);
+		model.addAttribute("pay",pays);
 		return "pay_complete";
 	}
 	
@@ -165,5 +167,12 @@ public class PayController {
 		model.addAttribute("pay",pay);
 		return "payItem_detail_form";
 	}
+	
+	@RequestMapping("pay_method")
+	public String card_pay() throws Exception{
+		return "pay_method";
+	}
+	
+	
 	
 }

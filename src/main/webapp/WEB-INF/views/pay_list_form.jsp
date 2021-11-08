@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
-
+<%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +31,7 @@
                   <c:forEach var="pay" items="${payList}" begin="0" end="${payList.size()}" step="1" varStatus="status">
                   <tr>
                     <td>${pay.pay_date}</td>
-                    <td>${pay.pay_total }</td>
+                    <td><f:formatNumber>${pay.pay_total }</f:formatNumber>원</td>
                     <td style="text-overflow: ellipsis; overflow: hidden;">[${pay.payItemList[0].product.p_name}] 등</td>
                     <td><button class="btn btn-outline-warning" name="detailBtn" value="${pay.pay_no}">상세</button>&nbsp;	
                     <button class="btn btn-outline-warning" name="deleteBtn" value="${pay.pay_no}">삭제</button></td>

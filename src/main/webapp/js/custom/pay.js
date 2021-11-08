@@ -81,7 +81,7 @@ $(document).ready(function(){
 	});
 })
 
-	$("#deleteRv").click(function(){
+	$("button[name=deleteRv]").click(function(){
 		var r_no=$(this).val();
 		var data={"r_no":r_no}
 		$.ajax({ 
@@ -94,10 +94,14 @@ $(document).ready(function(){
 			}	
 		})
 	})
-		
-		
-		
-		
-		
-		
-		
+
+$("#kakaoPay").change(function () {
+	        var url = "pay_method";
+            var name = "카카오 결제";
+            var option = "width = 600, height = 600, top = 100, left = 200, location = no"
+            window.open(url, name, option);
+})
+
+
+
+			 

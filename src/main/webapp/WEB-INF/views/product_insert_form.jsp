@@ -67,7 +67,7 @@
                                             <label class="custom-control-label" for="customCheck3">Ship to a different address</label>
                                         </div>
                                         <div class="cart-btn mt-100">
-                                			<input type="submit"  class="btn amado-btn w-100" value="결제하기" onclick="javascript: form.action='product_insert_action';"/><br><br/>
+                                			<input type="submit"  class="btn amado-btn w-100" value="등록하기" onclick="javascript: form.action='product_insert_action';"/><br><br/>
                                 			<a href="home" class="btn amado-btn w-100">취소하기</a>
                            				</div>
                                     </div>

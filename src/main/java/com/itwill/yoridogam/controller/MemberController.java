@@ -1,5 +1,7 @@
 package com.itwill.yoridogam.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -13,8 +15,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.itwill.yoridogam.controller.interceptor.LoginCheck;
+import com.itwill.yoridogam.inquiry.Inquiry;
 import com.itwill.yoridogam.inquiry.InquiryService;
 import com.itwill.yoridogam.member.Member;
 import com.itwill.yoridogam.member.MemberService;
@@ -271,6 +275,7 @@ public class MemberController {
 		return "redirect:home";
 	}
 	
+	@LoginCheck
 	@RequestMapping("member_board_list")
 	public String board_list(HttpSession session, Model model) throws Exception{
 		String sUserId=(String)session.getAttribute("sUserId");
@@ -279,13 +284,34 @@ public class MemberController {
 			rList.get(i).setProduct(productService.selectByNo(rList.get(i).getProduct().getP_no()));
 		}
 		//inquiry
+		List<Inquiry> iList=inquiryService.inquiryList();
+		List<Inquiry> inquiryList=new ArrayList<Inquiry>();
+		for(int i=0; i<iList.size(); i++) {
+			if(iList.get(i).getMember().getM_id().equals(sUserId)) {
+				inquiryList.add(iList.get(i));
+			}
+		}
+		System.out.println(inquiryList);
 		
 		model.addAttribute("rList",rList);
-		
+		model.addAttribute("iList",inquiryList);
 		return "member_board_list";
 	}
 	
-	
+	@RequestMapping("category_list")
+	@ResponseBody
+	public List category_list(HttpSession session, Model model, String mi_interest) throws Exception{
+		List<Product> productList =productService.selectAll();
+		List<Product> categoryList=new ArrayList<Product>();
+		for(int i=0; i<productList.size(); i++) {
+			if(productList.get(i).getP_category().equals(mi_interest)) {
+				categoryList.add(productList.get(i));
+			}else if(mi_interest.equals("all")) {
+				categoryList.add(productList.get(i));
+			}
+		}
+		return categoryList;
+	}
 	
 	
 	

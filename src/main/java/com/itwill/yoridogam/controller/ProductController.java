@@ -58,6 +58,7 @@ public class ProductController {
 		for(int i=0; i<rList.size(); i++) {
 			rList.get(i).setMember(memberService.findMember(rList.get(i).getMember().getM_id()));
 		}
+		System.out.println(rList);
 		model.addAttribute("product",product);
 		model.addAttribute("rList",rList);
 		return "product_detail";
@@ -75,9 +76,11 @@ public class ProductController {
 		product.setP_photo("img/product-img/"+product.getP_photo()); 
 		product.setTeacher(teacherService.findMember(t_id));
 		int p_no=productService.create(product);
-		return "home"; // 추후 수정: 해당 p_no detail로 redirect
+		System.out.println(product);
+		return "redirect:product_detail?p_no="+p_no; // 추후 수정: 해당 p_no detail로 redirect
 	}
 	
+	/*
 	@LoginCheck
 	@RequestMapping("product_insert_off_action")
 	public String product_insert_off_action(Product product,ProductTime productTime,HttpSession session, Model model,@RequestParam String t_id) throws Exception{
@@ -93,6 +96,9 @@ public class ProductController {
 		System.out.println(productTime.getPt_date().getClass().getName());
 		return "home"; // 추후 수정, 상동
 	}
+	*/
+	
+	
 	/* 없어도 될 거 같아요
 	@RequestMapping("product_delete_form")
 	public String proudct_delete_form() {
@@ -101,15 +107,15 @@ public class ProductController {
 	}
 	*/
 	@RequestMapping("product_delete_action")
-	public String product_delete_action() {
-		
-		return null;
+	@ResponseBody
+	public List product_delete_action(HttpSession session, int p_no) throws Exception{
+		productService.deleteByNo(p_no);
+		List<Product> pList=productService.selectpByT_id((String)session.getAttribute("sTeacherId"));
+		return pList;
 	}
 	@LoginCheck
 	@RequestMapping("product_update_form")
-	//public String product_update_form(int p_no,HttpSession session, Model model) throws Exception {
-	public String product_update_form(HttpSession session, Model model) throws Exception {
-		int p_no=5;//test 2-on 4-off
+	public String product_update_form(int p_no,HttpSession session, Model model) throws Exception {
 		model.addAttribute("product",productService.selectByNo(p_no));
 		model.addAttribute("productTime",productTimeService.selectAll(p_no));
 		return "product_update_form";
@@ -120,7 +126,7 @@ public class ProductController {
 	public String product_update_action(ProductTime productTime,Product product,HttpSession session) throws Exception{
 		product.setP_photo("img/product-img/"+product.getP_photo());
 		productService.updateByNo(product);
-		return "home";
+		return "redirect:teacher_detail";
 	}
 	
 	@LoginCheck

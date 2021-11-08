@@ -54,6 +54,7 @@
 							class="btn btn-outline-warning btn-sm" onclick="alert('삭제되었습니다.');" >삭제</a>
 					</c:if>
 					
+					
 					<c:if test="${sUserId eq 'admin' }">
 						<button type="button" class="btn btn-outline-warning btn-sm"
 								onClick="location.href='inquiryA_write?ib_no=${inquiry.ib_no}'" >답글</button>

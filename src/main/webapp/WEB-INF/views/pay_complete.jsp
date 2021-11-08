@@ -15,17 +15,14 @@
                     <div class="col-12 col-lg-8">
                         <div class="cart-title mt-50" align="center">
                             <img src="img/custom-icon/payComplete.png"/>
-                            <h3 align="left">[결제자 정보]</h3>
                         </div>
-                        <div class="row" align="center">
-                                    <div class="col-md-6mb-3"  align="center">
-                                    <tr>
-                                        <th>수강생 성함: ${pay.member.m_name}<br/></th>
-                                        <th>수강생 번호: ${pay.member.m_phone}<br/></th>
-                                        <th>결제 방식: ${pay.pay_type}<br/></th>
-                                        <th>결제 총 금액: <f:formatNumber>${pay.pay_total}</f:formatNumber> 원<br/></th>
-                                    </tr>
-                                    </div>
+                        <div class="row" >
+                                    <section>
+                                        <p>수강생 성함: ${pay.member.m_name}<br/></p>
+                                        <p>수강생 번호: ${pay.member.m_phone}<br/></p>
+                                        <p>결제 방식: ${pay.pay_type}<br/></p>
+                                        <p>결제 총 금액: <f:formatNumber>${pay.pay_total}</f:formatNumber> 원<br/></p>
+                                    </section>
 						</div>
                         <div class="cart-table clearfix">
                             <table class="table table-responsive">
@@ -42,16 +39,16 @@
                                     	<c:set var="tot_price" value="0"/>
                                     	<c:forEach var="pay" items="${pay.payItemList}" begin="0" end="${pay.payItemList.size()}" step="1" varStatus="status">
                                         <td class="cart_product_img" >
-                                        	<span><img src="img/product-img/product3.jpg" style=""></span>
+                                        	<span><img src="${pay.product.p_photo }" style=""></span>
                                         </td>
                                         <td class="cart_product_desc">
                                             <h5>${pay.product.p_name}</h5>
                                         </td>
                                         <td class="price">
-                                            <span><f:formatNumber>${pay.product.p_price}</f:formatNumber> 원</span>
+                                            <span>${pay.product.p_price} 원</span>
                                         </td>
                                         <td>
-                                            <input type="submit" class="btn amado-btn w-50" value="강의보기">
+                                            <a href="product_detail?p_no=${pay.product.p_no}" class="btn amado-btn w-50" >강의보기</a>
                                         </td>
                                     </tr>
                                   	</c:forEach>

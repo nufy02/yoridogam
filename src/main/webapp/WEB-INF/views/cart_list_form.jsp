@@ -15,7 +15,6 @@
                         <div class="cart-title mt-50">
                             <h2>장바구니</h2>
                         </div>
-
                         <div class="cart-table clearfix" id="check">
                             <table class="table table-responsive">
                                 <thead>
@@ -43,7 +42,7 @@
                                         </td>
                                         <td class="price">
                                             <!--<span class="pr_price"><f:formatNumber>${cartList.product.p_price }</f:formatNumber></span>-->
-                                            <span class="pr_price"><c:out value="${cartList.product.p_price }"/> 원</span>
+                                            <span class="pr_price"><f:formatNumber><c:out value="${cartList.product.p_price }"/></f:formatNumber> 원</span>
                                         </td>
                                         <td class="qty">
                                             <div class="qty-btn d-flex">
@@ -59,8 +58,8 @@
                                 </tbody>
                             </table>
                         </div>
-                        <a href="javascript:cart_delete_select_item();"  class="btn amado-btn w-20"  id="deleteAll">선택삭제</a>
-                        <button type="button"  class="btn amado-btn w-20" name="deleteAll" value="${sUserId }">전체삭제</button>
+                        <a href="javascript:cart_delete_select_item();"  class="btn btn-outline-warning"  id="deleteAll">선택삭제</a>&nbsp;&nbsp;
+                        <button type="button"  class="btn btn-outline-warning" name="deleteAll" value="${sUserId }">전체삭제</button>
                     </div>
                     <div class="col-12 col-lg-4">
                         <div class="cart-summary">

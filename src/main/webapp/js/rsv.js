@@ -72,9 +72,10 @@ $("#rsv_date_qty").on("change","#rsv_qty",function(e){
 		success: function(result){
 			 $('#rsv_pay_total').empty();
 			$('#rsv_pay_total').append(
-				`<input type="hidden"  id="rsv_total" name="rsv_total" value="${result.p_price*qty}"> 
-					<label for="rsv_total">${result.p_price*qty} 원 </label>`
-			);
+				`<input type="hidden"  id="rsv_total" name="rsv_total" value="${result.p_price*qty}">`);
+			 var n1 = result.p_price*qty;
+			 const n2 = n1.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","); //가격 , 찍는 코드
+			$('#rsv_pay_total').append(`<label for="rsv_total">${n2} 원 </label>`);
 		}});//ajax 끝
 
 });
@@ -100,7 +101,7 @@ $("#rsv_date_qty").on("change","#rsv_qty",function(e){
 
 
 // 강사 디테일에서 등록된 상품 디테일보기
-	$('button[name=detailBtn]').click(function(){
+ $(document).on("click", 'button[name=detailBtn]', function() {
 		var p_no=($(this).val());
 		var data = { "p_no": p_no };
 
@@ -108,9 +109,50 @@ $("#rsv_date_qty").on("change","#rsv_qty",function(e){
 					$('#detail').load('teacher_product_detail',data).hide().fadeIn("3000")
 
 	});
-
-
-
+	
+// 강사 디테일에서 등록된 상품 수정하기
+	$('#updateBtn').click(function(){
+		document.updateProduct.submit();
+	});
+// 강사 디테일에서 등록된 상품 삭제하기
+ 	$(document).on("click", 'button[name=deleteProductBtn]', function() {
+		var p_no=$(this).val();
+		var data={"p_no":p_no}
+		$.ajax({
+		type : 'post',
+		url : 'product_delete_action',
+		data : data,
+		dataType:'json',
+		success: function(pList){
+				$("#tpList").empty()
+				$.each(pList, function(i){
+				$("#tpList").append(`
+					<tr class="tpListTr${i}">
+                    <td scope="row">${pList[i].p_no}</td>
+                    <td scope="row">${pList[i].p_name}</td>
+                    <td scope="row">${pList[i].p_type}</td>
+                    <td scope="row"><form action="product_update_form" method="post" name="updateProduct"><button class="btn btn-outline-warning" id="updateBtn" name="p_no" value="${pList[i].p_no}">수정</button></form></td>
+                    <td scope="row"><button class="btn btn-outline-warning" name="deleteProductBtn" value="${pList[i].p_no}">삭제</button></td>
+                  </tr>				
+				`)
+				})
+				$.each(pList, function(i){
+					var type="오프라인"
+					if(pList[i].p_type == type){
+						$(".tpListTr"+i).append(`<td scope="row"><button class="btn btn-outline-warning" name="detailBtn" value="${pList[i].p_no}">상세보기</button></td>`)
+					}
+				})
+			}
+		})
+	})
+//카카오페이 모양만..	
+$("#kakaoPay").change(function () {
+	        var url = "pay_method";
+            var name = "카카오 결제";
+            var option = "width = 600, height = 600, top = 100, left = 200, location = no"
+            window.open(url, name, option);
+})
+	
 // 강사 디테일에서 등록된 상품 디테일에서 회원 디테일
 	$('button[name="ptdetail"]').click(function(){
 		var pt_no = $(this).val();

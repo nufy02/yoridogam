@@ -45,12 +45,12 @@
               	</td>
                </tr>
 	           <!-- 회원정보 -->
-	               <tbody style="display:none;" class="abc${pt.pt_no} ">
+	               <tbody style="display:none;" class="abc${pt.pt_no}">
 	               	<tr style="background-color: lightgray;">
-	               		<th scope="col">회원 성함</th>
-		               	<th scope="col">회원 번호</th>
-		               	<th scope="col">회원 이메일</th>
-		               	<th scope="col">인원</th>
+	               		<td scope="row">회원 성함</td>
+		               	<td scope="row">회원 번호</td>
+		               	<td scope="row">회원 이메일</td>
+		               	<td scope="row">인원</td>
 	               	</tr>
 	           		<c:forEach var="rsv" items="${mList}">
 	           			<tr>

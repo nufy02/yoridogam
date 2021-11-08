@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
-
+<%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,7 +36,7 @@
                   <tr>
                     <td><img src="${pay.product.p_photo }"/></td>
                     <td>${pay.product.p_name }</td>
-                    <td>${pay.product.p_price }</td>
+                    <td><f:formatNumber>${pay.product.p_price }</f:formatNumber>원</td>
                     <td><button class="btn btn-outline-warning" name="createReview"  p_photo="${pay.product.p_photo }"  p_name="${pay.product.p_name }" value="${pay.product.p_no }">리뷰쓰기</button></td>
                   </tr>
                   </c:forEach>

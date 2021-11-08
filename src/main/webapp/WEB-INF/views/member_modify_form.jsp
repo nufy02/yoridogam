@@ -47,10 +47,10 @@
 							</tr>
 								<tr><th width=140 align=center  height="40"></th>
 							<tr><th width=140 align=center  height="40"> 비밀번호 : </th>
-								<td align="left" height="40"><input type="password" name="m_pass" style="width: 200px" value="${loginUser.getM_pass() }"></td>
+								<td align="left" height="40"><input type="password" name="m_pass" style="width: 200px" value=""></td>
 							</tr>
 							<tr><th width=140 align=center  height="40"> 비밀번호확인 : </th>
-								<td align="left" height="40"><input type="password" name="m_pass2" style="width: 200px" value="${loginUser.getM_pass() }"></td>
+								<td align="left" height="40"><input type="password" name="m_pass2" style="width: 200px" value=""></td>
 							</tr>
 			
 							<tr><th width=140 align=center  height="30"></th>
